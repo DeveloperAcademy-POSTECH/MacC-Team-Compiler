@@ -32,7 +32,11 @@ import UIKit
     - `REFACTOR` : 코드 리팩토링 (성능 개선)
     - `COMMENT` : 주석 추가
     - `CHORE` : 빌드 및 설정 파일 관리
+```bash
+[FEAT] commit 내용 요약
 
+commit 내용에 대한 세부 설명
+```
 2. Git 브랜치
     - `main` : 배포
     - `develop` : 개발된 기능(feature)을 통합하는 브랜치
