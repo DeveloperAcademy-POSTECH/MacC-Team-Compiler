@@ -2,20 +2,19 @@
 //  GameViewController.swift
 //  DeliveryRun iOS
 //
-//  Created by HWANG-C-K on 2022/10/11.
+//  Created by David_ADA on 2022/10/11.
 //
 
+import Foundation
 import UIKit
-import SpriteKit
 import GameplayKit
-
 class GameViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let scene = GameScene.newGameScene()
-
+        
         // Present the scene
         let skView = self.view as! SKView
         skView.presentScene(scene)
@@ -24,7 +23,7 @@ class GameViewController: UIViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
     }
-
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
@@ -32,7 +31,7 @@ class GameViewController: UIViewController {
             return .all
         }
     }
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
