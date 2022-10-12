@@ -3,8 +3,8 @@
     <device id="retina6_0" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="robbyground" translatesAutoresizingMaskIntoConstraints="NO" id="Kyn-aU-2qg" userLabel="robby">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Kyn-aU-2qg" userLabel="robby">
                                 <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player0" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-lM-3qU" userLabel="robbyplayer">
@@ -26,13 +26,13 @@
                                     <constraint firstAttribute="width" constant="400" id="egf-Wr-nTt"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrB-FC-ubz">
-                                <rect key="frame" x="614" y="251" width="200" height="85"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrB-FC-ubz">
+                                <rect key="frame" x="654" y="310" width="160" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="CJn-vo-gEQ"/>
-                                    <constraint firstAttribute="width" constant="200" id="eVW-M4-uja"/>
+                                    <constraint firstAttribute="height" constant="50" id="CJn-vo-gEQ"/>
+                                    <constraint firstAttribute="width" constant="160" id="eVW-M4-uja"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="labelColor"/>
+                                <color key="tintColor" name="deliveryrunBlack"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="게임 시작">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
@@ -51,9 +51,9 @@
                             <constraint firstAttribute="bottom" secondItem="Kyn-aU-2qg" secondAttribute="bottom" id="Hpo-1r-RSw"/>
                             <constraint firstItem="Kyn-aU-2qg" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="KSY-8S-4q9"/>
                             <constraint firstItem="Kyn-aU-2qg" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="KtO-RY-btX"/>
-                            <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="QrB-FC-ubz" secondAttribute="trailing" constant="30" id="Myj-qy-cmX"/>
+                            <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="QrB-FC-ubz" secondAttribute="trailing" constant="30" id="LF6-cD-fm7"/>
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerX" secondItem="Kyn-aU-2qg" secondAttribute="centerX" id="cER-1x-fih"/>
-                            <constraint firstItem="bNo-s9-wk6" firstAttribute="bottom" secondItem="QrB-FC-ubz" secondAttribute="bottom" constant="20" id="hK8-cD-org"/>
+                            <constraint firstAttribute="bottom" secondItem="QrB-FC-ubz" secondAttribute="bottom" constant="30" id="d41-PW-7iN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TOA-kh-Zwp"/>
@@ -80,10 +80,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="2606" height="1026"/>
         <image name="player0" width="472" height="480"/>
-        <image name="robbyground" width="1299" height="510"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="deliveryrunBlack">
+            <color red="0.14499998092651367" green="0.14900001883506775" blue="0.0080000013113021851" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
