@@ -79,6 +79,7 @@
             <point key="canvasLocation" x="826" y="-3"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="background" width="2606" height="1026"/>
         <image name="player0" width="472" height="480"/>
