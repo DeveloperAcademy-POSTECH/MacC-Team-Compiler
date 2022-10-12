@@ -74,7 +74,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="rootViewController" id="y9H-Gf-0f9"/>
+                        <segue destination="IxJ-B5-y5L" kind="relationship" relationship="rootViewController" id="qmp-9b-jmI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afu-gY-jPp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -98,9 +98,12 @@
             <point key="canvasLocation" x="826" y="-3"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qmp-9b-jmI"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
-        <image name="background" width="2606" height="1026"/>
+        <image name="background" width="696" height="268"/>
         <image name="player0" width="472" height="480"/>
         <namedColor name="deliveryrunBlack">
             <color red="0.14499998092651367" green="0.14900001883506775" blue="0.0080000013113021851" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
