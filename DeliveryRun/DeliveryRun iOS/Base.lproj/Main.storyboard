@@ -25,17 +25,17 @@
                                     <constraint firstAttribute="width" constant="400" id="egf-Wr-nTt"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-aL-qVa" customClass="gameButton" customModule="DeliveryRun" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-aL-qVa" customClass="gameButton" customModule="DeliveryRun" customModuleProvider="target">
                                 <rect key="frame" x="654" y="310" width="160" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="raJ-Ur-EQr"/>
                                     <constraint firstAttribute="height" constant="50" id="xMT-qX-Ira"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="doGameStart:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oBG-D5-e19"/>
+                                    <action selector="myCustomButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="KCI-5O-lED"/>
                                     <segue destination="IxJ-B5-y5L" kind="show" id="57K-Gk-cHR"/>
                                 </connections>
                             </button>
@@ -54,6 +54,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TOA-kh-Zwp"/>
+                    <connections>
+                        <outlet property="robbyButton" destination="fFX-aL-qVa" id="rvy-uT-YEU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
