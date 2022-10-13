@@ -3,7 +3,6 @@
     <device id="retina6_0" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,21 +25,18 @@
                                     <constraint firstAttribute="width" constant="400" id="egf-Wr-nTt"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrB-FC-ubz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-aL-qVa" customClass="gameButton" customModule="DeliveryRun" customModuleProvider="target">
                                 <rect key="frame" x="654" y="310" width="160" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="CJn-vo-gEQ"/>
-                                    <constraint firstAttribute="width" constant="160" id="eVW-M4-uja"/>
+                                    <constraint firstAttribute="width" constant="160" id="raJ-Ur-EQr"/>
+                                    <constraint firstAttribute="height" constant="50" id="xMT-qX-Ira"/>
                                 </constraints>
-                                <color key="tintColor" name="deliveryrunBlack"/>
+                                <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="게임 시작">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                    <color key="baseBackgroundColor" name="deliveryrunBlack"/>
-                                </buttonConfiguration>
                                 <connections>
-                                    <action selector="GameStartButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="xtP-Td-1rP"/>
-                                    <segue destination="IxJ-B5-y5L" kind="show" id="S1x-ml-p1P"/>
+                                    <action selector="doGameStart:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oBG-D5-e19"/>
+                                    <segue destination="IxJ-B5-y5L" kind="show" id="57K-Gk-cHR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -52,9 +48,9 @@
                             <constraint firstAttribute="bottom" secondItem="Kyn-aU-2qg" secondAttribute="bottom" id="Hpo-1r-RSw"/>
                             <constraint firstItem="Kyn-aU-2qg" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="KSY-8S-4q9"/>
                             <constraint firstItem="Kyn-aU-2qg" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="KtO-RY-btX"/>
-                            <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="QrB-FC-ubz" secondAttribute="trailing" constant="30" id="LF6-cD-fm7"/>
+                            <constraint firstAttribute="trailing" secondItem="fFX-aL-qVa" secondAttribute="trailing" constant="30" id="UwI-2A-VQX"/>
+                            <constraint firstAttribute="bottom" secondItem="fFX-aL-qVa" secondAttribute="bottom" constant="30" id="bor-Hv-Bff"/>
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerX" secondItem="Kyn-aU-2qg" secondAttribute="centerX" id="cER-1x-fih"/>
-                            <constraint firstAttribute="bottom" secondItem="QrB-FC-ubz" secondAttribute="bottom" constant="30" id="d41-PW-7iN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TOA-kh-Zwp"/>
@@ -74,7 +70,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="IxJ-B5-y5L" kind="relationship" relationship="rootViewController" id="qmp-9b-jmI"/>
+                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="rootViewController" id="uhs-3I-ICk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afu-gY-jPp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -98,15 +94,9 @@
             <point key="canvasLocation" x="826" y="-3"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="qmp-9b-jmI"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="background" width="696" height="268"/>
         <image name="player0" width="472" height="480"/>
-        <namedColor name="deliveryrunBlack">
-            <color red="0.14499998092651367" green="0.14900001883506775" blue="0.0080000013113021851" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>
