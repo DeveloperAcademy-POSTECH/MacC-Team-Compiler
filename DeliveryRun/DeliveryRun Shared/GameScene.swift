@@ -8,6 +8,8 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    
+    var cameraNode: SKCameraNode?
     var player: SKNode?
     var jumpButton: SKNode?
     var jumpKnob: SKNode?
@@ -25,13 +27,15 @@ class GameScene: SKScene {
     
     // Engine
     var previousTimeInterval:TimeInterval = 0
-    let playerSpeed = 5
+    let playerSpeed = 500.0
     
     // MARK: - Update
     override func update(_ currentTime: TimeInterval) {
         let deltaTime = currentTime - previousTimeInterval
         previousTimeInterval = currentTime
-        player!.run(SKAction.moveTo(x: deltaTime * Double(playerSpeed) * 0.01, duration: currentTime))
+        player!.run(SKAction.moveTo(x: player!.position.x + deltaTime * playerSpeed, duration: deltaTime))
+        
+        cameraNode?.position.x = player!.position.x + 150
     }
     
     override func didMove(to view: SKView) {
@@ -45,6 +49,8 @@ class GameScene: SKScene {
         
         breakButton = childNode(withName: "breakButton")
         breakKnob = breakButton?.childNode(withName: "breakKnob")
+        
+        cameraNode = childNode(withName:"cameraNode") as? SKCameraNode
 
     }
     
