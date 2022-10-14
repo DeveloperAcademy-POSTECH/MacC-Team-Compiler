@@ -8,8 +8,8 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    
-    var cameraNode: SKCameraNode?
+//
+//    var cameraNode: SKCameraNode?
     var player: SKNode?
     var jumpButton: SKNode?
     var jumpKnob: SKNode?
@@ -27,15 +27,19 @@ class GameScene: SKScene {
     
     // Engine
     var previousTimeInterval:TimeInterval = 0
-    let playerSpeed = 500.0
+    var playerSpeed = 1.0
     
     // MARK: - Update
     override func update(_ currentTime: TimeInterval) {
+        previousTimeInterval = currentTime - 1
         let deltaTime = currentTime - previousTimeInterval
-        previousTimeInterval = currentTime
-        player!.run(SKAction.moveTo(x: player!.position.x + deltaTime * playerSpeed, duration: deltaTime))
+        let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
+        let move = SKAction.move(by: diplacement, duration: 0)
+        player!.run(SKAction.sequence([move]))
+        print(previousTimeInterval, currentTime)
         
-        cameraNode?.position.x = player!.position.x + 150
+//
+//        cameraNode?.position.x = player!.position.x + 150
     }
     
     override func didMove(to view: SKView) {
@@ -50,7 +54,7 @@ class GameScene: SKScene {
         breakButton = childNode(withName: "breakButton")
         breakKnob = breakButton?.childNode(withName: "breakKnob")
         
-        cameraNode = childNode(withName:"cameraNode") as? SKCameraNode
+//        cameraNode = childNode(withName:"cameraNode") as? SKCameraNode
 
     }
     
@@ -82,32 +86,36 @@ class GameScene: SKScene {
             
             let location = touch.location(in: self)
             if !(jumpButton!.contains(location) || accelButton!.contains(location) || breakButton!.contains(location)) {
-                self.touchDown(atPoint: location)
+//                self.touchDown(atPoint: location)
             }
         }
     }
 
 // MARK: - Action
-    func touchDown(atPoint pos: CGPoint) {
-        let distance = CGPoint(x: pos.x, y:player!.position.y)
-        let movePlayer = SKAction.move(to: distance, duration: 0.5)
-        
-        player!.run(SKAction.sequence([movePlayer]))
-    }
+//    func touchDown(atPoint pos: CGPoint) {
+//        let distance = CGPoint(x: pos.x, y:player!.position.y)
+//        let movePlayer = SKAction.move(to: distance, duration: 0.5)
+//
+//        player!.run(SKAction.sequence([movePlayer]))
+//    }
     
     func doJump(atPoint pos: CGPoint) {
-        let distance = CGPoint(x: player!.position.x, y:pos.y)
-        let movePlayer = SKAction.move(to: distance, duration: 0.1)
+        player!.run(.applyForce(CGVector(dx: 0, dy: 200), duration: 0.5))
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) {(timer) in
+            print("Can Jump")
+        }
         
-        player!.run(SKAction.sequence([movePlayer]))
-        print("Jump")
     }
     
     func doAccel() {
-        print("Accel")
+        self.playerSpeed += 0.1
+        let distance = CGVector(dx: 50, dy: 0)
+        let move = SKAction.move(by: distance, duration: 0.5)
+        player!.run(move)
     }
     
     func doBreak() {
-        print("Break")
+        self.playerSpeed -= 0.1
     }
 }
+
