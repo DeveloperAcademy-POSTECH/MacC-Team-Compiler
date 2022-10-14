@@ -27,7 +27,7 @@ class GameScene: SKScene {
     
     // Engine
     var previousTimeInterval:TimeInterval = 0
-    var playerSpeed = 1.0
+    var playerSpeed = 2.0
     
     // MARK: - Update
     override func update(_ currentTime: TimeInterval) {
@@ -36,9 +36,7 @@ class GameScene: SKScene {
         let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
         let move = SKAction.move(by: diplacement, duration: 0)
         player!.run(SKAction.sequence([move]))
-        print(previousTimeInterval, currentTime)
         
-//
 //        cameraNode?.position.x = player!.position.x + 150
     }
     
@@ -75,29 +73,36 @@ class GameScene: SKScene {
                     doAccel()
                 }
             }
-            
-            if let breakKnob = breakKnob {
-                let location = touch.location(in: breakButton!)
-                breakAction = breakKnob.frame.contains(location)
-                if breakAction {
-                    doBreak()
-                }
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let breakButton = breakButton else {return}
+        guard let breakKnob = breakKnob else {return}
+        
+        for touch in touches {
+            let location = touch.location(in: breakButton)
+            if breakKnob.frame.contains(location){
+                self.doBreak()
             }
-            
-            let location = touch.location(in: self)
-            if !(jumpButton!.contains(location) || accelButton!.contains(location) || breakButton!.contains(location)) {
-//                self.touchDown(atPoint: location)
+            if self.playerSpeed <= 0.2 {
+                self.playerSpeed = 0.2
+            }
+        }
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let breakButton = breakButton else {return}
+        guard let breakKnob = breakKnob else {return}
+        
+        for touch in touches {
+            let location = touch.location(in: breakButton)
+            if breakKnob.frame.contains(location){
+                self.playerSpeed = 2.0
             }
         }
     }
 
 // MARK: - Action
-//    func touchDown(atPoint pos: CGPoint) {
-//        let distance = CGPoint(x: pos.x, y:player!.position.y)
-//        let movePlayer = SKAction.move(to: distance, duration: 0.5)
-//
-//        player!.run(SKAction.sequence([movePlayer]))
-//    }
     
     func doJump(atPoint pos: CGPoint) {
         player!.run(.applyForce(CGVector(dx: 0, dy: 200), duration: 0.5))
@@ -108,14 +113,14 @@ class GameScene: SKScene {
     }
     
     func doAccel() {
-        self.playerSpeed += 0.1
+        self.playerSpeed = 0.2
         let distance = CGVector(dx: 50, dy: 0)
         let move = SKAction.move(by: distance, duration: 0.5)
         player!.run(move)
     }
     
     func doBreak() {
-        self.playerSpeed -= 0.1
+        self.playerSpeed -= 0.2
     }
 }
 
