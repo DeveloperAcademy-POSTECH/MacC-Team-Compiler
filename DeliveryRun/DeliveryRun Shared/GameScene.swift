@@ -85,8 +85,8 @@ class GameScene: SKScene {
             if breakKnob.frame.contains(location){
                 self.doBreak()
             }
-            if self.playerSpeed <= 0.2 {
-                self.playerSpeed = 0.2
+            if self.playerSpeed <= 0 {
+                self.playerSpeed = 0
             }
         }
     }

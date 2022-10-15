@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,16 +29,27 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-aL-qVa" customClass="gameButton" customModule="DeliveryRun" customModuleProvider="target">
                                 <rect key="frame" x="654" y="310" width="160" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="raJ-Ur-EQr"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="raJ-Ur-EQr"/>
                                     <constraint firstAttribute="height" constant="50" id="xMT-qX-Ira"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="doGameStart:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oBG-D5-e19"/>
-                                    <action selector="myCustomButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="KCI-5O-lED"/>
-                                    <segue destination="IxJ-B5-y5L" kind="show" id="57K-Gk-cHR"/>
+                                    <segue destination="0UR-77-0T6" kind="show" animates="NO" id="CjE-AT-5xY"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlC-aJ-f2j" userLabel="Setting Button">
+                                <rect key="frame" x="759" y="20" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Nvk-5T-gKg"/>
+                                    <constraint firstAttribute="width" constant="35" id="ll4-q5-QmB"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="gearshape.fill" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bNo-s9-wk6"/>
@@ -47,8 +59,11 @@
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerY" secondItem="Kyn-aU-2qg" secondAttribute="centerY" id="6VK-tK-N7B"/>
                             <constraint firstAttribute="bottom" secondItem="Kyn-aU-2qg" secondAttribute="bottom" id="Hpo-1r-RSw"/>
                             <constraint firstItem="Kyn-aU-2qg" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="KSY-8S-4q9"/>
+                            <constraint firstItem="fFX-aL-qVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bNo-s9-wk6" secondAttribute="leading" symbolic="YES" id="Kbu-EQ-aCR"/>
                             <constraint firstItem="Kyn-aU-2qg" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="KtO-RY-btX"/>
+                            <constraint firstAttribute="trailing" secondItem="rlC-aJ-f2j" secondAttribute="trailing" constant="50" id="SAl-cr-vcP"/>
                             <constraint firstAttribute="trailing" secondItem="fFX-aL-qVa" secondAttribute="trailing" constant="30" id="UwI-2A-VQX"/>
+                            <constraint firstItem="rlC-aJ-f2j" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="20" id="ZJz-gE-hFJ"/>
                             <constraint firstAttribute="bottom" secondItem="fFX-aL-qVa" secondAttribute="bottom" constant="30" id="bor-Hv-Bff"/>
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerX" secondItem="Kyn-aU-2qg" secondAttribute="centerX" id="cER-1x-fih"/>
                         </constraints>
@@ -61,6 +76,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.6255924170616" y="-3.0769230769230766"/>
+        </scene>
+        <!--Stage View Controller-->
+        <scene sceneID="cLp-Ue-7lu">
+            <objects>
+                <viewController id="0UR-77-0T6" customClass="StageViewController" customModule="DeliveryRun" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="35Z-3O-2OQ">
+                        <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="EOZ-Gj-Eh8">
+                                <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ytj-0p-hhF">
+                                <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dp0-30-4uN">
+                                    <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD7-Dx-m4C" userLabel="Setting Button">
+                                <rect key="frame" x="759" y="20" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="fpj-0D-lfw"/>
+                                    <constraint firstAttribute="height" constant="35" id="g9z-ZM-bSC"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="yym-sq-zd1"/>
+                                    <constraint firstAttribute="width" constant="35" id="z9Y-tq-fcV"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="gearshape.fill" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
+                                <connections>
+                                    <segue destination="IxJ-B5-y5L" kind="show" id="RKc-Zl-Kqh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u28-iB-S44" userLabel="Back Button">
+                                <rect key="frame" x="50" y="20" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="Kgp-8x-9ay"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Paf-MB-uzL"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="Sj7-Cb-RyE"/>
+                                    <constraint firstAttribute="height" constant="35" id="eEk-dj-L57"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="35" id="iWr-eL-mYR"/>
+                                    <constraint firstAttribute="width" constant="35" id="nlz-n9-1Pr"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="arrowshape.left.fill" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" animates="NO" id="S85-Pm-hni"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="S9j-P0-DHA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EOZ-Gj-Eh8" firstAttribute="top" secondItem="35Z-3O-2OQ" secondAttribute="top" id="4L8-3W-NBT"/>
+                            <constraint firstAttribute="trailing" secondItem="fD7-Dx-m4C" secondAttribute="trailing" constant="50" id="CCl-zJ-ycs"/>
+                            <constraint firstItem="fD7-Dx-m4C" firstAttribute="top" secondItem="35Z-3O-2OQ" secondAttribute="top" constant="20" id="CsC-q6-3Jw"/>
+                            <constraint firstItem="u28-iB-S44" firstAttribute="leading" secondItem="35Z-3O-2OQ" secondAttribute="leading" constant="50" id="Ecg-2g-ivX"/>
+                            <constraint firstItem="Ytj-0p-hhF" firstAttribute="trailing" secondItem="35Z-3O-2OQ" secondAttribute="trailing" id="Itk-yx-5hT"/>
+                            <constraint firstItem="u28-iB-S44" firstAttribute="top" secondItem="35Z-3O-2OQ" secondAttribute="top" constant="20" id="L9U-rK-ooQ"/>
+                            <constraint firstItem="Ytj-0p-hhF" firstAttribute="top" secondItem="35Z-3O-2OQ" secondAttribute="top" id="NGQ-ln-ocZ"/>
+                            <constraint firstAttribute="bottom" secondItem="EOZ-Gj-Eh8" secondAttribute="bottom" id="YKs-F9-shf"/>
+                            <constraint firstAttribute="bottom" secondItem="Ytj-0p-hhF" secondAttribute="bottom" id="e0m-oX-rUU"/>
+                            <constraint firstItem="Ytj-0p-hhF" firstAttribute="leading" secondItem="35Z-3O-2OQ" secondAttribute="leading" id="oTW-mY-eSF"/>
+                            <constraint firstAttribute="trailing" secondItem="EOZ-Gj-Eh8" secondAttribute="trailing" id="san-am-Q7t"/>
+                            <constraint firstItem="EOZ-Gj-Eh8" firstAttribute="leading" secondItem="35Z-3O-2OQ" secondAttribute="leading" id="vOu-vh-dW8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="psZ-9Q-Ub3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMy-a7-kbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="929.8578199052132" y="-3.0769230769230766"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7c4-H7-HwR">
@@ -94,12 +190,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpV-Ww-8BQ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="826" y="-3"/>
+            <point key="canvasLocation" x="1700" y="-3"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="CjE-AT-5xY"/>
+        <segue reference="S85-Pm-hni"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="background" width="696" height="268"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="player0" width="472" height="480"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

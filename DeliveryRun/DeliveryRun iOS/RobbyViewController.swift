@@ -18,12 +18,6 @@ class RobbyViewController: UIViewController {
         super.viewDidLoad()
         robbyButton.setTitle("게임 시작", for: .normal)
     }
-    @IBAction func myCustomButton(_ sender: gameButton) {
-        
-    }
-    
-    @IBAction func doGameStart(_ sender: UIButton) {
-    }
 }
 
 class gameButton: UIButton {
