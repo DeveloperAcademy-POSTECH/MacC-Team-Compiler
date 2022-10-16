@@ -154,6 +154,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <connections>
+                                            <segue destination="IxJ-B5-y5L" kind="show" animates="NO" id="AdT-zr-3Yt"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -161,10 +164,19 @@
                                     <outlet property="delegate" destination="0UR-77-0T6" id="Noq-Dc-sR7"/>
                                 </connections>
                             </collectionView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hi6-NV-PGw">
+                                <rect key="frame" x="599" y="80" width="240" height="270"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Dia-5P-P6O"/>
+                                    <constraint firstAttribute="height" constant="270" id="tIt-US-iXf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S9j-P0-DHA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="S9j-P0-DHA" firstAttribute="trailing" secondItem="Hi6-NV-PGw" secondAttribute="trailing" constant="5" id="1ng-zr-Wo9"/>
                             <constraint firstItem="EOZ-Gj-Eh8" firstAttribute="top" secondItem="35Z-3O-2OQ" secondAttribute="top" id="4L8-3W-NBT"/>
                             <constraint firstItem="P4a-Mf-tZZ" firstAttribute="leading" secondItem="S9j-P0-DHA" secondAttribute="leading" constant="10" id="79i-JT-1Fg"/>
                             <constraint firstItem="S9j-P0-DHA" firstAttribute="trailing" secondItem="fD7-Dx-m4C" secondAttribute="trailing" constant="5" id="CCl-zJ-ycs"/>
@@ -177,11 +189,15 @@
                             <constraint firstAttribute="bottom" secondItem="P4a-Mf-tZZ" secondAttribute="bottom" constant="40" id="afT-iO-L4l"/>
                             <constraint firstAttribute="bottom" secondItem="Ytj-0p-hhF" secondAttribute="bottom" id="e0m-oX-rUU"/>
                             <constraint firstItem="Ytj-0p-hhF" firstAttribute="leading" secondItem="35Z-3O-2OQ" secondAttribute="leading" id="oTW-mY-eSF"/>
+                            <constraint firstAttribute="bottom" secondItem="Hi6-NV-PGw" secondAttribute="bottom" constant="40" id="s7W-D6-f69"/>
                             <constraint firstAttribute="trailing" secondItem="EOZ-Gj-Eh8" secondAttribute="trailing" id="san-am-Q7t"/>
                             <constraint firstItem="EOZ-Gj-Eh8" firstAttribute="leading" secondItem="35Z-3O-2OQ" secondAttribute="leading" id="vOu-vh-dW8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="psZ-9Q-Ub3"/>
+                    <connections>
+                        <outlet property="StageDetailView" destination="Hi6-NV-PGw" id="bDI-eM-Xyv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMy-a7-kbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

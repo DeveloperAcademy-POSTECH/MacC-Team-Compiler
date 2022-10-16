@@ -7,14 +7,19 @@
 
 import UIKit
 
-class StageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class StageViewController: UIViewController {
 
+    @IBOutlet weak var StageDetailView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        StageDetailView.layer.cornerRadius = 10
+        StageDetailView.layer.masksToBounds = true
     }
-    
+}
+
+extension StageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 15
     }
