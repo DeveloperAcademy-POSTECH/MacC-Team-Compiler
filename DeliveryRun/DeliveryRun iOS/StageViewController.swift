@@ -10,12 +10,15 @@ import UIKit
 class StageViewController: UIViewController {
 
     @IBOutlet weak var StageDetailView: UIView!
+    @IBOutlet weak var stageStartBtn: gameButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         StageDetailView.layer.cornerRadius = 10
         StageDetailView.layer.masksToBounds = true
+        stageStartBtn.setTitle("스테이지 시작", for: .normal)
+        stageStartBtn.titleLabel?.font = UIFont(name: "BMJUAOTF", size: 20)
     }
 }
 

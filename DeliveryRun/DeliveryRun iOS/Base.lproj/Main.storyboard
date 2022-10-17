@@ -28,7 +28,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-aL-qVa" customClass="gameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="679" y="310" width="160" height="50"/>
+                                <rect key="frame" x="679" y="300" width="160" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="raJ-Ur-EQr"/>
                                     <constraint firstAttribute="height" constant="50" id="xMT-qX-Ira"/>
@@ -65,7 +65,7 @@
                             <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="rlC-aJ-f2j" secondAttribute="trailing" constant="5" id="SAl-cr-vcP"/>
                             <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="fFX-aL-qVa" secondAttribute="trailing" constant="5" id="UwI-2A-VQX"/>
                             <constraint firstItem="rlC-aJ-f2j" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="20" id="ZJz-gE-hFJ"/>
-                            <constraint firstAttribute="bottom" secondItem="fFX-aL-qVa" secondAttribute="bottom" constant="30" id="bor-Hv-Bff"/>
+                            <constraint firstAttribute="bottom" secondItem="fFX-aL-qVa" secondAttribute="bottom" constant="40" id="bor-Hv-Bff"/>
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerX" secondItem="Kyn-aU-2qg" secondAttribute="centerX" id="cER-1x-fih"/>
                         </constraints>
                     </view>
@@ -154,9 +154,6 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                        <connections>
-                                            <segue destination="IxJ-B5-y5L" kind="show" animates="NO" id="AdT-zr-3Yt"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -164,11 +161,27 @@
                                     <outlet property="delegate" destination="0UR-77-0T6" id="Noq-Dc-sR7"/>
                                 </connections>
                             </collectionView>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hi6-NV-PGw">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hi6-NV-PGw">
                                 <rect key="frame" x="599" y="80" width="240" height="270"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lja-pO-fmi" customClass="gameButton" customModule="DeliveryRun" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="220" width="200" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="OxC-Kb-CkP"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="IxJ-B5-y5L" kind="show" animates="NO" id="FN5-aW-Go8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Lja-pO-fmi" secondAttribute="trailing" constant="20" id="9aH-RG-SsX"/>
                                     <constraint firstAttribute="width" constant="240" id="Dia-5P-P6O"/>
+                                    <constraint firstItem="Lja-pO-fmi" firstAttribute="leading" secondItem="Hi6-NV-PGw" secondAttribute="leading" constant="20" id="fJx-gt-X0r"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lja-pO-fmi" secondAttribute="bottom" constant="15" id="lUh-91-JGD"/>
                                     <constraint firstAttribute="height" constant="270" id="tIt-US-iXf"/>
                                 </constraints>
                             </view>
@@ -197,6 +210,7 @@
                     <navigationItem key="navigationItem" id="psZ-9Q-Ub3"/>
                     <connections>
                         <outlet property="StageDetailView" destination="Hi6-NV-PGw" id="bDI-eM-Xyv"/>
+                        <outlet property="stageStartBtn" destination="Lja-pO-fmi" id="HP2-bR-WgR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMy-a7-kbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
