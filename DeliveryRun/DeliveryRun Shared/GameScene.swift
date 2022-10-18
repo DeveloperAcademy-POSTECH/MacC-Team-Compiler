@@ -7,12 +7,18 @@
 
 import SpriteKit
 
+enum PlayerActive {
+    case basic, jumping, accling, breaking
+}
+
+
 class GameScene: SKScene {
-//
-//    var cameraNode: SKCameraNode?
+    
     var player: SKNode?
     var jumpButton: SKNode?
     var jumpKnob: SKNode?
+    
+    var cameraNode: SKCameraNode?
     
     var accelButton: SKNode?
     var accelKnob: SKNode?
@@ -25,35 +31,57 @@ class GameScene: SKScene {
     var accelAction = false
     var breakAction = false
     
+    // NodeSize
+    var playerSize:CGSize = CGSize()
+    
+    
+    // Player State
+    var playerActive:PlayerActive = .basic
+    
+    
     // Engine
     var previousTimeInterval:TimeInterval = 0
-    var playerSpeed = 2.0
+    var playerSpeed = 0.1
     
     // MARK: - Update
     override func update(_ currentTime: TimeInterval) {
+        // Player 횡스크롤 이동
         previousTimeInterval = currentTime - 1
         let deltaTime = currentTime - previousTimeInterval
         let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
         let move = SKAction.move(by: diplacement, duration: 0)
         player!.run(SKAction.sequence([move]))
+        updatePlayer()
+        print(playerSpeed)
+        cameraNode?.position.x = player!.position.x
+        cameraNode?.position.y = player!.position.y
+        jumpButton?.position.x = (cameraNode?.position.x)! - 300
+        jumpButton?.position.y = (cameraNode?.position.y)! - 120
+        accelButton?.position.x = (cameraNode?.position.x)! + 220
+        accelButton?.position.y = (cameraNode?.position.y)! - 120
+        breakButton?.position.x = (cameraNode?.position.x)! + 320
+        breakButton?.position.y = (cameraNode?.position.y)! - 120
         
-//        cameraNode?.position.x = player!.position.x + 150
     }
     
     override func didMove(to view: SKView) {
         player = childNode(withName: "player")
+        
+        cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
+        
+        
+        // Button생성 및 세팅
         jumpButton = childNode(withName: "jumpButton")
         jumpKnob = jumpButton?.childNode(withName: "jumpKnob")
-        
         accelButton = childNode(withName: "accelButton")
         accelKnob = accelButton?.childNode(withName: "accelKnob")
-
-        
         breakButton = childNode(withName: "breakButton")
         breakKnob = breakButton?.childNode(withName: "breakKnob")
         
-//        cameraNode = childNode(withName:"cameraNode") as? SKCameraNode
-
+        // NodeSize 생성
+        playerSize = (player?.frame.size)!
+        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -62,7 +90,7 @@ class GameScene: SKScene {
                 let location = touch.location(in: jumpButton!)
                 jumpAction = jumpKnob.frame.contains(location)
                 if jumpAction {
-                    doJump(atPoint: CGPoint(x:player!.position.x, y: player!.position.y + 50))
+                    self.playerActive = .jumping
                 }
             }
             
@@ -70,57 +98,75 @@ class GameScene: SKScene {
                 let location = touch.location(in: accelButton!)
                 accelAction = accelKnob.frame.contains(location)
                 if accelAction {
-                    doAccel()
+                    self.playerActive = .accling
+                }
+            }
+            
+            if let breakKnob = breakKnob {
+                let location = touch.location(in: breakButton!)
+                breakAction = breakKnob.frame.contains(location)
+                if breakAction {
+                    self.playerActive = .breaking
                 }
             }
         }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let jumpButton = jumpButton else {return}
+        guard let jumpKnob = jumpKnob else {return}
+        guard let accelButton = accelButton else {return}
+        guard let accelKnob = accelKnob else {return}
         guard let breakButton = breakButton else {return}
         guard let breakKnob = breakKnob else {return}
-        
         for touch in touches {
-            let location = touch.location(in: breakButton)
-            if breakKnob.frame.contains(location){
-                self.doBreak()
+            let location = touch.location(in: jumpButton)
+            jumpAction = jumpKnob.frame.contains(location)
+            if jumpAction {
+                self.playerActive = .basic
             }
-            if self.playerSpeed <= 0 {
-                self.playerSpeed = 0
+            
+            let location2 = touch.location(in: accelButton)
+            accelAction = accelKnob.frame.contains(location2)
+            if accelAction {
+                self.playerActive = .basic
+            }
+            
+            let location3 = touch.location(in: breakButton)
+            breakAction = breakKnob.frame.contains(location3)
+            if breakAction {
+                self.playerActive = .basic
             }
         }
     }
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let breakButton = breakButton else {return}
-        guard let breakKnob = breakKnob else {return}
-        
-        for touch in touches {
-            let location = touch.location(in: breakButton)
-            if breakKnob.frame.contains(location){
-                self.playerSpeed = 2.0
-            }
-        }
+    
+    // MARK: - Action
+    
+    func doJump() {
+        player!.run(.applyForce(CGVector(dx: 0, dy: (playerSize.height) * 7), duration: 0.3))
+        playerActive = .basic
     }
 
-// MARK: - Action
-    
-    func doJump(atPoint pos: CGPoint) {
-        player!.run(.applyForce(CGVector(dx: 0, dy: 200), duration: 0.5))
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) {(timer) in
-            print("Can Jump")
-        }
-        
-    }
-    
     func doAccel() {
-        self.playerSpeed = 0.2
-        let distance = CGVector(dx: 50, dy: 0)
-        let move = SKAction.move(by: distance, duration: 0.5)
-        player!.run(move)
+        self.playerSpeed += 0.1
     }
     
     func doBreak() {
-        self.playerSpeed -= 0.2
+        if playerSpeed > 0.0 {
+            self.playerSpeed -= 0.1
+        }
+    }
+    
+    func updatePlayer() {
+        switch playerActive {
+        case .jumping:
+            doJump()
+        case .accling:
+            doAccel()
+        case .breaking:
+            doBreak()
+        default: break
+        }
     }
 }
 
