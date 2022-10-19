@@ -6,6 +6,7 @@
 //
 
 import SpriteKit
+import GameplayKit
 
 enum PlayerActive {
     case basic, jumping, accling, breaking
@@ -37,6 +38,7 @@ class GameScene: SKScene {
     
     // Player State
     var playerActive:PlayerActive = .basic
+    var playerStateMachine : GKStateMachine!
     
     
     // Engine
@@ -62,6 +64,8 @@ class GameScene: SKScene {
         breakButton?.position.x = (cameraNode?.position.x)! + 320
         breakButton?.position.y = (cameraNode?.position.y)! - 120
         
+        print(playerStateMachine)
+        
     }
     
     override func didMove(to view: SKView) {
@@ -80,6 +84,17 @@ class GameScene: SKScene {
         
         // NodeSize 생성
         playerSize = (player?.frame.size)!
+        
+        playerStateMachine = GKStateMachine(states: [
+        IdleState(playerNode: player!),
+        RunningState(playerNode: player!),
+        JumpingState(playerNode: player!),
+        LandingState(playerNode: player!),
+        AccelingState(playerNode: player!),
+        BreakingState(playerNode: player!)
+        ])
+        
+        playerStateMachine.enter(IdleState.self)
         
         
     }
@@ -143,18 +158,20 @@ class GameScene: SKScene {
     // MARK: - Action
     
     func doJump() {
-        player!.run(.applyForce(CGVector(dx: 0, dy: (playerSize.height) * 7), duration: 0.3))
         playerActive = .basic
+        playerStateMachine.enter(JumpingState.self)
     }
 
     func doAccel() {
         self.playerSpeed += 0.1
+        playerStateMachine.enter(AccelingState.self)
     }
     
     func doBreak() {
         if playerSpeed > 0.0 {
             self.playerSpeed -= 0.1
         }
+        playerStateMachine.enter(BreakingState.self)
     }
     
     func updatePlayer() {
