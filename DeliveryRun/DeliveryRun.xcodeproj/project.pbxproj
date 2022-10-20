@@ -18,6 +18,7 @@
 		6F28EEAC28F5444600D7330F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28EE9728F5444500D7330F /* GameScene.swift */; };
 		6F28EEAD28F5444600D7330F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9828F5444600D7330F /* Assets.xcassets */; };
 		6F2F6C2028FB3A9B000B9507 /* StageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F6C1F28FB3A9B000B9507 /* StageViewController.swift */; };
+		6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */; };
 		6F99E76328FD49E900CB7E9A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F99E76228FD49E900CB7E9A /* SettingViewController.swift */; };
 		6FA60FAF28F69431003846EF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA60FAE28F69431003846EF /* Color.swift */; };
 		6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */; };
@@ -37,6 +38,7 @@
 		6F28EEA528F5444600D7330F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6F28EEA828F5444600D7330F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F2F6C1F28FB3A9B000B9507 /* StageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewController.swift; sourceTree = "<group>"; };
+		6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileSet.sks; sourceTree = "<group>"; };
 		6F99E76228FD49E900CB7E9A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		6FA60FAE28F69431003846EF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
@@ -73,12 +75,13 @@
 		6F28EE9428F5444500D7330F /* DeliveryRun Shared */ = {
 			isa = PBXGroup;
 			children = (
-				6FA60FAD28F69423003846EF /* Style */,
 				6F28EE9528F5444500D7330F /* Actions.sks */,
+				6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */,
 				6F28EE9628F5444500D7330F /* GameScene.sks */,
 				6F28EE9728F5444500D7330F /* GameScene.swift */,
-				6F28EE9828F5444600D7330F /* Assets.xcassets */,
 				6372509328FFC7F700117CF8 /* PlayerState.swift */,
+				6FA60FAD28F69423003846EF /* Style */,
+				6F28EE9828F5444600D7330F /* Assets.xcassets */,
 			);
 			path = "DeliveryRun Shared";
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */,
 				6F28EEAB28F5444600D7330F /* GameScene.sks in Resources */,
 				6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */,
 				6F28EEA628F5444600D7330F /* Main.storyboard in Resources */,
