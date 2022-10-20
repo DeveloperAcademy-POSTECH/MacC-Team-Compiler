@@ -16,14 +16,11 @@ enum PlayerActive {
 class GameScene: SKScene {
     
     var player: SKNode?
+    
     var jumpButton: SKNode?
     var jumpKnob: SKNode?
-    
-    var cameraNode: SKCameraNode?
-    
     var accelButton: SKNode?
     var accelKnob: SKNode?
-    
     var breakButton: SKNode?
     var breakKnob: SKNode?
     
@@ -31,6 +28,8 @@ class GameScene: SKScene {
     var jumpAction = false
     var accelAction = false
     var breakAction = false
+    
+    var cameraNode: SKCameraNode?
     
     // NodeSize
     var playerSize:CGSize = CGSize()
@@ -52,9 +51,12 @@ class GameScene: SKScene {
         let deltaTime = currentTime - previousTimeInterval
         let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
         let move = SKAction.move(by: diplacement, duration: 0)
+        
         player!.run(SKAction.sequence([move]))
         updatePlayer()
         print(playerSpeed)
+        
+        // Node 위치 지정
         cameraNode?.position.x = player!.position.x
         cameraNode?.position.y = player!.position.y
         jumpButton?.position.x = (cameraNode?.position.x)! - 300
@@ -63,16 +65,12 @@ class GameScene: SKScene {
         accelButton?.position.y = (cameraNode?.position.y)! - 120
         breakButton?.position.x = (cameraNode?.position.x)! + 320
         breakButton?.position.y = (cameraNode?.position.y)! - 120
-        
-        print(playerStateMachine)
-        
     }
     
     override func didMove(to view: SKView) {
         player = childNode(withName: "player")
         
         cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
-        
         
         // Button생성 및 세팅
         jumpButton = childNode(withName: "jumpButton")
@@ -86,17 +84,13 @@ class GameScene: SKScene {
         playerSize = (player?.frame.size)!
         
         playerStateMachine = GKStateMachine(states: [
-        IdleState(playerNode: player!),
         RunningState(playerNode: player!),
         JumpingState(playerNode: player!),
         LandingState(playerNode: player!),
         AccelingState(playerNode: player!),
         BreakingState(playerNode: player!)
         ])
-        
-        playerStateMachine.enter(IdleState.self)
-        
-        
+        playerStateMachine.enter(RunningState.self)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -128,27 +122,21 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let jumpButton = jumpButton else {return}
-        guard let jumpKnob = jumpKnob else {return}
-        guard let accelButton = accelButton else {return}
-        guard let accelKnob = accelKnob else {return}
-        guard let breakButton = breakButton else {return}
-        guard let breakKnob = breakKnob else {return}
         for touch in touches {
-            let location = touch.location(in: jumpButton)
-            jumpAction = jumpKnob.frame.contains(location)
+            let location = touch.location(in: jumpButton!)
+            jumpAction = jumpKnob!.frame.contains(location)
             if jumpAction {
                 self.playerActive = .basic
             }
             
-            let location2 = touch.location(in: accelButton)
-            accelAction = accelKnob.frame.contains(location2)
+            let location2 = touch.location(in: accelButton!)
+            accelAction = accelKnob!.frame.contains(location2)
             if accelAction {
                 self.playerActive = .basic
             }
             
-            let location3 = touch.location(in: breakButton)
-            breakAction = breakKnob.frame.contains(location3)
+            let location3 = touch.location(in: breakButton!)
+            breakAction = breakKnob!.frame.contains(location3)
             if breakAction {
                 self.playerActive = .basic
             }
@@ -156,7 +144,6 @@ class GameScene: SKScene {
     }
     
     // MARK: - Action
-    
     func doJump() {
         playerActive = .basic
         playerStateMachine.enter(JumpingState.self)
@@ -168,7 +155,7 @@ class GameScene: SKScene {
     }
     
     func doBreak() {
-        if playerSpeed > 0.0 {
+        if playerSpeed > 0.1 {
             self.playerSpeed -= 0.1
         }
         playerStateMachine.enter(BreakingState.self)

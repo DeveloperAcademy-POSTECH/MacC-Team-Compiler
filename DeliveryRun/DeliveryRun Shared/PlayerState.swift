@@ -20,29 +20,9 @@ class PlayerState: GKState {
     
 }
 
-class IdleState: PlayerState {
-    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        
-        switch stateClass {
-        case is RunningState.Type, is IdleState.Type: return false
-        default: return true
-        }
-    }
-    
-    let textures = SKTexture(imageNamed: "player0")
-    lazy var action = { SKAction.animate(with: [textures], timePerFrame: 0.1)} ()
-    
-    override func didEnter(from previousState: GKState?) {
-        
-        playerNode.removeAction(forKey: characterAnimationKey)
-        playerNode.run(action, withKey: characterAnimationKey)
-        
-    }
-}
-
+// Running State
 class RunningState: PlayerState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        
         switch stateClass {
         case is RunningState.Type: return false
         default: return true
@@ -53,17 +33,16 @@ class RunningState: PlayerState {
     lazy var action = { SKAction.repeatForever(.animate(with:textures, timePerFrame: 0.1))} ()
     
     override func didEnter(from previousState: GKState?) {
-        
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
     }
 }
 
+// Jumping State
 class JumpingState: PlayerState {
     var hasFinishedJumping: Bool = false
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        
         if hasFinishedJumping && stateClass is LandingState.Type { return true }
         return false
     }
@@ -75,16 +54,16 @@ class JumpingState: PlayerState {
         
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
-        hasFinishedJumping = false
         playerNode.run(.applyForce(CGVector(dx: 0, dy: 500), duration: 0.3))
         
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { (timer) in
             self.hasFinishedJumping = true
             self.stateMachine?.enter(LandingState.self)
         }
     }
 }
 
+// Landing State
 class LandingState: PlayerState {
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
@@ -95,18 +74,16 @@ class LandingState: PlayerState {
     }
     
     override func didEnter(from previousState: GKState?) {
-        
-        stateMachine?.enter(IdleState.self)
+        stateMachine?.enter(RunningState.self)
     }
 }
 
-
+// Acceling State
 class AccelingState: PlayerState {
-    
+
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        
         switch stateClass {
-        case is IdleState.Type: return true
+        case is RunningState.Type, is JumpingState.Type: return true
         default: return false
         }
     }
@@ -120,17 +97,17 @@ class AccelingState: PlayerState {
         playerNode.run(action, withKey: characterAnimationKey)
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
-            self.stateMachine?.enter(IdleState.self)
+            self.stateMachine?.enter(RunningState.self)
         }
     }
 }
 
+// Breaking State
 class BreakingState: PlayerState {
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        
         switch stateClass {
-        case is IdleState.Type: return true
+        case is RunningState.Type: return true
         default: return false
         }
     }
@@ -144,7 +121,7 @@ class BreakingState: PlayerState {
         playerNode.run(action, withKey: characterAnimationKey)
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
-            self.stateMachine?.enter(IdleState.self)
+            self.stateMachine?.enter(RunningState.self)
         }
     }
 }
