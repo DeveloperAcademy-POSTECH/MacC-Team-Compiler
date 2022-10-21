@@ -136,18 +136,16 @@ class DamageState: PlayerState {
         }
     }
     
-    let action = SKAction.sequence([
-        SKAction.fadeIn(withDuration: 0.1),
-        SKAction.wait(forDuration: 3.0),
-        SKAction.fadeOut(withDuration: 0.2),
-        SKAction.removeFromParent(),
-    ])
+    let action = SKAction.repeat(.sequence([
+        .fadeAlpha(to: 0.5, duration: 0.01),
+        .wait(forDuration: 0.25),
+        .fadeAlpha(to: 1.0, duration: 0.01),
+        .wait(forDuration: 0.25),
+        ]), count: 5)
     
     override func didEnter(from previousState: GKState?) {
         
-        playerNode.removeAction(forKey: characterAnimationKey)
-        playerNode.run(action, withKey: characterAnimationKey)
-        
+        playerNode.run(action)
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
             self.stateMachine?.enter(RunningState.self)
         }
@@ -163,15 +161,15 @@ class GodState: PlayerState {
         }
     }
     
-    let action = SKAction.sequence([
-        SKAction.scale(by: 2, duration: 3),
-        SKAction.removeFromParent()
-    ])
+    let action = SKAction.repeat(.sequence([
+        .scale(to: 0.3, duration: 1),
+        .scale(to: 0.5, duration: 1),
+        .scale(to: 0.3, duration: 1)
+    ]), count: 1)
     
     override func didEnter(from previousState: GKState?) {
         
-        playerNode.removeAction(forKey: characterAnimationKey)
-        playerNode.run(action, withKey: characterAnimationKey)
+        playerNode.run(action)
         
         Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
             self.stateMachine?.enter(RunningState.self)

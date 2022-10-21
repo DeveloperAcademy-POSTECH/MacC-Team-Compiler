@@ -212,5 +212,9 @@ extension GameScene: SKPhysicsContactDelegate {
         if collision.matches(.player, .ground) {
             playerStateMachine.enter(LandingState.self)
         }
+        
+        if collision.matches(.player, .reward) {
+            playerStateMachine.enter(GodState.self)
+        }
     }
 }
