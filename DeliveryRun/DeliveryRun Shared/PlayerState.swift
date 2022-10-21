@@ -54,11 +54,10 @@ class JumpingState: PlayerState {
         
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
-        playerNode.run(.applyForce(CGVector(dx: 0, dy: 500), duration: 0.3))
+        playerNode.run(.applyForce(CGVector(dx: 0, dy: 500), duration: 0.5))
         
-        Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) {(timer) in
             self.hasFinishedJumping = true
-            self.stateMachine?.enter(LandingState.self)
         }
     }
 }
@@ -83,7 +82,7 @@ class AccelingState: PlayerState {
 
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
-        case is RunningState.Type, is JumpingState.Type: return true
+        case is RunningState.Type, is JumpingState.Type, is DamageState.Type: return true
         default: return false
         }
     }
@@ -107,7 +106,7 @@ class BreakingState: PlayerState {
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
-        case is RunningState.Type: return true
+        case is RunningState.Type, is DamageState.Type: return true
         default: return false
         }
     }
@@ -121,6 +120,60 @@ class BreakingState: PlayerState {
         playerNode.run(action, withKey: characterAnimationKey)
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+            self.stateMachine?.enter(RunningState.self)
+        }
+    }
+}
+
+// Damage State
+class DamageState: PlayerState {
+    var isDamaged: Bool = false
+    
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
+        switch stateClass {
+        case is DamageState.Type: return false
+        default: return true
+        }
+    }
+    
+    let action = SKAction.sequence([
+        SKAction.fadeIn(withDuration: 0.1),
+        SKAction.wait(forDuration: 3.0),
+        SKAction.fadeOut(withDuration: 0.2),
+        SKAction.removeFromParent(),
+    ])
+    
+    override func didEnter(from previousState: GKState?) {
+        
+        playerNode.removeAction(forKey: characterAnimationKey)
+        playerNode.run(action, withKey: characterAnimationKey)
+        
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+            self.stateMachine?.enter(RunningState.self)
+        }
+    }
+}
+
+// God State
+class GodState: PlayerState {
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
+        switch stateClass {
+        case is GodState.Type: return false
+        default: return true
+        }
+    }
+    
+    let action = SKAction.sequence([
+        SKAction.scale(by: 2, duration: 3),
+        SKAction.removeFromParent()
+    ])
+    
+    override func didEnter(from previousState: GKState?) {
+        
+        playerNode.removeAction(forKey: characterAnimationKey)
+        playerNode.run(action, withKey: characterAnimationKey)
+        
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
             self.stateMachine?.enter(RunningState.self)
         }
     }

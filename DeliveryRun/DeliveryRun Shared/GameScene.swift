@@ -23,6 +23,7 @@ class GameScene: SKScene {
     var accelKnob: SKNode?
     var breakButton: SKNode?
     var breakKnob: SKNode?
+    var neon1 : SKNode?
     
     // Boolean
     var jumpAction = false
@@ -42,7 +43,7 @@ class GameScene: SKScene {
     
     // Engine
     var previousTimeInterval:TimeInterval = 0
-    var playerSpeed = 0.1
+    var playerSpeed = 1.0
     
     // MARK: - Update
     override func update(_ currentTime: TimeInterval) {
@@ -54,7 +55,6 @@ class GameScene: SKScene {
         
         player!.run(SKAction.sequence([move]))
         updatePlayer()
-        print(playerSpeed)
         
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
@@ -68,8 +68,10 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        player = childNode(withName: "player")
         
+        physicsWorld.contactDelegate = self
+        
+        player = childNode(withName: "player")
         cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
         
         // Button생성 및 세팅
@@ -79,6 +81,7 @@ class GameScene: SKScene {
         accelKnob = accelButton?.childNode(withName: "accelKnob")
         breakButton = childNode(withName: "breakButton")
         breakKnob = breakButton?.childNode(withName: "breakKnob")
+        neon1 = childNode(withName: "neon1")
         
         // NodeSize 생성
         playerSize = (player?.frame.size)!
@@ -88,7 +91,9 @@ class GameScene: SKScene {
         JumpingState(playerNode: player!),
         LandingState(playerNode: player!),
         AccelingState(playerNode: player!),
-        BreakingState(playerNode: player!)
+        BreakingState(playerNode: player!),
+        DamageState(playerNode: player!),
+        GodState(playerNode:player!)
         ])
         playerStateMachine.enter(RunningState.self)
     }
@@ -123,20 +128,20 @@ class GameScene: SKScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            let location = touch.location(in: jumpButton!)
-            jumpAction = jumpKnob!.frame.contains(location)
+            let jumplocation = touch.location(in: jumpButton!)
+            jumpAction = jumpKnob!.frame.contains(jumplocation)
             if jumpAction {
                 self.playerActive = .basic
             }
             
-            let location2 = touch.location(in: accelButton!)
-            accelAction = accelKnob!.frame.contains(location2)
+            let accellocation = touch.location(in: accelButton!)
+            accelAction = accelKnob!.frame.contains(accellocation)
             if accelAction {
                 self.playerActive = .basic
             }
             
-            let location3 = touch.location(in: breakButton!)
-            breakAction = breakKnob!.frame.contains(location3)
+            let breaklocation = touch.location(in: breakButton!)
+            breakAction = breakKnob!.frame.contains(breaklocation)
             if breakAction {
                 self.playerActive = .basic
             }
@@ -155,9 +160,13 @@ class GameScene: SKScene {
     }
     
     func doBreak() {
-        if playerSpeed > 0.1 {
+        if playerSpeed > 0.3 {
             self.playerSpeed -= 0.1
         }
+        else {
+            self.playerSpeed = 0.3
+        }
+        print(self.playerSpeed)
         playerStateMachine.enter(BreakingState.self)
     }
     
@@ -174,3 +183,34 @@ class GameScene: SKScene {
     }
 }
 
+// MARK: Collision
+extension GameScene: SKPhysicsContactDelegate {
+    
+    struct Collision {
+        
+        enum Masks: Int {
+            case damage, player, reward, ground
+            var bitmask: UInt32 { return 1 << self.rawValue }
+        }
+        
+        let masks: (first: UInt32, second: UInt32)
+        
+        func matches (_ first: Masks, _ second: Masks) -> Bool {
+            return (first.bitmask == masks.first && second.bitmask == masks.second) ||
+            (first.bitmask == masks.second && second.bitmask == masks.first)
+        }
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        let collision = Collision(masks: (first: contact.bodyA.categoryBitMask, second: contact.bodyB.categoryBitMask))
+        
+        if collision.matches(.player, .damage) {
+            playerStateMachine.enter(DamageState.self)
+        }
+        
+        if collision.matches(.player, .ground) {
+            playerStateMachine.enter(LandingState.self)
+        }
+    }
+}
