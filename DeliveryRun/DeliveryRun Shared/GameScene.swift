@@ -6,120 +6,215 @@
 //
 
 import SpriteKit
+import GameplayKit
+
+enum PlayerActive {
+    case basic, jumping, accling, breaking
+}
+
 
 class GameScene: SKScene {
     
+    var player: SKNode?
     
-    fileprivate var label : SKLabelNode?
-    fileprivate var spinnyNode : SKShapeNode?
-
+    var jumpButton: SKNode?
+    var jumpKnob: SKNode?
+    var accelButton: SKNode?
+    var accelKnob: SKNode?
+    var breakButton: SKNode?
+    var breakKnob: SKNode?
+    var neon1 : SKNode?
     
-    class func newGameScene() -> GameScene {
-        // Load 'GameScene.sks' as an SKScene.
-        guard let scene = SKScene(fileNamed: "GameScene") as? GameScene else {
-            print("Failed to load GameScene.sks")
-            abort()
-        }
-        
-        // Set the scale mode to scale to fit the window
-        scene.scaleMode = .aspectFill
-        
-        return scene
-    }
+    // Boolean
+    var jumpAction = false
+    var accelAction = false
+    var breakAction = false
     
-    func setUpScene() {
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
+    var cameraNode: SKCameraNode?
+    
+    // NodeSize
+    var playerSize:CGSize = CGSize()
+    
+    
+    // Player State
+    var playerActive:PlayerActive = .basic
+    var playerStateMachine : GKStateMachine!
+    
+    
+    // Engine
+    var previousTimeInterval:TimeInterval = 0
+    var playerSpeed = 1.0
+    
+    // MARK: - Update
+    override func update(_ currentTime: TimeInterval) {
+        // Player 횡스크롤 이동
+        previousTimeInterval = currentTime - 1
+        let deltaTime = currentTime - previousTimeInterval
+        let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
+        let move = SKAction.move(by: diplacement, duration: 0)
         
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        player!.run(SKAction.sequence([move]))
+        updatePlayer()
         
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 4.0
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+        // Node 위치 지정
+        cameraNode?.position.x = player!.position.x
+        cameraNode?.position.y = player!.position.y
+        jumpButton?.position.x = (cameraNode?.position.x)! - 300
+        jumpButton?.position.y = (cameraNode?.position.y)! - 120
+        accelButton?.position.x = (cameraNode?.position.x)! + 220
+        accelButton?.position.y = (cameraNode?.position.y)! - 120
+        breakButton?.position.x = (cameraNode?.position.x)! + 320
+        breakButton?.position.y = (cameraNode?.position.y)! - 120
     }
     
     override func didMove(to view: SKView) {
-        self.setUpScene()
-    }
-
-    func makeSpinny(at pos: CGPoint, color: SKColor) {
-        if let spinny = self.spinnyNode?.copy() as! SKShapeNode? {
-            spinny.position = pos
-            spinny.strokeColor = color
-            self.addChild(spinny)
-        }
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
-}
-
-#if os(iOS) || os(tvOS)
-// Touch-based event handling
-extension GameScene {
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
         
-        for t in touches {
-            self.makeSpinny(at: t.location(in: self), color: SKColor.green)
-        }
+        physicsWorld.contactDelegate = self
+        
+        player = childNode(withName: "player")
+        cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
+        
+        // Button생성 및 세팅
+        jumpButton = childNode(withName: "jumpButton")
+        jumpKnob = jumpButton?.childNode(withName: "jumpKnob")
+        accelButton = childNode(withName: "accelButton")
+        accelKnob = accelButton?.childNode(withName: "accelKnob")
+        breakButton = childNode(withName: "breakButton")
+        breakKnob = breakButton?.childNode(withName: "breakKnob")
+        neon1 = childNode(withName: "neon1")
+        
+        // NodeSize 생성
+        playerSize = (player?.frame.size)!
+        
+        playerStateMachine = GKStateMachine(states: [
+        RunningState(playerNode: player!),
+        JumpingState(playerNode: player!),
+        LandingState(playerNode: player!),
+        AccelingState(playerNode: player!),
+        BreakingState(playerNode: player!),
+        DamageState(playerNode: player!),
+        GodState(playerNode:player!)
+        ])
+        playerStateMachine.enter(RunningState.self)
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches {
-            self.makeSpinny(at: t.location(in: self), color: SKColor.blue)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            if let jumpKnob = jumpKnob {
+                let location = touch.location(in: jumpButton!)
+                jumpAction = jumpKnob.frame.contains(location)
+                if jumpAction {
+                    self.playerActive = .jumping
+                }
+            }
+            
+            if let accelKnob = accelKnob {
+                let location = touch.location(in: accelButton!)
+                accelAction = accelKnob.frame.contains(location)
+                if accelAction {
+                    self.playerActive = .accling
+                }
+            }
+            
+            if let breakKnob = breakKnob {
+                let location = touch.location(in: breakButton!)
+                breakAction = breakKnob.frame.contains(location)
+                if breakAction {
+                    self.playerActive = .breaking
+                }
+            }
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches {
-            self.makeSpinny(at: t.location(in: self), color: SKColor.red)
+        for touch in touches {
+            let jumplocation = touch.location(in: jumpButton!)
+            jumpAction = jumpKnob!.frame.contains(jumplocation)
+            if jumpAction {
+                self.playerActive = .basic
+            }
+            
+            let accellocation = touch.location(in: accelButton!)
+            accelAction = accelKnob!.frame.contains(accellocation)
+            if accelAction {
+                self.playerActive = .basic
+            }
+            
+            let breaklocation = touch.location(in: breakButton!)
+            breakAction = breakKnob!.frame.contains(breaklocation)
+            if breakAction {
+                self.playerActive = .basic
+            }
         }
     }
     
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches {
-            self.makeSpinny(at: t.location(in: self), color: SKColor.red)
-        }
+    // MARK: - Action
+    func doJump() {
+        playerActive = .basic
+        playerStateMachine.enter(JumpingState.self)
+    }
+
+    func doAccel() {
+        self.playerSpeed += 0.1
+        playerStateMachine.enter(AccelingState.self)
     }
     
-   
+    func doBreak() {
+        if playerSpeed > 0.3 {
+            self.playerSpeed -= 0.1
+        }
+        else {
+            self.playerSpeed = 0.3
+        }
+        print(self.playerSpeed)
+        playerStateMachine.enter(BreakingState.self)
+    }
+    
+    func updatePlayer() {
+        switch playerActive {
+        case .jumping:
+            doJump()
+        case .accling:
+            doAccel()
+        case .breaking:
+            doBreak()
+        default: break
+        }
+    }
 }
-#endif
 
-#if os(OSX)
-// Mouse-based event handling
-extension GameScene {
-
-    override func mouseDown(with event: NSEvent) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+// MARK: Collision
+extension GameScene: SKPhysicsContactDelegate {
+    
+    struct Collision {
+        
+        enum Masks: Int {
+            case damage, player, reward, ground
+            var bitmask: UInt32 { return 1 << self.rawValue }
         }
-        self.makeSpinny(at: event.location(in: self), color: SKColor.green)
+        
+        let masks: (first: UInt32, second: UInt32)
+        
+        func matches (_ first: Masks, _ second: Masks) -> Bool {
+            return (first.bitmask == masks.first && second.bitmask == masks.second) ||
+            (first.bitmask == masks.second && second.bitmask == masks.first)
+        }
     }
     
-    override func mouseDragged(with event: NSEvent) {
-        self.makeSpinny(at: event.location(in: self), color: SKColor.blue)
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        let collision = Collision(masks: (first: contact.bodyA.categoryBitMask, second: contact.bodyB.categoryBitMask))
+        
+        if collision.matches(.player, .damage) {
+            playerStateMachine.enter(DamageState.self)
+        }
+        
+        if collision.matches(.player, .ground) {
+            playerStateMachine.enter(LandingState.self)
+        }
+        
+        if collision.matches(.player, .reward) {
+            playerStateMachine.enter(GodState.self)
+        }
     }
-    
-    override func mouseUp(with event: NSEvent) {
-        self.makeSpinny(at: event.location(in: self), color: SKColor.red)
-    }
-
 }
-#endif
-
