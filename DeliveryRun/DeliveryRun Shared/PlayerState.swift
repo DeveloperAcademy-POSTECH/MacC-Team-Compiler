@@ -29,7 +29,7 @@ class RunningState: PlayerState {
         }
     }
     
-    let textures: Array<SKTexture> = (9..<14).map({ return "player\($0)"}).map(SKTexture.init)
+    let textures: Array<SKTexture> = (0..<2).map({ return "player\($0)"}).map(SKTexture.init)
     lazy var action = { SKAction.repeatForever(.animate(with:textures, timePerFrame: 0.1))} ()
     
     override func didEnter(from previousState: GKState?) {
@@ -44,10 +44,11 @@ class JumpingState: PlayerState {
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         if hasFinishedJumping && stateClass is LandingState.Type { return true }
+        if hasFinishedJumping && stateClass is DamageState.Type { return true }
         return false
     }
     
-    let textures: Array<SKTexture> = (2..<4).map({ return "player\($0)"}).map(SKTexture.init)
+    let textures: Array<SKTexture> = (3..<5).map({ return "player\($0)"}).map(SKTexture.init)
     lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.3))} ()
     
     override func didEnter(from previousState: GKState?) {
@@ -87,7 +88,7 @@ class AccelingState: PlayerState {
         }
     }
     
-    let textures: Array<SKTexture> = (5..<7).map({ return "player\($0)"}).map(SKTexture.init)
+    let textures: Array<SKTexture> = (6..<8).map({ return "player\($0)"}).map(SKTexture.init)
     lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
     
     override func didEnter(from previousState: GKState?) {
@@ -95,9 +96,9 @@ class AccelingState: PlayerState {
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
         
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
-            self.stateMachine?.enter(RunningState.self)
-        }
+//        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+//            self.stateMachine?.enter(RunningState.self)
+//        }
     }
 }
 
@@ -111,7 +112,7 @@ class BreakingState: PlayerState {
         }
     }
     
-    let textures: Array<SKTexture> = (8..<10).map({ return "player\($0)"}).map(SKTexture.init)
+    let textures: Array<SKTexture> = (9..<11).map({ return "player\($0)"}).map(SKTexture.init)
     lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
     
     override func didEnter(from previousState: GKState?) {
@@ -119,9 +120,9 @@ class BreakingState: PlayerState {
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
         
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
-            self.stateMachine?.enter(RunningState.self)
-        }
+//        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+//            self.stateMachine?.enter(RunningState.self)
+//        }
     }
 }
 
@@ -136,7 +137,10 @@ class DamageState: PlayerState {
         }
     }
     
-    let action = SKAction.repeat(.sequence([
+    let textures: Array<SKTexture> = (12..<14).map({ return "player\($0)"}).map(SKTexture.init)
+    lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
+    
+    let action2 = SKAction.repeat(.sequence([
         .fadeAlpha(to: 0.5, duration: 0.01),
         .wait(forDuration: 0.25),
         .fadeAlpha(to: 1.0, duration: 0.01),
@@ -145,10 +149,12 @@ class DamageState: PlayerState {
     
     override func didEnter(from previousState: GKState?) {
         
-        playerNode.run(action)
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+        playerNode.removeAction(forKey: characterAnimationKey)
+        playerNode.run(SKAction.group([action,action2]))
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (timer) in
             self.stateMachine?.enter(RunningState.self)
         }
+        
     }
 }
 

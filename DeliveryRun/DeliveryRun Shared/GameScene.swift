@@ -9,7 +9,7 @@ import SpriteKit
 import GameplayKit
 
 enum PlayerActive {
-    case basic, jumping, accling, breaking
+    case running, jumping, accling, breaking, damaging
 }
 
 
@@ -37,7 +37,7 @@ class GameScene: SKScene {
     
     
     // Player State
-    var playerActive:PlayerActive = .basic
+    var playerActive:PlayerActive = .running
     var playerStateMachine : GKStateMachine!
     
     
@@ -55,6 +55,7 @@ class GameScene: SKScene {
         
         player!.run(SKAction.sequence([move]))
         updatePlayer()
+        print(playerStateMachine.currentState)
         
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
@@ -95,7 +96,6 @@ class GameScene: SKScene {
         DamageState(playerNode: player!),
         GodState(playerNode:player!)
         ])
-        playerStateMachine.enter(RunningState.self)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -104,7 +104,7 @@ class GameScene: SKScene {
                 let location = touch.location(in: jumpButton!)
                 jumpAction = jumpKnob.frame.contains(location)
                 if jumpAction {
-                    self.playerActive = .jumping
+                    playerActive = .jumping
                 }
             }
             
@@ -112,7 +112,7 @@ class GameScene: SKScene {
                 let location = touch.location(in: accelButton!)
                 accelAction = accelKnob.frame.contains(location)
                 if accelAction {
-                    self.playerActive = .accling
+                    playerActive = .accling
                 }
             }
             
@@ -120,7 +120,7 @@ class GameScene: SKScene {
                 let location = touch.location(in: breakButton!)
                 breakAction = breakKnob.frame.contains(location)
                 if breakAction {
-                    self.playerActive = .breaking
+                    playerActive = .breaking
                 }
             }
         }
@@ -131,31 +131,37 @@ class GameScene: SKScene {
             let jumplocation = touch.location(in: jumpButton!)
             jumpAction = jumpKnob!.frame.contains(jumplocation)
             if jumpAction {
-                self.playerActive = .basic
+                playerActive = .running
             }
             
             let accellocation = touch.location(in: accelButton!)
             accelAction = accelKnob!.frame.contains(accellocation)
             if accelAction {
-                self.playerActive = .basic
+                playerActive = .running
             }
             
             let breaklocation = touch.location(in: breakButton!)
             breakAction = breakKnob!.frame.contains(breaklocation)
             if breakAction {
-                self.playerActive = .basic
+                playerActive = .running
             }
         }
     }
     
     // MARK: - Action
+    
+    func doRunning() {
+        playerActive = .running
+        playerStateMachine.enter(RunningState.self)
+    }
     func doJump() {
-        playerActive = .basic
+        playerActive = .jumping
         playerStateMachine.enter(JumpingState.self)
     }
 
     func doAccel() {
         self.playerSpeed += 0.1
+        playerActive = .accling
         playerStateMachine.enter(AccelingState.self)
     }
     
@@ -166,8 +172,13 @@ class GameScene: SKScene {
         else {
             self.playerSpeed = 0.3
         }
-        print(self.playerSpeed)
+        playerActive = .breaking
         playerStateMachine.enter(BreakingState.self)
+    }
+    
+    func doDamage() {
+        playerActive = .damaging
+        playerStateMachine.enter(DamageState.self)
     }
     
     func updatePlayer() {
@@ -178,7 +189,10 @@ class GameScene: SKScene {
             doAccel()
         case .breaking:
             doBreak()
-        default: break
+        case .damaging:
+            doDamage()
+        default:
+            doRunning()
         }
     }
 }
@@ -206,7 +220,7 @@ extension GameScene: SKPhysicsContactDelegate {
         let collision = Collision(masks: (first: contact.bodyA.categoryBitMask, second: contact.bodyB.categoryBitMask))
         
         if collision.matches(.player, .damage) {
-            playerStateMachine.enter(DamageState.self)
+            playerActive = .damaging
         }
         
         if collision.matches(.player, .ground) {
