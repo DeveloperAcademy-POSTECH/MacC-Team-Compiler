@@ -138,7 +138,7 @@ class DamageState: PlayerState {
     }
     
     let textures: Array<SKTexture> = (12..<14).map({ return "player\($0)"}).map(SKTexture.init)
-    lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
+    lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 2.0))} ()
     
     let action2 = SKAction.repeat(.sequence([
         .fadeAlpha(to: 0.5, duration: 0.01),

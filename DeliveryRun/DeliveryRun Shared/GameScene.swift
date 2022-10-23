@@ -179,6 +179,13 @@ class GameScene: SKScene {
     func doDamage() {
         playerActive = .damaging
         playerStateMachine.enter(DamageState.self)
+        
+        if playerSpeed > 0.3 {
+            self.playerSpeed /= 2
+        }
+        else {
+            self.playerSpeed = 0.3
+        }
     }
     
     func updatePlayer() {
@@ -189,8 +196,6 @@ class GameScene: SKScene {
             doAccel()
         case .breaking:
             doBreak()
-        case .damaging:
-            doDamage()
         default:
             doRunning()
         }
@@ -220,7 +225,7 @@ extension GameScene: SKPhysicsContactDelegate {
         let collision = Collision(masks: (first: contact.bodyA.categoryBitMask, second: contact.bodyB.categoryBitMask))
         
         if collision.matches(.player, .damage) {
-            playerActive = .damaging
+            self.doDamage()
         }
         
         if collision.matches(.player, .ground) {
