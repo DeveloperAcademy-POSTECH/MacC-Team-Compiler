@@ -49,13 +49,13 @@ class JumpingState: PlayerState {
     }
     
     let textures: Array<SKTexture> = (3..<5).map({ return "player\($0)"}).map(SKTexture.init)
-    lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.3))} ()
+    lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
     
     override func didEnter(from previousState: GKState?) {
         
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
-        playerNode.run(.applyForce(CGVector(dx: 0, dy: 300), duration: 0.5))
+        playerNode.run(.applyForce(CGVector(dx: 0, dy: 250), duration: 0.5))
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) {(timer) in
             self.hasFinishedJumping = true
@@ -83,7 +83,7 @@ class AccelingState: PlayerState {
 
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
-        case is RunningState.Type, is JumpingState.Type, is DamageState.Type: return true
+        case is RunningState.Type, is JumpingState.Type: return true
         default: return false
         }
     }

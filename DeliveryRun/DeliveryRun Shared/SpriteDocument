@@ -1,0 +1,8 @@
+
+A SKNode is an empty node with no visual representation on the screen. As you mentioned, the typical use of SKNode is when you want to have a bunch of nodes with a shared parent, so you can move them all around at once. For example, you might have a SKNode for the background layer and another for the foreground layer.
+
+A SKSpriteNode is when you have a visual sprite that you want to show up on the screen (like a main character or an enemy). SKSpriteNodes can also have children - for example a SKSpriteNode for a car might have some other SKSpriteNode children for wheels.
+
+
+
+
