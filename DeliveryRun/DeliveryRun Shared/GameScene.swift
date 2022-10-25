@@ -169,7 +169,7 @@ extension GameScene {
             scrollSpeed += 0.2
         } else {
             scrollSpeed = 5.0
-            print("Now Max Scroll Speed")
+            print("Max Scroll Speed")
         }
     }
     func breaking() {
