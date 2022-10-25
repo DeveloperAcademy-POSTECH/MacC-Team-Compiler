@@ -29,6 +29,8 @@ class GameScene: SKScene {
     var jumpAction = false
     var accelAction = false
     var breakAction = false
+    var gameStart = false
+    
     
     // CameraNode
     var cameraNode: SKCameraNode?
@@ -38,8 +40,9 @@ class GameScene: SKScene {
     
     // Engine
     var previousTimeInterval:TimeInterval = 0.0
-    var scrollSpeed = 0.0
-    var playerSpeed = CGFloat()
+    var playerSpeed = 3.0
+    let maxSpeed = 10.0
+    let minSpeed = 1.0
     // Label
     let speedLabel = SKLabelNode()
     
@@ -84,7 +87,7 @@ class GameScene: SKScene {
         playerStateMachine.enter(RunningState.self)
         
         speedLabel.position = CGPoint(x: (cameraNode?.position.x)!,y: 140)
-        speedLabel.text = String(scrollSpeed)
+        speedLabel.text = String(playerSpeed)
         speedLabel.fontColor = UIColor(ciColor: .red)
         speedLabel.fontSize = 36
         speedLabel.horizontalAlignmentMode = .right
@@ -94,8 +97,7 @@ class GameScene: SKScene {
 // MARK: Touches
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        scrollSpeed = 0.1
-        playerSpeed = (player?.physicsBody?.velocity.dx)!
+        gameStart = true
         for touch in touches {
             if let jumpArea = jumpArea {
                 let location = touch.location(in: jumpButton!)
@@ -109,7 +111,7 @@ extension GameScene {
                 let location = touch.location(in: accelButton!)
                 accelAction = accelArea.frame.contains(location)
                 if accelAction {
-                    acceling()
+                    acceling(deltaTime: 0)
                 }
             }
             
@@ -118,7 +120,7 @@ extension GameScene {
                 let location = touch.location(in: breakButton!)
                 breakAction = breakArea.frame.contains(location)
                 if breakAction {
-                    breaking()
+                    breaking(deltaTime: 0)
                 }
             }
             let location = touch.location(in: self)
@@ -135,25 +137,26 @@ extension GameScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         for touch in touches {
             let jumpButtonArea = touch.location(in: jumpButton!)
             jumpAction = jumpArea!.frame.contains(jumpButtonArea)
             if jumpAction {
-                running()
+                running(deltaTime: 0)
                 jumpAction = false
             }
             
             let accelButtonArea = touch.location(in: accelButton!)
             accelAction = accelArea!.frame.contains(accelButtonArea)
             if accelAction {
-                running()
+                running(deltaTime: 0)
                 accelAction = false
             }
             
             let breakButtonArea = touch.location(in: breakButton!)
             breakAction = breakArea!.frame.contains(breakButtonArea)
             if breakAction {
-                running()
+                running(deltaTime: 0)
                 breakAction = false
             }
         }
@@ -161,16 +164,16 @@ extension GameScene {
 }
 // MARK: GameAcion
 extension GameScene {
-    func running() {
-        if scrollSpeed >= 0.1 && scrollSpeed <= 0.5 {
-            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
-                self.scrollSpeed += 0.02
-            }
-        } else if scrollSpeed < 0.1 {
-            scrollSpeed = 0.1
-        } else if scrollSpeed > 0.05 {
-            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
-                self.scrollSpeed -= 0.02
+    func running(deltaTime:TimeInterval) {
+        if !(gameStart) {
+            playerSpeed = 0.0
+        } else {
+            if (playerSpeed < minSpeed){
+                playerSpeed = minSpeed
+            } else if playerSpeed >= minSpeed && playerSpeed < maxSpeed {
+                self.playerSpeed += deltaTime / 20
+            } else if playerSpeed > maxSpeed + deltaTime - deltaTime / 100 {
+                self.playerSpeed -= deltaTime / 20
             }
         }
         playerStateMachine.enter(RunningState.self)
@@ -181,28 +184,16 @@ extension GameScene {
     func landing() {
         playerStateMachine.enter(LandingState.self)
     }
-    func acceling() {
+    func acceling(deltaTime:TimeInterval) {
+        playerSpeed += deltaTime / 5
         playerStateMachine.enter(AccelingState.self)
-<<<<<<< Updated upstream
-        if scrollSpeed < 5.0 {
-            scrollSpeed += 0.2
-        } else {
-            scrollSpeed = 5.0
-            print("Max Scroll Speed")
-        }
-=======
-        //TODO: applyForce가 scrollSpeed 리셋시킴
-        player!.run(.applyForce(CGVector(dx: 10, dy: 0), duration: 0.1))
->>>>>>> Stashed changes
     }
-    func breaking() {
-        playerStateMachine.enter(BreakingState.self)
-        if scrollSpeed > 1.0 {
-            scrollSpeed -= 0.2
-        } else {
-            scrollSpeed = 1.0
-            print("Now Min Scroll Speed")
+    func breaking(deltaTime:TimeInterval) {
+        if playerSpeed < minSpeed {
+            playerSpeed = minSpeed
         }
+        playerSpeed -= deltaTime / 5
+        playerStateMachine.enter(BreakingState.self)
     }
     func damaging() {
         playerStateMachine.enter(DamageState.self)
@@ -218,26 +209,30 @@ extension GameScene {
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
         // Player 횡스크롤 이동
-        previousTimeInterval = currentTime - 1
+        if currentTime > 1 {
+            previousTimeInterval = currentTime - 1
+        }
         let deltaTime = currentTime - previousTimeInterval
-        let diplacement = CGVector(dx: deltaTime * scrollSpeed, dy: 0)
+        previousTimeInterval = currentTime
+        let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
         let move = SKAction.move(by: diplacement, duration: 0)
         player!.run(SKAction.sequence([move]))
-        print(scrollSpeed)
         if jumpAction {
             jumping()
         } else if accelAction {
-            acceling()
+            acceling(deltaTime: deltaTime)
         } else if breakAction {
-            breaking()
+            breaking(deltaTime: deltaTime)
         } else {
-            running()
+            running(deltaTime: deltaTime)
         }
         
-        speedLabel.text = String(format: "Speed: %.2f", scrollSpeed)
+        print(playerSpeed)
+        print(deltaTime)
         
         
-        print(scrollSpeed, playerSpeed)
+        speedLabel.text = String(format: "Speed: %.2f", playerSpeed)
+        
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
         cameraNode?.position.y = player!.position.y
