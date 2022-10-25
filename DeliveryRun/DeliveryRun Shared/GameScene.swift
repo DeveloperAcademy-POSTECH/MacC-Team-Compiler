@@ -29,6 +29,7 @@ class GameScene: SKScene {
     var jumpAction = false
     var accelAction = false
     var breakAction = false
+    var rewardIsNotTouched = true
     
     // CameraNode
     var cameraNode: SKCameraNode?
@@ -40,8 +41,11 @@ class GameScene: SKScene {
     var previousTimeInterval:TimeInterval = 0.0
     var scrollSpeed = 0.0
     var playerSpeed = CGFloat()
+    var score: Int = 0
+    
     // Label
     let speedLabel = SKLabelNode()
+    let scoreLabel = SKLabelNode()
     
     
     override func didMove(to view: SKView) {
@@ -67,9 +71,6 @@ class GameScene: SKScene {
         breakButton = childNode(withName: "breakButton")
         breakArea = breakButton?.childNode(withName: "breakArea")
         
-        //        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) {(timer) in
-        //            self.createNeon()
-        //        }
         
         // PlayerState 가져오기
         playerStateMachine = GKStateMachine(states: [
@@ -89,8 +90,16 @@ class GameScene: SKScene {
         speedLabel.fontSize = 36
         speedLabel.horizontalAlignmentMode = .right
         cameraNode?.addChild(speedLabel)
+        
+        scoreLabel.position = CGPoint(x: (cameraNode?.position.x)! + 200 ,y: 140)
+        scoreLabel.text = String(score)
+        scoreLabel.fontColor = UIColor(ciColor: .white)
+        scoreLabel.fontSize = 30
+        scoreLabel.horizontalAlignmentMode = .right
+        cameraNode?.addChild(scoreLabel)
     }
 }
+
 // MARK: Touches
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -183,17 +192,9 @@ extension GameScene {
     }
     func acceling() {
         playerStateMachine.enter(AccelingState.self)
-<<<<<<< Updated upstream
-        if scrollSpeed < 5.0 {
-            scrollSpeed += 0.2
-        } else {
-            scrollSpeed = 5.0
-            print("Max Scroll Speed")
-        }
-=======
+        
         //TODO: applyForce가 scrollSpeed 리셋시킴
         player!.run(.applyForce(CGVector(dx: 10, dy: 0), duration: 0.1))
->>>>>>> Stashed changes
     }
     func breaking() {
         playerStateMachine.enter(BreakingState.self)
@@ -212,11 +213,17 @@ extension GameScene {
 //            print("Now Min Scroll Speed")
 //        }
     }
+    
+    func getReward() {
+        score += 1
+        scoreLabel.text = String(score)
+    }
 }
 
 // MARK: GameLoop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
+        
         // Player 횡스크롤 이동
         previousTimeInterval = currentTime - 1
         let deltaTime = currentTime - previousTimeInterval
@@ -234,10 +241,9 @@ extension GameScene {
             running()
         }
         
+        rewardIsNotTouched = true
         speedLabel.text = String(format: "Speed: %.2f", scrollSpeed)
         
-        
-        print(scrollSpeed, playerSpeed)
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
         cameraNode?.position.y = player!.position.y
@@ -293,6 +299,17 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .reward) {
+            if contact.bodyA.node?.name == "jewel" {
+                contact.bodyA.node?.physicsBody?.categoryBitMask = 0
+            }
+            else if contact.bodyB.node?.name == "jewel" {
+                contact.bodyB.node?.physicsBody?.categoryBitMask = 0
+                contact.bodyB.node?.removeFromParent()
+            }
+            if rewardIsNotTouched {
+                getReward()
+                rewardIsNotTouched = false
+            }
         }
     }
 }
@@ -303,7 +320,6 @@ extension GameScene {
     func createNeon() {
         let  node = SKSpriteNode(imageNamed: "firstNeon0")
         node.name = "Neons1"
-        let randomXposition = Int(arc4random_uniform(UInt32(self.size.width)))
         
         node.size.width = 100
         node.size.height = 100
