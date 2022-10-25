@@ -279,7 +279,7 @@
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="background" width="696" height="268"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
-        <image name="player0" width="472" height="480"/>
+        <image name="player0" width="360" height="366"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
