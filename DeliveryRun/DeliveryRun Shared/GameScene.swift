@@ -11,11 +11,10 @@ import GameplayKit
 class GameScene: SKScene {
     // Player And LandScape
     var player: SKNode?
-    var neonsigns: SKNode?
-    var neon1 : SKNode?
-    var neon2 : SKNode?
-    var neon3 : SKNode?
-    var moon : SKNode?
+    var neonsigns : SKNode?
+    var neonsigns2 : SKNode?
+    var neonsigns3 : SKNode?
+    var moon : SKShapeNode?
     
     // Buttons
     var jumpButton: SKNode?
@@ -46,8 +45,15 @@ class GameScene: SKScene {
     // Label
     let speedLabel = SKLabelNode()
     
-    
+//MARK: Scene실행시
     override func didMove(to view: SKView) {
+        
+        // Moon 생성
+        moon = SKShapeNode(circleOfRadius: 50)
+        moon?.scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        moon?.fillColor = SKColor.yellow
+        moon?.position = CGPoint(x: 400, y: 220)
+        addChild(moon!)
         
         // Collision
         physicsWorld.contactDelegate = self
@@ -55,12 +61,12 @@ class GameScene: SKScene {
         // Scene.sks Node 연결
         player = childNode(withName: "player")
         cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
-        neon1 = childNode(withName: "neon1")
         neonsigns = childNode(withName: "neonsigns")
-        neon1 = neonsigns?.childNode(withName: "neon1")
-        neon2 = neonsigns?.childNode(withName: "neon2")
-        neon3 = neonsigns?.childNode(withName: "neon3")
-        moon?.childNode(withName: "moon")
+        neonsigns2 = childNode(withName: "neonsigns2")
+        neonsigns3 = childNode(withName: "neonsigns3")
+        
+        // TODO: neonsigns 노드생성후 랜덤인덱스로 접근해서 ParallaxAnimation구현 2개정도 Neon 커다랗게 생성한후에 Parallx 적용하기
+        
         
         // Button생성 및 세팅
         jumpButton = childNode(withName: "jumpButton")
@@ -70,9 +76,7 @@ class GameScene: SKScene {
         breakButton = childNode(withName: "breakButton")
         breakArea = breakButton?.childNode(withName: "breakArea")
         
-        //        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) {(timer) in
-        //            self.createNeon()
-        //        }
+
         
         // PlayerState 가져오기
         playerStateMachine = GKStateMachine(states: [
@@ -97,6 +101,7 @@ class GameScene: SKScene {
 // MARK: Touches
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(neonsigns?.position.x)
         gameStart = true
         for touch in touches {
             if let jumpArea = jumpArea {
@@ -196,12 +201,8 @@ extension GameScene {
         playerStateMachine.enter(BreakingState.self)
     }
     func damaging() {
+        playerSpeed = minSpeed
         playerStateMachine.enter(DamageState.self)
-//        if scrollSpeed > 1.0 {
-//            scrollSpeed = 1.0
-//        } else {
-//            print("Now Min Scroll Speed")
-//        }
     }
 }
 
@@ -226,16 +227,10 @@ extension GameScene {
         } else {
             running(deltaTime: deltaTime)
         }
-        
-        print(playerSpeed)
-        print(deltaTime)
-        
-        
         speedLabel.text = String(format: "Speed: %.2f", playerSpeed)
         
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
-        cameraNode?.position.y = player!.position.y
         jumpButton?.position.x = (cameraNode?.position.x)! - 300
         jumpButton?.position.y = (cameraNode?.position.y)! - 120
         accelButton?.position.x = (cameraNode?.position.x)! + 220
@@ -243,15 +238,8 @@ extension GameScene {
         breakButton?.position.x = (cameraNode?.position.x)! + 320
         breakButton?.position.y = (cameraNode?.position.y)! - 120
         
-        
-        let parallax1 = SKAction.moveTo(x: (player?.position.x)! / (10), duration: 0.0)
-        neon1?.run(parallax1)
-        let parallax2 = SKAction.moveTo(x: (player?.position.x)! / (20), duration: 0.0)
-        neon2?.run(parallax2)
-        let parallax3 = SKAction.moveTo(x: (player?.position.x)! / (40), duration: 0.0)
-        neon3?.run(parallax3)
-        let parallax4 = SKAction.moveTo(x: ((cameraNode?.position.x)! + 250), duration: 0.0)
-        moon?.run(parallax4)
+        // Parallax Animation
+        parallaxAnimation()
         
     }
 }
@@ -295,18 +283,16 @@ extension GameScene: SKPhysicsContactDelegate {
 
 // MARK: ParallaxAnimation
 extension GameScene {
-    func createNeon() {
-        let  node = SKSpriteNode(imageNamed: "firstNeon0")
-        node.name = "Neons1"
-        let randomXposition = Int(arc4random_uniform(UInt32(self.size.width)))
-        
-        node.size.width = 100
-        node.size.height = 100
-        
-        node.position = CGPoint(x: (player?.position.x)! + 200, y: 150)
-        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        node.zPosition = 5
-        
-        addChild(node)
+    func parallaxAnimation() {
+        let parallax1 = SKAction.moveTo(x: (player?.position.x)! / (10), duration: 0.0)
+        neonsigns?.run(parallax1)
+        let parallax2 = SKAction.moveTo(x: (player?.position.x)! / (20), duration: 0.0)
+        neonsigns2?.run(parallax2)
+        let parallax3 = SKAction.moveTo(x: (player?.position.x)! / (40), duration: 0.0)
+        neonsigns3?.run(parallax3)
+        let parallax10 = SKAction.moveTo(x: ((cameraNode?.position.x)! + 400), duration: 0.0)
+        moon?.run(parallax10)
     }
+    
+
 }

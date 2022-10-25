@@ -121,9 +121,6 @@ class BreakingState: PlayerState {
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
         
-//        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
-//            self.stateMachine?.enter(RunningState.self)
-//        }
     }
 }
 
@@ -132,29 +129,35 @@ class DamageState: PlayerState {
     var isDamaged: Bool = false
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
+        
+        if isDamaged { return false }
         switch stateClass {
-        case is DamageState.Type: return false
-        default: return true
+        case is RunningState.Type: return true
+        default: return false
         }
     }
     
     let textures: Array<SKTexture> = (12..<14).map({ return "player\($0)"}).map(SKTexture.init)
-    lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 2.0))} ()
+    lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
     
-    let action2 = SKAction.repeat(.sequence([
-        .fadeAlpha(to: 0.5, duration: 0.01),
-        .wait(forDuration: 0.25),
-        .fadeAlpha(to: 1.0, duration: 0.01),
-        .wait(forDuration: 0.25),
-        ]), count: 5)
+//    let action2 = SKAction.repeat(.sequence([
+//        .fadeAlpha(to: 0.5, duration: 0.01),
+//        .wait(forDuration: 0.25),
+//        .fadeAlpha(to: 1.0, duration: 0.01),
+//        .wait(forDuration: 0.25),
+//        ]), count: 5)
     
     override func didEnter(from previousState: GKState?) {
         
+        isDamaged = true
+        
         playerNode.removeAction(forKey: characterAnimationKey)
-        playerNode.run(SKAction.group([action,action2]))
+        playerNode.run(action, withKey: characterAnimationKey)
         Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (timer) in
+            self.isDamaged = false
             self.stateMachine?.enter(RunningState.self)
         }
+        
         
     }
 }
