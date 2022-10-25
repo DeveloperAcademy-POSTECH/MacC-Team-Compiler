@@ -38,7 +38,10 @@ class GameScene: SKScene {
     
     // Engine
     var previousTimeInterval:TimeInterval = 0.0
-    var scrollSpeed = 1.0
+    var scrollSpeed = 0.0
+    var playerSpeed = CGFloat()
+    // Label
+    let speedLabel = SKLabelNode()
     
     
     override func didMove(to view: SKView) {
@@ -54,8 +57,7 @@ class GameScene: SKScene {
         neon1 = neonsigns?.childNode(withName: "neon1")
         neon2 = neonsigns?.childNode(withName: "neon2")
         neon3 = neonsigns?.childNode(withName: "neon3")
-        let shapeNode = SKShapeNode(circleOfRadius: 80)
-        moon?.addChild(shapeNode)
+        moon?.childNode(withName: "moon")
         
         // Button생성 및 세팅
         jumpButton = childNode(withName: "jumpButton")
@@ -80,11 +82,20 @@ class GameScene: SKScene {
             GodState(playerNode:player!)
         ])
         playerStateMachine.enter(RunningState.self)
+        
+        speedLabel.position = CGPoint(x: (cameraNode?.position.x)!,y: 140)
+        speedLabel.text = String(scrollSpeed)
+        speedLabel.fontColor = UIColor(ciColor: .red)
+        speedLabel.fontSize = 36
+        speedLabel.horizontalAlignmentMode = .right
+        cameraNode?.addChild(speedLabel)
     }
 }
 // MARK: Touches
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        scrollSpeed = 0.1
+        playerSpeed = (player?.physicsBody?.velocity.dx)!
         for touch in touches {
             if let jumpArea = jumpArea {
                 let location = touch.location(in: jumpButton!)
@@ -150,10 +161,17 @@ extension GameScene {
 }
 // MARK: GameAcion
 extension GameScene {
-    // PlayerStateEnter및 ScrollSpeed 변화
     func running() {
-        if scrollSpeed < 5.0 {
-            scrollSpeed += 0.1
+        if scrollSpeed >= 0.1 && scrollSpeed <= 0.5 {
+            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
+                self.scrollSpeed += 0.02
+            }
+        } else if scrollSpeed < 0.1 {
+            scrollSpeed = 0.1
+        } else if scrollSpeed > 0.05 {
+            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
+                self.scrollSpeed -= 0.02
+            }
         }
         playerStateMachine.enter(RunningState.self)
     }
@@ -165,12 +183,17 @@ extension GameScene {
     }
     func acceling() {
         playerStateMachine.enter(AccelingState.self)
+<<<<<<< Updated upstream
         if scrollSpeed < 5.0 {
             scrollSpeed += 0.2
         } else {
             scrollSpeed = 5.0
             print("Max Scroll Speed")
         }
+=======
+        //TODO: applyForce가 scrollSpeed 리셋시킴
+        player!.run(.applyForce(CGVector(dx: 10, dy: 0), duration: 0.1))
+>>>>>>> Stashed changes
     }
     func breaking() {
         playerStateMachine.enter(BreakingState.self)
@@ -183,11 +206,11 @@ extension GameScene {
     }
     func damaging() {
         playerStateMachine.enter(DamageState.self)
-        if scrollSpeed > 1.0 {
-            scrollSpeed = 1.0
-        } else {
-            print("Now Min Scroll Speed")
-        }
+//        if scrollSpeed > 1.0 {
+//            scrollSpeed = 1.0
+//        } else {
+//            print("Now Min Scroll Speed")
+//        }
     }
 }
 
@@ -200,7 +223,7 @@ extension GameScene {
         let diplacement = CGVector(dx: deltaTime * scrollSpeed, dy: 0)
         let move = SKAction.move(by: diplacement, duration: 0)
         player!.run(SKAction.sequence([move]))
-      
+        print(scrollSpeed)
         if jumpAction {
             jumping()
         } else if accelAction {
@@ -210,6 +233,11 @@ extension GameScene {
         } else {
             running()
         }
+        
+        speedLabel.text = String(format: "Speed: %.2f", scrollSpeed)
+        
+        
+        print(scrollSpeed, playerSpeed)
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
         cameraNode?.position.y = player!.position.y
@@ -227,8 +255,9 @@ extension GameScene {
         neon2?.run(parallax2)
         let parallax3 = SKAction.moveTo(x: (player?.position.x)! / (40), duration: 0.0)
         neon3?.run(parallax3)
-        let parallax4 = SKAction.moveTo(x: ((player?.position.x)! + 250), duration: 0.0)
+        let parallax4 = SKAction.moveTo(x: ((cameraNode?.position.x)! + 250), duration: 0.0)
         moon?.run(parallax4)
+        
     }
 }
 
@@ -264,7 +293,6 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .reward) {
-            damaging()
         }
     }
 }

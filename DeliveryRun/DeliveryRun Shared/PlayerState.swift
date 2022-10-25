@@ -75,6 +75,7 @@ class LandingState: PlayerState {
     
     override func didEnter(from previousState: GKState?) {
         stateMachine?.enter(RunningState.self)
+        print("Landing")
     }
 }
 
