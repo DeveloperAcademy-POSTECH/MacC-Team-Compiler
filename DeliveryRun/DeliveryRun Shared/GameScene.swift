@@ -28,8 +28,8 @@ class GameScene: SKScene {
     var jumpAction = false
     var accelAction = false
     var breakAction = false
+    var rewardIsNotTouched = true
     var gameStart = false
-    
     
     // CameraNode
     var cameraNode: SKCameraNode?
@@ -39,13 +39,16 @@ class GameScene: SKScene {
     
     // Engine
     var previousTimeInterval:TimeInterval = 0.0
+    var score: Int = 0
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
+    
     // Label
     let speedLabel = SKLabelNode()
+    let scoreLabel = SKLabelNode()
     
-//MARK: Scene실행시
+//MARK: Scene 실행 시
     override func didMove(to view: SKView) {
         
         // Moon 생성
@@ -65,9 +68,6 @@ class GameScene: SKScene {
         neonsigns2 = childNode(withName: "neonsigns2")
         neonsigns3 = childNode(withName: "neonsigns3")
         
-        // TODO: neonsigns 노드생성후 랜덤인덱스로 접근해서 ParallaxAnimation구현 2개정도 Neon 커다랗게 생성한후에 Parallx 적용하기
-        
-        
         // Button생성 및 세팅
         jumpButton = childNode(withName: "jumpButton")
         jumpArea = jumpButton?.childNode(withName: "jumpArea")
@@ -75,8 +75,6 @@ class GameScene: SKScene {
         accelArea = accelButton?.childNode(withName: "accelArea")
         breakButton = childNode(withName: "breakButton")
         breakArea = breakButton?.childNode(withName: "breakArea")
-        
-
         
         // PlayerState 가져오기
         playerStateMachine = GKStateMachine(states: [
@@ -96,8 +94,16 @@ class GameScene: SKScene {
         speedLabel.fontSize = 36
         speedLabel.horizontalAlignmentMode = .right
         cameraNode?.addChild(speedLabel)
+        
+        scoreLabel.position = CGPoint(x: (cameraNode?.position.x)! + 200 ,y: 140)
+        scoreLabel.text = String(score)
+        scoreLabel.fontColor = UIColor(ciColor: .white)
+        scoreLabel.fontSize = 30
+        scoreLabel.horizontalAlignmentMode = .right
+        cameraNode?.addChild(scoreLabel)
     }
 }
+
 // MARK: Touches
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -167,6 +173,7 @@ extension GameScene {
         }
     }
 }
+
 // MARK: GameAcion
 extension GameScene {
     func running(deltaTime:TimeInterval) {
@@ -204,11 +211,17 @@ extension GameScene {
         playerSpeed = minSpeed
         playerStateMachine.enter(DamageState.self)
     }
+    
+    func getReward() {
+        score += 1
+        scoreLabel.text = String(score)
+    }
 }
 
 // MARK: GameLoop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
+        
         // Player 횡스크롤 이동
         if currentTime > 1 {
             previousTimeInterval = currentTime - 1
@@ -228,6 +241,7 @@ extension GameScene {
             running(deltaTime: deltaTime)
         }
         speedLabel.text = String(format: "Speed: %.2f", playerSpeed)
+        rewardIsNotTouched = true
         
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
@@ -276,6 +290,17 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .reward) {
+            if contact.bodyA.node?.name == "jewel" {
+                contact.bodyA.node?.physicsBody?.categoryBitMask = 0
+            }
+            else if contact.bodyB.node?.name == "jewel" {
+                contact.bodyB.node?.physicsBody?.categoryBitMask = 0
+                contact.bodyB.node?.removeFromParent()
+            }
+            if rewardIsNotTouched {
+                getReward()
+                rewardIsNotTouched = false
+            }
         }
     }
 }
@@ -293,6 +318,4 @@ extension GameScene {
         let parallax10 = SKAction.moveTo(x: ((cameraNode?.position.x)! + 400), duration: 0.0)
         moon?.run(parallax10)
     }
-    
-
 }
