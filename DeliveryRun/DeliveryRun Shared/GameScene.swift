@@ -8,7 +8,11 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    // GameOver
+    var viewController: GameViewController!
+    
     // Player And LandScape
     var player: SKNode?
     var neonsigns : SKNode?
@@ -28,8 +32,8 @@ class GameScene: SKScene {
     var jumpAction = false
     var accelAction = false
     var breakAction = false
+    var rewardIsNotTouched = true
     var gameStart = false
-    
     
     // CameraNode
     var cameraNode: SKCameraNode?
@@ -49,6 +53,7 @@ class GameScene: SKScene {
     
     var speederNode: SKNode?
     var speederText: SKLabelNode?
+    var score: Int = 0
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
@@ -71,8 +76,9 @@ class GameScene: SKScene {
         }
     }
     
-//MARK: Scene실행시
+//MARK: Scene 실행 시
     override func didMove(to view: SKView) {
+        
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
@@ -103,9 +109,6 @@ class GameScene: SKScene {
         neonsigns2 = childNode(withName: "neonsigns2")
         neonsigns3 = childNode(withName: "neonsigns3")
         
-        // TODO: neonsigns 노드생성후 랜덤인덱스로 접근해서 ParallaxAnimation구현 2개정도 Neon 커다랗게 생성한후에 Parallx 적용하기
-        
-        
         // Button생성 및 세팅
         jumpButton = childNode(withName: "jumpButton")
         jumpArea = jumpButton?.childNode(withName: "jumpArea")
@@ -113,8 +116,6 @@ class GameScene: SKScene {
         accelArea = accelButton?.childNode(withName: "accelArea")
         breakButton = childNode(withName: "breakButton")
         breakArea = breakButton?.childNode(withName: "breakArea")
-        
-
         
         // PlayerState 가져오기
         playerStateMachine = GKStateMachine(states: [
@@ -127,9 +128,9 @@ class GameScene: SKScene {
             GodState(playerNode:player!)
         ])
         playerStateMachine.enter(RunningState.self)
-        
     }
 }
+
 // MARK: Touches
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -198,6 +199,7 @@ extension GameScene {
         }
     }
 }
+
 // MARK: GameAcion
 extension GameScene {
     func running(deltaTime:TimeInterval) {
@@ -244,9 +246,8 @@ extension GameScene {
     }
     
     func gameOver() {
-        
-        let gameOverScene = GameScene(fileNamed: "GameOver")
-        self.view?.presentScene(gameOverScene)
+        self.viewController.popupGameOver()
+        self.viewController.getTimeRap(passedTime: passedTime)
         
 //        let reveal = SKTransition.reveal(with: .down,
 //                                                 duration: 1)
@@ -257,14 +258,15 @@ extension GameScene {
 //        let scene = GameScene(fileNamed: "GameOver")
 //        let transition = SKTransition.moveIn(with: .right, duration: 1)
 //        self.view?.presentScene(scene, transition: transition)
+    func getReward() {
+        score += 1
+        scoreLabel.text = String(score)
     }
 }
 
 // MARK: GameLoop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
-        
-        
         // Player 횡스크롤 이동
         if currentTime > 1 {
             previousTimeInterval = currentTime - 1
@@ -286,10 +288,8 @@ extension GameScene {
         timeText!.text = String(format: "%D", passedTime)
         speederText!.text = String(format: "%.2f", playerSpeed)
         locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 300
+        rewardIsNotTouched = true
         
-        if (locationIcon?.position.x)! > 275.5 {
-            gameOver()
-        }
 
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
@@ -316,7 +316,7 @@ extension GameScene: SKPhysicsContactDelegate {
     struct Collision {
         
         enum Masks: Int {
-            case damage, player, reward, ground
+            case damage, player, reward, ground, ending
             var bitmask: UInt32 { return 1 << self.rawValue }
         }
         
@@ -337,11 +337,26 @@ extension GameScene: SKPhysicsContactDelegate {
             invicible()
         }
         
+        if collision.matches(.player, .ending) {
+            gameOver()
+        }
+        
         if collision.matches(.player, .ground) {
             landing()
         }
         
         if collision.matches(.player, .reward) {
+            if contact.bodyA.node?.name == "jewel" {
+                contact.bodyA.node?.physicsBody?.categoryBitMask = 0
+            }
+            else if contact.bodyB.node?.name == "jewel" {
+                contact.bodyB.node?.physicsBody?.categoryBitMask = 0
+                contact.bodyB.node?.removeFromParent()
+            }
+            if rewardIsNotTouched {
+                getReward()
+                rewardIsNotTouched = false
+            }
         }
     }
 }
@@ -356,10 +371,7 @@ extension GameScene {
         neonsigns2?.run(parallax2)
         let parallax3 = SKAction.moveTo(x: (player?.position.x)! / (40), duration: 0.0)
         neonsigns3?.run(parallax3)
-//        let parallax10 = SKAction.moveTo(x: ((cameraNode?.position.x)! + 400), duration: 0.0)
-//        moon?.run(parallax10)
     }
-
 }
 
 

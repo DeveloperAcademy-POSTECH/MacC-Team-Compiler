@@ -260,24 +260,74 @@
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="uSf-lO-dqt" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8S-m9-eqB" userLabel="PopUp">
+                                <rect key="frame" x="20" y="47" width="804" height="296"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameclear" translatesAutoresizingMaskIntoConstraints="NO" id="I0K-LP-XbR">
+                                        <rect key="frame" x="228.66666666666663" y="75.666666666666686" width="347" height="145"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UY6-2v-EP0">
+                                        <rect key="frame" x="370.66666666666669" y="146" width="62.666666666666686" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="O6k-TX-kXy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.91898423429999998" green="0.2482555867" blue="0.30123005629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIs-BW-tRs">
+                                        <rect key="frame" x="364.66666666666669" y="198" width="75" height="88"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="88" id="5NX-ok-RuM"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <segue destination="BV1-FR-VrT" kind="show" id="ajs-Xt-eLh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="SIs-BW-tRs" firstAttribute="centerX" secondItem="M8S-m9-eqB" secondAttribute="centerX" id="CwK-ic-hbm"/>
+                                    <constraint firstAttribute="bottom" secondItem="SIs-BW-tRs" secondAttribute="bottom" constant="10" id="DDH-Ae-6ZV"/>
+                                    <constraint firstItem="UY6-2v-EP0" firstAttribute="centerX" secondItem="I0K-LP-XbR" secondAttribute="centerX" id="e3A-DF-xrb"/>
+                                    <constraint firstItem="I0K-LP-XbR" firstAttribute="centerY" secondItem="M8S-m9-eqB" secondAttribute="centerY" id="gRk-jW-ZFK"/>
+                                    <constraint firstAttribute="bottom" secondItem="UY6-2v-EP0" secondAttribute="bottom" constant="50" id="wRz-7b-26y"/>
+                                    <constraint firstItem="I0K-LP-XbR" firstAttribute="centerX" secondItem="M8S-m9-eqB" secondAttribute="centerX" id="zkR-du-nOT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bMz-tA-a9e"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="M8S-m9-eqB" firstAttribute="centerX" secondItem="uSf-lO-dqt" secondAttribute="centerX" id="2fU-ks-0SL"/>
+                            <constraint firstItem="M8S-m9-eqB" firstAttribute="top" secondItem="bMz-tA-a9e" secondAttribute="top" id="A1M-Tn-Ey7"/>
+                            <constraint firstItem="M8S-m9-eqB" firstAttribute="leading" secondItem="uSf-lO-dqt" secondAttribute="leadingMargin" id="TVS-0r-vtK"/>
+                            <constraint firstItem="M8S-m9-eqB" firstAttribute="centerY" secondItem="uSf-lO-dqt" secondAttribute="centerY" id="ZOF-JP-tQ1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xDf-Qo-PUH"/>
+                    <connections>
+                        <outlet property="popupView" destination="M8S-m9-eqB" id="K8W-9O-aIy"/>
+                        <outlet property="recordLabel" destination="UY6-2v-EP0" id="6J8-2I-St9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpV-Ww-8BQ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98" y="977"/>
+            <point key="canvasLocation" x="152.84360189573459" y="1181.5384615384614"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CjE-AT-5xY"/>
         <segue reference="Kty-3A-OSV"/>
+        <segue reference="ajs-Xt-eLh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="background" width="696" height="268"/>
+        <image name="gameclear" width="347" height="145"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="player0" width="360" height="366"/>
         <systemColor name="systemBackgroundColor">
