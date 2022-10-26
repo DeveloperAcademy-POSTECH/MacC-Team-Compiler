@@ -37,26 +37,62 @@ class GameScene: SKScene {
     // Player State
     var playerStateMachine : GKStateMachine!
     
-    // Engine
+    // Update CurrentTime
     var previousTimeInterval:TimeInterval = 0.0
+    
+    // Timer & Speeder & Location
+    var timerNode: SKNode?
+    var timeText: SKLabelNode?
+    var timer = Timer()
+    var totalTime = 100
+    var passedTime = 0
+    
+    var speederNode: SKNode?
+    var speederText: SKLabelNode?
     var score: Int = 0
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
     
+    var location: SKNode?
+    var locationIcon: SKNode?
+    var locationBarLength = 600.0
+    var positionEndZone = 4200.0
+    
+    
     // Label
     let speedLabel = SKLabelNode()
-    let scoreLabel = SKLabelNode()
+    let timeLabel = SKLabelNode()
+    
+    @objc func updateTimer() {
+        if totalTime > passedTime {
+            passedTime += 1
+        } else {
+            timer.invalidate()
+        }
+    }
     
 //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
         
-        // Moon 생성
-        moon = SKShapeNode(circleOfRadius: 50)
-        moon?.scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        moon?.fillColor = SKColor.yellow
-        moon?.position = CGPoint(x: 400, y: 220)
-        addChild(moon!)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+        // Timer & Speeder & Location
+        
+        timerNode = childNode(withName: "timer")
+        timeText = timerNode?.childNode(withName: "time") as? SKLabelNode
+        speederNode = childNode(withName: "speeder")
+        speederText = speederNode?.childNode(withName: "speed") as? SKLabelNode
+        
+        location = childNode(withName: "location")
+        locationIcon = location?.childNode(withName: "locationIcon")
+        
+//        // Moon 생성
+//        moon = SKShapeNode(circleOfRadius: 50)
+//        moon?.scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+//        moon?.fillColor = SKColor.yellow
+//        moon?.position = CGPoint(x: 400, y: 270)
+//        addChild(moon!)
         
         // Collision
         physicsWorld.contactDelegate = self
@@ -87,27 +123,12 @@ class GameScene: SKScene {
             GodState(playerNode:player!)
         ])
         playerStateMachine.enter(RunningState.self)
-        
-        speedLabel.position = CGPoint(x: (cameraNode?.position.x)!,y: 140)
-        speedLabel.text = String(playerSpeed)
-        speedLabel.fontColor = UIColor(ciColor: .red)
-        speedLabel.fontSize = 36
-        speedLabel.horizontalAlignmentMode = .right
-        cameraNode?.addChild(speedLabel)
-        
-        scoreLabel.position = CGPoint(x: (cameraNode?.position.x)! + 200 ,y: 140)
-        scoreLabel.text = String(score)
-        scoreLabel.fontColor = UIColor(ciColor: .white)
-        scoreLabel.fontSize = 30
-        scoreLabel.horizontalAlignmentMode = .right
-        cameraNode?.addChild(scoreLabel)
     }
 }
 
 // MARK: Touches
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(neonsigns?.position.x)
         gameStart = true
         for touch in touches {
             if let jumpArea = jumpArea {
@@ -212,6 +233,27 @@ extension GameScene {
         playerStateMachine.enter(DamageState.self)
     }
     
+    func invicible() {
+        player?.physicsBody?.categoryBitMask = 0
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (timer) in
+            self.player?.physicsBody?.categoryBitMask = 2
+        }
+    }
+    
+    func gameOver() {
+        
+        let gameOverScene = GameScene(fileNamed: "GameOver")
+        self.view?.presentScene(gameOverScene)
+        
+//        let reveal = SKTransition.reveal(with: .down,
+//                                                 duration: 1)
+//        let newScene = GameScene(fileNamed: "GameClear")
+//
+//        scene?.view!.presentScene(newScene!,transition: reveal)
+        
+//        let scene = GameScene(fileNamed: "GameOver")
+//        let transition = SKTransition.moveIn(with: .right, duration: 1)
+//        self.view?.presentScene(scene, transition: transition)
     func getReward() {
         score += 1
         scoreLabel.text = String(score)
@@ -221,7 +263,6 @@ extension GameScene {
 // MARK: GameLoop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
-        
         // Player 횡스크롤 이동
         if currentTime > 1 {
             previousTimeInterval = currentTime - 1
@@ -240,11 +281,20 @@ extension GameScene {
         } else {
             running(deltaTime: deltaTime)
         }
-        speedLabel.text = String(format: "Speed: %.2f", playerSpeed)
+        timeText!.text = String(format: "%D", passedTime)
+        speederText!.text = String(format: "%.2f", playerSpeed)
+        locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 300
         rewardIsNotTouched = true
         
+        if (locationIcon?.position.x)! > 275.5 {
+            gameOver()
+        }
+
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
+        location?.position.x = (cameraNode?.position.x)!
+        timerNode?.position.x = (cameraNode?.position.x)! - 400
+        speederNode?.position.x = (cameraNode?.position.x)! - 400
         jumpButton?.position.x = (cameraNode?.position.x)! - 300
         jumpButton?.position.y = (cameraNode?.position.y)! - 120
         accelButton?.position.x = (cameraNode?.position.x)! + 220
@@ -283,6 +333,7 @@ extension GameScene: SKPhysicsContactDelegate {
         
         if collision.matches(.player, .damage) {
             damaging()
+            invicible()
         }
         
         if collision.matches(.player, .ground) {
@@ -315,7 +366,7 @@ extension GameScene {
         neonsigns2?.run(parallax2)
         let parallax3 = SKAction.moveTo(x: (player?.position.x)! / (40), duration: 0.0)
         neonsigns3?.run(parallax3)
-        let parallax10 = SKAction.moveTo(x: ((cameraNode?.position.x)! + 400), duration: 0.0)
-        moon?.run(parallax10)
     }
 }
+
+
