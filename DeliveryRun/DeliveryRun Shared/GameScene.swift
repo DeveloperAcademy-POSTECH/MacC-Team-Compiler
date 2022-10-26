@@ -80,10 +80,8 @@ class GameScene: SKScene {
         
         timerNode = childNode(withName: "timer")
         timeText = timerNode?.childNode(withName: "time") as? SKLabelNode
-        timeText!.text = String(playerSpeed)
         speederNode = childNode(withName: "speeder")
         speederText = speederNode?.childNode(withName: "speed") as? SKLabelNode
-        speederText!.text = String(passedTime)
         
         location = childNode(withName: "location")
         locationIcon = location?.childNode(withName: "locationIcon")
@@ -237,11 +235,35 @@ extension GameScene {
         playerSpeed = minSpeed
         playerStateMachine.enter(DamageState.self)
     }
+    
+    func invicible() {
+        player?.physicsBody?.categoryBitMask = 0
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (timer) in
+            self.player?.physicsBody?.categoryBitMask = 2
+        }
+    }
+    
+    func gameOver() {
+        
+        let gameOverScene = GameScene(fileNamed: "GameOver")
+        self.view?.presentScene(gameOverScene)
+        
+//        let reveal = SKTransition.reveal(with: .down,
+//                                                 duration: 1)
+//        let newScene = GameScene(fileNamed: "GameClear")
+//
+//        scene?.view!.presentScene(newScene!,transition: reveal)
+        
+//        let scene = GameScene(fileNamed: "GameOver")
+//        let transition = SKTransition.moveIn(with: .right, duration: 1)
+//        self.view?.presentScene(scene, transition: transition)
+    }
 }
 
 // MARK: GameLoop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
+        
         
         // Player 횡스크롤 이동
         if currentTime > 1 {
@@ -264,6 +286,11 @@ extension GameScene {
         timeText!.text = String(format: "%D", passedTime)
         speederText!.text = String(format: "%.2f", playerSpeed)
         locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 300
+        
+        if (locationIcon?.position.x)! > 275.5 {
+            gameOver()
+        }
+
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
         location?.position.x = (cameraNode?.position.x)!
@@ -307,6 +334,7 @@ extension GameScene: SKPhysicsContactDelegate {
         
         if collision.matches(.player, .damage) {
             damaging()
+            invicible()
         }
         
         if collision.matches(.player, .ground) {
@@ -331,15 +359,7 @@ extension GameScene {
 //        let parallax10 = SKAction.moveTo(x: ((cameraNode?.position.x)! + 400), duration: 0.0)
 //        moon?.run(parallax10)
     }
-    
 
 }
 
 
-//MARK: TimerSetting
-//extension GameScene {
-//    startTimer(deltaTime: TimeInterval) {
-//
-//
-//    }
-//}
