@@ -63,6 +63,7 @@ class GameScene: SKScene {
     // Label
     let speedLabel = SKLabelNode()
     let timeLabel = SKLabelNode()
+    let scoreLabel = SKLabelNode()
     
     @objc func updateTimer() {
         if totalTime > passedTime {
@@ -74,11 +75,9 @@ class GameScene: SKScene {
     
 //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
-        
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
         // Timer & Speeder & Location
-        
         timerNode = childNode(withName: "timer")
         timeText = timerNode?.childNode(withName: "time") as? SKLabelNode
         speederNode = childNode(withName: "speeder")
@@ -241,19 +240,10 @@ extension GameScene {
     }
     
     func gameOver() {
-        
         let gameOverScene = GameScene(fileNamed: "GameOver")
         self.view?.presentScene(gameOverScene)
-        
-//        let reveal = SKTransition.reveal(with: .down,
-//                                                 duration: 1)
-//        let newScene = GameScene(fileNamed: "GameClear")
-//
-//        scene?.view!.presentScene(newScene!,transition: reveal)
-        
-//        let scene = GameScene(fileNamed: "GameOver")
-//        let transition = SKTransition.moveIn(with: .right, duration: 1)
-//        self.view?.presentScene(scene, transition: transition)
+    }
+    
     func getReward() {
         score += 1
         scoreLabel.text = String(score)
@@ -368,5 +358,3 @@ extension GameScene {
         neonsigns3?.run(parallax3)
     }
 }
-
-
