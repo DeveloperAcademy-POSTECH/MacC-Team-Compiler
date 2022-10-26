@@ -33,6 +33,9 @@ class GameScene: SKScene {
     
     // CameraNode
     var cameraNode: SKCameraNode?
+    var timerNode: SKNode?
+    var totalNode: SKNode?
+    var passedNode: SKNode?
     
     // Player State
     var playerStateMachine : GKStateMachine!
@@ -42,11 +45,25 @@ class GameScene: SKScene {
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
+    
+    var timer = Timer()
+    var totalTime = 10
+    var passedTime = 0
     // Label
     let speedLabel = SKLabelNode()
     
+    @objc func updateTimer() {
+        if totalTime > passedTime {
+            passedTime += 1
+        } else {
+            timer.invalidate()
+        }
+    }
+    
 //MARK: Scene실행시
     override func didMove(to view: SKView) {
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
         // Moon 생성
         moon = SKShapeNode(circleOfRadius: 50)
@@ -61,6 +78,9 @@ class GameScene: SKScene {
         // Scene.sks Node 연결
         player = childNode(withName: "player")
         cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
+        timerNode = childNode(withName: "timerNode")
+        totalNode = timerNode?.childNode(withName: "totalNode")
+        passedNode = timerNode?.childNode(withName: "passedNode")
         neonsigns = childNode(withName: "neonsigns")
         neonsigns2 = childNode(withName: "neonsigns2")
         neonsigns3 = childNode(withName: "neonsigns3")
@@ -90,10 +110,11 @@ class GameScene: SKScene {
         ])
         playerStateMachine.enter(RunningState.self)
         
-        speedLabel.position = CGPoint(x: (cameraNode?.position.x)!,y: 140)
+        speedLabel.position = CGPoint(x: (cameraNode?.position.x)! - 300 ,y: 150)
         speedLabel.text = String(playerSpeed)
-        speedLabel.fontColor = UIColor(ciColor: .red)
-        speedLabel.fontSize = 36
+        speedLabel.scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        speedLabel.fontColor = UIColor(ciColor: .black)
+        speedLabel.fontSize = 24
         speedLabel.horizontalAlignmentMode = .right
         cameraNode?.addChild(speedLabel)
     }
@@ -101,7 +122,6 @@ class GameScene: SKScene {
 // MARK: Touches
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(neonsigns?.position.x)
         gameStart = true
         for touch in touches {
             if let jumpArea = jumpArea {
@@ -209,6 +229,8 @@ extension GameScene {
 // MARK: GameLoop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
+        
+        
         // Player 횡스크롤 이동
         if currentTime > 1 {
             previousTimeInterval = currentTime - 1
@@ -296,3 +318,12 @@ extension GameScene {
     
 
 }
+
+
+//MARK: TimerSetting
+//extension GameScene {
+//    startTimer(deltaTime: TimeInterval) {
+//
+//
+//    }
+//}
