@@ -33,24 +33,35 @@ class GameScene: SKScene {
     
     // CameraNode
     var cameraNode: SKCameraNode?
-    var timerNode: SKNode?
-    var totalNode: SKNode?
-    var passedNode: SKNode?
     
     // Player State
     var playerStateMachine : GKStateMachine!
     
-    // Engine
+    // Update CurrentTime
     var previousTimeInterval:TimeInterval = 0.0
+    
+    // Timer & Speeder & Location
+    var timerNode: SKNode?
+    var timeText: SKLabelNode?
+    var timer = Timer()
+    var totalTime = 100
+    var passedTime = 0
+    
+    var speederNode: SKNode?
+    var speederText: SKLabelNode?
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
     
-    var timer = Timer()
-    var totalTime = 10
-    var passedTime = 0
+    var location: SKNode?
+    var locationIcon: SKNode?
+    var locationBarLength = 600.0
+    var positionEndZone = 4200.0
+    
+    
     // Label
     let speedLabel = SKLabelNode()
+    let timeLabel = SKLabelNode()
     
     @objc func updateTimer() {
         if totalTime > passedTime {
@@ -65,12 +76,24 @@ class GameScene: SKScene {
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
-        // Moon 생성
-        moon = SKShapeNode(circleOfRadius: 50)
-        moon?.scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        moon?.fillColor = SKColor.yellow
-        moon?.position = CGPoint(x: 400, y: 220)
-        addChild(moon!)
+        // Timer & Speeder & Location
+        
+        timerNode = childNode(withName: "timer")
+        timeText = timerNode?.childNode(withName: "time") as? SKLabelNode
+        timeText!.text = String(playerSpeed)
+        speederNode = childNode(withName: "speeder")
+        speederText = speederNode?.childNode(withName: "speed") as? SKLabelNode
+        speederText!.text = String(passedTime)
+        
+        location = childNode(withName: "location")
+        locationIcon = location?.childNode(withName: "locationIcon")
+        
+//        // Moon 생성
+//        moon = SKShapeNode(circleOfRadius: 50)
+//        moon?.scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+//        moon?.fillColor = SKColor.yellow
+//        moon?.position = CGPoint(x: 400, y: 270)
+//        addChild(moon!)
         
         // Collision
         physicsWorld.contactDelegate = self
@@ -78,9 +101,6 @@ class GameScene: SKScene {
         // Scene.sks Node 연결
         player = childNode(withName: "player")
         cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
-        timerNode = childNode(withName: "timerNode")
-        totalNode = timerNode?.childNode(withName: "totalNode")
-        passedNode = timerNode?.childNode(withName: "passedNode")
         neonsigns = childNode(withName: "neonsigns")
         neonsigns2 = childNode(withName: "neonsigns2")
         neonsigns3 = childNode(withName: "neonsigns3")
@@ -110,13 +130,6 @@ class GameScene: SKScene {
         ])
         playerStateMachine.enter(RunningState.self)
         
-        speedLabel.position = CGPoint(x: (cameraNode?.position.x)! - 300 ,y: 150)
-        speedLabel.text = String(playerSpeed)
-        speedLabel.scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        speedLabel.fontColor = UIColor(ciColor: .black)
-        speedLabel.fontSize = 24
-        speedLabel.horizontalAlignmentMode = .right
-        cameraNode?.addChild(speedLabel)
     }
 }
 // MARK: Touches
@@ -230,7 +243,6 @@ extension GameScene {
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
         
-        
         // Player 횡스크롤 이동
         if currentTime > 1 {
             previousTimeInterval = currentTime - 1
@@ -249,10 +261,14 @@ extension GameScene {
         } else {
             running(deltaTime: deltaTime)
         }
-        speedLabel.text = String(format: "Speed: %.2f", playerSpeed)
-        
+        timeText!.text = String(format: "%D", passedTime)
+        speederText!.text = String(format: "%.2f", playerSpeed)
+        locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 300
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
+        location?.position.x = (cameraNode?.position.x)!
+        timerNode?.position.x = (cameraNode?.position.x)! - 400
+        speederNode?.position.x = (cameraNode?.position.x)! - 400
         jumpButton?.position.x = (cameraNode?.position.x)! - 300
         jumpButton?.position.y = (cameraNode?.position.y)! - 120
         accelButton?.position.x = (cameraNode?.position.x)! + 220
@@ -312,8 +328,8 @@ extension GameScene {
         neonsigns2?.run(parallax2)
         let parallax3 = SKAction.moveTo(x: (player?.position.x)! / (40), duration: 0.0)
         neonsigns3?.run(parallax3)
-        let parallax10 = SKAction.moveTo(x: ((cameraNode?.position.x)! + 400), duration: 0.0)
-        moon?.run(parallax10)
+//        let parallax10 = SKAction.moveTo(x: ((cameraNode?.position.x)! + 400), duration: 0.0)
+//        moon?.run(parallax10)
     }
     
 
