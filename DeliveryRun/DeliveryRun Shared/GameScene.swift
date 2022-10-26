@@ -8,7 +8,11 @@
 import SpriteKit
 import GameplayKit
 
+<<<<<<< HEAD
 class GameScene: SKScene, SKPhysicsContactDelegate {
+=======
+class GameScene: SKScene {
+>>>>>>> timerAndClear
     
     // GameOver
     var viewController: GameViewController!
