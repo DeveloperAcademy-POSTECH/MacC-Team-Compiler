@@ -183,17 +183,8 @@ extension GameScene {
     }
     func acceling() {
         playerStateMachine.enter(AccelingState.self)
-<<<<<<< Updated upstream
-        if scrollSpeed < 5.0 {
-            scrollSpeed += 0.2
-        } else {
-            scrollSpeed = 5.0
-            print("Max Scroll Speed")
-        }
-=======
         //TODO: applyForce가 scrollSpeed 리셋시킴
         player!.run(.applyForce(CGVector(dx: 10, dy: 0), duration: 0.1))
->>>>>>> Stashed changes
     }
     func breaking() {
         playerStateMachine.enter(BreakingState.self)
