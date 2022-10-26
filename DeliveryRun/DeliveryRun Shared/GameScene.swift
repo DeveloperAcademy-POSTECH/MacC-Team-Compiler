@@ -9,6 +9,10 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+    
+    // GameOver
+    var viewController: GameViewController!
+    
     // Player And LandScape
     var player: SKNode?
     var neonsigns : SKNode?
@@ -240,8 +244,18 @@ extension GameScene {
     }
     
     func gameOver() {
-        let gameOverScene = GameScene(fileNamed: "GameOver")
-        self.view?.presentScene(gameOverScene)
+        self.viewController.popupGameOver()
+        self.viewController.getTimeRap(passedTime: passedTime)
+        
+//        let reveal = SKTransition.reveal(with: .down,
+//                                                 duration: 1)
+//        let newScene = GameScene(fileNamed: "GameClear")
+//
+//        scene?.view!.presentScene(newScene!,transition: reveal)
+        
+//        let scene = GameScene(fileNamed: "GameOver")
+//        let transition = SKTransition.moveIn(with: .right, duration: 1)
+//        self.view?.presentScene(scene, transition: transition)
     }
     
     func getReward() {
@@ -276,9 +290,6 @@ extension GameScene {
         locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 300
         rewardIsNotTouched = true
         
-        if (locationIcon?.position.x)! > 275.5 {
-            gameOver()
-        }
 
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
@@ -305,7 +316,7 @@ extension GameScene: SKPhysicsContactDelegate {
     struct Collision {
         
         enum Masks: Int {
-            case damage, player, reward, ground
+            case damage, player, reward, ground, ending
             var bitmask: UInt32 { return 1 << self.rawValue }
         }
         
@@ -324,6 +335,10 @@ extension GameScene: SKPhysicsContactDelegate {
         if collision.matches(.player, .damage) {
             damaging()
             invicible()
+        }
+        
+        if collision.matches(.player, .ending) {
+            gameOver()
         }
         
         if collision.matches(.player, .ground) {
