@@ -9,6 +9,10 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+    
+    // GameOver
+    var viewController: GameViewController!
+    
     // Player And LandScape
     var player: SKNode?
     var neonsigns : SKNode?
@@ -73,6 +77,7 @@ class GameScene: SKScene {
     
 //MARK: Scene실행시
     override func didMove(to view: SKView) {
+        
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
@@ -244,9 +249,8 @@ extension GameScene {
     }
     
     func gameOver() {
-        
-        let gameOverScene = GameScene(fileNamed: "GameOver")
-        self.view?.presentScene(gameOverScene)
+        self.viewController.popupGameOver()
+        self.viewController.getTimeRap(passedTime: passedTime)
         
 //        let reveal = SKTransition.reveal(with: .down,
 //                                                 duration: 1)
@@ -287,9 +291,6 @@ extension GameScene {
         speederText!.text = String(format: "%.2f", playerSpeed)
         locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 300
         
-        if (locationIcon?.position.x)! > 275.5 {
-            gameOver()
-        }
 
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
@@ -316,7 +317,7 @@ extension GameScene: SKPhysicsContactDelegate {
     struct Collision {
         
         enum Masks: Int {
-            case damage, player, reward, ground
+            case damage, player, reward, ground, ending
             var bitmask: UInt32 { return 1 << self.rawValue }
         }
         
@@ -335,6 +336,10 @@ extension GameScene: SKPhysicsContactDelegate {
         if collision.matches(.player, .damage) {
             damaging()
             invicible()
+        }
+        
+        if collision.matches(.player, .ending) {
+            gameOver()
         }
         
         if collision.matches(.player, .ground) {
