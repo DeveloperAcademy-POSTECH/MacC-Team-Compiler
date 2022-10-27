@@ -24,6 +24,11 @@ class GameScene: SKScene {
     var neonsigns3 : SKNode?
     var moon : SKShapeNode?
     
+    // Obstacles
+    var obstacles: SKNode?
+    var car: SKNode?
+    
+    
     // Buttons
     var jumpButton: SKNode?
     var jumpArea: SKNode?
@@ -86,6 +91,9 @@ class GameScene: SKScene {
         // Delegate 연결
         sceneDelegate = self.viewController
         
+        obstacles = childNode(withName: "obstacles")
+        car = obstacles?.childNode(withName: "car")
+        car?.physicsBody = SKPhysicsBody(circleOfRadius: car!.frame.size.height)
         status = childNode(withName: "status")
         locationIcon = status?.childNode(withName: "locationIcon")
         
