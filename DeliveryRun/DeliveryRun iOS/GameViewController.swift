@@ -18,6 +18,7 @@ class GameViewController: UIViewController, GameSceneDelegate{
     
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var endButton: gameButton!
     var timeRap = 0
     
     func popupGameOver() {
@@ -26,13 +27,14 @@ class GameViewController: UIViewController, GameSceneDelegate{
 
     func getTimeRap(recordTime paasedTime:Int) {
         timeRap = paasedTime
-        recordLabel.text = String(format: "Your Record %D's", timeRap)
+        recordLabel.text = String(format: "당신의 기록은 %D초 입니다.", timeRap)
     }
     
     override func viewDidLoad() {
         popupView.isHidden = true
         super.viewDidLoad()
         
+        endButton.setTitle("돌아가기", for: .normal)
         
         if let scene = GKScene(fileNamed: "GameScene") {
             

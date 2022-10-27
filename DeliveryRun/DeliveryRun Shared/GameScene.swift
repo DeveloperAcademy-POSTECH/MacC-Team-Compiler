@@ -24,9 +24,9 @@ class GameScene: SKScene {
     var neonsigns3 : SKNode?
     var moon : SKShapeNode?
     
-    // Obstacles
-    var obstacles: SKNode?
-    var car: SKNode?
+//    // Obstacles
+//    var obstacles: SKNode?
+//    var car: SKNode?
     
     
     // Buttons
@@ -68,7 +68,7 @@ class GameScene: SKScene {
     var status: SKNode?
     var locationIcon: SKNode?
     var locationBarLength = 530.0
-    var positionEndZone = 4200.0
+    var positionEndZone = 21060.0
     
     
     // Label
@@ -90,10 +90,6 @@ class GameScene: SKScene {
         
         // Delegate 연결
         sceneDelegate = self.viewController
-        
-        obstacles = childNode(withName: "obstacles")
-        car = obstacles?.childNode(withName: "car")
-        car?.physicsBody = SKPhysicsBody(circleOfRadius: car!.frame.size.height)
         status = childNode(withName: "status")
         locationIcon = status?.childNode(withName: "locationIcon")
         
@@ -208,11 +204,16 @@ extension GameScene {
         if !(gameStart) {
             playerSpeed = 0.0
         } else {
-            if (playerSpeed < minSpeed){
+            if (playerSpeed < minSpeed) {
                 playerSpeed = minSpeed
             } else if playerSpeed >= minSpeed && playerSpeed < maxSpeed {
-                self.playerSpeed += deltaTime / 20
-            } else if playerSpeed > maxSpeed + deltaTime - deltaTime / 100 {
+                if playerSpeed >= maxSpeed {
+                    self.playerSpeed = maxSpeed
+                }
+                else {
+                    self.playerSpeed += deltaTime / 20
+                }
+            } else if playerSpeed > maxSpeed {
                 self.playerSpeed -= deltaTime / 20
             }
         }
@@ -225,8 +226,11 @@ extension GameScene {
         playerStateMachine.enter(LandingState.self)
     }
     func acceling(deltaTime:TimeInterval) {
-        if playerSpeed < maxSpeed * 1.5 {
+        if playerSpeed <= maxSpeed * 1.5 {
             playerSpeed += deltaTime / 5
+            if playerSpeed > maxSpeed * 1.5 {
+                playerSpeed = maxSpeed * 1.5
+            }
         }
         playerStateMachine.enter(AccelingState.self)
     }
@@ -282,8 +286,8 @@ extension GameScene {
         locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 250
         
         
-        // Node 위치 지정
-        cameraNode?.position.x = player!.position.x
+        // Node 위치 지정®
+        cameraNode?.position.x = player!.position.x + 300
         status?.position.x = (cameraNode?.position.x)!
         jumpButton?.position.x = (cameraNode?.position.x)! - 450
         jumpButton?.position.y = (cameraNode?.position.y)! - 200
@@ -292,8 +296,8 @@ extension GameScene {
         breakButton?.position.x = (cameraNode?.position.x)! + 450
         breakButton?.position.y = (cameraNode?.position.y)! - 200
         
-        // Parallax Animation
-        parallaxAnimation()
+//        // Parallax Animation
+//        parallaxAnimation()
         
     }
 }
@@ -371,12 +375,8 @@ extension GameScene: SKPhysicsContactDelegate {
 
 // MARK: ParallaxAnimation
 extension GameScene {
-    func parallaxAnimation() {
-        let parallax1 = SKAction.moveTo(x: (player?.position.x)! / (10), duration: 0.0)
-        neonsigns?.run(parallax1)
-        let parallax2 = SKAction.moveTo(x: (player?.position.x)! / (20), duration: 0.0)
-        neonsigns2?.run(parallax2)
-        let parallax3 = SKAction.moveTo(x: (player?.position.x)! / (40), duration: 0.0)
-        neonsigns3?.run(parallax3)
-    }
+//    func parallaxAnimation() {
+//        let parallax2 = SKAction.moveTo(x: (player?.position.x)! / (20), duration: 0.0)
+//        neonsigns2?.run(parallax2)
+//    }
 }

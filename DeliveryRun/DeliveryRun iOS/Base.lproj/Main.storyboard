@@ -8,6 +8,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="BMJUA_otf.otf">
+            <string>BMJUAOTF</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Robby View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -51,9 +56,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>
-                                <connections>
-                                    <segue destination="NkA-6U-P4h" kind="show" animates="NO" id="8Ff-zl-73e"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bNo-s9-wk6"/>
@@ -80,22 +82,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.6255924170616" y="-3.0769230769230766"/>
-        </scene>
-        <!--Setting View Controller-->
-        <scene sceneID="CIT-4d-ahj">
-            <objects>
-                <viewController id="NkA-6U-P4h" customClass="SettingViewController" customModule="DeliveryRun" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PWS-By-ezm">
-                        <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="5g9-at-nVQ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="hFM-aq-Rva"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zNd-uS-8Cl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="930" y="-1088"/>
         </scene>
         <!--Stage View Controller-->
         <scene sceneID="cLp-Ue-7lu">
@@ -164,7 +150,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="stagecell" id="9w1-iI-WN9">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="StageCell" id="9w1-iI-WN9">
                                         <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GH3-tp-7lM">
@@ -228,7 +214,7 @@
                     <navigationItem key="navigationItem" id="psZ-9Q-Ub3"/>
                     <connections>
                         <outlet property="StageDetailView" destination="Hi6-NV-PGw" id="bDI-eM-Xyv"/>
-                        <outlet property="stageStartBtn" destination="Lja-pO-fmi" id="HP2-bR-WgR"/>
+                        <outlet property="stageStartBtn" destination="Lja-pO-fmi" id="sb1-1z-1rA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMy-a7-kbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -246,7 +232,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="IxJ-B5-y5L" kind="relationship" relationship="rootViewController" id="Kty-3A-OSV"/>
+                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="rootViewController" id="F2g-94-MhK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afu-gY-jPp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -268,23 +254,24 @@
                                         <rect key="frame" x="228.66666666666663" y="75.666666666666686" width="347" height="145"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UY6-2v-EP0">
-                                        <rect key="frame" x="370.66666666666669" y="146" width="62.666666666666686" height="100"/>
+                                        <rect key="frame" x="372" y="146" width="60.333333333333314" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="O6k-TX-kXy"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.91898423429999998" green="0.2482555867" blue="0.30123005629999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="20"/>
+                                        <color key="textColor" systemColor="systemTealColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIs-BW-tRs">
-                                        <rect key="frame" x="364.66666666666669" y="198" width="75" height="88"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIs-BW-tRs" customClass="gameButton" customModule="DeliveryRun" customModuleProvider="target">
+                                        <rect key="frame" x="322" y="236" width="160" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="88" id="5NX-ok-RuM"/>
+                                            <constraint firstAttribute="width" constant="160" id="0ok-8W-uiL"/>
+                                            <constraint firstAttribute="height" constant="50" id="5NX-ok-RuM"/>
                                         </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                         <connections>
-                                            <segue destination="BV1-FR-VrT" kind="show" id="ajs-Xt-eLh"/>
+                                            <segue destination="0UR-77-0T6" kind="show" animates="NO" id="6Bt-nA-FZS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -310,6 +297,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xDf-Qo-PUH"/>
                     <connections>
+                        <outlet property="endButton" destination="SIs-BW-tRs" id="OQT-fX-tVT"/>
                         <outlet property="popupView" destination="M8S-m9-eqB" id="K8W-9O-aIy"/>
                         <outlet property="recordLabel" destination="UY6-2v-EP0" id="6J8-2I-St9"/>
                     </connections>
@@ -320,7 +308,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FN5-aW-Go8"/>
+        <segue reference="CjE-AT-5xY"/>
         <segue reference="S85-Pm-hni"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -332,6 +320,9 @@
         <image name="player0" width="360" height="366"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -56,7 +56,7 @@ class JumpingState: PlayerState {
         
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
-        playerNode.run(.applyForce(CGVector(dx: 0, dy: 350), duration: 0.5))
+        playerNode.run(.applyForce(CGVector(dx: 0, dy: 320), duration: 0.5))
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) {(timer) in
             self.hasFinishedJumping = true
@@ -145,7 +145,7 @@ class DamageState: PlayerState {
         
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
-        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
             self.isDamaged = false
             self.stateMachine?.enter(RunningState.self)
         }
@@ -162,14 +162,15 @@ class GodState: PlayerState {
         default: return true
         }
     }
-    let action = SKAction.scale(by: 2.0, duration: 3)
-    let action2 = SKAction.scale(by: 0.5, duration: 1)
+    let action = SKAction.scale(by: 2, duration:0.3)
+    let action3 = SKAction.scale(by: 1, duration: 2.4)
+    let action2 = SKAction.scale(by: 1/2, duration: 0.3)
     
     override func didEnter(from previousState: GKState?) {
         
-        playerNode.run(SKAction.sequence([action, action2]))
+        playerNode.run(SKAction.sequence([action, action3, action2]))
         playerNode.physicsBody?.categoryBitMask = 0
-        Timer.scheduledTimer(withTimeInterval: 4, repeats: false) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (timer) in
             self.stateMachine?.enter(LandingState.self)
             self.playerNode.physicsBody?.categoryBitMask = 2
         }

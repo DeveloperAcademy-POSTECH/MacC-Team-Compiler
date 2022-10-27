@@ -9,9 +9,9 @@ import UIKit
 
 class StageCell: UICollectionViewCell {
 
+    @IBOutlet weak var stageLevel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
 }
