@@ -8,11 +8,14 @@
 import SpriteKit
 import GameplayKit
 
+
 class GameScene: SKScene {
     
-    // GameOver
+    
+    // GameOver Delegate 사용
     var viewController: GameViewController!
     var recordTime: Int = 0
+    var sceneDelegate: GameSceneDelegate?
     
     // Player And LandScape
     var player: SKNode?
@@ -81,6 +84,9 @@ class GameScene: SKScene {
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+        // Delegate 연결
+        sceneDelegate = self.viewController
         
         // Timer & Speeder & Location
         timerNode = childNode(withName: "timer")
@@ -215,7 +221,9 @@ extension GameScene {
         playerStateMachine.enter(LandingState.self)
     }
     func acceling(deltaTime:TimeInterval) {
-        playerSpeed += deltaTime / 5
+        if playerSpeed < maxSpeed * 1.5 {
+            playerSpeed += deltaTime / 5
+        }
         playerStateMachine.enter(AccelingState.self)
     }
     func breaking(deltaTime:TimeInterval) {
@@ -238,8 +246,8 @@ extension GameScene {
     }
     
     func endGame() {
-        self.viewController.popupGameOver()
-        self.viewController.getTimeRap(recordTime: Int(passedTime))
+        self.sceneDelegate?.popupGameOver()
+        self.sceneDelegate?.getTimeRap(recordTime: passedTime)
     }
     
 }

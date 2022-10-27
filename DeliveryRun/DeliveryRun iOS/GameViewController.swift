@@ -10,7 +10,11 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
+protocol GameSceneDelegate {
+    func popupGameOver()
+    func getTimeRap(recordTime:Int)
+}
+class GameViewController: UIViewController, GameSceneDelegate{
     
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var popupView: UIView!
@@ -19,9 +23,9 @@ class GameViewController: UIViewController {
     func popupGameOver() {
         popupView.isHidden = false
     }
-    
-    func getTimeRap(recordTime:Int) {
-        timeRap = recordTime
+
+    func getTimeRap(recordTime paasedTime:Int) {
+        timeRap = paasedTime
         recordLabel.text = String(format: "Your Record %D's", timeRap)
     }
     
