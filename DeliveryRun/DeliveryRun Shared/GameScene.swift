@@ -8,10 +8,14 @@
 import SpriteKit
 import GameplayKit
 
+
 class GameScene: SKScene {
     
-    // GameOver
+    
+    // GameOver Delegate 사용
     var viewController: GameViewController!
+    var recordTime: Int = 0
+    var sceneDelegate: GameSceneDelegate?
     
     // Player And LandScape
     var player: SKNode?
@@ -32,8 +36,8 @@ class GameScene: SKScene {
     var jumpAction = false
     var accelAction = false
     var breakAction = false
-    var rewardIsNotTouched = true
     var gameStart = false
+    var gameOver = false
     
     // CameraNode
     var cameraNode: SKCameraNode?
@@ -77,9 +81,12 @@ class GameScene: SKScene {
         }
     }
     
-//MARK: Scene 실행 시
+    //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+        // Delegate 연결
+        sceneDelegate = self.viewController
         
         // Timer & Speeder & Location
         timerNode = childNode(withName: "timer")
@@ -89,13 +96,6 @@ class GameScene: SKScene {
         
         location = childNode(withName: "location")
         locationIcon = location?.childNode(withName: "locationIcon")
-        
-//        // Moon 생성
-//        moon = SKShapeNode(circleOfRadius: 50)
-//        moon?.scene?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-//        moon?.fillColor = SKColor.yellow
-//        moon?.position = CGPoint(x: 400, y: 270)
-//        addChild(moon!)
         
         // Collision
         physicsWorld.contactDelegate = self
@@ -221,7 +221,9 @@ extension GameScene {
         playerStateMachine.enter(LandingState.self)
     }
     func acceling(deltaTime:TimeInterval) {
-        playerSpeed += deltaTime / 5
+        if playerSpeed < maxSpeed * 1.5 {
+            playerSpeed += deltaTime / 5
+        }
         playerStateMachine.enter(AccelingState.self)
     }
     func breaking(deltaTime:TimeInterval) {
@@ -243,25 +245,11 @@ extension GameScene {
         }
     }
     
-    func gameOver() {
-        self.viewController.popupGameOver()
-        self.viewController.getTimeRap(passedTime: passedTime)
-        
-//        let reveal = SKTransition.reveal(with: .down,
-//                                                 duration: 1)
-//        let newScene = GameScene(fileNamed: "GameClear")
-//
-//        scene?.view!.presentScene(newScene!,transition: reveal)
-        
-//        let scene = GameScene(fileNamed: "GameOver")
-//        let transition = SKTransition.moveIn(with: .right, duration: 1)
-//        self.view?.presentScene(scene, transition: transition)
+    func endGame() {
+        self.sceneDelegate?.popupGameOver()
+        self.sceneDelegate?.getTimeRap(recordTime: passedTime)
     }
     
-    func getReward() {
-        score += 1
-        scoreLabel.text = String(score)
-    }
 }
 
 // MARK: GameLoop
@@ -288,9 +276,8 @@ extension GameScene {
         timeText!.text = String(format: "%D", passedTime)
         speederText!.text = String(format: "%.2f", playerSpeed)
         locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 300
-        rewardIsNotTouched = true
         
-
+        
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
         location?.position.x = (cameraNode?.position.x)!
@@ -335,10 +322,14 @@ extension GameScene: SKPhysicsContactDelegate {
         if collision.matches(.player, .damage) {
             damaging()
             invicible()
+            contact.bodyA.node?.physicsBody?.categoryBitMask = 0
         }
         
         if collision.matches(.player, .ending) {
-            gameOver()
+            if !(gameOver) {
+                endGame()
+                gameOver = true
+            }
         }
         
         if collision.matches(.player, .ground) {
@@ -346,16 +337,30 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .reward) {
-            if contact.bodyA.node?.name == "jewel" {
+            // Drink 획득하는경우
+            
+            if contact.bodyA.node?.name == "drink" {
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
+                contact.bodyA.node?.removeFromParent()
+                playerSpeed += 10
             }
-            else if contact.bodyB.node?.name == "jewel" {
+            else if contact.bodyB.node?.name == "drink" {
                 contact.bodyB.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyB.node?.removeFromParent()
+                playerSpeed += 10
             }
-            if rewardIsNotTouched {
-                getReward()
-                rewardIsNotTouched = false
+            
+            // Star획득하는경우
+            
+            if contact.bodyA.node?.name == "star" {
+                playerStateMachine.enter(GodState.self)
+                contact.bodyA.node?.physicsBody?.categoryBitMask = 0
+                contact.bodyA.node?.removeFromParent()
+            }
+            else if contact.bodyB.node?.name == "star" {
+                playerStateMachine.enter(GodState.self)
+                contact.bodyB.node?.physicsBody?.categoryBitMask = 0
+                contact.bodyB.node?.removeFromParent()
             }
         }
     }
