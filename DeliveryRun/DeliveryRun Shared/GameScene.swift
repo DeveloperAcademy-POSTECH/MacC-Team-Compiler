@@ -49,22 +49,20 @@ class GameScene: SKScene {
     var previousTimeInterval:TimeInterval = 0.0
     
     // Timer & Speeder & Location
-    var timerNode: SKNode?
     var timeText: SKLabelNode?
     var timer = Timer()
     var totalTime = 100
     var passedTime = 0
     
-    var speederNode: SKNode?
     var speederText: SKLabelNode?
     var score: Int = 0
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
     
-    var location: SKNode?
+    var status: SKNode?
     var locationIcon: SKNode?
-    var locationBarLength = 600.0
+    var locationBarLength = 530.0
     var positionEndZone = 4200.0
     
     
@@ -88,14 +86,12 @@ class GameScene: SKScene {
         // Delegate 연결
         sceneDelegate = self.viewController
         
-        // Timer & Speeder & Location
-        timerNode = childNode(withName: "timer")
-        timeText = timerNode?.childNode(withName: "time") as? SKLabelNode
-        speederNode = childNode(withName: "speeder")
-        speederText = speederNode?.childNode(withName: "speed") as? SKLabelNode
+        status = childNode(withName: "status")
+        locationIcon = status?.childNode(withName: "locationIcon")
         
-        location = childNode(withName: "location")
-        locationIcon = location?.childNode(withName: "locationIcon")
+        // Timer & Speeder & Location\
+        timeText = status?.childNode(withName: "time") as? SKLabelNode
+        speederText = status?.childNode(withName: "speed") as? SKLabelNode
         
         // Collision
         physicsWorld.contactDelegate = self
@@ -273,22 +269,20 @@ extension GameScene {
         } else {
             running(deltaTime: deltaTime)
         }
-        timeText!.text = String(format: "%D", passedTime)
-        speederText!.text = String(format: "%.2f", playerSpeed)
-        locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 300
+        timeText?.text = String(format: "%D", passedTime)
+        speederText?.text = String(format: "%.2f", playerSpeed)
+        locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 250
         
         
         // Node 위치 지정
         cameraNode?.position.x = player!.position.x
-        location?.position.x = (cameraNode?.position.x)!
-        timerNode?.position.x = (cameraNode?.position.x)! - 400
-        speederNode?.position.x = (cameraNode?.position.x)! - 400
-        jumpButton?.position.x = (cameraNode?.position.x)! - 300
-        jumpButton?.position.y = (cameraNode?.position.y)! - 120
-        accelButton?.position.x = (cameraNode?.position.x)! + 220
-        accelButton?.position.y = (cameraNode?.position.y)! - 120
-        breakButton?.position.x = (cameraNode?.position.x)! + 320
-        breakButton?.position.y = (cameraNode?.position.y)! - 120
+        status?.position.x = (cameraNode?.position.x)!
+        jumpButton?.position.x = (cameraNode?.position.x)! - 450
+        jumpButton?.position.y = (cameraNode?.position.y)! - 200
+        accelButton?.position.x = (cameraNode?.position.x)! + 250
+        accelButton?.position.y = (cameraNode?.position.y)! - 200
+        breakButton?.position.x = (cameraNode?.position.x)! + 450
+        breakButton?.position.y = (cameraNode?.position.y)! - 200
         
         // Parallax Animation
         parallaxAnimation()

@@ -45,7 +45,7 @@ class JumpingState: PlayerState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         if hasFinishedJumping && stateClass is LandingState.Type { return true }
         if hasFinishedJumping && stateClass is DamageState.Type { return true }
-        if hasFinishedJumping && stateClass is GodState.Type { return true }
+        if stateClass is GodState.Type { return true }
         return false
     }
     
@@ -69,7 +69,7 @@ class LandingState: PlayerState {
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
-        case is LandingState.Type, is JumpingState.Type: return false
+        case is LandingState.Type,is DamageState.Type, is JumpingState.Type: return false
         default: return true
         }
     }
@@ -130,7 +130,7 @@ class DamageState: PlayerState {
         
         if isDamaged { return false }
         switch stateClass {
-        case is RunningState.Type: return true
+        case is RunningState.Type, is JumpingState.Type: return true
         default: return false
         }
     }
@@ -158,8 +158,8 @@ class DamageState: PlayerState {
 class GodState: PlayerState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
-        case is GodState.Type: return true
-        default: return false
+        case is GodState.Type, is DamageState.Type: return false
+        default: return true
         }
     }
     let action = SKAction.scale(by: 2.0, duration: 3)
@@ -169,9 +169,9 @@ class GodState: PlayerState {
         
         playerNode.run(SKAction.sequence([action, action2]))
         playerNode.physicsBody?.categoryBitMask = 0
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 4, repeats: false) { (timer) in
+            self.stateMachine?.enter(LandingState.self)
             self.playerNode.physicsBody?.categoryBitMask = 2
-            self.stateMachine?.enter(RunningState.self)
         }
     }
 }
