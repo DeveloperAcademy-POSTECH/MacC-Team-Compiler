@@ -269,12 +269,12 @@
                                         <rect key="frame" x="228.66666666666663" y="75.666666666666686" width="347" height="145"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UY6-2v-EP0">
-                                        <rect key="frame" x="369.66666666666669" y="146" width="65" height="100"/>
+                                        <rect key="frame" x="372" y="146" width="60.333333333333314" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="O6k-TX-kXy"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="20"/>
-                                        <color key="textColor" systemColor="systemTealColor"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIs-BW-tRs" customClass="gameButton" customModule="DeliveryRun" customModuleProvider="target">
@@ -290,7 +290,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="SIs-BW-tRs" firstAttribute="centerX" secondItem="M8S-m9-eqB" secondAttribute="centerX" id="CwK-ic-hbm"/>
                                     <constraint firstAttribute="bottom" secondItem="SIs-BW-tRs" secondAttribute="bottom" constant="10" id="DDH-Ae-6ZV"/>
@@ -323,7 +323,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CjE-AT-5xY"/>
+        <segue reference="6Bt-nA-FZS"/>
         <segue reference="S85-Pm-hni"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -335,9 +335,6 @@
         <image name="player0" width="360" height="366"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

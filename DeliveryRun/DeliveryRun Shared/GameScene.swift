@@ -86,7 +86,9 @@ class GameScene: SKScene {
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+
+
         
         // Delegate 연결
         sceneDelegate = self.viewController
@@ -132,6 +134,9 @@ class GameScene: SKScene {
 // MARK: Touches
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !gameStart {
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        }
         gameStart = true
         for touch in touches {
             if let jumpArea = jumpArea {
