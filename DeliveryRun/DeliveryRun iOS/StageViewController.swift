@@ -15,8 +15,6 @@ class StageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        
         StageDetailView.layer.cornerRadius = 10
         StageDetailView.layer.masksToBounds = true
         stageStartBtn.setTitle("스테이지 시작", for: .normal)
@@ -30,13 +28,20 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StageCell", for: indexPath) as! StageCell
-        cell.stageLevel.text = String(format: "Stage Levle: %D", indexPath.row)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stagecell", for: indexPath) as! StageCell
+        cell.stageLabel.text = String(format: "Stage %d", indexPath.row)
         return cell
     }
 }
 
 extension StageViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            let width = 90
+            let height = 90
+            let size = CGSize(width: width, height: width)
+            return size
+        }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
