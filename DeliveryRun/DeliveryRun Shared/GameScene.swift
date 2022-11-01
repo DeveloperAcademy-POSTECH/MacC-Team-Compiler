@@ -11,7 +11,6 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    
     // GameOver Delegate 사용
     var viewController: GameViewController!
     var recordTime: Int = 0
@@ -23,11 +22,6 @@ class GameScene: SKScene {
     var neonsigns2 : SKNode?
     var neonsigns3 : SKNode?
     var moon : SKShapeNode?
-    
-//    // Obstacles
-//    var obstacles: SKNode?
-//    var car: SKNode?
-    
     
     // Buttons
     var jumpButton: SKNode?
@@ -87,9 +81,6 @@ class GameScene: SKScene {
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
         
-
-
-        
         // Delegate 연결
         sceneDelegate = self.viewController
         status = childNode(withName: "status")
@@ -138,6 +129,7 @@ extension GameScene {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         }
         gameStart = true
+        
         for touch in touches {
             if let jumpArea = jumpArea {
                 let location = touch.location(in: jumpButton!)
@@ -155,7 +147,6 @@ extension GameScene {
                 }
             }
             
-            
             if let breakArea = breakArea {
                 let location = touch.location(in: breakButton!)
                 breakAction = breakArea.frame.contains(location)
@@ -163,6 +154,7 @@ extension GameScene {
                     breaking(deltaTime: 0)
                 }
             }
+            
             let location = touch.location(in: self)
             if !(jumpButton?.contains(location))! {
                 jumpAction = false
@@ -177,7 +169,6 @@ extension GameScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         for touch in touches {
             let jumpButtonArea = touch.location(in: jumpButton!)
             jumpAction = jumpArea!.frame.contains(jumpButtonArea)
@@ -239,6 +230,7 @@ extension GameScene {
         }
         playerStateMachine.enter(AccelingState.self)
     }
+    
     func breaking(deltaTime:TimeInterval) {
         if playerSpeed < minSpeed {
             playerSpeed = minSpeed
@@ -246,6 +238,7 @@ extension GameScene {
         playerSpeed -= deltaTime / 5
         playerStateMachine.enter(BreakingState.self)
     }
+    
     func damaging() {
         playerSpeed = minSpeed
         playerStateMachine.enter(DamageState.self)
@@ -262,12 +255,12 @@ extension GameScene {
         self.sceneDelegate?.popupGameOver()
         self.sceneDelegate?.getTimeRap(recordTime: passedTime)
     }
-    
 }
 
 // MARK: GameLoop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
+        
         // Player 횡스크롤 이동
         if currentTime > 1 {
             previousTimeInterval = currentTime - 1
@@ -277,6 +270,7 @@ extension GameScene {
         let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
         let move = SKAction.move(by: diplacement, duration: 0)
         player!.run(SKAction.sequence([move]))
+        
         if jumpAction {
             jumping()
         } else if accelAction {
@@ -286,10 +280,10 @@ extension GameScene {
         } else {
             running(deltaTime: deltaTime)
         }
+        
         timeText?.text = String(format: "%D", passedTime)
         speederText?.text = String(format: "%.2f", playerSpeed)
         locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 250
-        
         
         // Node 위치 지정®
         cameraNode?.position.x = player!.position.x + 300
@@ -300,10 +294,6 @@ extension GameScene {
         accelButton?.position.y = (cameraNode?.position.y)! - 200
         breakButton?.position.x = (cameraNode?.position.x)! + 450
         breakButton?.position.y = (cameraNode?.position.y)! - 200
-        
-//        // Parallax Animation
-//        parallaxAnimation()
-        
     }
 }
 
@@ -312,7 +302,6 @@ extension GameScene {
 extension GameScene: SKPhysicsContactDelegate {
     
     struct Collision {
-        
         enum Masks: Int {
             case damage, player, reward, ground, ending
             var bitmask: UInt32 { return 1 << self.rawValue }
@@ -348,8 +337,7 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .reward) {
-            // Drink 획득하는경우
-            
+            // Drink 획득하는 경우
             if contact.bodyA.node?.name == "drink" {
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyA.node?.removeFromParent()
@@ -361,8 +349,7 @@ extension GameScene: SKPhysicsContactDelegate {
                 playerSpeed += 10
             }
             
-            // Star획득하는경우
-            
+            // Star 획득하는 경우
             if contact.bodyA.node?.name == "star" {
                 playerStateMachine.enter(GodState.self)
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
@@ -375,13 +362,4 @@ extension GameScene: SKPhysicsContactDelegate {
             }
         }
     }
-}
-
-
-// MARK: ParallaxAnimation
-extension GameScene {
-//    func parallaxAnimation() {
-//        let parallax2 = SKAction.moveTo(x: (player?.position.x)! / (20), duration: 0.0)
-//        neonsigns2?.run(parallax2)
-//    }
 }
