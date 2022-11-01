@@ -18,9 +18,6 @@ class GameScene: SKScene {
     
     // Player And LandScape
     var player: SKNode?
-    var neonsigns : SKNode?
-    var neonsigns2 : SKNode?
-    var neonsigns3 : SKNode?
     var moon : SKShapeNode?
     
     // Buttons
@@ -96,9 +93,6 @@ class GameScene: SKScene {
         // Scene.sks Node 연결
         player = childNode(withName: "player")
         cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
-        neonsigns = childNode(withName: "neonsigns")
-        neonsigns2 = childNode(withName: "neonsigns2")
-        neonsigns3 = childNode(withName: "neonsigns3")
         
         // Button생성 및 세팅
         jumpButton = childNode(withName: "jumpButton")
@@ -257,10 +251,10 @@ extension GameScene {
     }
 }
 
-// MARK: GameLoop
+
+// MARK: Game Loop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
-        
         // Player 횡스크롤 이동
         if currentTime > 1 {
             previousTimeInterval = currentTime - 1
@@ -300,7 +294,6 @@ extension GameScene {
 
 // MARK: Collision
 extension GameScene: SKPhysicsContactDelegate {
-    
     struct Collision {
         enum Masks: Int {
             case damage, player, reward, ground, ending
