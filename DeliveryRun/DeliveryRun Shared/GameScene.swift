@@ -28,6 +28,9 @@ class GameScene: SKScene {
     var breakButton: SKNode?
     var breakArea: SKNode?
     
+    // Screen
+    var pauseScreen: SKNode = PauseScreen()
+    
     // Boolean
     var jumpAction = false
     var accelAction = false
@@ -82,6 +85,7 @@ class GameScene: SKScene {
         sceneDelegate = self.viewController
         physicsWorld.contactDelegate = self
         
+        // Node 생성
         setupNode()
         
         // PlayerState 가져오기
@@ -115,6 +119,8 @@ class GameScene: SKScene {
         accelArea = accelButton?.childNode(withName: "accelArea")
         breakButton = childNode(withName: "breakButton")
         breakArea = breakButton?.childNode(withName: "breakArea")
+        
+        addChild(pauseScreen)
         
     }
 }
