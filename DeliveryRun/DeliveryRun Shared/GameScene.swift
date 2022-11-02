@@ -80,27 +80,9 @@ class GameScene: SKScene {
         
         // Delegate 연결
         sceneDelegate = self.viewController
-        status = childNode(withName: "status")
-        locationIcon = status?.childNode(withName: "locationIcon")
-        
-        // Timer & Speeder & Location\
-        timeText = status?.childNode(withName: "time") as? SKLabelNode
-        speederText = status?.childNode(withName: "speed") as? SKLabelNode
-        
-        // Collision
         physicsWorld.contactDelegate = self
         
-        // Scene.sks Node 연결
-        player = childNode(withName: "player")
-        cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
-        
-        // Button생성 및 세팅
-        jumpButton = childNode(withName: "jumpButton")
-        jumpArea = jumpButton?.childNode(withName: "jumpArea")
-        accelButton = childNode(withName: "accelButton")
-        accelArea = accelButton?.childNode(withName: "accelArea")
-        breakButton = childNode(withName: "breakButton")
-        breakArea = breakButton?.childNode(withName: "breakArea")
+        setupNode()
         
         // PlayerState 가져오기
         playerStateMachine = GKStateMachine(states: [
@@ -113,6 +95,27 @@ class GameScene: SKScene {
             GodState(playerNode:player!)
         ])
         playerStateMachine.enter(RunningState.self)
+    }
+    
+    private func setupNode() {
+        // Status Bar
+        status = childNode(withName: "status")
+        locationIcon = status?.childNode(withName: "locationIcon")
+        timeText = status?.childNode(withName: "time") as? SKLabelNode
+        speederText = status?.childNode(withName: "speed") as? SKLabelNode
+        
+        // Node 연결
+        player = childNode(withName: "player")
+        cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
+        
+        // Button Node 연결
+        jumpButton = childNode(withName: "jumpButton")
+        jumpArea = jumpButton?.childNode(withName: "jumpArea")
+        accelButton = childNode(withName: "accelButton")
+        accelArea = accelButton?.childNode(withName: "accelArea")
+        breakButton = childNode(withName: "breakButton")
+        breakArea = breakButton?.childNode(withName: "breakArea")
+        
     }
 }
 
