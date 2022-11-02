@@ -9,4 +9,6 @@ import UIKit
 
 extension UIColor {
     static let deliveryrunBlack = UIColor(named:"deliveryrunBlack")
+    static let deliveryrunMint = UIColor(named:"deliveryrunMint")
+    static let deliveryrunRed = UIColor(named:"deliveryrunRed")
 }

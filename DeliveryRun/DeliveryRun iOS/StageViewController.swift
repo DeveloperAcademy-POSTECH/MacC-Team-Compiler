@@ -37,7 +37,6 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
 extension StageViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let width = 90
-            let height = 90
             let size = CGSize(width: width, height: width)
             return size
         }

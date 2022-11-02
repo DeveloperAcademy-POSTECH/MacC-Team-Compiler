@@ -23,6 +23,7 @@
 		6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */; };
 		6FA60FAF28F69431003846EF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA60FAE28F69431003846EF /* Color.swift */; };
 		6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */; };
+		6FE9943D29123850004753BA /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE9943C29123850004753BA /* HUD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileSet.sks; sourceTree = "<group>"; };
 		6FA60FAE28F69431003846EF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
+		6FE9943C29123850004753BA /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				6F28EE9628F5444500D7330F /* GameScene.sks */,
 				6F28EE9728F5444500D7330F /* GameScene.swift */,
 				6372509328FFC7F700117CF8 /* PlayerState.swift */,
+				6FE9943C29123850004753BA /* HUD.swift */,
 				6FA60FAD28F69423003846EF /* Style */,
 				6F28EE9828F5444600D7330F /* Assets.xcassets */,
 			);
@@ -203,6 +206,7 @@
 				6F28EEA328F5444600D7330F /* RobbyViewController.swift in Sources */,
 				6F2F6C2028FB3A9B000B9507 /* StageViewController.swift in Sources */,
 				6FA60FAF28F69431003846EF /* Color.swift in Sources */,
+				6FE9943D29123850004753BA /* HUD.swift in Sources */,
 				6F31E19C290AAD9B00F138D0 /* StageCell.swift in Sources */,
 				6F28EEA128F5444600D7330F /* AppDelegate.swift in Sources */,
 			);
