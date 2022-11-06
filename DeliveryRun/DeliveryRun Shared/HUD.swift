@@ -9,6 +9,7 @@ import SpriteKit
 
 // Pause Screen
 class PauseScreen:SKNode {
+    private var pauseBackground: SKShapeNode!
     private var pauseBase: SKShapeNode!
     private var titleLabel: SKLabelNode!
     private var playButton: SKSpriteNode!
@@ -26,8 +27,14 @@ class PauseScreen:SKNode {
     }
     
     private func appearPause() {
-        
         isUserInteractionEnabled = true
+        
+        // Background
+        pauseBackground = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        pauseBackground.fillColor = UIColor.white.withAlphaComponent(0.6)
+        pauseBackground.zPosition = 10.0
+        pauseBackground.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
+        addChild(pauseBackground)
         
         // Pause Background
         pauseBase = SKShapeNode(rectOf: CGSize(width: 270, height: 135), cornerRadius: 10)
