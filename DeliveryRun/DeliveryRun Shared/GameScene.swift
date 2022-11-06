@@ -25,6 +25,7 @@ class GameScene: SKScene {
     var jumpButton: SKNode?
     var accelButton: SKNode?
     var breakButton: SKNode?
+    var pauseButton: SKNode?
     
     // Screen
     var pauseScreen: SKNode = PauseScreen()
@@ -116,6 +117,7 @@ class GameScene: SKScene {
         jumpButton = Button?.childNode(withName: "jumpButton")
         accelButton = Button?.childNode(withName: "accelButton")
         breakButton = Button?.childNode(withName: "breakButton")
+        pauseButton = Button?.childNode(withName: "pauseButton")
         
         addChild(pauseScreen)
     }
