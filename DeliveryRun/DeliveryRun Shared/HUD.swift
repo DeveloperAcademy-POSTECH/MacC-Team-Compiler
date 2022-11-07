@@ -7,14 +7,32 @@
 
 import SpriteKit
 
-// Pause Screen
+// MARK: - Pause Screen
 class PauseScreen:SKNode {
+    // Nodes
     private var pauseBackground: SKShapeNode!
     private var pauseBase: SKShapeNode!
     private var titleLabel: SKLabelNode!
     private var playButton: SKSpriteNode!
     private var restartButton: SKSpriteNode!
     private var homeButton: SKSpriteNode!
+    
+    // Boolean
+    private var isPlay = false {
+        didSet {
+            updateBtn(node:playButton, event: isPlay)
+        }
+    }
+    private var isRestart = false {
+        didSet {
+            updateBtn(node:restartButton, event: isRestart)
+        }
+    }
+    private var isHome = false {
+        didSet {
+            updateBtn(node:homeButton, event: isHome)
+        }
+    }
     
     // Initialize
     override init() {
@@ -26,6 +44,65 @@ class PauseScreen:SKNode {
         super.init(coder: aDecoder)
     }
     
+    // Touches
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        guard let touch = touches.first else { return }
+        let node = atPoint(touch.location(in: self))
+        
+        if node.name == "Resume" && !isPlay {
+            isPlay = true
+        }
+        if node.name == "Restart" && !isRestart {
+            isRestart = true
+        }
+        if node.name == "Home" && !isHome {
+            isHome = true
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        
+        if isPlay {
+            isPlay = false
+            removeNode()
+            print("resume")
+        }
+        if isRestart {
+            isRestart = false
+            print("restart")
+        }
+        if isHome {
+            isHome = false
+            print("home")
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        guard let touch = touches.first else { return }
+        
+        if let parent = playButton.parent {
+            isPlay = playButton.contains(touch.location(in: parent))
+        }
+        if let parent = restartButton.parent {
+            isRestart = restartButton.contains(touch.location(in: parent))
+        }
+        if let parent = homeButton.parent {
+            isHome = homeButton.contains(touch.location(in: parent))
+        }
+    }
+    
+    private func updateBtn(node: SKNode, event: Bool) {
+        var alpha: CGFloat = 1.0
+        if event {
+            alpha = 0.5
+        }
+        node.run(.fadeAlpha(to: alpha, duration: 0.1))
+    }
+    
+    // Pause Setup
     private func appearPause() {
         isUserInteractionEnabled = true
         
@@ -33,14 +110,13 @@ class PauseScreen:SKNode {
         pauseBackground = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         pauseBackground.fillColor = UIColor.white.withAlphaComponent(0.6)
         pauseBackground.zPosition = 10.0
-        pauseBackground.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
         addChild(pauseBackground)
         
         // Pause Background
         pauseBase = SKShapeNode(rectOf: CGSize(width: 270, height: 135), cornerRadius: 10)
         pauseBase.fillColor = UIColor.deliveryrunBlack!.withAlphaComponent(0.6)
         pauseBase.zPosition = 20.0
-        pauseBase.position = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
+        pauseBase.position = CGPoint(x: pauseBackground.frame.midX, y: pauseBackground.frame.midY)
         addChild(pauseBase)
         
         // Pause Title
@@ -54,20 +130,33 @@ class PauseScreen:SKNode {
         
         // Play Button
         playButton = SKSpriteNode(imageNamed: "Play")
+        playButton.name = "Resume"
         playButton.position = CGPoint(x: pauseBase.frame.midX - (pauseBase.frame.width / 3) + 5, y: pauseBase.frame.midY - 15)
         playButton.zPosition = 30.0
         addChild(playButton)
         
         // Restart Button
         restartButton = SKSpriteNode(imageNamed: "Restart")
+        restartButton.name = "Restart"
         restartButton.position = CGPoint(x: pauseBase.frame.midX, y: pauseBase.frame.midY - 15)
         restartButton.zPosition = 30.0
         addChild(restartButton)
         
         // Home Button
         homeButton = SKSpriteNode(imageNamed: "Home")
+        homeButton.name = "Home"
         homeButton.position = CGPoint(x: pauseBase.frame.midX + (pauseBase.frame.width / 3) - 5, y: pauseBase.frame.midY - 15)
         homeButton.zPosition = 30.0
         addChild(homeButton)
+    }
+    
+    // Remove
+    private func removeNode() {
+        playButton.removeFromParent()
+        restartButton.removeFromParent()
+        homeButton.removeFromParent()
+        titleLabel.removeFromParent()
+        pauseBase.removeFromParent()
+        pauseBackground.removeFromParent()
     }
 }

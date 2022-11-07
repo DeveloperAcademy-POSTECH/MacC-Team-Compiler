@@ -28,7 +28,7 @@ class GameScene: SKScene {
     var pauseButton: SKNode?
     
     // Screen
-    var pauseScreen: SKNode = PauseScreen()
+    private let pauseScreen: SKNode = PauseScreen()
     
     // Boolean
     var jumpAction = false
@@ -70,14 +70,6 @@ class GameScene: SKScene {
     let timeLabel = SKLabelNode()
     let scoreLabel = SKLabelNode()
     
-    @objc func updateTimer() {
-        if totalTime > passedTime {
-            passedTime += 1
-        } else {
-            timer.invalidate()
-        }
-    }
-    
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
         
@@ -118,13 +110,12 @@ class GameScene: SKScene {
         accelButton = Button?.childNode(withName: "accelButton")
         breakButton = Button?.childNode(withName: "breakButton")
         pauseButton = Button?.childNode(withName: "pauseButton")
-        
-        addChild(pauseScreen)
     }
 }
 
 // MARK: Touches
 extension GameScene {
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !gameStart {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
@@ -138,6 +129,11 @@ extension GameScene {
             accelAction = accelButton!.frame.contains(location)
             breakAction = breakButton!.frame.contains(location)
             
+            if pauseButton!.frame.contains(location) {
+                isGamePaused = true
+                cameraNode!.addChild(pauseScreen)
+            }
+            
             if jumpAction {
                 jumping()
             }
@@ -147,6 +143,7 @@ extension GameScene {
             if breakAction {
                 breaking(deltaTime: 0)
             }
+            
             
             if !(jumpButton?.contains(location))! {
                 jumpAction = false
@@ -182,9 +179,17 @@ extension GameScene {
             }
         }
     }
+    
+    @objc func updateTimer() {
+        if totalTime > passedTime {
+            passedTime += 1
+        } else {
+            timer.invalidate()
+        }
+    }
 }
 
-// MARK: GameAcion
+// MARK: Game Acion
 extension GameScene {
     func running(deltaTime:TimeInterval) {
         if !(gameStart) {
@@ -251,34 +256,36 @@ extension GameScene {
 // MARK: Game Loop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
-        // Player 횡스크롤 이동
-        if currentTime > 1 {
-            previousTimeInterval = currentTime - 1
+        if !isGamePaused {
+            // Player 횡스크롤 이동
+            if currentTime > 1 {
+                previousTimeInterval = currentTime - 1
+            }
+            let deltaTime = currentTime - previousTimeInterval
+            previousTimeInterval = currentTime
+            let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
+            let move = SKAction.move(by: diplacement, duration: 0)
+            player!.run(SKAction.sequence([move]))
+            
+            if jumpAction {
+                jumping()
+            } else if accelAction {
+                acceling(deltaTime: deltaTime)
+            } else if breakAction {
+                breaking(deltaTime: deltaTime)
+            } else {
+                running(deltaTime: deltaTime)
+            }
+            
+            timeText?.text = String(format: "%D", passedTime)
+            speederText?.text = String(format: "%.2f", playerSpeed)
+            locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 250
+            
+            // Node 위치 지정®
+            cameraNode?.position.x = player!.position.x + 300
+            status?.position.x = (cameraNode?.position.x)!
+            Button?.position.x = (cameraNode?.position.x)!
         }
-        let deltaTime = currentTime - previousTimeInterval
-        previousTimeInterval = currentTime
-        let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
-        let move = SKAction.move(by: diplacement, duration: 0)
-        player!.run(SKAction.sequence([move]))
-        
-        if jumpAction {
-            jumping()
-        } else if accelAction {
-            acceling(deltaTime: deltaTime)
-        } else if breakAction {
-            breaking(deltaTime: deltaTime)
-        } else {
-            running(deltaTime: deltaTime)
-        }
-        
-        timeText?.text = String(format: "%D", passedTime)
-        speederText?.text = String(format: "%.2f", playerSpeed)
-        locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 250
-        
-        // Node 위치 지정®
-        cameraNode?.position.x = player!.position.x + 300
-        status?.position.x = (cameraNode?.position.x)!
-        Button?.position.x = (cameraNode?.position.x)!
     }
 }
 
