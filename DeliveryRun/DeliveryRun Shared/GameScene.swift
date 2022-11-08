@@ -28,7 +28,7 @@ class GameScene: SKScene {
     var pauseButton: SKNode?
     
     // Screen
-    private let pauseScreen: SKNode = PauseScreen()
+    private let pauseScreen = PauseScreen()
     
     // Boolean
     var jumpAction = false
@@ -132,6 +132,8 @@ extension GameScene {
             if pauseButton!.frame.contains(location) {
                 isGamePaused = true
                 cameraNode!.addChild(pauseScreen)
+                pauseScreen.skView = view
+                pauseScreen.gameScene = self
             }
             
             if jumpAction {
@@ -276,16 +278,16 @@ extension GameScene {
             } else {
                 running(deltaTime: deltaTime)
             }
-            
-            timeText?.text = String(format: "%D", passedTime)
-            speederText?.text = String(format: "%.2f", playerSpeed)
-            locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 250
-            
-            // Node 위치 지정®
-            cameraNode?.position.x = player!.position.x + 300
-            status?.position.x = (cameraNode?.position.x)!
-            Button?.position.x = (cameraNode?.position.x)!
         }
+        
+        timeText?.text = String(format: "%D", passedTime)
+        speederText?.text = String(format: "%.2f", playerSpeed)
+        locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 250
+        
+        // Node 위치 지정
+        cameraNode?.position.x = player!.position.x + 300
+        status?.position.x = (cameraNode?.position.x)!
+        Button?.position.x = (cameraNode?.position.x)!
     }
 }
 

@@ -8,7 +8,7 @@
 import SpriteKit
 
 // MARK: - Pause Screen
-class PauseScreen:SKNode {
+class PauseScreen: SKNode {
     // Nodes
     private var pauseBackground: SKShapeNode!
     private var pauseBase: SKShapeNode!
@@ -16,6 +16,9 @@ class PauseScreen:SKNode {
     private var playButton: SKSpriteNode!
     private var restartButton: SKSpriteNode!
     private var homeButton: SKSpriteNode!
+    
+    var gameScene: GameScene?
+    var skView: SKView!
     
     // Boolean
     private var isPlay = false {
@@ -66,16 +69,19 @@ class PauseScreen:SKNode {
         
         if isPlay {
             isPlay = false
-            removeNode()
-            print("resume")
+            gameScene?.isGamePaused = false
+            self.removeFromParent()
         }
         if isRestart {
+            if let _ = gameScene {
+                let scene = GameScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+                scene.scaleMode = .aspectFill
+                skView.presentScene(scene, transition: .doorway(withDuration: 1))
+            }
             isRestart = false
-            print("restart")
         }
         if isHome {
             isHome = false
-            print("home")
         }
     }
     
@@ -148,15 +154,5 @@ class PauseScreen:SKNode {
         homeButton.position = CGPoint(x: pauseBase.frame.midX + (pauseBase.frame.width / 3) - 5, y: pauseBase.frame.midY - 15)
         homeButton.zPosition = 30.0
         addChild(homeButton)
-    }
-    
-    // Remove
-    private func removeNode() {
-        playButton.removeFromParent()
-        restartButton.removeFromParent()
-        homeButton.removeFromParent()
-        titleLabel.removeFromParent()
-        pauseBase.removeFromParent()
-        pauseBackground.removeFromParent()
     }
 }
