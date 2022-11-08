@@ -70,6 +70,9 @@ class GameScene: SKScene {
     let timeLabel = SKLabelNode()
     let scoreLabel = SKLabelNode()
     
+    // Sound
+    
+    
     @objc func updateTimer() {
         if totalTime > passedTime {
             passedTime += 1
