@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -44,10 +45,11 @@
                                     <constraint firstAttribute="height" constant="35" id="Nvk-5T-gKg"/>
                                     <constraint firstAttribute="width" constant="35" id="ll4-q5-QmB"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="deliveryrunYellow"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="gearshape.fill" catalog="system">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" name="deliveryrunYellow"/>
+                                    <color key="titleShadowColor" name="deliveryrunYellow"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>
                             </button>
@@ -112,7 +114,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="yym-sq-zd1"/>
                                     <constraint firstAttribute="width" constant="35" id="z9Y-tq-fcV"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="deliveryrunYellow"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="gearshape.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -129,7 +131,7 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="35" id="iWr-eL-mYR"/>
                                     <constraint firstAttribute="width" constant="35" id="nlz-n9-1Pr"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="deliveryrunYellow"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="arrowshape.left.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -321,7 +323,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6Bt-nA-FZS"/>
+        <segue reference="CjE-AT-5xY"/>
         <segue reference="S85-Pm-hni"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -331,6 +333,9 @@
         <image name="gameclear" width="347" height="145"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="player0" width="360" height="366"/>
+        <namedColor name="deliveryrunYellow">
+            <color red="1" green="0.89803921568627454" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
