@@ -12,6 +12,7 @@ import GameplayKit
 
 protocol GameSceneDelegate {
     func popupGameOver()
+    func changeView()
     func getTimeRap(recordTime:Int)
 }
 
@@ -24,6 +25,10 @@ class GameViewController: UIViewController, GameSceneDelegate {
     
     func popupGameOver() {
         popupView.isHidden = false
+    }
+    
+    func changeView() {
+        self.present(StageViewController(), animated: false)
     }
 
     func getTimeRap(recordTime paasedTime:Int) {
@@ -47,8 +52,6 @@ class GameViewController: UIViewController, GameSceneDelegate {
                 // Present the scene
                 if let view = self.view as! SKView? {
                     view.presentScene(sceneNode)
-                    
-                    // 모든 노드가 Z축 활성화
                     view.ignoresSiblingOrder = false
                 }
             }

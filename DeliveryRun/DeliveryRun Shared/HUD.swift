@@ -81,6 +81,7 @@ class PauseScreen: SKNode {
             isRestart = false
         }
         if isHome {
+            gameScene?.sceneDelegate?.changeView()
             isHome = false
         }
     }

@@ -115,7 +115,6 @@ class GameScene: SKScene {
 
 // MARK: Touches
 extension GameScene {
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !gameStart {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
