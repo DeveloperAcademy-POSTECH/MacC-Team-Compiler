@@ -14,7 +14,7 @@
 		63EFFF69291A40C1005FF169 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFFF68291A40C1005FF169 /* SoundPlayer.swift */; };
 		6F28EEA128F5444600D7330F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28EEA028F5444600D7330F /* AppDelegate.swift */; };
 		6F28EEA328F5444600D7330F /* RobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28EEA228F5444600D7330F /* RobbyViewController.swift */; };
-		6F28EEA628F5444600D7330F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EEA428F5444600D7330F /* Main.storyboard */; };
+		6F28EEA628F5444600D7330F /* Robby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EEA428F5444600D7330F /* Robby.storyboard */; };
 		6F28EEA928F5444600D7330F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EEA728F5444600D7330F /* LaunchScreen.storyboard */; };
 		6F28EEAA28F5444600D7330F /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9528F5444500D7330F /* Actions.sks */; };
 		6F28EEAB28F5444600D7330F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9628F5444500D7330F /* GameScene.sks */; };
@@ -30,6 +30,8 @@
 		6F4B8BD0291E2387000990EA /* sound6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63EFFF6F291A42BA005FF169 /* sound6.mp3 */; };
 		6F4B8BD1291E2389000990EA /* ingame.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63EFFF6E291A42B9005FF169 /* ingame.mp3 */; };
 		6F4B8BD2291E238B000990EA /* robby.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63EFFF6D291A42B9005FF169 /* robby.mp3 */; };
+		6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4B8BD3291E26D5000990EA /* Stage.storyboard */; };
+		6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4B8BD7291E2E99000990EA /* Game.storyboard */; };
 		6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */; };
 		6FA60FAF28F69431003846EF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA60FAE28F69431003846EF /* Color.swift */; };
 		6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */; };
@@ -58,10 +60,12 @@
 		6F28EE9D28F5444600D7330F /* DeliveryRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F28EEA028F5444600D7330F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F28EEA228F5444600D7330F /* RobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobbyViewController.swift; sourceTree = "<group>"; };
-		6F28EEA528F5444600D7330F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6F28EEA528F5444600D7330F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Robby.storyboard; sourceTree = "<group>"; };
 		6F28EEA828F5444600D7330F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6F2F6C1F28FB3A9B000B9507 /* StageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewController.swift; sourceTree = "<group>"; };
 		6F31E19B290AAD9B00F138D0 /* StageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
+		6F4B8BD3291E26D5000990EA /* Stage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stage.storyboard; sourceTree = "<group>"; };
+		6F4B8BD7291E2E99000990EA /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileSet.sks; sourceTree = "<group>"; };
 		6FA60FAE28F69431003846EF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
@@ -147,7 +151,9 @@
 				6F2F6C1F28FB3A9B000B9507 /* StageViewController.swift */,
 				63DC0EAA28F5863100B145B9 /* GameViewController.swift */,
 				6F31E19B290AAD9B00F138D0 /* StageCell.swift */,
-				6F28EEA428F5444600D7330F /* Main.storyboard */,
+				6F28EEA428F5444600D7330F /* Robby.storyboard */,
+				6F4B8BD3291E26D5000990EA /* Stage.storyboard */,
+				6F4B8BD7291E2E99000990EA /* Game.storyboard */,
 				6F28EEA728F5444600D7330F /* LaunchScreen.storyboard */,
 			);
 			path = "DeliveryRun iOS";
@@ -222,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F4B8BD1291E2389000990EA /* ingame.mp3 in Resources */,
+				6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */,
 				6F4B8BCF291E2384000990EA /* sound4.mp3 in Resources */,
 				6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */,
 				6F4B8BCB291E237B000990EA /* sound3.mp3 in Resources */,
@@ -229,9 +236,10 @@
 				6F4B8BD2291E238B000990EA /* robby.mp3 in Resources */,
 				6F28EEAB28F5444600D7330F /* GameScene.sks in Resources */,
 				6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */,
-				6F28EEA628F5444600D7330F /* Main.storyboard in Resources */,
+				6F28EEA628F5444600D7330F /* Robby.storyboard in Resources */,
 				6F4B8BCC291E237E000990EA /* sound2.mp3 in Resources */,
 				6F4B8BCD291E2380000990EA /* sound1.mp3 in Resources */,
+				6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */,
 				6F4B8BD0291E2387000990EA /* sound6.mp3 in Resources */,
 				63D689E52906E4BF001748CE /* SpriteDocument in Resources */,
 				6F28EEAA28F5444600D7330F /* Actions.sks in Resources */,
@@ -264,12 +272,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6F28EEA428F5444600D7330F /* Main.storyboard */ = {
+		6F28EEA428F5444600D7330F /* Robby.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6F28EEA528F5444600D7330F /* Base */,
 			);
-			name = Main.storyboard;
+			name = Robby.storyboard;
 			sourceTree = "<group>";
 		};
 		6F28EEA728F5444600D7330F /* LaunchScreen.storyboard */ = {
@@ -408,7 +416,7 @@
 				INFOPLIST_FILE = "DeliveryRun-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Robby;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -440,7 +448,7 @@
 				INFOPLIST_FILE = "DeliveryRun-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Robby;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";

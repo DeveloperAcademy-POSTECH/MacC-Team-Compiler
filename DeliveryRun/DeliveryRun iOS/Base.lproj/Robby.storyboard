@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x5s-P1-dMA">
+    <device id="retina6_0" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="XJA-XX-KUj">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="x5s-P1-dMA" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B6q-li-L3h">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="rootViewController" id="ZHE-ic-GZW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MzC-Fv-D3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-626" y="-3"/>
+        </scene>
+        <!--Robby View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController storyboardIdentifier="Robby" id="BV1-FR-VrT" customClass="RobbyViewController" customModule="DeliveryRun" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="RobbyBack" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNU-8W-xnK">
+                                <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-aL-qVa" customClass="gameButton" customModule="DeliveryRun" customModuleProvider="target">
+                                <rect key="frame" x="679" y="300" width="160" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="raJ-Ur-EQr"/>
+                                    <constraint firstAttribute="height" constant="50" id="xMT-qX-Ira"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="게임시작"/>
+                                <connections>
+                                    <segue destination="qCp-ty-pZp" kind="push" animates="NO" id="7Lm-g8-zS5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlC-aJ-f2j" userLabel="Setting Button">
+                                <rect key="frame" x="749" y="20" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Nvk-5T-gKg"/>
+                                    <constraint firstAttribute="width" constant="35" id="ll4-q5-QmB"/>
+                                </constraints>
+                                <color key="tintColor" name="deliveryrunYellow"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="gearshape.fill" catalog="system">
+                                    <color key="titleColor" name="deliveryrunYellow"/>
+                                    <color key="titleShadowColor" name="deliveryrunYellow"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
+                                <connections>
+                                    <action selector="SettingViewButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="CZb-8i-xhW"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player0" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-lM-3qU" userLabel="robbyplayer">
+                                <rect key="frame" x="320" y="240" width="204" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Ugu-Ck-2XJ"/>
+                                    <constraint firstAttribute="width" constant="204" id="egf-Wr-nTt"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bNo-s9-wk6"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerX" secondItem="GNU-8W-xnK" secondAttribute="centerX" id="3MC-dw-9J5"/>
+                            <constraint firstItem="GNU-8W-xnK" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="4dU-xm-KDp"/>
+                            <constraint firstItem="GNU-8W-xnK" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="J35-57-Pib"/>
+                            <constraint firstItem="fFX-aL-qVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bNo-s9-wk6" secondAttribute="leading" symbolic="YES" id="Kbu-EQ-aCR"/>
+                            <constraint firstItem="rlC-aJ-f2j" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="20" id="L7p-Yu-3Ws"/>
+                            <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="fFX-aL-qVa" secondAttribute="trailing" constant="5" id="UwI-2A-VQX"/>
+                            <constraint firstAttribute="bottom" secondItem="GNU-8W-xnK" secondAttribute="bottom" id="ZbO-Ed-7yq"/>
+                            <constraint firstAttribute="bottom" secondItem="fFX-aL-qVa" secondAttribute="bottom" constant="40" id="bor-Hv-Bff"/>
+                            <constraint firstAttribute="trailing" secondItem="rlC-aJ-f2j" secondAttribute="trailing" constant="60" id="gpM-dk-PMR"/>
+                            <constraint firstItem="GNU-8W-xnK" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailing" id="kSE-AT-s98"/>
+                            <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerY" secondItem="GNU-8W-xnK" secondAttribute="centerY" constant="95" id="oZx-E5-pfi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="TOA-kh-Zwp"/>
+                    <connections>
+                        <outlet property="SettingButton" destination="rlC-aJ-f2j" id="JTB-Cw-DGL"/>
+                        <outlet property="robbyButton" destination="fFX-aL-qVa" id="rvy-uT-YEU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.6255924170616" y="-3.0769230769230766"/>
+        </scene>
+        <!--Stage-->
+        <scene sceneID="qKu-2h-Ev4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Stage" referencedIdentifier="Stage" id="qCp-ty-pZp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="89Y-Yo-szb"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v1P-qr-cc9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="603" y="-3"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <resources>
+        <image name="RobbyBack" width="844" height="390"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="player0" width="360" height="366"/>
+        <namedColor name="deliveryrunYellow">
+            <color red="1" green="0.89803921568627454" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
