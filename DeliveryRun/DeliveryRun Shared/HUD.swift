@@ -73,15 +73,15 @@ class PauseScreen: SKNode {
             self.removeFromParent()
         }
         if isRestart {
-            if let _ = gameScene {
-                let scene = GameScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-                scene.scaleMode = .aspectFill
-                skView.presentScene(scene, transition: .doorway(withDuration: 1))
-            }
+//            if let _ = gameScene {
+//                let scene = GameScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+//                scene.scaleMode = .aspectFill
+//                skView.presentScene(scene, transition: .doorway(withDuration: 1))
+//            }
             isRestart = false
         }
         if isHome {
-            gameScene?.sceneDelegate?.changeView()
+//            gameScene?.sceneDelegate?.changeView()
             isHome = false
         }
     }
