@@ -5,10 +5,12 @@
 //  Created by David_ADA on 2022/10/11.
 //
 
+
 import Foundation
 import UIKit
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 protocol GameSceneDelegate {
     func popupGameOver()
@@ -16,6 +18,7 @@ protocol GameSceneDelegate {
 }
 class GameViewController: UIViewController, GameSceneDelegate{
     
+    var backgroundMusicPlayer = Sound(audioPlayer: AVAudioPlayer())
     
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var popupView: UIView!
@@ -24,6 +27,7 @@ class GameViewController: UIViewController, GameSceneDelegate{
     
     func popupGameOver() {
         popupView.isHidden = false
+        backgroundMusicPlayer.stopSound()
     }
 
     func getTimeRap(recordTime paasedTime:Int) {
@@ -32,6 +36,7 @@ class GameViewController: UIViewController, GameSceneDelegate{
     }
     
     override func viewDidLoad() {
+        backgroundMusicPlayer.playSound(soundName: "ingame")
         popupView.isHidden = true
         super.viewDidLoad()
         

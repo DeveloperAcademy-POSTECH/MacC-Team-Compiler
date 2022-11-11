@@ -10,15 +10,13 @@ import AVFoundation
 
 struct Sound {
     var audioPlayer: AVAudioPlayer
-    let soundName: String
     
-    init(audioPlayer: AVAudioPlayer, soundName: String) {
+    init(audioPlayer: AVAudioPlayer) {
         self.audioPlayer = audioPlayer
-        self.soundName = soundName
     }
     
-    mutating func playSound() {
-        let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
+    mutating func playSound(soundName:String) {
+        let url = Bundle.main.url(forResource: soundName, withExtension: "mp3")
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url!)
             audioPlayer.play()
@@ -30,7 +28,6 @@ struct Sound {
     mutating func stopSound() {
         audioPlayer.stop()
     }
-    
 }
 
 //class SoundController {

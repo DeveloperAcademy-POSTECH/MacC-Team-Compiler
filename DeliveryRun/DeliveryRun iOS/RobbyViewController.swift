@@ -12,6 +12,7 @@ import AVFoundation
 
 class RobbyViewController: UIViewController {
     
+    var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
     
     @IBOutlet weak var SettingView: UIView!
     @IBOutlet weak var robbyButton: gameButton!
@@ -32,11 +33,14 @@ class RobbyViewController: UIViewController {
     }
     
     @IBAction func backgroundOnOff(_ sender: UISwitch) {
-        
+        if sender.isOn {
+            sound.playSound(soundName: "robby")
+        } else {
+            sound.stopSound()
+        }
     }
     
     @IBAction func soundOnOff(_ sender: UISwitch) {
-        
         
     }
     
