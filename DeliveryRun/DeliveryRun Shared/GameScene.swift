@@ -194,14 +194,6 @@ extension GameScene {
             }
         }
     }
-    
-    @objc func updateTimer() {
-        if totalTime > passedTime {
-            passedTime += 1
-        } else {
-            timer.invalidate()
-        }
-    }
 }
 
 // MARK: Game Acion
