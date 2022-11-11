@@ -17,7 +17,6 @@ class PlayerState: GKState {
         self.playerNode = playerNode
         super.init()
     }
-    
 }
 
 // Running State
@@ -82,7 +81,6 @@ class LandingState: PlayerState {
 
 // Acceling State
 class AccelingState: PlayerState {
-    
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
         case is RunningState.Type, is JumpingState.Type, is GodState.Type: return true
