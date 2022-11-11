@@ -7,6 +7,7 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 
 class GameScene: SKScene {
@@ -69,6 +70,19 @@ class GameScene: SKScene {
     let speedLabel = SKLabelNode()
     let timeLabel = SKLabelNode()
     let scoreLabel = SKLabelNode()
+    
+    // Sound
+    let soundPlayer = SoundPlayer()
+    
+    var soundPlayerModel = Sound(audioPlayer: AVAudioPlayer())
+    
+    @objc func updateTimer() {
+        if totalTime > passedTime {
+            passedTime += 1
+        } else {
+            timer.invalidate()
+        }
+    }
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
@@ -334,11 +348,13 @@ extension GameScene: SKPhysicsContactDelegate {
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyA.node?.removeFromParent()
                 playerSpeed += 10
+                soundPlayerModel.playSound(soundName: "sound1")
             }
             else if contact.bodyB.node?.name == "drink" {
                 contact.bodyB.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyB.node?.removeFromParent()
                 playerSpeed += 10
+                soundPlayerModel.playSound(soundName: "sound1")
             }
             
             // Star 획득하는 경우
@@ -346,11 +362,13 @@ extension GameScene: SKPhysicsContactDelegate {
                 playerStateMachine.enter(GodState.self)
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyA.node?.removeFromParent()
+                soundPlayerModel.playSound(soundName: "sound2")
             }
             else if contact.bodyB.node?.name == "star" {
                 playerStateMachine.enter(GodState.self)
                 contact.bodyB.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyB.node?.removeFromParent()
+                soundPlayerModel.playSound(soundName: "sound2")
             }
         }
     }
