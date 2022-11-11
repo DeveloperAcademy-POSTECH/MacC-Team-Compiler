@@ -83,7 +83,6 @@
                     <navigationItem key="navigationItem" id="TOA-kh-Zwp"/>
                     <connections>
                         <outlet property="SettingButton" destination="rlC-aJ-f2j" id="JTB-Cw-DGL"/>
-                        <outlet property="SettingView" destination="zbW-y0-TUA" id="FGe-Tl-PIO"/>
                         <outlet property="robbyButton" destination="fFX-aL-qVa" id="rvy-uT-YEU"/>
                     </connections>
                 </viewController>
