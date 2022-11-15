@@ -113,6 +113,7 @@ class GameScene: SKScene {
         player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.height/2)
         player.scale(to: CGSize(width: 120, height: 120))
         player.physicsBody?.categoryBitMask = 2
+        player.physicsBody?.collisionBitMask = 8
         player.physicsBody?.allowsRotation = false
         player.physicsBody?.isDynamic = true
         player.physicsBody?.mass = 0.13
