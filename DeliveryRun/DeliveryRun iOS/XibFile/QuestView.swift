@@ -12,7 +12,7 @@ import UIKit
 class QuestView: UIView {
     
     
-    let nibName = "QeusetView"
+    let nibName = "QuestView"
     var contentView: UIView?
 
     required init?(coder aDecoder: NSCoder) {

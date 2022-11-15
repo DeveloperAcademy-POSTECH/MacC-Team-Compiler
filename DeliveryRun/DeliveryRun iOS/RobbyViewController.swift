@@ -12,28 +12,12 @@ import AVFoundation
 
 class RobbyViewController: UIViewController {
     
-    
-    @IBOutlet weak var hiddenView: UIView!
+    @IBOutlet weak var questView: UIView!
+    @IBOutlet weak var settingView: UIView!
     @IBOutlet weak var questButton: CustomGameButton!
     @IBOutlet weak var garageButton: CustomGameButton!
     @IBOutlet weak var startButton: CustomGameButton!
     @IBOutlet weak var settingButton: UIButton!
-    
-    func addSetingView() {
-            if let customView = Bundle.main.loadNibNamed("SettingView", owner: nil, options: nil)?.first as? UIView {
-                customView.frame.size.width = 300
-                customView.frame.size.height = 300
-                hiddenView.addSubview(customView)
-            }
-        }
-    func addQuestView() {
-            if let customView = Bundle.main.loadNibNamed("QuestView", owner: nil, options: nil)?.first as? UIView {
-                customView.frame.size.width = 300
-                customView.frame.size.height = 300
-                hiddenView.addSubview(customView)
-            }
-        }
-    
     
     var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
     override func viewDidLoad() {
@@ -43,15 +27,24 @@ class RobbyViewController: UIViewController {
         garageButton.setTitle("차고", for: .normal)
         garageButton.setImage(UIImage(systemName: "car.fill"), for: .normal)
         startButton.setTitle("배달 준비", for: .normal)
-        addQuestView()
-        addSetingView()
+        settingView.isHidden = true
+        questView.isHidden = true
+        questView.layer.opacity = 1.0
+        settingView.layer.opacity = 1.0
     }
     
     @IBAction func questPopUp(_ sender: CustomGameButton) {
-        if hiddenView.isHidden {
-            hiddenView.isHidden = false
+        if questView.isHidden {
+            questView.isHidden = false
         } else {
-            hiddenView.isHidden = true
+            questView.isHidden = true
+        }
+    }
+    @IBAction func settingPopUp(_ sender: Any) {
+        if settingView.isHidden {
+            settingView.isHidden = false
+        } else {
+            settingView.isHidden = true
         }
     }
 }

@@ -64,9 +64,8 @@
                                 <state key="normal" title="차고"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlC-aJ-f2j" userLabel="Setting Button">
-                                <rect key="frame" x="749" y="20" width="35" height="35"/>
+                                <rect key="frame" x="749" y="12" width="35" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Nvk-5T-gKg"/>
                                     <constraint firstAttribute="width" constant="35" id="ll4-q5-QmB"/>
                                 </constraints>
                                 <color key="tintColor" name="deliveryrunYellow"/>
@@ -77,7 +76,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ZOe-tR-9g3" kind="show" id="imV-mb-8gs"/>
+                                    <action selector="settingPopUp:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Iwk-0k-KBb"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player0" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-lM-3qU" userLabel="player">
@@ -101,9 +100,12 @@
                                     <action selector="questPopUp:" destination="BV1-FR-VrT" eventType="touchUpInside" id="toA-DF-Vyt"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PPv-fE-QWS">
-                                <rect key="frame" x="121" y="62" width="610" height="195"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPv-fE-QWS" userLabel="Setting View" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
+                                <rect key="frame" x="30" y="62" width="784" height="279"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C71-d1-u0A" userLabel="Quest View" customClass="QuestView" customModule="DeliveryRun" customModuleProvider="target">
+                                <rect key="frame" x="30" y="62" width="784" height="279"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -111,58 +113,47 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerX" secondItem="GNU-8W-xnK" secondAttribute="centerX" id="3MC-dw-9J5"/>
+                            <constraint firstItem="PPv-fE-QWS" firstAttribute="top" secondItem="C71-d1-u0A" secondAttribute="top" id="3xO-bq-NGJ"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="4dU-xm-KDp"/>
+                            <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="PPv-fE-QWS" secondAttribute="trailing" constant="30" id="545-Cj-L1g"/>
+                            <constraint firstItem="C71-d1-u0A" firstAttribute="top" secondItem="rlC-aJ-f2j" secondAttribute="bottom" constant="15" id="5pU-os-Bgz"/>
+                            <constraint firstItem="C71-d1-u0A" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" constant="30" id="6cV-O6-ofr"/>
+                            <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="PPv-fE-QWS" secondAttribute="trailing" constant="30" id="9TO-2f-0ZL"/>
                             <constraint firstItem="kOz-lf-BoN" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" constant="20" id="Bpn-0M-DZ5"/>
                             <constraint firstItem="kOz-lf-BoN" firstAttribute="top" secondItem="aAy-ZS-MCe" secondAttribute="bottom" constant="16" id="CGA-p2-d41"/>
+                            <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="C71-d1-u0A" secondAttribute="trailing" constant="30" id="HzA-Me-DIy"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="J35-57-Pib"/>
                             <constraint firstItem="fFX-aL-qVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bNo-s9-wk6" secondAttribute="leading" symbolic="YES" id="Kbu-EQ-aCR"/>
-                            <constraint firstItem="rlC-aJ-f2j" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="20" id="L7p-Yu-3Ws"/>
                             <constraint firstItem="kOz-lf-BoN" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leadingMargin" id="OrE-xY-EL5"/>
+                            <constraint firstItem="PPv-fE-QWS" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" constant="30" id="URo-kG-SwF"/>
                             <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="fFX-aL-qVa" secondAttribute="trailing" constant="5" id="UwI-2A-VQX"/>
+                            <constraint firstItem="bNo-s9-wk6" firstAttribute="bottom" secondItem="PPv-fE-QWS" secondAttribute="bottom" constant="15" id="WPr-Lc-r6H"/>
                             <constraint firstAttribute="bottom" secondItem="GNU-8W-xnK" secondAttribute="bottom" id="ZbO-Ed-7yq"/>
                             <constraint firstAttribute="bottom" secondItem="fFX-aL-qVa" secondAttribute="bottom" constant="40" id="bor-Hv-Bff"/>
+                            <constraint firstItem="bNo-s9-wk6" firstAttribute="bottom" secondItem="C71-d1-u0A" secondAttribute="bottom" constant="15" id="d1P-pP-3OT"/>
+                            <constraint firstItem="PPv-fE-QWS" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="62" id="e6I-uO-RJP"/>
                             <constraint firstItem="aAy-ZS-MCe" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" constant="20" id="foU-SU-PEE"/>
                             <constraint firstItem="aAy-ZS-MCe" firstAttribute="top" secondItem="6Ai-lM-3qU" secondAttribute="top" id="fpn-ja-fTQ"/>
+                            <constraint firstItem="PPv-fE-QWS" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" constant="30" id="gQs-Ad-pVO"/>
                             <constraint firstAttribute="trailing" secondItem="rlC-aJ-f2j" secondAttribute="trailing" constant="60" id="gpM-dk-PMR"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailing" id="kSE-AT-s98"/>
+                            <constraint firstItem="bNo-s9-wk6" firstAttribute="bottom" secondItem="PPv-fE-QWS" secondAttribute="bottom" constant="15" id="nNs-sN-Ctr"/>
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerY" secondItem="GNU-8W-xnK" secondAttribute="centerY" constant="95" id="oZx-E5-pfi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TOA-kh-Zwp"/>
                     <connections>
                         <outlet property="garageButton" destination="kOz-lf-BoN" id="Lhx-iI-y91"/>
-                        <outlet property="hiddenView" destination="PPv-fE-QWS" id="p0D-la-dh9"/>
                         <outlet property="questButton" destination="aAy-ZS-MCe" id="l9f-E1-Uk0"/>
+                        <outlet property="questView" destination="C71-d1-u0A" id="oFw-w5-vT4"/>
                         <outlet property="settingButton" destination="rlC-aJ-f2j" id="1Jh-69-Nx1"/>
+                        <outlet property="settingView" destination="PPv-fE-QWS" id="N4K-tL-y08"/>
                         <outlet property="startButton" destination="fFX-aL-qVa" id="bR7-ET-sZD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.6255924170616" y="-3.0769230769230766"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="2jW-QJ-ZVD">
-            <objects>
-                <viewController id="ZOe-tR-9g3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="i4r-Lf-fCq">
-                        <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdC-VR-NVb">
-                                <rect key="frame" x="73" y="47" width="718" height="292"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="EJl-QS-vBq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="o3X-xa-HNa"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aAY-Mn-BbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="138.6255924170616" y="724.61538461538464"/>
         </scene>
         <!--Stage-->
         <scene sceneID="qKu-2h-Ev4">
@@ -186,9 +177,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

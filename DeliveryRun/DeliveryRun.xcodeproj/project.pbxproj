@@ -13,6 +13,7 @@
 		6396605429233D3E0002E6B2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396605329233D3E0002E6B2 /* SettingView.swift */; };
 		63966056292343E80002E6B2 /* QuestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63966055292343E80002E6B2 /* QuestView.xib */; };
 		63966058292344080002E6B2 /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63966057292344080002E6B2 /* QuestView.swift */; };
+		6396605B2923633E0002E6B2 /* UIkitDocument in Resources */ = {isa = PBXBuildFile; fileRef = 6396605A2923633E0002E6B2 /* UIkitDocument */; };
 		63D689E52906E4BF001748CE /* SpriteDocument in Resources */ = {isa = PBXBuildFile; fileRef = 63D689E42906E4BF001748CE /* SpriteDocument */; };
 		63DC0EAB28F5863100B145B9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC0EAA28F5863100B145B9 /* GameViewController.swift */; };
 		63EFFF69291A40C1005FF169 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFFF68291A40C1005FF169 /* SoundPlayer.swift */; };
@@ -49,6 +50,7 @@
 		6396605329233D3E0002E6B2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		63966055292343E80002E6B2 /* QuestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestView.xib; sourceTree = "<group>"; };
 		63966057292344080002E6B2 /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
+		6396605A2923633E0002E6B2 /* UIkitDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = UIkitDocument; sourceTree = "<group>"; };
 		63D689E42906E4BF001748CE /* SpriteDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpriteDocument; sourceTree = "<group>"; };
 		63DC0EAA28F5863100B145B9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		63EFFF68291A40C1005FF169 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				6F4B8BD3291E26D5000990EA /* Stage.storyboard */,
 				6F4B8BD7291E2E99000990EA /* Game.storyboard */,
 				6F28EEA728F5444600D7330F /* LaunchScreen.storyboard */,
+				6396605A2923633E0002E6B2 /* UIkitDocument */,
 			);
 			path = "DeliveryRun iOS";
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6396605B2923633E0002E6B2 /* UIkitDocument in Resources */,
 				6F4B8BD1291E2389000990EA /* ingame.mp3 in Resources */,
 				6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */,
 				6F4B8BCF291E2384000990EA /* sound4.mp3 in Resources */,
