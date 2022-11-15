@@ -111,7 +111,7 @@ class GameScene: SKScene {
     private func generatePlayer() {
         player.position = CGPoint(x:frame.midX, y: frame.midY)
         player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.height/2)
-        player.scale(to: CGSize(width: 100, height: 100))
+        player.scale(to: CGSize(width: 120, height: 120))
         player.physicsBody?.categoryBitMask = 2
         player.physicsBody?.allowsRotation = false
         player.physicsBody?.isDynamic = true

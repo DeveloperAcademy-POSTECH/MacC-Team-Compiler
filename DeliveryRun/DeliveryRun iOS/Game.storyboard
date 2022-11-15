@@ -45,9 +45,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <segue destination="DIi-1c-6Bo" kind="popover" animates="NO" popoverAnchorView="lVV-QM-hjm" id="97W-tg-SkX">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
+                                            <segue destination="DIi-1c-6Bo" kind="show" animates="NO" id="97W-tg-SkX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -85,7 +83,9 @@
         <!--Stage-->
         <scene sceneID="gKX-Vs-YRr">
             <objects>
-                <viewControllerPlaceholder storyboardName="Stage" referencedIdentifier="Stage" id="DIi-1c-6Bo" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Stage" referencedIdentifier="Stage" id="DIi-1c-6Bo" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zgf-r2-TTV"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxn-S3-w0m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131" y="1101"/>
