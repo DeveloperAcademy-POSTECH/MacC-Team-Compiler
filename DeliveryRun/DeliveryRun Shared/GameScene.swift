@@ -18,7 +18,7 @@ class GameScene: SKScene {
     var sceneDelegate: GameSceneDelegate?
     
     // Player And LandScape
-    var player: SKNode?
+    let player = SKSpriteNode(imageNamed: "player0")
     var moon : SKShapeNode?
     
     // Buttons
@@ -87,6 +87,17 @@ class GameScene: SKScene {
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
         
+        // Player 생성
+        addChild(player)
+        player.position = CGPoint(x:frame.midX, y: frame.midY)
+        player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.height/2)
+        player.scale(to: CGSize(width: 100, height: 100))
+        player.physicsBody?.categoryBitMask = 2
+        player.physicsBody?.allowsRotation = false
+        player.physicsBody?.isDynamic = true
+        player.physicsBody?.mass = 0.2345
+
+        
         // Delegate 연결
         sceneDelegate = self.viewController
         physicsWorld.contactDelegate = self
@@ -96,20 +107,19 @@ class GameScene: SKScene {
         
         // PlayerState 가져오기
         playerStateMachine = GKStateMachine(states: [
-            RunningState(playerNode: player!),
-            JumpingState(playerNode: player!),
-            LandingState(playerNode: player!),
-            AccelingState(playerNode: player!),
-            BreakingState(playerNode: player!),
-            DamageState(playerNode: player!),
-            GodState(playerNode:player!)
+            RunningState(playerNode: player),
+            JumpingState(playerNode: player),
+            LandingState(playerNode: player),
+            AccelingState(playerNode: player),
+            BreakingState(playerNode: player),
+            DamageState(playerNode: player),
+            GodState(playerNode:player)
         ])
         playerStateMachine.enter(RunningState.self)
     }
     
     private func setupNode() {
         // Base Node
-        player = childNode(withName: "player")
         cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
         
         // Status Bar
@@ -247,9 +257,9 @@ extension GameScene {
     }
     
     func invicible() {
-        player?.physicsBody?.categoryBitMask = 0
+        player.physicsBody?.categoryBitMask = 0
         Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (timer) in
-            self.player?.physicsBody?.categoryBitMask = 2
+            self.player.physicsBody?.categoryBitMask = 2
         }
     }
     
@@ -272,7 +282,7 @@ extension GameScene {
             previousTimeInterval = currentTime
             let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
             let move = SKAction.move(by: diplacement, duration: 0)
-            player!.run(SKAction.sequence([move]))
+            player.run(SKAction.sequence([move]))
             
             if jumpAction {
                 jumping()
@@ -287,10 +297,10 @@ extension GameScene {
         
         timeText?.text = String(format: "%D", passedTime)
         speederText?.text = String(format: "%.2f", playerSpeed)
-        locationIcon?.position.x  = (((player?.position.x)! / positionEndZone) * locationBarLength) - 250
+        locationIcon?.position.x  = (((player.position.x) / positionEndZone) * locationBarLength) - 250
         
         // Node 위치 지정
-        cameraNode?.position.x = player!.position.x + 300
+        cameraNode?.position.x = player.position.x + 300
         status?.position.x = (cameraNode?.position.x)!
         Button?.position.x = (cameraNode?.position.x)!
     }
