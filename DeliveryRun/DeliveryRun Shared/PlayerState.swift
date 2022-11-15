@@ -165,7 +165,6 @@ class GodState: PlayerState {
     let action2 = SKAction.scale(by: 1/2, duration: 0.3)
     
     override func didEnter(from previousState: GKState?) {
-        
         playerNode.run(SKAction.sequence([action, action3, action2]))
         playerNode.physicsBody?.categoryBitMask = 0
         Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (timer) in
