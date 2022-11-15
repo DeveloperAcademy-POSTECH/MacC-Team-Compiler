@@ -10,7 +10,7 @@ import UIKit
 class StageViewController: UIViewController {
     
     @IBOutlet weak var StageDetailView: UIView!
-    @IBOutlet weak var stageStartBtn: gameButton!
+    @IBOutlet weak var stageStartBtn: CustomGameButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

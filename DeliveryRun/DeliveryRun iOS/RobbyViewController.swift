@@ -12,40 +12,55 @@ import AVFoundation
 
 class RobbyViewController: UIViewController {
     
+    @IBOutlet weak var questView: UIView!
+    @IBOutlet weak var settingView: UIView!
+    @IBOutlet weak var questButton: CustomGameButton!
+    @IBOutlet weak var garageButton: CustomGameButton!
+    @IBOutlet weak var startButton: CustomGameButton!
+    @IBOutlet weak var settingButton: UIButton!
+    
     var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
-    @IBOutlet weak var robbyButton: gameButton!
-    
-    
-    @IBOutlet weak var SettingButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        robbyButton.setTitle("게임시작", for: .normal)
+        questButton.setTitle("퀘스트", for: .normal)
+        questButton.setImage(UIImage(systemName: "list.bullet.circle.fill"), for: .normal)
+        garageButton.setTitle("차고", for: .normal)
+        garageButton.setImage(UIImage(systemName: "car.fill"), for: .normal)
+        startButton.setTitle("배달 준비", for: .normal)
+        settingView.isHidden = true
+        questView.isHidden = true
+        questView.layer.opacity = 1.0
+        settingView.layer.opacity = 1.0
     }
     
-    @IBAction func backgroundOnOff(_ sender: UISwitch) {
-        if sender.isOn {
-            sound.playSound(soundName: "robby")
+    @IBAction func questPopUp(_ sender: CustomGameButton) {
+        if questView.isHidden {
+            questView.isHidden = false
         } else {
-            sound.stopSound()
+            questView.isHidden = true
         }
     }
-    
-    @IBAction func soundOnOff(_ sender: UISwitch) {
-        
+    @IBAction func settingPopUp(_ sender: Any) {
+        if settingView.isHidden {
+            settingView.isHidden = false
+        } else {
+            settingView.isHidden = true
+        }
     }
-    
-    
 }
 
-class gameButton: UIButton {
-    required init (coder aDecoder: NSCoder) {
+class CustomGameButton: UIButton {
+    
+    required init (coder aDecoder:NSCoder) {
         super.init(coder: aDecoder)!
         self.backgroundColor = .deliveryrunBlack
         self.titleLabel?.font = UIFont(name: "BMJUAOTF", size: 30)
         self.tintColor = .white
+        self.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(scale: .large), forImageIn: .normal)
         self.layer.borderColor = UIColor.white.cgColor
         self.layer.borderWidth = 0.5
         self.layer.cornerRadius = 10
     }
+    
 }
 
