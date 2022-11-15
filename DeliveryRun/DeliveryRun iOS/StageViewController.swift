@@ -16,7 +16,7 @@ class StageViewController: UIViewController {
         
         StageDetailView.layer.cornerRadius = 10
         StageDetailView.layer.masksToBounds = true
-        stageStartBtn.setTitle("스테이지 시작", for: .normal)
+        stageStartBtn.setTitle("배달 출발", for: .normal)
         stageStartBtn.titleLabel?.font = UIFont(name: "BMJUAOTF", size: 20)
     }
 }

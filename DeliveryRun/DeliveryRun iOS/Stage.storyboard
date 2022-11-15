@@ -132,7 +132,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeZ-pv-DNR">
                                 <rect key="frame" x="607" y="83" width="240" height="270"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nht-dX-def" customClass="gameButton" customModule="DeliveryRun" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nht-dX-def" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
                                         <rect key="frame" x="20" y="220" width="200" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Sld-jU-Ls5"/>

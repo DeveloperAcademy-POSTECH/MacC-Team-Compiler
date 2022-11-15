@@ -50,7 +50,6 @@ class RobbyViewController: UIViewController {
 }
 
 class CustomGameButton: UIButton {
-    
     required init (coder aDecoder:NSCoder) {
         super.init(coder: aDecoder)!
         self.backgroundColor = .deliveryrunBlack
