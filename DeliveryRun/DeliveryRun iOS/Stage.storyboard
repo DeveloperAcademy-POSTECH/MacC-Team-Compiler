@@ -83,7 +83,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ebE-Uc-Flz" kind="push" animates="NO" id="XI8-ot-tSB"/>
+                                    <segue destination="ebE-Uc-Flz" kind="show" animates="NO" id="XI8-ot-tSB"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ljm-JV-vWF">
@@ -140,9 +140,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <segue destination="CTa-8A-0BM" kind="popover" animates="NO" popoverAnchorView="Nht-dX-def" id="0bM-In-hce">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
+                                            <segue destination="CTa-8A-0BM" kind="show" animates="NO" id="0bM-In-hce"/>
                                         </connections>
                                     </button>
                                 </subviews>

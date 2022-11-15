@@ -86,24 +86,13 @@ class GameScene: SKScene {
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
-        
-        // Player 생성
-        addChild(player)
-        player.position = CGPoint(x:frame.midX, y: frame.midY)
-        player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.height/2)
-        player.scale(to: CGSize(width: 100, height: 100))
-        player.physicsBody?.categoryBitMask = 2
-        player.physicsBody?.allowsRotation = false
-        player.physicsBody?.isDynamic = true
-        player.physicsBody?.mass = 0.2345
-
-        
         // Delegate 연결
         sceneDelegate = self.viewController
         physicsWorld.contactDelegate = self
         
         // Node 생성
         setupNode()
+        generatePlayer()
         
         // PlayerState 가져오기
         playerStateMachine = GKStateMachine(states: [
@@ -118,6 +107,20 @@ class GameScene: SKScene {
         playerStateMachine.enter(RunningState.self)
     }
     
+    // Player 생성
+    private func generatePlayer() {
+        player.position = CGPoint(x:frame.midX, y: frame.midY)
+        player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.height/2)
+        player.scale(to: CGSize(width: 120, height: 120))
+        player.physicsBody?.categoryBitMask = 2
+        player.physicsBody?.collisionBitMask = 8
+        player.physicsBody?.allowsRotation = false
+        player.physicsBody?.isDynamic = true
+        player.physicsBody?.mass = 0.13
+        addChild(player)
+    }
+    
+    // Node 설정
     private func setupNode() {
         // Base Node
         cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
