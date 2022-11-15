@@ -24,7 +24,7 @@ class GameViewController: UIViewController, GameSceneDelegate {
     
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var endButton: gameButton!
+    @IBOutlet weak var endButton: CustomGameButton!
     var timeRap = 0
     
     func popupGameOver() {

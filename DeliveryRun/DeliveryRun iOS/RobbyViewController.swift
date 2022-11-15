@@ -12,40 +12,62 @@ import AVFoundation
 
 class RobbyViewController: UIViewController {
     
+    
+    @IBOutlet weak var hiddenView: UIView!
+    @IBOutlet weak var questButton: CustomGameButton!
+    @IBOutlet weak var garageButton: CustomGameButton!
+    @IBOutlet weak var startButton: CustomGameButton!
+    @IBOutlet weak var settingButton: UIButton!
+    
+    func addSetingView() {
+            if let customView = Bundle.main.loadNibNamed("SettingView", owner: nil, options: nil)?.first as? UIView {
+                customView.frame.size.width = 300
+                customView.frame.size.height = 300
+                hiddenView.addSubview(customView)
+            }
+        }
+    func addQuestView() {
+            if let customView = Bundle.main.loadNibNamed("QuestView", owner: nil, options: nil)?.first as? UIView {
+                customView.frame.size.width = 300
+                customView.frame.size.height = 300
+                hiddenView.addSubview(customView)
+            }
+        }
+    
+    
     var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
-    @IBOutlet weak var robbyButton: gameButton!
-    
-    
-    @IBOutlet weak var SettingButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        robbyButton.setTitle("게임시작", for: .normal)
+        questButton.setTitle("퀘스트", for: .normal)
+        questButton.setImage(UIImage(systemName: "list.bullet.circle.fill"), for: .normal)
+        garageButton.setTitle("차고", for: .normal)
+        garageButton.setImage(UIImage(systemName: "car.fill"), for: .normal)
+        startButton.setTitle("배달 준비", for: .normal)
+        addQuestView()
+        addSetingView()
     }
     
-    @IBAction func backgroundOnOff(_ sender: UISwitch) {
-        if sender.isOn {
-            sound.playSound(soundName: "robby")
+    @IBAction func questPopUp(_ sender: CustomGameButton) {
+        if hiddenView.isHidden {
+            hiddenView.isHidden = false
         } else {
-            sound.stopSound()
+            hiddenView.isHidden = true
         }
     }
-    
-    @IBAction func soundOnOff(_ sender: UISwitch) {
-        
-    }
-    
-    
 }
 
-class gameButton: UIButton {
-    required init (coder aDecoder: NSCoder) {
+class CustomGameButton: UIButton {
+    
+    required init (coder aDecoder:NSCoder) {
         super.init(coder: aDecoder)!
         self.backgroundColor = .deliveryrunBlack
         self.titleLabel?.font = UIFont(name: "BMJUAOTF", size: 30)
         self.tintColor = .white
+        self.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(scale: .large), forImageIn: .normal)
         self.layer.borderColor = UIColor.white.cgColor
         self.layer.borderWidth = 0.5
         self.layer.cornerRadius = 10
     }
+    
 }
 
