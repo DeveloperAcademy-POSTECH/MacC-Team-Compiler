@@ -9,5 +9,4 @@ import UIKit
 
 class StageCell: UICollectionViewCell {
     @IBOutlet weak var stageLabel: UILabel!
-    
 }

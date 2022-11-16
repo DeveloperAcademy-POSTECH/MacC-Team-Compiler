@@ -87,10 +87,9 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ljm-JV-vWF">
-                                <rect key="frame" x="10" y="83" width="450" height="270"/>
+                                <rect key="frame" x="50" y="90" width="450" height="273"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="270" id="1Cg-Lu-jGe"/>
-                                    <constraint firstAttribute="width" constant="450" id="lUF-Fe-BXp"/>
+                                    <constraint firstAttribute="width" constant="450" id="Vz8-mL-ogw"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="FeY-6i-yW4">
                                     <size key="itemSize" width="90" height="90"/>
@@ -106,21 +105,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqo-Cx-iC4">
-                                                    <rect key="frame" x="22.333333333333332" y="35" width="45.666666666666671" height="20"/>
-                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-VZ-Mqj">
+                                                    <rect key="frame" x="24" y="34.666666666666664" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Eqo-Cx-iC4" firstAttribute="centerX" secondItem="TgN-Xd-mzF" secondAttribute="centerX" id="CKT-Mu-pnq"/>
-                                                <constraint firstItem="Eqo-Cx-iC4" firstAttribute="centerY" secondItem="TgN-Xd-mzF" secondAttribute="centerY" id="wXW-09-0pJ"/>
+                                                <constraint firstItem="Srf-VZ-Mqj" firstAttribute="centerY" secondItem="TgN-Xd-mzF" secondAttribute="centerY" id="L9R-FU-FdS"/>
+                                                <constraint firstItem="Srf-VZ-Mqj" firstAttribute="centerX" secondItem="TgN-Xd-mzF" secondAttribute="centerX" id="UTP-W9-mRl"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <connections>
-                                            <outlet property="stageLabel" destination="Eqo-Cx-iC4" id="1Ko-nv-DaH"/>
+                                            <outlet property="stageLabel" destination="Srf-VZ-Mqj" id="iTE-jm-bqf"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -130,10 +129,10 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeZ-pv-DNR">
-                                <rect key="frame" x="607" y="83" width="240" height="270"/>
+                                <rect key="frame" x="524" y="90" width="278" height="273"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nht-dX-def" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="220" width="200" height="35"/>
+                                        <rect key="frame" x="20" y="223" width="238" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Sld-jU-Ls5"/>
                                         </constraints>
@@ -146,28 +145,29 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="3ed-2p-47g"/>
                                     <constraint firstItem="Nht-dX-def" firstAttribute="leading" secondItem="zeZ-pv-DNR" secondAttribute="leading" constant="20" id="Ibx-vP-kRT"/>
                                     <constraint firstAttribute="trailing" secondItem="Nht-dX-def" secondAttribute="trailing" constant="20" id="K8i-dd-FUz"/>
                                     <constraint firstAttribute="bottom" secondItem="Nht-dX-def" secondAttribute="bottom" constant="15" id="KmF-Y8-zC2"/>
-                                    <constraint firstAttribute="height" constant="270" id="goA-zR-3zG"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5vu-bH-eqb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="zeZ-pv-DNR" firstAttribute="leading" secondItem="Ljm-JV-vWF" secondAttribute="trailing" constant="24" id="Bvd-Wb-Pch"/>
                             <constraint firstItem="kSz-5T-K3Y" firstAttribute="leading" secondItem="L80-eE-Jld" secondAttribute="leading" id="DI9-Rn-bMt"/>
                             <constraint firstAttribute="bottom" secondItem="kSz-5T-K3Y" secondAttribute="bottom" id="GhA-Po-ejC"/>
                             <constraint firstItem="G3X-ba-mCW" firstAttribute="leading" secondItem="L80-eE-Jld" secondAttribute="leading" constant="60" id="ICE-LZ-eqp"/>
-                            <constraint firstAttribute="bottom" secondItem="Ljm-JV-vWF" secondAttribute="bottom" constant="40" id="KPl-2p-5JI"/>
-                            <constraint firstAttribute="bottom" secondItem="zeZ-pv-DNR" secondAttribute="bottom" constant="40" id="L5Q-MK-LRn"/>
+                            <constraint firstAttribute="bottom" secondItem="Ljm-JV-vWF" secondAttribute="bottom" constant="30" id="KPl-2p-5JI"/>
+                            <constraint firstAttribute="bottom" secondItem="zeZ-pv-DNR" secondAttribute="bottom" constant="30" id="L5Q-MK-LRn"/>
                             <constraint firstAttribute="trailing" secondItem="CLB-6b-RlG" secondAttribute="trailing" constant="60" id="Vlw-XJ-PUO"/>
-                            <constraint firstItem="Ljm-JV-vWF" firstAttribute="leading" secondItem="5vu-bH-eqb" secondAttribute="leading" constant="10" id="Xkh-x5-RCe"/>
+                            <constraint firstItem="Ljm-JV-vWF" firstAttribute="leading" secondItem="L80-eE-Jld" secondAttribute="leading" constant="50" id="Xkh-x5-RCe"/>
                             <constraint firstItem="G3X-ba-mCW" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="20" id="Ypd-yb-TCq"/>
+                            <constraint firstItem="zeZ-pv-DNR" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="90" id="aUg-Nz-e8Y"/>
                             <constraint firstItem="kSz-5T-K3Y" firstAttribute="trailing" secondItem="L80-eE-Jld" secondAttribute="trailing" id="avy-O2-dqY"/>
-                            <constraint firstItem="5vu-bH-eqb" firstAttribute="trailing" secondItem="zeZ-pv-DNR" secondAttribute="trailing" constant="5" id="dMz-Qm-joE"/>
+                            <constraint firstAttribute="trailing" secondItem="zeZ-pv-DNR" secondAttribute="trailing" constant="50" id="dMz-Qm-joE"/>
                             <constraint firstItem="kSz-5T-K3Y" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" id="mYL-gG-Uvk"/>
+                            <constraint firstItem="Ljm-JV-vWF" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="90" id="oDM-d0-1f3"/>
                             <constraint firstItem="CLB-6b-RlG" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="20" id="qMx-l3-uzW"/>
                         </constraints>
                     </view>
