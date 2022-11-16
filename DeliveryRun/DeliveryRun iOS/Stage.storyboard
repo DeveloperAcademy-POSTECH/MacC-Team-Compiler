@@ -39,11 +39,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" image="RobbyBack" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aG4-b2-XBe">
-                                <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="RobbyBack" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aG4-b2-XBe">
+                                <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSz-5T-K3Y">
+                            <visualEffectView clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSz-5T-K3Y">
                                 <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Hrv-A1-0g3">
                                     <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
@@ -52,35 +51,29 @@
                                 <blurEffect style="regular"/>
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLB-6b-RlG" userLabel="Setting Button">
-                                <rect key="frame" x="767" y="25" width="35" height="35"/>
+                                <rect key="frame" x="762" y="25" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Oer-3u-A56"/>
-                                    <constraint firstAttribute="height" constant="35" id="RjP-CJ-vQw"/>
-                                    <constraint firstAttribute="width" constant="35" id="Upx-71-nPg"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="eL9-VP-dIS"/>
+                                    <constraint firstAttribute="height" constant="40" id="RjP-CJ-vQw"/>
+                                    <constraint firstAttribute="width" constant="40" id="eL9-VP-dIS"/>
                                 </constraints>
                                 <color key="tintColor" name="deliveryrunYellow"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="gearshape.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="48"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-ba-mCW" userLabel="Back Button">
-                                <rect key="frame" x="50" y="25" width="35" height="35"/>
+                                <rect key="frame" x="50" y="25" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="IuY-Xx-5cl"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="c1u-0t-HwX"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="j0R-fU-gn8"/>
-                                    <constraint firstAttribute="height" constant="35" id="pth-d6-1Ks"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="35" id="tAO-nr-91K"/>
-                                    <constraint firstAttribute="width" constant="35" id="xI4-pz-xAI"/>
+                                    <constraint firstAttribute="width" constant="40" id="j0R-fU-gn8"/>
+                                    <constraint firstAttribute="height" constant="40" id="pth-d6-1Ks"/>
                                 </constraints>
                                 <color key="tintColor" name="deliveryrunYellow"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="arrowshape.left.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="48"/>
                                 </state>
                                 <connections>
                                     <segue destination="ebE-Uc-Flz" kind="show" animates="NO" id="XI8-ot-tSB"/>
@@ -152,6 +145,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ljm-JV-vWF" secondAttribute="trailing" constant="324" id="7uK-fW-uwJ"/>
+                            <constraint firstItem="aG4-b2-XBe" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" id="8vX-C5-lR4"/>
+                            <constraint firstAttribute="trailing" secondItem="aG4-b2-XBe" secondAttribute="trailing" id="9Ui-5w-qTq"/>
                             <constraint firstItem="zeZ-pv-DNR" firstAttribute="leading" secondItem="Ljm-JV-vWF" secondAttribute="trailing" constant="24" id="Bvd-Wb-Pch"/>
                             <constraint firstItem="kSz-5T-K3Y" firstAttribute="leading" secondItem="L80-eE-Jld" secondAttribute="leading" id="DI9-Rn-bMt"/>
                             <constraint firstAttribute="bottom" secondItem="kSz-5T-K3Y" secondAttribute="bottom" id="GhA-Po-ejC"/>
@@ -164,6 +159,8 @@
                             <constraint firstItem="zeZ-pv-DNR" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="90" id="aUg-Nz-e8Y"/>
                             <constraint firstItem="kSz-5T-K3Y" firstAttribute="trailing" secondItem="L80-eE-Jld" secondAttribute="trailing" id="avy-O2-dqY"/>
                             <constraint firstAttribute="trailing" secondItem="zeZ-pv-DNR" secondAttribute="trailing" constant="50" id="dMz-Qm-joE"/>
+                            <constraint firstAttribute="bottom" secondItem="aG4-b2-XBe" secondAttribute="bottom" id="enW-sQ-MNo"/>
+                            <constraint firstItem="aG4-b2-XBe" firstAttribute="leading" secondItem="L80-eE-Jld" secondAttribute="leading" id="mBM-0B-iru"/>
                             <constraint firstItem="kSz-5T-K3Y" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" id="mYL-gG-Uvk"/>
                             <constraint firstItem="Ljm-JV-vWF" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="90" id="oDM-d0-1f3"/>
                             <constraint firstItem="CLB-6b-RlG" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="25" id="qMx-l3-uzW"/>

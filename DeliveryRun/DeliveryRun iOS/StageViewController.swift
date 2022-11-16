@@ -28,17 +28,18 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stagecell", for: indexPath) as! StageCell
-        cell.stageLabel.text = String(format: "Stage %d", indexPath.row)
+        cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
         return cell
     }
 }
 
 extension StageViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let width = 70
-            let size = CGSize(width: width, height: width)
-            return size
-        }
+        let width = CGFloat(Int((collectionView.frame.width - 120) / 5))
+        let height = CGFloat(Int((collectionView.frame.height - 60) / 3))
+        let size = CGSize(width: width, height: height)
+        return size
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 20
@@ -48,6 +49,6 @@ extension StageViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-           return UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
-        }
+        return UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
+    }
 }
