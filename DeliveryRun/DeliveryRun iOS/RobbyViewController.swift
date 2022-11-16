@@ -15,6 +15,7 @@ class RobbyViewController: UIViewController {
     @IBOutlet weak var questButton: CustomGameButton!
     @IBOutlet weak var garageButton: CustomGameButton!
     @IBOutlet weak var startButton: CustomGameButton!
+    @IBOutlet weak var settingView: UIView!
     @IBOutlet weak var settingButton: UIButton!
     
     
@@ -26,14 +27,18 @@ class RobbyViewController: UIViewController {
         garageButton.setTitle("차고", for: .normal)
         garageButton.setImage(UIImage(systemName: "car.fill"), for: .normal)
         startButton.setTitle("배달 준비", for: .normal)
-//        settingView.isHidden = true
-//        settingView.layer.opacity = 1.0
-//        settingView.frame = self.view.frame
+        settingView.isHidden = true
+        settingView.layer.opacity = 1.0
     }
     
     @IBAction func questPopUp(_ sender: CustomGameButton) {
     }
     @IBAction func settingPopUp(_ sender: CustomGameButton) {
+        if settingView.isHidden {
+            settingView.isHidden = false
+        } else {
+            settingView.isHidden = true
+        }
     }
 }
 

@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="BMJUA_otf.otf">
-            <string>BMJUAOTF</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
             <connections>
@@ -25,24 +20,67 @@
             <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r08-JE-WE9" userLabel="Background Progress">
-                    <rect key="frame" x="121" y="23" width="611" height="74"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WiZ-ea-Zkh" userLabel="Background Stack View">
+                    <rect key="frame" x="60" y="79" width="732" height="40"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dm7-89-sgs">
-                            <rect key="frame" x="14.999999999999996" y="16.000000000000007" width="45.666666666666657" height="39.333333333333329"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qIs-Cz-Mbd">
+                            <rect key="frame" x="0.0" y="-5.9999999999999964" width="40" height="49.333333333333329"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="Tz5-97-Xpd"/>
+                                <constraint firstAttribute="height" constant="40" id="Uca-ez-e2Q"/>
+                            </constraints>
+                            <imageReference key="image" image="music.house" catalog="system" symbolScale="large"/>
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="default" weight="medium"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8K-zs-kbi">
+                            <rect key="frame" x="60" y="0.0" width="75" height="40"/>
+                            <color key="backgroundColor" name="deliveryrunBlack"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="lpH-FY-IgR"/>
+                            </constraints>
+                            <attributedString key="attributedText">
+                                <fragment content="배경음">
+                                    <attributes>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <font key="NSFont" size="30" name="BMJUAOTF"/>
+                                        <font key="NSOriginalFont" size="25" name="BMJUAOTF"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </label>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fn9-1b-MOy" customClass="CustomUiSlider" customModule="DeliveryRun" customModuleProvider="target">
+                            <rect key="frame" x="153" y="0.0" width="581" height="41"/>
+                            <connections>
+                                <action selector="sliderpatch:" destination="-1" eventType="valueChanged" id="Qs2-Qf-Y01"/>
+                            </connections>
+                        </slider>
+                    </subviews>
+                    <color key="backgroundColor" name="deliveryrunBlack"/>
+                    <constraints>
+                        <constraint firstItem="qIs-Cz-Mbd" firstAttribute="centerY" secondItem="WiZ-ea-Zkh" secondAttribute="centerY" id="f1s-h7-IYT"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0M-wt-ixT" userLabel="Sound Stack View">
+                    <rect key="frame" x="60" y="145" width="732" height="50"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gwJ-i0-xt7">
+                            <rect key="frame" x="0.0" y="-5.9999999999999964" width="0.0" height="59.333333333333329"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <imageReference key="image" image="music.house" catalog="system" symbolScale="large"/>
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="default" weight="medium"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifS-66-quH">
-                            <rect key="frame" x="68.333333333333329" y="24" width="60.666666666666671" height="26"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GK-Co-dWq">
+                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
                             <color key="backgroundColor" name="deliveryrunBlack"/>
                             <attributedString key="attributedText">
-                                <fragment content="배경음">
+                                <fragment content="사운드">
                                     <attributes>
                                         <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <font key="NSFont" size="25" name="BMJUAOTF"/>
-                                        <font key="NSOriginalFont" size="25" name="BMJUAOTF"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
@@ -50,52 +88,52 @@
                             <nil key="highlightedColor"/>
                             <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </label>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="n4Z-WP-heP" customClass="CustomUiSlider" customModule="DeliveryRun" customModuleProvider="target">
-                            <rect key="frame" x="157" y="22" width="451" height="31"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="447" id="Eib-wy-TXw"/>
-                                <constraint firstAttribute="height" constant="30" id="pKd-MR-4LS"/>
-                            </constraints>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pYy-B1-b9r" customClass="CustomUiSlider" customModule="DeliveryRun" customModuleProvider="target">
+                            <rect key="frame" x="-2" y="0.0" width="736" height="51"/>
                             <connections>
-                                <action selector="sliderpatch:" destination="-1" eventType="valueChanged" id="y8v-fg-MwT"/>
+                                <action selector="sliderpatch:" destination="-1" eventType="valueChanged" id="P7L-7s-gfl"/>
                             </connections>
                         </slider>
                     </subviews>
                     <color key="backgroundColor" name="deliveryrunBlack"/>
                     <constraints>
-                        <constraint firstItem="n4Z-WP-heP" firstAttribute="top" secondItem="r08-JE-WE9" secondAttribute="top" constant="22" id="3II-N7-Y97"/>
-                        <constraint firstItem="dm7-89-sgs" firstAttribute="leading" secondItem="r08-JE-WE9" secondAttribute="leading" constant="15" id="Hru-jC-IZX"/>
-                        <constraint firstItem="ifS-66-quH" firstAttribute="leading" secondItem="dm7-89-sgs" secondAttribute="trailing" constant="7.5" id="I2k-0L-HNm"/>
-                        <constraint firstAttribute="trailing" secondItem="n4Z-WP-heP" secondAttribute="trailing" constant="5" id="Kqp-qd-kKl"/>
-                        <constraint firstAttribute="bottom" secondItem="ifS-66-quH" secondAttribute="bottom" constant="24" id="QcV-OF-NEE"/>
-                        <constraint firstAttribute="bottom" secondItem="dm7-89-sgs" secondAttribute="bottom" constant="22" id="R8y-X8-wjC"/>
-                        <constraint firstItem="n4Z-WP-heP" firstAttribute="leading" secondItem="ifS-66-quH" secondAttribute="trailing" constant="30" id="V1b-wB-gxs"/>
-                        <constraint firstAttribute="bottom" secondItem="n4Z-WP-heP" secondAttribute="bottom" constant="22" id="Yb4-lj-MGk"/>
-                        <constraint firstItem="dm7-89-sgs" firstAttribute="top" secondItem="r08-JE-WE9" secondAttribute="top" constant="22" id="ZIu-JC-m0p"/>
-                        <constraint firstItem="ifS-66-quH" firstAttribute="leading" secondItem="dm7-89-sgs" secondAttribute="trailing" constant="7.5" id="dYA-LH-lTS"/>
-                        <constraint firstItem="n4Z-WP-heP" firstAttribute="leading" secondItem="ifS-66-quH" secondAttribute="trailing" constant="30" id="oVU-GR-64S"/>
-                        <constraint firstItem="ifS-66-quH" firstAttribute="top" secondItem="r08-JE-WE9" secondAttribute="top" constant="24" id="zDm-Iw-pUH"/>
+                        <constraint firstAttribute="height" constant="50" id="xmY-45-VIl"/>
                     </constraints>
-                </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed By Team Complier        ver 1.0.0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pij-P6-nvX">
-                    <rect key="frame" x="301" y="225" width="251" height="76"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="15"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxn-Qc-O8I" userLabel="Start Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                    <rect key="frame" x="410" y="309" width="32" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxn-Qc-O8I" userLabel="Check Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
+                    <rect key="frame" x="346" y="289" width="160" height="50"/>
                     <color key="backgroundColor" name="deliveryrunBlack"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="B1N-Sj-4Tb"/>
+                        <constraint firstAttribute="width" constant="160" id="HaY-fU-awd"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="확인"/>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dev By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDT-Xz-jJa">
+                    <rect key="frame" x="399" y="248.66666666666666" width="54" height="20.333333333333343"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <point key="canvasLocation" x="52" y="2"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WiZ-ea-Zkh" secondAttribute="trailing" constant="60" id="4Gj-bx-0N0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Oxn-Qc-O8I" secondAttribute="bottom" constant="20" id="8q6-Br-upv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Oxn-Qc-O8I" secondAttribute="bottom" constant="20" id="CKJ-KW-rj8"/>
+                <constraint firstItem="n0M-wt-ixT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="60" id="CoK-b3-CD9"/>
+                <constraint firstItem="Oxn-Qc-O8I" firstAttribute="top" secondItem="UDT-Xz-jJa" secondAttribute="bottom" constant="20" id="Jws-VI-8vR"/>
+                <constraint firstItem="Oxn-Qc-O8I" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Tsr-nT-rqo"/>
+                <constraint firstItem="WiZ-ea-Zkh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="60" id="WfS-eF-Y2g"/>
+                <constraint firstItem="WiZ-ea-Zkh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="f8N-xP-YdT"/>
+                <constraint firstItem="n0M-wt-ixT" firstAttribute="top" secondItem="WiZ-ea-Zkh" secondAttribute="bottom" constant="26" id="lUP-Kp-LhY"/>
+                <constraint firstItem="UDT-Xz-jJa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qVm-8L-e76"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="n0M-wt-ixT" secondAttribute="trailing" constant="60" id="t1a-Vk-0MR"/>
+            </constraints>
+            <point key="canvasLocation" x="51.408450704225352" y="0.76335877862595414"/>
         </view>
     </objects>
     <resources>

@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -103,6 +104,10 @@
                                     <constraint firstAttribute="width" constant="120" id="Xy4-Td-A4v"/>
                                 </constraints>
                             </imageView>
+                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWZ-rV-4fY" userLabel="Setting View" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
+                                <rect key="frame" x="60" y="40" width="724" height="260"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bNo-s9-wk6"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,14 +115,18 @@
                             <constraint firstItem="rlC-aJ-f2j" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="20" id="0eg-Dr-20w"/>
                             <constraint firstItem="kOz-lf-BoN" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="20" id="4zB-rx-NtJ"/>
                             <constraint firstItem="aAy-ZS-MCe" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="20" id="GaH-MT-B26"/>
+                            <constraint firstItem="iWZ-rV-4fY" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="40" id="KMB-1O-m1X"/>
+                            <constraint firstAttribute="bottom" secondItem="iWZ-rV-4fY" secondAttribute="bottom" constant="90" id="N0e-hP-Ztn"/>
                             <constraint firstAttribute="trailing" secondItem="rlC-aJ-f2j" secondAttribute="trailing" constant="30" id="Nci-Gb-P6n"/>
                             <constraint firstAttribute="bottom" secondItem="kOz-lf-BoN" secondAttribute="bottom" constant="15" id="PeY-xZ-wot"/>
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="SzF-x1-FKd"/>
                             <constraint firstAttribute="bottom" secondItem="fFX-aL-qVa" secondAttribute="bottom" constant="40" id="WfE-ZS-tCZ"/>
+                            <constraint firstItem="iWZ-rV-4fY" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="60" id="X5o-zK-dzY"/>
                             <constraint firstItem="kOz-lf-BoN" firstAttribute="top" secondItem="aAy-ZS-MCe" secondAttribute="bottom" constant="10" id="dgd-Hi-FSX"/>
                             <constraint firstAttribute="trailing" secondItem="fFX-aL-qVa" secondAttribute="trailing" constant="30" id="dwE-dW-aa1"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailing" id="e5D-80-0Zg"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="jhK-h1-iyh"/>
+                            <constraint firstAttribute="trailing" secondItem="iWZ-rV-4fY" secondAttribute="trailing" constant="60" id="pwH-Xe-BrM"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="qni-cQ-jN9"/>
                             <constraint firstAttribute="bottom" secondItem="GNU-8W-xnK" secondAttribute="bottom" id="vlN-0A-QVJ"/>
                             <constraint firstAttribute="bottom" secondItem="6Ai-lM-3qU" secondAttribute="bottom" constant="40" id="yJG-R0-cda"/>
@@ -128,12 +137,13 @@
                         <outlet property="garageButton" destination="kOz-lf-BoN" id="Lhx-iI-y91"/>
                         <outlet property="questButton" destination="aAy-ZS-MCe" id="l9f-E1-Uk0"/>
                         <outlet property="settingButton" destination="rlC-aJ-f2j" id="1Jh-69-Nx1"/>
+                        <outlet property="settingView" destination="iWZ-rV-4fY" id="Cvk-uP-lrL"/>
                         <outlet property="startButton" destination="fFX-aL-qVa" id="bR7-ET-sZD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.6255924170616" y="-3.0769230769230766"/>
+            <point key="canvasLocation" x="74.644549763033169" y="-3.0769230769230766"/>
         </scene>
         <!--Stage-->
         <scene sceneID="qKu-2h-Ev4">
@@ -154,5 +164,8 @@
         <namedColor name="deliveryrunYellow">
             <color red="1" green="0.89803921568627454" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
