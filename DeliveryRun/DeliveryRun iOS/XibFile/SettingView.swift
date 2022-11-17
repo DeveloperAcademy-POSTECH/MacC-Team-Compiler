@@ -10,38 +10,42 @@ import Foundation
 
 class SettingView: UIView {
     
-    @IBOutlet weak var checkButton: CustomGameButton!
-    @IBOutlet weak var backgroundSlider: CustomUiSlider!
     
-    @IBOutlet weak var backgroundSymbol: UIImageView!
-    @IBOutlet weak var opcityView: UIView!
+    @IBOutlet weak var backgroundSlider: CustomUiSlider!
+    @IBOutlet weak var soundSlider: CustomUiSlider!
+    @IBOutlet weak var byLabel: UILabel!
+    @IBOutlet weak var checkButton: CustomGameButton!
     let nibName = "SettingView"
     var contentView: UIView?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         guard let view = loadViewFromNib() else { return }
         view.frame = self.bounds
         self.addSubview(view)
         contentView = view
+        byLabel.text = "Developed by Team Compilerver 1.0.0"
         checkButton.setTitle("확인", for: .normal)
         
     }
     
-    @IBAction func sliderpatch(_ sender: UISlider) {
-        print(backgroundSlider.value)
-    }
-    
-    @IBAction func doneButton(_ sender: UIButton) {
-        self.isHidden = true
-    }
     func loadViewFromNib() -> UIView? {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: nibName, bundle: bundle)
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
     
+    @IBAction func setBackgroundValue(_ sender: CustomUiSlider) {
+    }
+    
+    @IBAction func setSoundValue(_ sender: CustomUiSlider) {
+    }
+    
+    @IBAction func saveValueButton(_ sender: CustomGameButton) {
+        print(backgroundSlider.value)
+        print(soundSlider.value)
+        self.isHidden = true
+    }
 }
 
 
@@ -58,6 +62,9 @@ class CustomUiSlider: UISlider {
         rect.size.height = 7
         return rect
     }
+    
+    
+    
 }
 
 
