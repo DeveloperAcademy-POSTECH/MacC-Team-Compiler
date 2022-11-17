@@ -15,6 +15,8 @@ class SettingView: UIView {
     @IBOutlet weak var soundSlider: CustomUiSlider!
     @IBOutlet weak var byLabel: UILabel!
     @IBOutlet weak var checkButton: CustomGameButton!
+    var backgroundValue:Float = 0.0
+    var soundValue:Float = 0.0
     let nibName = "SettingView"
     var contentView: UIView?
 
@@ -27,6 +29,9 @@ class SettingView: UIView {
         byLabel.text = "Developed by Team Compilerver 1.0.0"
         checkButton.setTitle("확인", for: .normal)
         
+    }
+    func returnFloat() -> Float {
+        0.0
     }
     
     func loadViewFromNib() -> UIView? {
@@ -42,8 +47,10 @@ class SettingView: UIView {
     }
     
     @IBAction func saveValueButton(_ sender: CustomGameButton) {
-        print(backgroundSlider.value)
-        print(soundSlider.value)
+        backgroundValue = backgroundSlider.value
+        soundValue = soundSlider.value
+        print(self.backgroundValue)
+        print(self.soundValue)
         self.isHidden = true
     }
 }

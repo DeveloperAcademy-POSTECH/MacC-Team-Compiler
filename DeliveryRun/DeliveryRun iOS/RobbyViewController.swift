@@ -15,7 +15,7 @@ class RobbyViewController: UIViewController {
     @IBOutlet weak var questButton: CustomGameButton!
     @IBOutlet weak var garageButton: CustomGameButton!
     @IBOutlet weak var startButton: CustomGameButton!
-    @IBOutlet weak var settingView: UIView!
+    @IBOutlet weak var settingView: SettingView!
     @IBOutlet weak var settingButton: UIButton!
     
     
@@ -32,6 +32,7 @@ class RobbyViewController: UIViewController {
     }
     
     @IBAction func questPopUp(_ sender: CustomGameButton) {
+        
     }
     @IBAction func settingPopUp(_ sender: CustomGameButton) {
         if settingView.isHidden {
