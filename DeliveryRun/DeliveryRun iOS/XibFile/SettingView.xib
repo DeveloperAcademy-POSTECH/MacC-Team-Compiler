@@ -36,9 +36,8 @@
                             <imageReference key="image" image="music.house" catalog="system" symbolScale="large"/>
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="default" weight="medium"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8K-zs-kbi">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8K-zs-kbi" customClass="CustomUILabel" customModule="DeliveryRun" customModuleProvider="target">
                             <rect key="frame" x="60" y="0.0" width="75" height="40"/>
-                            <color key="backgroundColor" name="deliveryrunBlack"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="75" id="lpH-FY-IgR"/>
                             </constraints>
@@ -100,9 +99,8 @@
                             <imageReference key="image" image="speaker" catalog="system" symbolScale="large"/>
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="default" weight="medium"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiR-63-2ak" userLabel="효과음">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiR-63-2ak" userLabel="효과음" customClass="CustomUILabel" customModule="DeliveryRun" customModuleProvider="target">
                             <rect key="frame" x="60" y="0.0" width="75" height="40"/>
-                            <color key="backgroundColor" name="deliveryrunBlack"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="75" id="ofv-Ez-iaE"/>
                             </constraints>
@@ -110,12 +108,12 @@
                                 <fragment content="효과음">
                                     <attributes>
                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <font key="NSFont" size="30" name="BMJUAOTF"/>
+                                        <font key="NSFont" size="30" name="JCkg"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
                             </attributedString>
-                            <nil key="highlightedColor"/>
+                            <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </label>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HhC-RS-WTg" userLabel="Sound Slider" customClass="CustomUiSlider" customModule="DeliveryRun" customModuleProvider="target">

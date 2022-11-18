@@ -74,6 +74,14 @@ class CustomUiSlider: UISlider {
     
 }
 
+class CustomUILabel: UILabel {
+    required init (coder aDecorder:NSCoder) {
+        super.init(coder: aDecorder)!
+        self.font = UIFont(name: "BMJUAOTF", size: 30)
+        self.textColor = .white
+    }
+}
+
 
 //class CustomGameButton: UIButton {
 //
@@ -89,3 +97,4 @@ class CustomUiSlider: UISlider {
 //    }
 //
 //}
+
