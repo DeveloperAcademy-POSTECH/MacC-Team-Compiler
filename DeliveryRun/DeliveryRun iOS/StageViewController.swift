@@ -10,10 +10,13 @@ import UIKit
 class StageViewController: UIViewController {
     @IBOutlet weak var StageDetailView: UIView!
     @IBOutlet weak var stageStartBtn: CustomGameButton!
+    @IBOutlet weak var StageCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        StageCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        StageCollectionView.layer.cornerRadius = 10
         StageDetailView.layer.cornerRadius = 10
         StageDetailView.layer.masksToBounds = true
         stageStartBtn.setTitle("배달 출발", for: .normal)
@@ -28,7 +31,7 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stagecell", for: indexPath) as! StageCell
-        cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
+//        cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
         return cell
     }
 }

@@ -9,8 +9,6 @@ import UIKit
 import Foundation
 
 class SettingView: UIView {
-    
-    
     @IBOutlet weak var backgroundSlider: CustomUiSlider!
     @IBOutlet weak var soundSlider: CustomUiSlider!
     @IBOutlet weak var byLabel: UILabel!
@@ -26,7 +24,7 @@ class SettingView: UIView {
         view.frame = self.bounds
         self.addSubview(view)
         contentView = view
-        byLabel.text = "Developed by Team Compilerver 1.0.0"
+        byLabel.text = "Developed by Team Compiler ver 1.0.0"
         checkButton.setTitle("확인", for: .normal)
         
     }

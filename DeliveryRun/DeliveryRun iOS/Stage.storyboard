@@ -91,26 +91,12 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="stagecell" id="DRz-7f-Ck3" customClass="StageCell" customModule="DeliveryRun" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TgN-Xd-mzF" customClass="StageCell" customModule="DeliveryRun" customModuleProvider="target">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="stagecell" insetsLayoutMarginsFromSafeArea="NO" id="TgN-Xd-mzF" customClass="StageCell" customModule="DeliveryRun" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-VZ-Mqj">
-                                                    <rect key="frame" x="24" y="34.666666666666664" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Srf-VZ-Mqj" firstAttribute="centerY" secondItem="TgN-Xd-mzF" secondAttribute="centerY" id="L9R-FU-FdS"/>
-                                                <constraint firstItem="Srf-VZ-Mqj" firstAttribute="centerX" secondItem="TgN-Xd-mzF" secondAttribute="centerX" id="UTP-W9-mRl"/>
-                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                        <connections>
-                                            <outlet property="stageLabel" destination="Srf-VZ-Mqj" id="iTE-jm-bqf"/>
-                                        </connections>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -168,6 +154,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="HBe-ev-GK8"/>
                     <connections>
+                        <outlet property="StageCollectionView" destination="Ljm-JV-vWF" id="fkl-1n-KmA"/>
                         <outlet property="StageDetailView" destination="zeZ-pv-DNR" id="RiY-oL-MCO"/>
                         <outlet property="stageStartBtn" destination="Nht-dX-def" id="M4A-Eg-2CO"/>
                     </connections>
@@ -186,9 +173,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
