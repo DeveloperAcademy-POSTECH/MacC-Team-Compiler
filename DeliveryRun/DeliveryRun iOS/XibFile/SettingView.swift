@@ -70,8 +70,6 @@ class CustomUiSlider: UISlider {
         return rect
     }
     
-    
-    
 }
 
 class CustomUILabel: UILabel {
@@ -82,19 +80,4 @@ class CustomUILabel: UILabel {
     }
 }
 
-
-//class CustomGameButton: UIButton {
-//
-//    required init (coder aDecoder:NSCoder) {
-//        super.init(coder: aDecoder)!
-//        self.backgroundColor = .deliveryrunBlack
-//        self.titleLabel?.font = UIFont(name: "BMJUAOTF", size: 30)
-//        self.tintColor = .white
-//        self.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 30), forImageIn: .normal)
-//        self.layer.borderColor = UIColor.white.cgColor
-//        self.layer.borderWidth = 0.5
-//        self.layer.cornerRadius = 10
-//    }
-//
-//}
 

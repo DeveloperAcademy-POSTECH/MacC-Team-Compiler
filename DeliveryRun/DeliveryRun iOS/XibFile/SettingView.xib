@@ -33,7 +33,7 @@
                                 <constraint firstAttribute="width" constant="40" id="Tz5-97-Xpd"/>
                                 <constraint firstAttribute="height" constant="40" id="Uca-ez-e2Q"/>
                             </constraints>
-                            <imageReference key="image" image="music.house" catalog="system" symbolScale="large"/>
+                            <imageReference key="image" image="music.note.house" catalog="system" symbolScale="large"/>
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="default" weight="medium"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8K-zs-kbi" customClass="CustomUILabel" customModule="DeliveryRun" customModuleProvider="target">
@@ -148,7 +148,7 @@
         </view>
     </objects>
     <resources>
-        <image name="music.house" catalog="system" width="128" height="104"/>
+        <image name="music.note.house" catalog="system" width="128" height="104"/>
         <image name="speaker" catalog="system" width="128" height="123"/>
         <namedColor name="deliveryrunBlack">
             <color red="0.14509803921568629" green="0.14901960784313725" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

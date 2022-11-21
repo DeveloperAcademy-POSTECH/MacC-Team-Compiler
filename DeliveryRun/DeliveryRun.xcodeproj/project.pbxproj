@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		63664AB829123427006E75D7 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63664AB729123427006E75D7 /* Sound.swift */; };
 		6372509428FFC7F700117CF8 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372509328FFC7F700117CF8 /* PlayerState.swift */; };
+		638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D9B29292B46750024E821 /* QuestTableCell.swift */; };
+		638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638D9B2A292B46750024E821 /* QuestTableCell.xib */; };
 		6396605229233CD30002E6B2 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6396605129233CD30002E6B2 /* SettingView.xib */; };
 		6396605429233D3E0002E6B2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396605329233D3E0002E6B2 /* SettingView.swift */; };
-		63966056292343E80002E6B2 /* QuestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63966055292343E80002E6B2 /* QuestView.xib */; };
-		63966058292344080002E6B2 /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63966057292344080002E6B2 /* QuestView.swift */; };
 		6396605B2923633E0002E6B2 /* UIkitDocument in Resources */ = {isa = PBXBuildFile; fileRef = 6396605A2923633E0002E6B2 /* UIkitDocument */; };
 		63D689E52906E4BF001748CE /* SpriteDocument in Resources */ = {isa = PBXBuildFile; fileRef = 63D689E42906E4BF001748CE /* SpriteDocument */; };
 		63DC0EAB28F5863100B145B9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC0EAA28F5863100B145B9 /* GameViewController.swift */; };
@@ -46,10 +46,10 @@
 /* Begin PBXFileReference section */
 		63664AB729123427006E75D7 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		6372509328FFC7F700117CF8 /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
+		638D9B29292B46750024E821 /* QuestTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTableCell.swift; sourceTree = "<group>"; };
+		638D9B2A292B46750024E821 /* QuestTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestTableCell.xib; sourceTree = "<group>"; };
 		6396605129233CD30002E6B2 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
 		6396605329233D3E0002E6B2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		63966055292343E80002E6B2 /* QuestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestView.xib; sourceTree = "<group>"; };
-		63966057292344080002E6B2 /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
 		6396605A2923633E0002E6B2 /* UIkitDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = UIkitDocument; sourceTree = "<group>"; };
 		63D689E42906E4BF001748CE /* SpriteDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpriteDocument; sourceTree = "<group>"; };
 		63DC0EAA28F5863100B145B9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -96,10 +96,10 @@
 		63966059292344B00002E6B2 /* XibFile */ = {
 			isa = PBXGroup;
 			children = (
-				63966055292343E80002E6B2 /* QuestView.xib */,
+				638D9B29292B46750024E821 /* QuestTableCell.swift */,
+				638D9B2A292B46750024E821 /* QuestTableCell.xib */,
 				6396605129233CD30002E6B2 /* SettingView.xib */,
 				6396605329233D3E0002E6B2 /* SettingView.swift */,
-				63966057292344080002E6B2 /* QuestView.swift */,
 			);
 			path = XibFile;
 			sourceTree = "<group>";
@@ -265,9 +265,9 @@
 				6F4B8BCD291E2380000990EA /* sound1.mp3 in Resources */,
 				6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */,
 				6F4B8BD0291E2387000990EA /* sound6.mp3 in Resources */,
+				638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */,
 				63D689E52906E4BF001748CE /* SpriteDocument in Resources */,
 				6396605229233CD30002E6B2 /* SettingView.xib in Resources */,
-				63966056292343E80002E6B2 /* QuestView.xib in Resources */,
 				6F28EEAA28F5444600D7330F /* Actions.sks in Resources */,
 				6F28EEA928F5444600D7330F /* LaunchScreen.storyboard in Resources */,
 				6F28EEAD28F5444600D7330F /* Assets.xcassets in Resources */,
@@ -288,8 +288,8 @@
 				6F28EEA328F5444600D7330F /* RobbyViewController.swift in Sources */,
 				6F2F6C2028FB3A9B000B9507 /* StageViewController.swift in Sources */,
 				6FA60FAF28F69431003846EF /* Color.swift in Sources */,
+				638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */,
 				6FE9943D29123850004753BA /* HUD.swift in Sources */,
-				63966058292344080002E6B2 /* QuestView.swift in Sources */,
 				6F31E19C290AAD9B00F138D0 /* StageCell.swift in Sources */,
 				63664AB829123427006E75D7 /* Sound.swift in Sources */,
 				6F28EEA128F5444600D7330F /* AppDelegate.swift in Sources */,
