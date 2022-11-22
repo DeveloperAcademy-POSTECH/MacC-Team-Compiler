@@ -12,6 +12,12 @@ import AVFoundation
 
 class RobbyViewController: UIViewController {
     
+    let quests: [Quest] = [
+        Quest(title: "점프킹", subTitle: "총 점프 횟수 50회를 달성하세요.", image:UIImage(named: "collection1")!, reward: "Bike", totalNumber: 50, nowNumber: 10, isClear: false),
+        Quest(title: "하남자특", subTitle: "브레이크를 사용해서 최저 속도를 20회 달성하세요.", image:UIImage(named: "collection2")!, reward: "Scooter", totalNumber: 20, nowNumber: 20, isClear: true),
+        Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", image:UIImage(named: "collection3")!, reward: "Car", totalNumber: 50, nowNumber: 10, isClear: false),
+    ]
+    
     @IBOutlet weak var questButton: CustomGameButton!
     @IBOutlet weak var garageButton: CustomGameButton!
     @IBOutlet weak var startButton: CustomGameButton!
@@ -31,8 +37,8 @@ class RobbyViewController: UIViewController {
         questCheckButton.setTitle("확인", for: .normal)
         settingView.isHidden = true
         settingView.layer.opacity = 1.0
-        questTableView.isHidden = true
-        questTableView.layer.opacity = 1.0
+        questView.isHidden = true
+        questView.layer.opacity = 1.0
         
         questTableView.dataSource = self
 //        // NibFile Swift File명 ReuseableIdentifier Cell Identifier
@@ -47,7 +53,6 @@ class RobbyViewController: UIViewController {
             settingView.isHidden = false
         } else {
             settingView.isHidden = true
-            questTableView.isHidden = false
         }
     }
     
@@ -56,7 +61,6 @@ class RobbyViewController: UIViewController {
             questView.isHidden = false
         } else {
             questView.isHidden = true
-            questTableView.isHidden = false
         }
     }
     @IBAction func questCheckPopUp(_ sender: UIButton) {
@@ -68,19 +72,24 @@ class RobbyViewController: UIViewController {
     }
 }
 
-extension RobbyViewController: UITableViewDataSource {
+extension RobbyViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        quests.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = questTableView.dequeueReusableCell(withIdentifier: "QuestTableCell", for: indexPath) as! QuestTableCell
-        cell.questTitleLabel.text = "점프킹"
+        cell.questTitleLabel.text = quests[indexPath.row].title
+        cell.questSubTitleLabel.text = quests[indexPath.row].subTitle
+        cell.questImage.image = quests[indexPath.row].image
+
         return cell
     }
     
     
 }
+
 
 class CustomGameButton: UIButton {
     required init (coder aDecoder:NSCoder) {
