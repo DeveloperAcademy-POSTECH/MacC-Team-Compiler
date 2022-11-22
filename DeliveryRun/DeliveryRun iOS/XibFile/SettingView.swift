@@ -10,16 +10,16 @@ import Foundation
 
 class SettingView: UIView {
     
-    
     @IBOutlet weak var backgroundSlider: CustomUiSlider!
     @IBOutlet weak var soundSlider: CustomUiSlider!
     @IBOutlet weak var byLabel: UILabel!
-    @IBOutlet weak var checkButton: CustomGameButton!
     var backgroundValue:Float = 0.0
     var soundValue:Float = 0.0
+    var settingViewIsHidden = false
     let nibName = "SettingView"
     var contentView: UIView?
-
+    
+    // StoryBoard로 불러오기!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         guard let view = loadViewFromNib() else { return }
@@ -27,8 +27,7 @@ class SettingView: UIView {
         self.addSubview(view)
         contentView = view
         byLabel.text = "Developed by Team Compilerver 1.0.0"
-        checkButton.setTitle("확인", for: .normal)
-        
+
     }
     func returnFloat() -> Float {
         0.0
@@ -41,17 +40,15 @@ class SettingView: UIView {
     }
     
     @IBAction func setBackgroundValue(_ sender: CustomUiSlider) {
+        backgroundValue = backgroundSlider.value
     }
     
     @IBAction func setSoundValue(_ sender: CustomUiSlider) {
-    }
-    
-    @IBAction func saveValueButton(_ sender: CustomGameButton) {
-        backgroundValue = backgroundSlider.value
         soundValue = soundSlider.value
-        print(self.backgroundValue)
-        print(self.soundValue)
-        self.isHidden = true
+    }
+    @IBAction func settingCheckButtonPressed(_ sender: CustomGameButton) {
+        settingViewIsHidden.toggle()
+        self.isHidden.toggle()
     }
 }
 

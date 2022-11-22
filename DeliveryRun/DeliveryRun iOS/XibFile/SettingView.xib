@@ -14,7 +14,6 @@
             <connections>
                 <outlet property="backgroundSlider" destination="fn9-1b-MOy" id="kcM-8M-qZ6"/>
                 <outlet property="byLabel" destination="UDT-Xz-jJa" id="pQM-g5-oyz"/>
-                <outlet property="checkButton" destination="Oxn-Qc-O8I" id="TqM-nn-K2B"/>
                 <outlet property="soundSlider" destination="HhC-RS-WTg" id="DfQ-T8-u86"/>
             </connections>
         </placeholder>
@@ -77,7 +76,7 @@
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="확인"/>
                     <connections>
-                        <action selector="saveValueButton:" destination="-1" eventType="touchUpInside" id="aM8-e5-57R"/>
+                        <action selector="settingCheckButtonPressed:" destination="-1" eventType="touchUpInside" id="pBe-st-yGD"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dev By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDT-Xz-jJa">

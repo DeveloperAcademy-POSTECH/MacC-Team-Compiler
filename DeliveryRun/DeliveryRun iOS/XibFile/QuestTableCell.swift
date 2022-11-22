@@ -19,7 +19,6 @@ class QuestTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         rewardButton.setTitle("보상 받기", for: .normal)
-        questProgress.progress = 0.5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,8 +45,9 @@ class CustomUiProgressView: UIProgressView {
 class CustomQuestLabel: UILabel {
     required init (coder aDecorder:NSCoder) {
         super.init(coder: aDecorder)!
-        self.font = UIFont(name: "BMJUAOTF", size: 30)
-        self.textColor = .white
+        self.font = UIFont(name: "BMJUAOTF", size: 16)
+        self.textColor = .deliveryrunBlack
+        self.textAlignment = .center
     }
 }
 
