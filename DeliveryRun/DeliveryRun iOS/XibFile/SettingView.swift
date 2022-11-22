@@ -66,10 +66,7 @@ class CustomUiSlider: UISlider {
         var rect = super.trackRect(forBounds: bounds)
         rect.size.height = 7
         return rect
-    }
-    
-    
-    
+    } 
 }
 
 class CustomUILabel: UILabel {
@@ -79,20 +76,4 @@ class CustomUILabel: UILabel {
         self.textColor = .white
     }
 }
-
-
-//class CustomGameButton: UIButton {
-//
-//    required init (coder aDecoder:NSCoder) {
-//        super.init(coder: aDecoder)!
-//        self.backgroundColor = .deliveryrunBlack
-//        self.titleLabel?.font = UIFont(name: "BMJUAOTF", size: 30)
-//        self.tintColor = .white
-//        self.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 30), forImageIn: .normal)
-//        self.layer.borderColor = UIColor.white.cgColor
-//        self.layer.borderWidth = 0.5
-//        self.layer.cornerRadius = 10
-//    }
-//
-//}
 

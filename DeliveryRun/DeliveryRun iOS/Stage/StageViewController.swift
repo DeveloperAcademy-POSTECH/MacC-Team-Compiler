@@ -8,19 +8,35 @@
 import UIKit
 
 class StageViewController: UIViewController {
-    @IBOutlet weak var StageDetailView: UIView!
-    @IBOutlet weak var stageStartBtn: CustomGameButton!
-    @IBOutlet weak var StageCollectionView: UICollectionView!
+    @IBOutlet weak var stageCollectionView: UICollectionView!
+    @IBOutlet weak var stageDetailView: UIView!
+    @IBOutlet weak var startButton: CustomGameButton!
+    @IBOutlet weak var stageNameLabel: UILabel!
+    @IBOutlet weak var recordLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        StageCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        StageCollectionView.layer.cornerRadius = 10
-        StageDetailView.layer.cornerRadius = 10
-        StageDetailView.layer.masksToBounds = true
-        stageStartBtn.setTitle("배달 출발", for: .normal)
-        stageStartBtn.titleLabel?.font = UIFont(name: "BMJUAOTF", size: 20)
+        stageCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        stageCollectionView.layer.cornerRadius = 10
+        
+        stageDetailView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        stageDetailView.layer.cornerRadius = 10
+        
+        startButton.setTitle("배달 출발", for: .normal)
+        startButton.titleLabel?.font = UIFont(name: "BMJUAOTF", size: 30)
+        startButton.layer.borderWidth = 2
+        startButton.layer.borderColor = UIColor.white.cgColor
+        
+        stageNameLabel.text = "스테이지 이름"
+        stageNameLabel.textColor = .white
+        stageNameLabel.font = UIFont(name:"BMJUAOTF", size: 35)
+        
+        recordLabel.text = "목표기록 : 00:00:00\n현재기록 : 00:00:00"
+        recordLabel.textAlignment = .center
+        recordLabel.numberOfLines = 2
+        recordLabel.textColor = .white
+        recordLabel.font = UIFont(name:"BMJUAOTF", size: 20)
     }
 }
 
@@ -31,7 +47,7 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stagecell", for: indexPath) as! StageCell
-//        cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
+        cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
         return cell
     }
 }

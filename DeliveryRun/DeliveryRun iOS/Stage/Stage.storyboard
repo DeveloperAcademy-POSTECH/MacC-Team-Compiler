@@ -60,7 +60,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="gearshape.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="48"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-ba-mCW" userLabel="Back Button">
@@ -73,7 +73,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="arrowshape.left.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="48"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
                                     <segue destination="ebE-Uc-Flz" kind="show" animates="NO" id="XI8-ot-tSB"/>
@@ -107,23 +107,56 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeZ-pv-DNR">
                                 <rect key="frame" x="552" y="90" width="250" height="273"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nht-dX-def" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="223" width="210" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="Sld-jU-Ls5"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="CTa-8A-0BM" kind="show" animates="NO" id="0bM-In-hce"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="d8V-ce-7VJ">
+                                        <rect key="frame" x="0.0" y="15" width="250" height="243"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMJ-vd-DkL">
+                                                <rect key="frame" x="104.33333333333337" y="0.0" width="41.333333333333343" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbi-qO-WUR">
+                                                <rect key="frame" x="104.33333333333337" y="51.333333333333343" width="41.333333333333343" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bPW-z1-diJ">
+                                                <rect key="frame" x="30.666666666666629" y="103" width="189" height="59"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="XlL-nC-SMe">
+                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="59"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="RaV-EB-Xgw">
+                                                        <rect key="frame" x="63" y="0.0" width="63" height="59"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="liA-Fu-JNq">
+                                                        <rect key="frame" x="126" y="0.0" width="63" height="59"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmE-DC-nlt" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
+                                                <rect key="frame" x="45" y="193" width="160" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="KOO-n5-170"/>
+                                                    <constraint firstAttribute="width" constant="160" id="uem-py-TN3"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <segue destination="CTa-8A-0BM" kind="show" animates="NO" id="Ur9-3j-CXZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Nht-dX-def" firstAttribute="leading" secondItem="zeZ-pv-DNR" secondAttribute="leading" constant="20" id="Ibx-vP-kRT"/>
-                                    <constraint firstAttribute="trailing" secondItem="Nht-dX-def" secondAttribute="trailing" constant="20" id="K8i-dd-FUz"/>
-                                    <constraint firstAttribute="bottom" secondItem="Nht-dX-def" secondAttribute="bottom" constant="15" id="KmF-Y8-zC2"/>
+                                    <constraint firstAttribute="bottom" secondItem="d8V-ce-7VJ" secondAttribute="bottom" constant="15" id="OHu-Bm-lj6"/>
+                                    <constraint firstItem="d8V-ce-7VJ" firstAttribute="leading" secondItem="zeZ-pv-DNR" secondAttribute="leading" id="aKh-H0-M8V"/>
+                                    <constraint firstAttribute="trailing" secondItem="d8V-ce-7VJ" secondAttribute="trailing" id="fxw-4j-J3t"/>
+                                    <constraint firstItem="d8V-ce-7VJ" firstAttribute="top" secondItem="zeZ-pv-DNR" secondAttribute="top" constant="15" id="hXt-AD-vhP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -155,17 +188,20 @@
                     <navigationItem key="navigationItem" id="HBe-ev-GK8"/>
                     <connections>
                         <outlet property="StageCollectionView" destination="Ljm-JV-vWF" id="fkl-1n-KmA"/>
-                        <outlet property="StageDetailView" destination="zeZ-pv-DNR" id="RiY-oL-MCO"/>
-                        <outlet property="stageStartBtn" destination="Nht-dX-def" id="M4A-Eg-2CO"/>
+                        <outlet property="recordLabel" destination="zbi-qO-WUR" id="SQy-Dk-paw"/>
+                        <outlet property="stageDetailView" destination="zeZ-pv-DNR" id="c9d-uP-Cbc"/>
+                        <outlet property="stageNameLabel" destination="xMJ-vd-DkL" id="Htn-Ki-iae"/>
+                        <outlet property="startButton" destination="DmE-DC-nlt" id="OtS-6r-7Mw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hau-Sb-ZqA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929.8578199052132" y="-3.0769230769230766"/>
+            <point key="canvasLocation" x="929.57746478873241" y="-3.8167938931297707"/>
         </scene>
     </scenes>
     <resources>
         <image name="RobbyBack" width="844" height="390"/>
+        <image name="Star" width="63" height="59"/>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <namedColor name="deliveryrunYellow">
