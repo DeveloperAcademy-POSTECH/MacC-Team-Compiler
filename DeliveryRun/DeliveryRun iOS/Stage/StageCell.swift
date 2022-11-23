@@ -20,14 +20,17 @@ class StageCell: UICollectionViewCell {
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
         return view
     }()
     
+    // Stage Index Label
     let stageLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name:"BMJUAOTF", size:20)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.isUserInteractionEnabled = true
         return label
     }()
     

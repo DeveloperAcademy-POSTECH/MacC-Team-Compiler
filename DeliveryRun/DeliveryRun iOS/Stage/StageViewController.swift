@@ -14,12 +14,37 @@ class StageViewController: UIViewController {
     @IBOutlet weak var stageNameLabel: UILabel!
     @IBOutlet weak var recordLabel: UILabel!
     
+    let stageList: [Stage] = [
+        Stage(stageName: "스테이지 1", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 2", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 3", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 4", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 5", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 6", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 7", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 8", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 9", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 10", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 11", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 12", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 13", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 14", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 15", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false)
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         stageCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         stageCollectionView.layer.cornerRadius = 10
+        stageCollectionView.delegate = self
+        stageCollectionView.dataSource = self
         
+        setStageDetail()
+    }
+    
+    // Stage Detail View 설정
+    func setStageDetail() {
         stageDetailView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         stageDetailView.layer.cornerRadius = 10
         
@@ -40,11 +65,14 @@ class StageViewController: UIViewController {
     }
 }
 
+
 extension StageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    // Cell 수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 15
     }
     
+    // Cell 초기화
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stagecell", for: indexPath) as! StageCell
         cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
@@ -52,6 +80,7 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 }
 
+// Cell Size & Insets
 extension StageViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = CGFloat(Int((collectionView.frame.width - 120) / 5))
@@ -69,5 +98,11 @@ extension StageViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
+    }
+}
+
+extension StageViewController {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
 }
