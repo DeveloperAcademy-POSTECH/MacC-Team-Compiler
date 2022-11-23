@@ -18,6 +18,8 @@ class RobbyViewController: UIViewController {
         Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", image:UIImage(named: "collection3")!, reward: "Car", totalNumber: 50, nowNumber: 10, isClear: false),
     ]
     
+    let cellSpacingHeight:CGFloat = 10
+    
     
     @IBOutlet weak var coatingView: UIView!
     @IBOutlet weak var settingView: SettingView!
@@ -45,6 +47,7 @@ class RobbyViewController: UIViewController {
         questView.layer.opacity = 1.0
         
         questTableView.dataSource = self
+        questTableView.delegate = self
         questTableView.register(UINib(nibName: "QuestTableCell", bundle: nil), forCellReuseIdentifier: "QuestTableCell")
     }
     
@@ -62,7 +65,7 @@ class RobbyViewController: UIViewController {
 
 extension RobbyViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        quests.count
+        return quests.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,10 +73,29 @@ extension RobbyViewController: UITableViewDataSource, UITableViewDelegate {
         cell.questTitleLabel.text = quests[indexPath.row].title
         cell.questSubTitleLabel.text = quests[indexPath.row].subTitle
         cell.questImage.image = quests[indexPath.row].image
-        cell.questProgress.progress = Float(quests[indexPath.row].nowNumber) / Float(quests[indexPath.row].totalNumber)
+        cell.questProgressBar.progress = Float(quests[indexPath.row].nowNumber) / Float(quests[indexPath.row].totalNumber)
+        cell.questProgressLabel.text = String(format: "%D / %D", quests[indexPath.row].nowNumber, quests[indexPath.row].totalNumber)
+        
+        cell.backgroundColor = UIColor.deliveryrunBlack
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
 
         return cell
     }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let headerView = UIView()
+//        headerView.backgroundColor = UIColor.clear
+//        return headerView
+//    }
 }
 
 

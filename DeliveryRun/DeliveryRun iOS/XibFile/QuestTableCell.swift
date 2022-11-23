@@ -9,26 +9,28 @@ import UIKit
 
 class QuestTableCell: UITableViewCell {
     
-
-    @IBOutlet weak var questTitleLabel: UILabel!
-    @IBOutlet weak var questSubTitleLabel: UILabel!
-    @IBOutlet weak var questProgress: CustomUiProgressView!
+    @IBOutlet weak var questTitleLabel: CustomQuestLabel!
+    
+    @IBOutlet weak var questSubTitleLabel: CustomQuestLabel!
+    @IBOutlet weak var questProgressBar: CustomUiProgressView!
+    @IBOutlet weak var questProgressLabel: CustomQuestLabel!
     @IBOutlet weak var questImage: UIImageView!
-    @IBOutlet weak var rewardButton: UIButton!
+    @IBOutlet weak var questCheckButton: CustomQuestButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        rewardButton.setTitle("보상 받기", for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        questSubTitleLabel.font = UIFont(name: "BMJUAOTF", size: 12)
+        questCheckButton.setTitle("보상 받기", for: .normal)
 
         // Configure the view for the selected state
     }
     
-    @IBAction func rewardButtonPressed(_ sender: CustomQuestButton) {
-        print(questSubTitleLabel.text)
+    @IBAction func RewardPressed(_ sender: CustomQuestButton) {
+        print(questTitleLabel.text)
     }
 }
 
@@ -46,7 +48,7 @@ class CustomQuestLabel: UILabel {
     required init (coder aDecorder:NSCoder) {
         super.init(coder: aDecorder)!
         self.font = UIFont(name: "BMJUAOTF", size: 16)
-        self.textColor = .deliveryrunBlack
+        self.textColor = .white
         self.textAlignment = .center
     }
 }
