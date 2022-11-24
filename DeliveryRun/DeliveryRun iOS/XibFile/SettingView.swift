@@ -9,26 +9,28 @@ import UIKit
 import Foundation
 
 class SettingView: UIView {
+    
+    let nibName = "SettingView"
+    
     @IBOutlet weak var backgroundSlider: CustomUiSlider!
     @IBOutlet weak var soundSlider: CustomUiSlider!
     @IBOutlet weak var byLabel: UILabel!
+    
     var backgroundValue:Float = 0.0
     var soundValue:Float = 0.0
-    var settingViewIsHidden = false
-    let nibName = "SettingView"
     var contentView: UIView?
+    var settingViewIsHidden: Bool = false
     
-    // StoryBoard로 불러오기!
+    // StoryBoard로 불러오기
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
         guard let view = loadViewFromNib() else { return }
         view.frame = self.bounds
         self.addSubview(view)
         contentView = view
+        
         byLabel.text = "Developed by Team Compiler ver 1.0.0"
-    }
-    func returnFloat() -> Float {
-        0.0
     }
     
     func loadViewFromNib() -> UIView? {

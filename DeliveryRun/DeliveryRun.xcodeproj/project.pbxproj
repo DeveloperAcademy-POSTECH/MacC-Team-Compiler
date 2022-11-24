@@ -178,10 +178,10 @@
 		6F28EE9F28F5444600D7330F /* DeliveryRun iOS */ = {
 			isa = PBXGroup;
 			children = (
+				6F110C7A28F697F500F75C13 /* DeliveryRun-iOS-Info.plist */,
 				6F5089A3292B602300B26623 /* Stage */,
 				63966059292344B00002E6B2 /* XibFile */,
 				63664AB729123427006E75D7 /* Sound.swift */,
-				6F110C7A28F697F500F75C13 /* DeliveryRun-iOS-Info.plist */,
 				6F28EEA028F5444600D7330F /* AppDelegate.swift */,
 				6F28EEA228F5444600D7330F /* RobbyViewController.swift */,
 				63DC0EAA28F5863100B145B9 /* GameViewController.swift */,

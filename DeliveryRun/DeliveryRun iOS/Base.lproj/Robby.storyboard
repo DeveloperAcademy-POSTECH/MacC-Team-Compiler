@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlC-aJ-f2j" userLabel="Setting Button">
-                                <rect key="frame" x="804" y="20" width="40" height="40"/>
+                                <rect key="frame" x="804" y="25" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Vlw-To-Dkm"/>
                                     <constraint firstAttribute="width" constant="40" id="nWO-ln-S2c"/>
@@ -47,17 +47,17 @@
                                 <state key="normal" image="gearshape.fill" catalog="system">
                                     <color key="titleColor" name="deliveryrunYellow"/>
                                     <color key="titleShadowColor" name="deliveryrunYellow"/>
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
                                     <action selector="SettingPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YIq-wq-axy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-aL-qVa" userLabel="Start Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="684" y="316" width="160" height="34"/>
+                                <rect key="frame" x="684" y="315" width="160" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="2qr-I0-2jk"/>
-                                    <constraint firstAttribute="width" constant="160" id="Qi9-mQ-gIU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="1Tq-1K-DJJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="2qr-I0-2jk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -67,16 +67,16 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOz-lf-BoN" userLabel="GarageButton" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="325" width="160" height="50"/>
+                                <rect key="frame" x="0.0" y="315" width="160" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="4Db-Bu-VSW"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="3BS-TP-ohY"/>
                                     <constraint firstAttribute="height" constant="50" id="wf5-cv-9qQ"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="차고"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAy-ZS-MCe" userLabel="Quest Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="265" width="160" height="50"/>
+                                <rect key="frame" x="0.0" y="255" width="160" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="m0w-Yl-Qvs"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="mdf-vT-sWW"/>
@@ -100,14 +100,14 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tae-ZO-LGw" userLabel="SettingView" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="844" height="350"/>
+                                <rect key="frame" x="0.0" y="25" width="844" height="340"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kew-i8-5gm" userLabel="QuestView">
-                                <rect key="frame" x="0.0" y="25" width="844" height="385"/>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kew-i8-5gm" userLabel="QuestView">
+                                <rect key="frame" x="0.0" y="25" width="844" height="340"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cZH-VI-I4v" userLabel="Quest Table View">
-                                        <rect key="frame" x="0.0" y="10" width="844" height="265"/>
+                                        <rect key="frame" x="0.0" y="15" width="844" height="250"/>
                                         <color key="backgroundColor" name="deliveryrunBlack"/>
                                         <color key="separatorColor" systemColor="systemBackgroundColor"/>
                                         <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
@@ -127,9 +127,9 @@
                                         </connections>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQj-jL-gle" userLabel="Quest Check Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                        <rect key="frame" x="342" y="285" width="160" height="50"/>
+                                        <rect key="frame" x="342" y="280" width="160" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="160" id="1a9-SZ-Pdq"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="5lf-2M-ggz"/>
                                             <constraint firstAttribute="height" constant="50" id="j3j-3A-xhp"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
@@ -145,43 +145,45 @@
                                 <constraints>
                                     <constraint firstItem="cZH-VI-I4v" firstAttribute="leading" secondItem="Kew-i8-5gm" secondAttribute="leading" id="3Ov-Yn-btx"/>
                                     <constraint firstItem="cZH-VI-I4v" firstAttribute="centerX" secondItem="xQj-jL-gle" secondAttribute="centerX" id="IJo-xO-buk"/>
-                                    <constraint firstItem="cZH-VI-I4v" firstAttribute="top" secondItem="Kew-i8-5gm" secondAttribute="top" constant="10" id="Nek-k1-amU"/>
-                                    <constraint firstAttribute="bottom" secondItem="xQj-jL-gle" secondAttribute="bottom" constant="50" id="QGx-yQ-Irm"/>
+                                    <constraint firstItem="cZH-VI-I4v" firstAttribute="top" secondItem="Kew-i8-5gm" secondAttribute="top" constant="15" id="Nek-k1-amU"/>
+                                    <constraint firstAttribute="bottom" secondItem="xQj-jL-gle" secondAttribute="bottom" constant="10" id="QGx-yQ-Irm"/>
                                     <constraint firstAttribute="trailing" secondItem="cZH-VI-I4v" secondAttribute="trailing" id="W9m-IW-1nR"/>
-                                    <constraint firstItem="xQj-jL-gle" firstAttribute="top" secondItem="cZH-VI-I4v" secondAttribute="bottom" constant="10" id="xCf-xQ-Slz"/>
+                                    <constraint firstItem="xQj-jL-gle" firstAttribute="top" secondItem="cZH-VI-I4v" secondAttribute="bottom" constant="15" id="xCf-xQ-Slz"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bNo-s9-wk6"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rlC-aJ-f2j" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="20" id="0eg-Dr-20w"/>
+                            <constraint firstItem="rlC-aJ-f2j" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="25" id="0eg-Dr-20w"/>
                             <constraint firstAttribute="bottom" secondItem="tW2-YE-FCB" secondAttribute="bottom" id="4rZ-Lv-foa"/>
                             <constraint firstItem="kOz-lf-BoN" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="4zB-rx-NtJ"/>
                             <constraint firstItem="tW2-YE-FCB" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="6DM-jO-Ynb"/>
                             <constraint firstItem="Kew-i8-5gm" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="25" id="6op-Ai-WLb"/>
+                            <constraint firstItem="6Ai-lM-3qU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aAy-ZS-MCe" secondAttribute="trailing" constant="8" symbolic="YES" id="Bix-wL-DPZ"/>
                             <constraint firstItem="Kew-i8-5gm" firstAttribute="trailing" secondItem="bNo-s9-wk6" secondAttribute="trailing" id="IM3-ui-LQz"/>
                             <constraint firstItem="Kew-i8-5gm" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="LGS-o5-Bhb"/>
-                            <constraint firstItem="Kew-i8-5gm" firstAttribute="bottom" secondItem="3se-qz-xqx" secondAttribute="bottom" constant="20" id="N7V-oy-Ea2"/>
+                            <constraint firstAttribute="bottom" secondItem="Kew-i8-5gm" secondAttribute="bottom" constant="25" id="N7V-oy-Ea2"/>
                             <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="rlC-aJ-f2j" secondAttribute="trailing" id="Nci-Gb-P6n"/>
                             <constraint firstItem="aAy-ZS-MCe" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="O0H-SC-B6i"/>
-                            <constraint firstAttribute="bottom" secondItem="kOz-lf-BoN" secondAttribute="bottom" constant="15" id="PeY-xZ-wot"/>
+                            <constraint firstAttribute="bottom" secondItem="kOz-lf-BoN" secondAttribute="bottom" constant="25" id="PeY-xZ-wot"/>
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="SzF-x1-FKd"/>
-                            <constraint firstItem="Tae-ZO-LGw" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="20" id="VjH-n0-JZc"/>
-                            <constraint firstAttribute="bottom" secondItem="fFX-aL-qVa" secondAttribute="bottom" constant="40" id="WfE-ZS-tCZ"/>
+                            <constraint firstItem="Tae-ZO-LGw" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="25" id="VjH-n0-JZc"/>
+                            <constraint firstItem="6Ai-lM-3qU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kOz-lf-BoN" secondAttribute="trailing" constant="8" symbolic="YES" id="Vuc-bR-haw"/>
+                            <constraint firstAttribute="bottom" secondItem="fFX-aL-qVa" secondAttribute="bottom" constant="25" id="WfE-ZS-tCZ"/>
                             <constraint firstItem="Tae-ZO-LGw" firstAttribute="trailing" secondItem="bNo-s9-wk6" secondAttribute="trailing" id="XKN-YD-fLy"/>
                             <constraint firstItem="tW2-YE-FCB" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailing" id="c0q-ea-GOS"/>
-                            <constraint firstAttribute="bottom" secondItem="Tae-ZO-LGw" secondAttribute="bottom" constant="20" id="daV-3N-08T"/>
+                            <constraint firstAttribute="bottom" secondItem="Tae-ZO-LGw" secondAttribute="bottom" constant="25" id="daV-3N-08T"/>
                             <constraint firstItem="kOz-lf-BoN" firstAttribute="top" secondItem="aAy-ZS-MCe" secondAttribute="bottom" constant="10" id="dgd-Hi-FSX"/>
                             <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="fFX-aL-qVa" secondAttribute="trailing" id="dwE-dW-aa1"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailing" id="e5D-80-0Zg"/>
                             <constraint firstItem="Tae-ZO-LGw" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="eoB-gj-6UY"/>
+                            <constraint firstItem="fFX-aL-qVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Ai-lM-3qU" secondAttribute="trailing" constant="8" symbolic="YES" id="jUV-9f-NYk"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="jhK-h1-iyh"/>
                             <constraint firstItem="tW2-YE-FCB" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="nVS-zu-qq8"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="qni-cQ-jN9"/>
                             <constraint firstAttribute="bottom" secondItem="GNU-8W-xnK" secondAttribute="bottom" id="vlN-0A-QVJ"/>
                             <constraint firstAttribute="bottom" secondItem="6Ai-lM-3qU" secondAttribute="bottom" constant="45" id="yJG-R0-cda"/>
-                            <constraint firstItem="6Ai-lM-3qU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kOz-lf-BoN" secondAttribute="trailing" constant="8" symbolic="YES" id="ydO-Ux-hA7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TOA-kh-Zwp"/>
