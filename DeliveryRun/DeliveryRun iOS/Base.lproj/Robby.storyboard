@@ -36,55 +36,11 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="RobbyBack" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNU-8W-xnK">
                                 <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-aL-qVa" userLabel="Start Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="654" y="300" width="160" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="2qr-I0-2jk"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Gnl-IZ-HUn"/>
-                                    <constraint firstAttribute="width" constant="160" id="Qi9-mQ-gIU"/>
-                                    <constraint firstAttribute="height" constant="50" id="gRb-UM-Bnn"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="vlv-xJ-EW0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="배달준비"/>
-                                <connections>
-                                    <segue destination="qCp-ty-pZp" kind="show" animates="NO" id="7Lm-g8-zS5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOz-lf-BoN" userLabel="GarageButton" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="20" y="325" width="160" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="4Db-Bu-VSW"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="rSK-5Q-CTw"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="uhZ-ma-PJQ"/>
-                                    <constraint firstAttribute="height" constant="50" id="wf5-cv-9qQ"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="차고"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAy-ZS-MCe" userLabel="Quest Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="20" y="265" width="160" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="4d5-jR-T3f"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Ft8-mt-nRP"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="Uim-Vz-2N3"/>
-                                    <constraint firstAttribute="height" constant="50" id="m0w-Yl-Qvs"/>
-                                    <constraint firstAttribute="width" constant="160" id="mdf-vT-sWW"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="퀘스트"/>
-                                <connections>
-                                    <action selector="questPopUp:" destination="BV1-FR-VrT" eventType="touchUpInside" id="toA-DF-Vyt"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlC-aJ-f2j" userLabel="Setting Button">
-                                <rect key="frame" x="774" y="20" width="40" height="40"/>
+                                <rect key="frame" x="804" y="20" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Vlw-To-Dkm"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="fF7-FY-yRK"/>
                                     <constraint firstAttribute="width" constant="40" id="nWO-ln-S2c"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="xu6-L8-dUx"/>
                                 </constraints>
                                 <color key="tintColor" name="deliveryrunYellow"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -94,7 +50,41 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                 </state>
                                 <connections>
-                                    <action selector="settingPopUp:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Iwk-0k-KBb"/>
+                                    <action selector="SettingPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YIq-wq-axy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-aL-qVa" userLabel="Start Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
+                                <rect key="frame" x="684" y="316" width="160" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="2qr-I0-2jk"/>
+                                    <constraint firstAttribute="width" constant="160" id="Qi9-mQ-gIU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="배달준비"/>
+                                <connections>
+                                    <segue destination="qCp-ty-pZp" kind="show" animates="NO" id="7Lm-g8-zS5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOz-lf-BoN" userLabel="GarageButton" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="325" width="160" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="4Db-Bu-VSW"/>
+                                    <constraint firstAttribute="height" constant="50" id="wf5-cv-9qQ"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="차고"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAy-ZS-MCe" userLabel="Quest Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="265" width="160" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="m0w-Yl-Qvs"/>
+                                    <constraint firstAttribute="width" constant="160" id="mdf-vT-sWW"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="퀘스트"/>
+                                <connections>
+                                    <action selector="QeustPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ILM-ti-nTL"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player0" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-lM-3qU" userLabel="player">
@@ -104,29 +94,90 @@
                                     <constraint firstAttribute="width" constant="120" id="Xy4-Td-A4v"/>
                                 </constraints>
                             </imageView>
-                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWZ-rV-4fY" userLabel="Setting View" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="60" y="40" width="724" height="260"/>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tW2-YE-FCB" userLabel="Coating View">
+                                <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tae-ZO-LGw" userLabel="SettingView" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="844" height="350"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kew-i8-5gm" userLabel="QuestView">
+                                <rect key="frame" x="0.0" y="25" width="844" height="385"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cZH-VI-I4v" userLabel="Quest Table View">
+                                        <rect key="frame" x="0.0" y="10" width="844" height="265"/>
+                                        <color key="backgroundColor" name="deliveryrunBlack"/>
+                                        <color key="separatorColor" systemColor="systemBackgroundColor"/>
+                                        <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OV1-gq-WMj" userLabel="QuestTableCell">
+                                                <rect key="frame" x="0.0" y="50" width="844" height="43.666667938232422"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OV1-gq-WMj" id="v9l-cX-K64">
+                                                    <rect key="frame" x="0.0" y="0.0" width="844" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BV1-FR-VrT" id="SMM-J9-35d"/>
+                                            <outlet property="delegate" destination="BV1-FR-VrT" id="5XS-Xq-dI1"/>
+                                        </connections>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQj-jL-gle" userLabel="Quest Check Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
+                                        <rect key="frame" x="342" y="285" width="160" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="1a9-SZ-Pdq"/>
+                                            <constraint firstAttribute="height" constant="50" id="j3j-3A-xhp"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                            <backgroundConfiguration key="background"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="QuestCheckPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ZQk-jI-Wos"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="cZH-VI-I4v" firstAttribute="leading" secondItem="Kew-i8-5gm" secondAttribute="leading" id="3Ov-Yn-btx"/>
+                                    <constraint firstItem="cZH-VI-I4v" firstAttribute="centerX" secondItem="xQj-jL-gle" secondAttribute="centerX" id="IJo-xO-buk"/>
+                                    <constraint firstItem="cZH-VI-I4v" firstAttribute="top" secondItem="Kew-i8-5gm" secondAttribute="top" constant="10" id="Nek-k1-amU"/>
+                                    <constraint firstAttribute="bottom" secondItem="xQj-jL-gle" secondAttribute="bottom" constant="50" id="QGx-yQ-Irm"/>
+                                    <constraint firstAttribute="trailing" secondItem="cZH-VI-I4v" secondAttribute="trailing" id="W9m-IW-1nR"/>
+                                    <constraint firstItem="xQj-jL-gle" firstAttribute="top" secondItem="cZH-VI-I4v" secondAttribute="bottom" constant="10" id="xCf-xQ-Slz"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bNo-s9-wk6"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rlC-aJ-f2j" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="20" id="0eg-Dr-20w"/>
-                            <constraint firstItem="kOz-lf-BoN" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="20" id="4zB-rx-NtJ"/>
-                            <constraint firstItem="aAy-ZS-MCe" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="20" id="GaH-MT-B26"/>
-                            <constraint firstItem="iWZ-rV-4fY" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="40" id="KMB-1O-m1X"/>
-                            <constraint firstAttribute="bottom" secondItem="iWZ-rV-4fY" secondAttribute="bottom" constant="90" id="N0e-hP-Ztn"/>
-                            <constraint firstAttribute="trailing" secondItem="rlC-aJ-f2j" secondAttribute="trailing" constant="30" id="Nci-Gb-P6n"/>
+                            <constraint firstAttribute="bottom" secondItem="tW2-YE-FCB" secondAttribute="bottom" id="4rZ-Lv-foa"/>
+                            <constraint firstItem="kOz-lf-BoN" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="4zB-rx-NtJ"/>
+                            <constraint firstItem="tW2-YE-FCB" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="6DM-jO-Ynb"/>
+                            <constraint firstItem="Kew-i8-5gm" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="25" id="6op-Ai-WLb"/>
+                            <constraint firstItem="Kew-i8-5gm" firstAttribute="trailing" secondItem="bNo-s9-wk6" secondAttribute="trailing" id="IM3-ui-LQz"/>
+                            <constraint firstItem="Kew-i8-5gm" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="LGS-o5-Bhb"/>
+                            <constraint firstItem="Kew-i8-5gm" firstAttribute="bottom" secondItem="3se-qz-xqx" secondAttribute="bottom" constant="20" id="N7V-oy-Ea2"/>
+                            <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="rlC-aJ-f2j" secondAttribute="trailing" id="Nci-Gb-P6n"/>
+                            <constraint firstItem="aAy-ZS-MCe" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="O0H-SC-B6i"/>
                             <constraint firstAttribute="bottom" secondItem="kOz-lf-BoN" secondAttribute="bottom" constant="15" id="PeY-xZ-wot"/>
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="SzF-x1-FKd"/>
+                            <constraint firstItem="Tae-ZO-LGw" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="20" id="VjH-n0-JZc"/>
                             <constraint firstAttribute="bottom" secondItem="fFX-aL-qVa" secondAttribute="bottom" constant="40" id="WfE-ZS-tCZ"/>
-                            <constraint firstItem="iWZ-rV-4fY" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="60" id="X5o-zK-dzY"/>
+                            <constraint firstItem="Tae-ZO-LGw" firstAttribute="trailing" secondItem="bNo-s9-wk6" secondAttribute="trailing" id="XKN-YD-fLy"/>
+                            <constraint firstItem="tW2-YE-FCB" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailing" id="c0q-ea-GOS"/>
+                            <constraint firstAttribute="bottom" secondItem="Tae-ZO-LGw" secondAttribute="bottom" constant="20" id="daV-3N-08T"/>
                             <constraint firstItem="kOz-lf-BoN" firstAttribute="top" secondItem="aAy-ZS-MCe" secondAttribute="bottom" constant="10" id="dgd-Hi-FSX"/>
-                            <constraint firstAttribute="trailing" secondItem="fFX-aL-qVa" secondAttribute="trailing" constant="30" id="dwE-dW-aa1"/>
+                            <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="fFX-aL-qVa" secondAttribute="trailing" id="dwE-dW-aa1"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailing" id="e5D-80-0Zg"/>
+                            <constraint firstItem="Tae-ZO-LGw" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="eoB-gj-6UY"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="jhK-h1-iyh"/>
-                            <constraint firstAttribute="trailing" secondItem="iWZ-rV-4fY" secondAttribute="trailing" constant="60" id="pwH-Xe-BrM"/>
+                            <constraint firstItem="tW2-YE-FCB" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="nVS-zu-qq8"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="qni-cQ-jN9"/>
                             <constraint firstAttribute="bottom" secondItem="GNU-8W-xnK" secondAttribute="bottom" id="vlN-0A-QVJ"/>
                             <constraint firstAttribute="bottom" secondItem="6Ai-lM-3qU" secondAttribute="bottom" constant="40" id="yJG-R0-cda"/>
@@ -134,10 +185,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="TOA-kh-Zwp"/>
                     <connections>
+                        <outlet property="coatingView" destination="tW2-YE-FCB" id="IKg-gu-GFz"/>
                         <outlet property="garageButton" destination="kOz-lf-BoN" id="Lhx-iI-y91"/>
-                        <outlet property="questButton" destination="aAy-ZS-MCe" id="l9f-E1-Uk0"/>
-                        <outlet property="settingButton" destination="rlC-aJ-f2j" id="1Jh-69-Nx1"/>
-                        <outlet property="settingView" destination="iWZ-rV-4fY" id="Cvk-uP-lrL"/>
+                        <outlet property="questButton" destination="aAy-ZS-MCe" id="mEl-Q2-dov"/>
+                        <outlet property="questCheckButton" destination="xQj-jL-gle" id="YMc-Ea-Lxv"/>
+                        <outlet property="questTableView" destination="cZH-VI-I4v" id="mHM-V9-Kfy"/>
+                        <outlet property="questView" destination="Kew-i8-5gm" id="dEt-7h-i73"/>
+                        <outlet property="settingButton" destination="xQj-jL-gle" id="saf-C0-yJZ"/>
+                        <outlet property="settingView" destination="Tae-ZO-LGw" id="UNu-IF-0OR"/>
                         <outlet property="startButton" destination="fFX-aL-qVa" id="bR7-ET-sZD"/>
                     </connections>
                 </viewController>
@@ -161,6 +216,9 @@
         <image name="RobbyBack" width="844" height="390"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="player0" width="360" height="366"/>
+        <namedColor name="deliveryrunBlack">
+            <color red="0.14509803921568629" green="0.14901960784313725" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="deliveryrunYellow">
             <color red="1" green="0.89803921568627454" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
