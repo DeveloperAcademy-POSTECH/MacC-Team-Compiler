@@ -26,7 +26,6 @@ class SettingView: UIView {
         self.addSubview(view)
         contentView = view
         byLabel.text = "Developed by Team Compiler ver 1.0.0"
-        checkButton.setTitle("확인", for: .normal)
     }
     func returnFloat() -> Float {
         0.0
