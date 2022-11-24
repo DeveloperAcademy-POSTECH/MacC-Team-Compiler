@@ -10,6 +10,8 @@ import UIKit
 class StageCell: UICollectionViewCell {
     static let id = "stagecell"
     
+    var isLock: Bool = false
+    
     // Cell 배경 View
     let backView: UIView = {
         let view = UIView()
@@ -43,11 +45,32 @@ class StageCell: UICollectionViewCell {
         return view
     }()
     
+    let lockView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .deliveryrunBlack!.withAlphaComponent(0.6)
+        view.layer.cornerRadius = 10
+        view.contentMode = .scaleAspectFit
+        view.clipsToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = false
+        return view
+    }()
+    
+    let lockImageView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(systemName: "lock.fill")!.resized(to:CGSize(width:40, height:40)).withTintColor(.deliveryrunRed!)
+        view.contentMode = .scaleAspectFit
+        view.clipsToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.contentView.addSubview(self.backView)
         self.contentView.addSubview(self.stageLabel)
         self.contentView.addSubview(self.foodImageView)
+        
         NSLayoutConstraint.activate([
               self.backView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
               self.backView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
@@ -60,6 +83,33 @@ class StageCell: UICollectionViewCell {
               self.foodImageView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
               self.foodImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
+        
+        // Stage가 Lock인 경우
+        if isLock {
+            self.contentView.addSubview(self.lockView)
+            self.contentView.addSubview(self.lockImageView)
+            self.contentView.isUserInteractionEnabled = false
+            
+            NSLayoutConstraint.activate([
+                self.lockView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
+                self.lockView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
+                self.lockView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+                self.lockView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+                
+                self.lockImageView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+                self.lockImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
+            ])
+        }
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+                if isSelected {
+                    self.contentView.layer.opacity = 0.8
+                } else {
+                    self.contentView.layer.opacity = 1
+                }
+            }
     }
 }
 

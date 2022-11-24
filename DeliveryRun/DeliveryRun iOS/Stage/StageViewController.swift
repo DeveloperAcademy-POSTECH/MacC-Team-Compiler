@@ -18,24 +18,6 @@ class StageViewController: UIViewController {
     @IBOutlet weak var starImageTwo: UIImageView!
     @IBOutlet weak var starImageThree: UIImageView!
     
-    let stageList: [Stage] = [
-        Stage(stageName: "스테이지 1", foodImageName: "star0", targetRecord: 90.0, myRecord: 0.0, star: 3, isLock: false),
-        Stage(stageName: "스테이지 2", foodImageName: "Star", targetRecord: 90.0, myRecord: 0.0, star: 2, isLock: false),
-        Stage(stageName: "스테이지 3", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 1, isLock: false),
-        Stage(stageName: "스테이지 4", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-        Stage(stageName: "스테이지 5", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-        Stage(stageName: "스테이지 6", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-        Stage(stageName: "스테이지 7", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-        Stage(stageName: "스테이지 8", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-        Stage(stageName: "스테이지 9", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-        Stage(stageName: "스테이지 10", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-        Stage(stageName: "스테이지 11", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-        Stage(stageName: "스테이지 12", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-        Stage(stageName: "스테이지 13", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-        Stage(stageName: "스테이지 14", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-        Stage(stageName: "스테이지 15", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false)
-    ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,8 +25,42 @@ class StageViewController: UIViewController {
         stageCollectionView.layer.cornerRadius = 10
         stageCollectionView.delegate = self
         stageCollectionView.dataSource = self
+        stageCollectionView.allowsMultipleSelection = false
         
         setStageDetail()
+    }
+    
+    // 기본 선택 위치 설정
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let selectedIndexPath = IndexPath(row: 0, section: 0)
+        stageCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: [])
+        stageNameLabel.text = stageList[selectedIndexPath.row].stageName
+        recordLabel.text = "목표기록 : \(stageList[selectedIndexPath.row].targetRecord)\n현재기록 : \(stageList[selectedIndexPath.row].myRecord)"
+            
+        // 별 개수에 따라 색 변경
+        switch stageList[selectedIndexPath.row].star {
+        case 1:
+            starImageOne.tintColor = .deliveryrunYellow
+            starImageTwo.tintColor = .systemGray
+            starImageThree.tintColor = .systemGray
+            break
+        case 2:
+            starImageOne.tintColor = .deliveryrunYellow
+            starImageTwo.tintColor = .deliveryrunYellow
+            starImageThree.tintColor = .systemGray
+            break
+        case 3:
+            starImageOne.tintColor = .deliveryrunYellow
+            starImageTwo.tintColor = .deliveryrunYellow
+            starImageThree.tintColor = .deliveryrunYellow
+            break
+        default:
+            starImageOne.tintColor = .systemGray
+            starImageTwo.tintColor = .systemGray
+            starImageThree.tintColor = .systemGray
+            break
+        }
     }
     
     // Stage Detail View 설정
@@ -83,6 +99,7 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
     // Cell 초기화
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stagecell", for: indexPath) as! StageCell
+        cell.isLock = stageList[indexPath.row].isLock
         cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
         cell.foodImageView.image = UIImage(named:stageList[indexPath.row].foodImageName)?.resized(to:CGSize(width:40, height:40))
         return cell
