@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6325B7C6292F4B0600D4B186 /* GarageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325B7C5292F4B0600D4B186 /* GarageViewController.swift */; };
+		6325B7C8292F4C8400D4B186 /* Garage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6325B7C7292F4C8400D4B186 /* Garage.storyboard */; };
+		6325B7CA292F4E5E00D4B186 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325B7C9292F4E5E00D4B186 /* Player.swift */; };
 		63664AB829123427006E75D7 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63664AB729123427006E75D7 /* Sound.swift */; };
 		6372509428FFC7F700117CF8 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372509328FFC7F700117CF8 /* PlayerState.swift */; };
 		638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D9B29292B46750024E821 /* QuestTableCell.swift */; };
@@ -45,6 +48,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6325B7C5292F4B0600D4B186 /* GarageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewController.swift; sourceTree = "<group>"; };
+		6325B7C7292F4C8400D4B186 /* Garage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Garage.storyboard; sourceTree = "<group>"; };
+		6325B7C9292F4E5E00D4B186 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		63664AB729123427006E75D7 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		6372509328FFC7F700117CF8 /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		638D9B29292B46750024E821 /* QuestTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTableCell.swift; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				638D9B2E292B93260024E821 /* Quest.swift */,
+				6325B7C9292F4E5E00D4B186 /* Player.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +192,8 @@
 				63DC0EAA28F5863100B145B9 /* GameViewController.swift */,
 				6F31E19B290AAD9B00F138D0 /* StageCell.swift */,
 				6F28EEA428F5444600D7330F /* Robby.storyboard */,
+				6325B7C7292F4C8400D4B186 /* Garage.storyboard */,
+				6325B7C5292F4B0600D4B186 /* GarageViewController.swift */,
 				6F4B8BD3291E26D5000990EA /* Stage.storyboard */,
 				6F4B8BD7291E2E99000990EA /* Game.storyboard */,
 				6F28EEA728F5444600D7330F /* LaunchScreen.storyboard */,
@@ -270,6 +279,7 @@
 				6F4B8BCE291E2383000990EA /* sound5.mp3 in Resources */,
 				6F4B8BD2291E238B000990EA /* robby.mp3 in Resources */,
 				6F28EEAB28F5444600D7330F /* GameScene.sks in Resources */,
+				6325B7C8292F4C8400D4B186 /* Garage.storyboard in Resources */,
 				6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */,
 				6F28EEA628F5444600D7330F /* Robby.storyboard in Resources */,
 				6F4B8BCC291E237E000990EA /* sound2.mp3 in Resources */,
@@ -296,10 +306,12 @@
 				63EFFF69291A40C1005FF169 /* SoundPlayer.swift in Sources */,
 				63DC0EAB28F5863100B145B9 /* GameViewController.swift in Sources */,
 				6F28EEAC28F5444600D7330F /* GameScene.swift in Sources */,
+				6325B7CA292F4E5E00D4B186 /* Player.swift in Sources */,
 				6372509428FFC7F700117CF8 /* PlayerState.swift in Sources */,
 				6F28EEA328F5444600D7330F /* RobbyViewController.swift in Sources */,
 				6F2F6C2028FB3A9B000B9507 /* StageViewController.swift in Sources */,
 				6FA60FAF28F69431003846EF /* Color.swift in Sources */,
+				6325B7C6292F4B0600D4B186 /* GarageViewController.swift in Sources */,
 				638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */,
 				6FE9943D29123850004753BA /* HUD.swift in Sources */,
 				6F31E19C290AAD9B00F138D0 /* StageCell.swift in Sources */,
