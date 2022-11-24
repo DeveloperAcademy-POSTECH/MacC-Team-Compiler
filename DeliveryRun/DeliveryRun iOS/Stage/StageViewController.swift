@@ -99,7 +99,26 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
     // Cell 초기화
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stagecell", for: indexPath) as! StageCell
+        
+        // Cell이 Lock인 경우
         cell.isLock = stageList[indexPath.row].isLock
+        if cell.isLock {
+            cell.addSubview(cell.lockView)
+            cell.addSubview(cell.lockImageView)
+            cell.isUserInteractionEnabled = false
+            
+            NSLayoutConstraint.activate([
+                cell.lockView.leftAnchor.constraint(equalTo: cell.leftAnchor),
+                cell.lockView.rightAnchor.constraint(equalTo: cell.rightAnchor),
+                cell.lockView.bottomAnchor.constraint(equalTo: cell.bottomAnchor),
+                cell.lockView.topAnchor.constraint(equalTo: cell.topAnchor),
+                
+                cell.lockImageView.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
+                cell.lockImageView.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
+            ])
+        }
+        
+        // Cell 텍스트 및 이미지 구성
         cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
         cell.foodImageView.image = UIImage(named:stageList[indexPath.row].foodImageName)?.resized(to:CGSize(width:40, height:40))
         return cell

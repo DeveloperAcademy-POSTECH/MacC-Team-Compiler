@@ -83,25 +83,9 @@ class StageCell: UICollectionViewCell {
               self.foodImageView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
               self.foodImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
-        
-        // Stage가 Lock인 경우
-        if isLock {
-            self.contentView.addSubview(self.lockView)
-            self.contentView.addSubview(self.lockImageView)
-            self.contentView.isUserInteractionEnabled = false
-            
-            NSLayoutConstraint.activate([
-                self.lockView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
-                self.lockView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
-                self.lockView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-                self.lockView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-                
-                self.lockImageView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-                self.lockImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
-            ])
-        }
     }
     
+    // isSelected
     override var isSelected: Bool {
         didSet {
                 if isSelected {
