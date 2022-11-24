@@ -26,20 +26,33 @@ class StageViewController: UIViewController {
         stageCollectionView.delegate = self
         stageCollectionView.dataSource = self
         stageCollectionView.allowsMultipleSelection = false
+        stageCollectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .init())
         
         setStageDetail()
     }
     
-    // 기본 선택 위치 설정
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let selectedIndexPath = IndexPath(row: 0, section: 0)
-        stageCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: [])
-        stageNameLabel.text = stageList[selectedIndexPath.row].stageName
-        recordLabel.text = "목표기록 : \(stageList[selectedIndexPath.row].targetRecord)\n현재기록 : \(stageList[selectedIndexPath.row].myRecord)"
-            
+    // Stage Detail View 설정
+    func setStageDetail() {
+        stageDetailView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        stageDetailView.layer.cornerRadius = 10
+        
+        startButton.setTitle("배달 출발", for: .normal)
+        startButton.titleLabel?.font = UIFont(name: "BMJUAOTF", size: 30)
+        startButton.layer.borderWidth = 2
+        startButton.layer.borderColor = UIColor.white.cgColor
+        
+        stageNameLabel.text = stageList[0].stageName
+        stageNameLabel.textColor = .white
+        stageNameLabel.font = UIFont(name:"BMJUAOTF", size: 35)
+        
+        recordLabel.text = "목표기록 : \(stageList[0].targetRecord)\n현재기록 : \(stageList[0].myRecord)"
+        recordLabel.textAlignment = .center
+        recordLabel.numberOfLines = 2
+        recordLabel.textColor = .white
+        recordLabel.font = UIFont(name:"BMJUAOTF", size: 20)
+        
         // 별 개수에 따라 색 변경
-        switch stageList[selectedIndexPath.row].star {
+        switch stageList[0].star {
         case 1:
             starImageOne.tintColor = .deliveryrunYellow
             starImageTwo.tintColor = .systemGray
@@ -61,31 +74,6 @@ class StageViewController: UIViewController {
             starImageThree.tintColor = .systemGray
             break
         }
-    }
-    
-    // Stage Detail View 설정
-    func setStageDetail() {
-        stageDetailView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        stageDetailView.layer.cornerRadius = 10
-        
-        startButton.setTitle("배달 출발", for: .normal)
-        startButton.titleLabel?.font = UIFont(name: "BMJUAOTF", size: 30)
-        startButton.layer.borderWidth = 2
-        startButton.layer.borderColor = UIColor.white.cgColor
-        
-        stageNameLabel.text = "스테이지 이름"
-        stageNameLabel.textColor = .white
-        stageNameLabel.font = UIFont(name:"BMJUAOTF", size: 35)
-        
-        recordLabel.text = "목표기록 : 00:00:00\n현재기록 : 00:00:00"
-        recordLabel.textAlignment = .center
-        recordLabel.numberOfLines = 2
-        recordLabel.textColor = .white
-        recordLabel.font = UIFont(name:"BMJUAOTF", size: 20)
-        
-        starImageOne.tintColor = .systemGray
-        starImageTwo.tintColor = .systemGray
-        starImageThree.tintColor = .systemGray
     }
 }
 

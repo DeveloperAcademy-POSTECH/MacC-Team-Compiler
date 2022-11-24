@@ -89,9 +89,11 @@ class StageCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
                 if isSelected {
-                    self.contentView.layer.opacity = 0.8
+                    self.backView.layer.borderColor = UIColor.deliveryrunYellow!.cgColor
+                    self.backView.layer.borderWidth = 5
                 } else {
-                    self.contentView.layer.opacity = 1
+                    self.backView.layer.borderColor = UIColor.white.cgColor
+                    self.backView.layer.borderWidth = 2
                 }
             }
     }
