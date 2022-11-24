@@ -18,13 +18,14 @@ class QuestTableCell: UITableViewCell {
     @IBOutlet weak var questCheckButton: CustomQuestButton!
     
     override func awakeFromNib() {
+        
         super.awakeFromNib()
+        questSubTitleLabel.font = UIFont(name: "BMJUAOTF", size: 12)
+        questCheckButton.setTitle("보상 받기", for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        questSubTitleLabel.font = UIFont(name: "BMJUAOTF", size: 12)
-        questCheckButton.setTitle("보상 받기", for: .normal)
 
         // Configure the view for the selected state
     }
