@@ -102,12 +102,15 @@
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="XlL-nC-SMe">
                                                         <rect key="frame" x="0.0" y="0.0" width="63" height="59"/>
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="RaV-EB-Xgw">
                                                         <rect key="frame" x="63" y="0.0" width="63" height="59"/>
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="liA-Fu-JNq">
                                                         <rect key="frame" x="126" y="0.0" width="63" height="59"/>
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>

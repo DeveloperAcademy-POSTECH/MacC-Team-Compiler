@@ -19,9 +19,9 @@ class StageViewController: UIViewController {
     @IBOutlet weak var starImageThree: UIImageView!
     
     let stageList: [Stage] = [
-        Stage(stageName: "스테이지 1", foodImageName: "star", targetRecord: 90.0, myRecord: 0.0, star: 2, isLock: false),
-        Stage(stageName: "스테이지 2", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-        Stage(stageName: "스테이지 3", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 1", foodImageName: "star0", targetRecord: 90.0, myRecord: 0.0, star: 3, isLock: false),
+        Stage(stageName: "스테이지 2", foodImageName: "Star", targetRecord: 90.0, myRecord: 0.0, star: 2, isLock: false),
+        Stage(stageName: "스테이지 3", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 1, isLock: false),
         Stage(stageName: "스테이지 4", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
         Stage(stageName: "스테이지 5", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
         Stage(stageName: "스테이지 6", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
@@ -66,6 +66,10 @@ class StageViewController: UIViewController {
         recordLabel.numberOfLines = 2
         recordLabel.textColor = .white
         recordLabel.font = UIFont(name:"BMJUAOTF", size: 20)
+        
+        starImageOne.tintColor = .systemGray
+        starImageTwo.tintColor = .systemGray
+        starImageThree.tintColor = .systemGray
     }
 }
 
@@ -80,6 +84,7 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stagecell", for: indexPath) as! StageCell
         cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
+        cell.foodImageView.image = UIImage(named:stageList[indexPath.row].foodImageName)?.resized(to:CGSize(width:40, height:40))
         return cell
     }
 }
@@ -108,7 +113,32 @@ extension StageViewController: UICollectionViewDelegateFlowLayout {
 // Cell 선택 시 정보 변경
 extension StageViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Label 수정
         stageNameLabel.text = stageList[indexPath.row].stageName
         recordLabel.text = "목표기록 : \(stageList[indexPath.row].targetRecord)\n현재기록 : \(stageList[indexPath.row].myRecord)"
+        
+        // 별 개수에 따라 색 변경
+        switch stageList[indexPath.row].star {
+        case 1:
+            starImageOne.tintColor = .deliveryrunYellow
+            starImageTwo.tintColor = .systemGray
+            starImageThree.tintColor = .systemGray
+            break
+        case 2:
+            starImageOne.tintColor = .deliveryrunYellow
+            starImageTwo.tintColor = .deliveryrunYellow
+            starImageThree.tintColor = .systemGray
+            break
+        case 3:
+            starImageOne.tintColor = .deliveryrunYellow
+            starImageTwo.tintColor = .deliveryrunYellow
+            starImageThree.tintColor = .deliveryrunYellow
+            break
+        default:
+            starImageOne.tintColor = .systemGray
+            starImageTwo.tintColor = .systemGray
+            starImageThree.tintColor = .systemGray
+            break
+        }
     }
 }
