@@ -24,6 +24,16 @@ class StageCell: UICollectionViewCell {
         return view
     }()
     
+    let foodImageView: UIImageView = {
+        let view = UIImageView()
+        let image = UIImage(named:"star0")?.resized(to:CGSize(width:40, height:40))
+        view.image = image
+        view.contentMode = .scaleAspectFit
+        view.clipsToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     // Stage Index Label
     let stageLabel: UILabel = {
         let label = UILabel()
@@ -38,6 +48,7 @@ class StageCell: UICollectionViewCell {
         super.init(coder: aDecoder)
         self.contentView.addSubview(self.backView)
         self.contentView.addSubview(self.stageLabel)
+        self.contentView.addSubview(self.foodImageView)
         NSLayoutConstraint.activate([
               self.backView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
               self.backView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
@@ -45,7 +56,18 @@ class StageCell: UICollectionViewCell {
               self.backView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
               
               self.stageLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 10),
-              self.stageLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10)
+              self.stageLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
+              
+              self.foodImageView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor, constant: 5),
+              self.foodImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant:10)
         ])
+    }
+}
+
+extension UIImage {
+    func resized(to size: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size: size).image { _ in
+            draw(in: CGRect(origin: .zero, size: size))
+        }
     }
 }

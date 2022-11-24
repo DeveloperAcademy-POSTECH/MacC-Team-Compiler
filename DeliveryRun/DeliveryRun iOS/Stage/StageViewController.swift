@@ -19,7 +19,7 @@ class StageViewController: UIViewController {
     @IBOutlet weak var starImageThree: UIImageView!
     
     let stageList: [Stage] = [
-        Stage(stageName: "스테이지 1", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 2, isLock: false),
+        Stage(stageName: "스테이지 1", foodImageName: "star", targetRecord: 90.0, myRecord: 0.0, star: 2, isLock: false),
         Stage(stageName: "스테이지 2", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
         Stage(stageName: "스테이지 3", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
         Stage(stageName: "스테이지 4", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
