@@ -14,8 +14,12 @@ class StageViewController: UIViewController {
     @IBOutlet weak var stageNameLabel: UILabel!
     @IBOutlet weak var recordLabel: UILabel!
     
+    @IBOutlet weak var starImageOne: UIImageView!
+    @IBOutlet weak var starImageTwo: UIImageView!
+    @IBOutlet weak var starImageThree: UIImageView!
+    
     let stageList: [Stage] = [
-        Stage(stageName: "스테이지 1", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
+        Stage(stageName: "스테이지 1", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 2, isLock: false),
         Stage(stageName: "스테이지 2", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
         Stage(stageName: "스테이지 3", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
         Stage(stageName: "스테이지 4", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
@@ -101,8 +105,10 @@ extension StageViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// Cell 선택 시 정보 변경
 extension StageViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        stageNameLabel.text = stageList[indexPath.row].stageName
+        recordLabel.text = "목표기록 : \(stageList[indexPath.row].targetRecord)\n현재기록 : \(stageList[indexPath.row].myRecord)"
     }
 }

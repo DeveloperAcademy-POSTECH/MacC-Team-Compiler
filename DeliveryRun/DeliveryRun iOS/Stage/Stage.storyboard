@@ -191,6 +191,9 @@
                         <outlet property="recordLabel" destination="zbi-qO-WUR" id="SQy-Dk-paw"/>
                         <outlet property="stageDetailView" destination="zeZ-pv-DNR" id="c9d-uP-Cbc"/>
                         <outlet property="stageNameLabel" destination="xMJ-vd-DkL" id="Htn-Ki-iae"/>
+                        <outlet property="starImageOne" destination="XlL-nC-SMe" id="r2e-6N-fwl"/>
+                        <outlet property="starImageThree" destination="liA-Fu-JNq" id="Gag-2r-PHU"/>
+                        <outlet property="starImageTwo" destination="RaV-EB-Xgw" id="wet-Rf-etu"/>
                         <outlet property="startButton" destination="DmE-DC-nlt" id="OtS-6r-7Mw"/>
                     </connections>
                 </viewController>
