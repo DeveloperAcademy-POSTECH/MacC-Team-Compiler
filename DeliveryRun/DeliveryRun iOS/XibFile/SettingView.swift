@@ -9,7 +9,6 @@ import UIKit
 import Foundation
 
 class SettingView: UIView {
-    
     @IBOutlet weak var backgroundSlider: CustomUiSlider!
     @IBOutlet weak var soundSlider: CustomUiSlider!
     @IBOutlet weak var byLabel: UILabel!
@@ -26,8 +25,7 @@ class SettingView: UIView {
         view.frame = self.bounds
         self.addSubview(view)
         contentView = view
-        byLabel.text = "Developed by Team Compilerver 1.0.0"
-
+        byLabel.text = "Developed by Team Compiler ver 1.0.0"
     }
     func returnFloat() -> Float {
         0.0
@@ -65,8 +63,7 @@ class CustomUiSlider: UISlider {
         var rect = super.trackRect(forBounds: bounds)
         rect.size.height = 7
         return rect
-    }
-    
+    } 
 }
 
 class CustomUILabel: UILabel {
@@ -76,5 +73,3 @@ class CustomUILabel: UILabel {
         self.textColor = .white
     }
 }
-
-

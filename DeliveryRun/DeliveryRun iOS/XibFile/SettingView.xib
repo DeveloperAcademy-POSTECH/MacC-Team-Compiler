@@ -51,7 +51,7 @@
                                 </fragment>
                             </attributedString>
                             <nil key="highlightedColor"/>
-                            <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </label>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fn9-1b-MOy" userLabel="Background Slider" customClass="CustomUiSlider" customModule="DeliveryRun" customModuleProvider="target">
                             <rect key="frame" x="153" y="0.0" width="581" height="41"/>
@@ -113,7 +113,7 @@
                                 </fragment>
                             </attributedString>
                             <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </label>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HhC-RS-WTg" userLabel="Sound Slider" customClass="CustomUiSlider" customModule="DeliveryRun" customModuleProvider="target">
                             <rect key="frame" x="153" y="0.0" width="581" height="41"/>

@@ -33,11 +33,20 @@ class RobbyViewController: UIViewController {
     var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
     override func viewDidLoad() {
         super.viewDidLoad()
-        questButton.setTitle("퀘스트", for: .normal)
+        
+        questButton.setTitle(" 퀘스트", for: .normal)
         questButton.setImage(UIImage(systemName: "list.bullet.circle.fill"), for: .normal)
-        garageButton.setTitle("차고", for: .normal)
+        
+        garageButton.setTitle(" 차고", for: .normal)
         garageButton.setImage(UIImage(systemName: "car.fill"), for: .normal)
+        
         startButton.setTitle("배달 준비", for: .normal)
+        
+        settingButton.layer.shadowColor = UIColor.deliveryrunYellow?.cgColor
+        settingButton.layer.shadowOpacity = 1
+        settingButton.layer.shadowRadius = 20
+        settingButton.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: settingButton.frame.width, height: settingButton.frame.height)).cgPath
+        
         questCheckButton.setTitle("확인", for: .normal)
         coatingView.isHidden = true
         settingView.isHidden = true
