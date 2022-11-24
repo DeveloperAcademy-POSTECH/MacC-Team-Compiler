@@ -22,6 +22,7 @@ class QuestTableCell: UITableViewCell {
         super.awakeFromNib()
         questSubTitleLabel.font = UIFont(name: "BMJUAOTF", size: 12)
         questCheckButton.setTitle("보상 받기", for: .normal)
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,6 +30,7 @@ class QuestTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
     
     @IBAction func RewardPressed(_ sender: CustomQuestButton) {
         print(questTitleLabel.text)

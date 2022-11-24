@@ -18,7 +18,6 @@ class RobbyViewController: UIViewController {
         Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", image:UIImage(named: "collection3")!, reward: "Car", totalNumber: 50, nowNumber: 10, isClear: false),
     ]
     
-    let cellSpacingHeight:CGFloat = 10
     
     
     @IBOutlet weak var coatingView: UIView!
@@ -45,7 +44,8 @@ class RobbyViewController: UIViewController {
         questView.isHidden = true
         settingView.layer.opacity = 1.0
         questView.layer.opacity = 1.0
-        
+        questTableView.backgroundColor = UIColor(ciColor: .white)
+        questTableView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         questTableView.dataSource = self
         questTableView.delegate = self
         questTableView.register(UINib(nibName: "QuestTableCell", bundle: nil), forCellReuseIdentifier: "QuestTableCell")
@@ -75,21 +75,31 @@ extension RobbyViewController: UITableViewDataSource, UITableViewDelegate {
         cell.questImage.image = quests[indexPath.row].image
         cell.questProgressBar.progress = Float(quests[indexPath.row].nowNumber) / Float(quests[indexPath.row].totalNumber)
         cell.questProgressLabel.text = String(format: "%D / %D", quests[indexPath.row].nowNumber, quests[indexPath.row].totalNumber)
-        
-        cell.backgroundColor = UIColor.deliveryrunBlack
-        cell.layer.borderColor = UIColor.white.cgColor
+        // CellLayOut
+        cell.backgroundColor = UIColor.deliveryrunOpacityBlack
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 8
         cell.clipsToBounds = true
 
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return cellSpacingHeight
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    {
+        let verticalPadding: CGFloat = 10
+
+        let maskLayer = CALayer()
+        maskLayer.cornerRadius = 10    //if you want round edges
+        maskLayer.backgroundColor = UIColor.black.cgColor
+        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: verticalPadding/2, dy: verticalPadding/2)
+        cell.layer.mask = maskLayer
     }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+
+    
+    
+    
+    
+
     
 //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 //        let headerView = UIView()

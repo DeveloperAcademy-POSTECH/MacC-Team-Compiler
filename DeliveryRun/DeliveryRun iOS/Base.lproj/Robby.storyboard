@@ -107,8 +107,10 @@
                                 <rect key="frame" x="0.0" y="25" width="844" height="385"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cZH-VI-I4v" userLabel="Quest Table View">
-                                        <rect key="frame" x="0.0" y="0.0" width="844" height="325"/>
+                                        <rect key="frame" x="0.0" y="10" width="844" height="265"/>
                                         <color key="backgroundColor" name="deliveryrunBlack"/>
+                                        <color key="separatorColor" systemColor="systemBackgroundColor"/>
+                                        <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OV1-gq-WMj" userLabel="QuestTableCell">
                                                 <rect key="frame" x="0.0" y="50" width="844" height="43.666667938232422"/>
@@ -139,14 +141,14 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="cZH-VI-I4v" firstAttribute="top" secondItem="Kew-i8-5gm" secondAttribute="top" id="2kK-1R-bhU"/>
                                     <constraint firstItem="cZH-VI-I4v" firstAttribute="leading" secondItem="Kew-i8-5gm" secondAttribute="leading" id="3Ov-Yn-btx"/>
                                     <constraint firstItem="cZH-VI-I4v" firstAttribute="centerX" secondItem="xQj-jL-gle" secondAttribute="centerX" id="IJo-xO-buk"/>
+                                    <constraint firstItem="cZH-VI-I4v" firstAttribute="top" secondItem="Kew-i8-5gm" secondAttribute="top" constant="10" id="Nek-k1-amU"/>
                                     <constraint firstAttribute="bottom" secondItem="xQj-jL-gle" secondAttribute="bottom" constant="50" id="QGx-yQ-Irm"/>
                                     <constraint firstAttribute="trailing" secondItem="cZH-VI-I4v" secondAttribute="trailing" id="W9m-IW-1nR"/>
-                                    <constraint firstAttribute="bottom" secondItem="cZH-VI-I4v" secondAttribute="bottom" constant="60" id="xCf-xQ-Slz"/>
+                                    <constraint firstItem="xQj-jL-gle" firstAttribute="top" secondItem="cZH-VI-I4v" secondAttribute="bottom" constant="10" id="xCf-xQ-Slz"/>
                                 </constraints>
                             </view>
                         </subviews>
