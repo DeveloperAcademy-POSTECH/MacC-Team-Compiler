@@ -14,7 +14,6 @@
             <connections>
                 <outlet property="backgroundSlider" destination="fn9-1b-MOy" id="kcM-8M-qZ6"/>
                 <outlet property="byLabel" destination="UDT-Xz-jJa" id="pQM-g5-oyz"/>
-                <outlet property="checkButton" destination="Oxn-Qc-O8I" id="TqM-nn-K2B"/>
                 <outlet property="soundSlider" destination="HhC-RS-WTg" id="DfQ-T8-u86"/>
             </connections>
         </placeholder>
@@ -33,7 +32,7 @@
                                 <constraint firstAttribute="width" constant="40" id="Tz5-97-Xpd"/>
                                 <constraint firstAttribute="height" constant="40" id="Uca-ez-e2Q"/>
                             </constraints>
-                            <imageReference key="image" image="music.house" catalog="system" symbolScale="large"/>
+                            <imageReference key="image" image="music.note.house" catalog="system" symbolScale="large"/>
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="default" weight="medium"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8K-zs-kbi" customClass="CustomUILabel" customModule="DeliveryRun" customModuleProvider="target">
@@ -77,7 +76,7 @@
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="확인"/>
                     <connections>
-                        <action selector="saveValueButton:" destination="-1" eventType="touchUpInside" id="aM8-e5-57R"/>
+                        <action selector="settingCheckButtonPressed:" destination="-1" eventType="touchUpInside" id="pBe-st-yGD"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dev By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDT-Xz-jJa">
@@ -148,7 +147,7 @@
         </view>
     </objects>
     <resources>
-        <image name="music.house" catalog="system" width="128" height="104"/>
+        <image name="music.note.house" catalog="system" width="128" height="104"/>
         <image name="speaker" catalog="system" width="128" height="123"/>
         <namedColor name="deliveryrunBlack">
             <color red="0.14509803921568629" green="0.14901960784313725" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
