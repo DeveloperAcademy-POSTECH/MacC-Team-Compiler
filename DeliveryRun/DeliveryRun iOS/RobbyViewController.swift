@@ -18,8 +18,6 @@ class RobbyViewController: UIViewController {
         Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", image:UIImage(named: "collection3")!, reward: "Car", totalNumber: 50, nowNumber: 10, isClear: false),
     ]
     
-    
-    
     @IBOutlet weak var coatingView: UIView!
     @IBOutlet weak var settingView: SettingView!
     @IBOutlet weak var questView: UIView!
@@ -103,18 +101,6 @@ extension RobbyViewController: UITableViewDataSource, UITableViewDelegate {
         maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: verticalPadding/2, dy: verticalPadding/2)
         cell.layer.mask = maskLayer
     }
-
-    
-    
-    
-    
-
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headerView = UIView()
-//        headerView.backgroundColor = UIColor.clear
-//        return headerView
-//    }
 }
 
 

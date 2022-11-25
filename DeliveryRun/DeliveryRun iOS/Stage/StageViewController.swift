@@ -10,6 +10,7 @@ import UIKit
 class StageViewController: UIViewController {
     @IBOutlet weak var stageCollectionView: UICollectionView!
     @IBOutlet weak var stageDetailView: UIView!
+    @IBOutlet weak var settingView: SettingView!
     @IBOutlet weak var startButton: CustomGameButton!
     @IBOutlet weak var stageNameLabel: UILabel!
     @IBOutlet weak var recordLabel: UILabel!
@@ -17,6 +18,10 @@ class StageViewController: UIViewController {
     @IBOutlet weak var starImageOne: UIImageView!
     @IBOutlet weak var starImageTwo: UIImageView!
     @IBOutlet weak var starImageThree: UIImageView!
+    
+    @IBAction func pressSettingButton(_ sender: Any) {
+        settingView.isHidden = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +34,9 @@ class StageViewController: UIViewController {
         stageCollectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .init())
         
         setStageDetail()
+        
+        settingView.layer.cornerRadius = 10
+        settingView.isHidden = true
     }
     
     // Stage Detail View 설정
