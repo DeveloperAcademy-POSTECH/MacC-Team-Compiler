@@ -20,7 +20,6 @@ class SettingView: UIView {
     
     var backgroundValue:Float = 0.0
     var soundValue:Float = 0.0
-    var contentView: UIView?
     var settingViewIsHidden: Bool = false
     
     // StoryBoard Load
@@ -33,7 +32,6 @@ class SettingView: UIView {
         view.frame = self.bounds
         view.backgroundColor = .white
         view.layer.cornerRadius = 10
-        contentView = view
         
         BackMusicView.backgroundColor = .deliveryrunBlack
         BackMusicView.layer.cornerRadius = 10

@@ -11,11 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestTableCell" customModule="DeliveryRun"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell alpha="0.5" contentMode="scaleToFill" restorationIdentifier="QuestTableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestTableCell" rowHeight="158" id="KGk-i7-Jjw" customClass="QuestTableCell" customModule="DeliveryRun" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="768" height="158"/>
+        <tableViewCell alpha="0.5" contentMode="scaleToFill" restorationIdentifier="QuestTableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestTableCell" rowHeight="136" id="KGk-i7-Jjw" customClass="QuestTableCell" customModule="DeliveryRun" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="136"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="768" height="158"/>
+                <rect key="frame" x="0.0" y="0.0" width="768" height="136"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlH-Ln-bz6" customClass="CustomQuestLabel" customModule="DeliveryRun" customModuleProvider="target">
@@ -100,7 +100,7 @@
                 <outlet property="questSubTitleLabel" destination="MHV-Kl-X2X" id="uxx-nW-enY"/>
                 <outlet property="questTitleLabel" destination="AlH-Ln-bz6" id="AuO-ga-izj"/>
             </connections>
-            <point key="canvasLocation" x="-402" y="-143"/>
+            <point key="canvasLocation" x="-403.05343511450383" y="-151.40845070422537"/>
         </tableViewCell>
     </objects>
     <resources>

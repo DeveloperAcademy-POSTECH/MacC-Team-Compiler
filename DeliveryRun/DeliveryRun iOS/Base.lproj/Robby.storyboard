@@ -94,11 +94,6 @@
                                     <constraint firstAttribute="width" constant="120" id="Xy4-Td-A4v"/>
                                 </constraints>
                             </imageView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tW2-YE-FCB" userLabel="Coating View">
-                                <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tae-ZO-LGw" userLabel="SettingView" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="25" width="844" height="340"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -132,10 +127,8 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="5lf-2M-ggz"/>
                                             <constraint firstAttribute="height" constant="50" id="j3j-3A-xhp"/>
                                         </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button">
-                                            <backgroundConfiguration key="background"/>
-                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="QuestCheckPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ZQk-jI-Wos"/>
                                         </connections>
@@ -156,9 +149,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rlC-aJ-f2j" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="25" id="0eg-Dr-20w"/>
-                            <constraint firstAttribute="bottom" secondItem="tW2-YE-FCB" secondAttribute="bottom" id="4rZ-Lv-foa"/>
                             <constraint firstItem="kOz-lf-BoN" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="4zB-rx-NtJ"/>
-                            <constraint firstItem="tW2-YE-FCB" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="6DM-jO-Ynb"/>
                             <constraint firstItem="Kew-i8-5gm" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="25" id="6op-Ai-WLb"/>
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aAy-ZS-MCe" secondAttribute="trailing" constant="8" symbolic="YES" id="Bix-wL-DPZ"/>
                             <constraint firstItem="Kew-i8-5gm" firstAttribute="trailing" secondItem="bNo-s9-wk6" secondAttribute="trailing" id="IM3-ui-LQz"/>
@@ -172,7 +163,6 @@
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kOz-lf-BoN" secondAttribute="trailing" constant="8" symbolic="YES" id="Vuc-bR-haw"/>
                             <constraint firstAttribute="bottom" secondItem="fFX-aL-qVa" secondAttribute="bottom" constant="25" id="WfE-ZS-tCZ"/>
                             <constraint firstItem="Tae-ZO-LGw" firstAttribute="trailing" secondItem="bNo-s9-wk6" secondAttribute="trailing" id="XKN-YD-fLy"/>
-                            <constraint firstItem="tW2-YE-FCB" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailing" id="c0q-ea-GOS"/>
                             <constraint firstAttribute="bottom" secondItem="Tae-ZO-LGw" secondAttribute="bottom" constant="25" id="daV-3N-08T"/>
                             <constraint firstItem="kOz-lf-BoN" firstAttribute="top" secondItem="aAy-ZS-MCe" secondAttribute="bottom" constant="10" id="dgd-Hi-FSX"/>
                             <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="fFX-aL-qVa" secondAttribute="trailing" id="dwE-dW-aa1"/>
@@ -180,7 +170,6 @@
                             <constraint firstItem="Tae-ZO-LGw" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="eoB-gj-6UY"/>
                             <constraint firstItem="fFX-aL-qVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Ai-lM-3qU" secondAttribute="trailing" constant="8" symbolic="YES" id="jUV-9f-NYk"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="jhK-h1-iyh"/>
-                            <constraint firstItem="tW2-YE-FCB" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="nVS-zu-qq8"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="qni-cQ-jN9"/>
                             <constraint firstAttribute="bottom" secondItem="GNU-8W-xnK" secondAttribute="bottom" id="vlN-0A-QVJ"/>
                             <constraint firstAttribute="bottom" secondItem="6Ai-lM-3qU" secondAttribute="bottom" constant="45" id="yJG-R0-cda"/>
@@ -188,7 +177,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="TOA-kh-Zwp"/>
                     <connections>
-                        <outlet property="coatingView" destination="tW2-YE-FCB" id="IKg-gu-GFz"/>
                         <outlet property="garageButton" destination="kOz-lf-BoN" id="Lhx-iI-y91"/>
                         <outlet property="questButton" destination="aAy-ZS-MCe" id="mEl-Q2-dov"/>
                         <outlet property="questCheckButton" destination="xQj-jL-gle" id="YMc-Ea-Lxv"/>
