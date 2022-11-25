@@ -89,7 +89,7 @@ class StageViewController: UIViewController {
 extension StageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     // Cell 수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return stageList.count
     }
     
     // Cell 초기화

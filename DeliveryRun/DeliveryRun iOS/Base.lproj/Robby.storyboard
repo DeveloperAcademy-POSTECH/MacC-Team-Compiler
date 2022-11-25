@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -98,51 +97,9 @@
                                 <rect key="frame" x="0.0" y="25" width="844" height="340"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kew-i8-5gm" userLabel="QuestView">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kew-i8-5gm" userLabel="QuestView" customClass="QuestView" customModule="DeliveryRun" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="25" width="844" height="340"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cZH-VI-I4v" userLabel="Quest Table View">
-                                        <rect key="frame" x="0.0" y="15" width="844" height="250"/>
-                                        <color key="backgroundColor" name="deliveryrunBlack"/>
-                                        <color key="separatorColor" systemColor="systemBackgroundColor"/>
-                                        <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OV1-gq-WMj" userLabel="QuestTableCell">
-                                                <rect key="frame" x="0.0" y="50" width="844" height="43.666667938232422"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OV1-gq-WMj" id="v9l-cX-K64">
-                                                    <rect key="frame" x="0.0" y="0.0" width="844" height="43.666667938232422"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
-                                        <connections>
-                                            <outlet property="dataSource" destination="BV1-FR-VrT" id="SMM-J9-35d"/>
-                                            <outlet property="delegate" destination="BV1-FR-VrT" id="5XS-Xq-dI1"/>
-                                        </connections>
-                                    </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQj-jL-gle" userLabel="Quest Check Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                        <rect key="frame" x="342" y="280" width="160" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="5lf-2M-ggz"/>
-                                            <constraint firstAttribute="height" constant="50" id="j3j-3A-xhp"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="QuestCheckPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ZQk-jI-Wos"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="cZH-VI-I4v" firstAttribute="leading" secondItem="Kew-i8-5gm" secondAttribute="leading" id="3Ov-Yn-btx"/>
-                                    <constraint firstItem="cZH-VI-I4v" firstAttribute="centerX" secondItem="xQj-jL-gle" secondAttribute="centerX" id="IJo-xO-buk"/>
-                                    <constraint firstItem="cZH-VI-I4v" firstAttribute="top" secondItem="Kew-i8-5gm" secondAttribute="top" constant="15" id="Nek-k1-amU"/>
-                                    <constraint firstAttribute="bottom" secondItem="xQj-jL-gle" secondAttribute="bottom" constant="10" id="QGx-yQ-Irm"/>
-                                    <constraint firstAttribute="trailing" secondItem="cZH-VI-I4v" secondAttribute="trailing" id="W9m-IW-1nR"/>
-                                    <constraint firstItem="xQj-jL-gle" firstAttribute="top" secondItem="cZH-VI-I4v" secondAttribute="bottom" constant="15" id="xCf-xQ-Slz"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bNo-s9-wk6"/>
@@ -179,10 +136,8 @@
                     <connections>
                         <outlet property="garageButton" destination="kOz-lf-BoN" id="Lhx-iI-y91"/>
                         <outlet property="questButton" destination="aAy-ZS-MCe" id="mEl-Q2-dov"/>
-                        <outlet property="questCheckButton" destination="xQj-jL-gle" id="YMc-Ea-Lxv"/>
-                        <outlet property="questTableView" destination="cZH-VI-I4v" id="mHM-V9-Kfy"/>
-                        <outlet property="questView" destination="Kew-i8-5gm" id="dEt-7h-i73"/>
-                        <outlet property="settingButton" destination="xQj-jL-gle" id="saf-C0-yJZ"/>
+                        <outlet property="questView" destination="Kew-i8-5gm" id="gbD-tn-Eh7"/>
+                        <outlet property="settingButton" destination="rlC-aJ-f2j" id="up0-0F-yaB"/>
                         <outlet property="settingView" destination="Tae-ZO-LGw" id="UNu-IF-0OR"/>
                         <outlet property="startButton" destination="fFX-aL-qVa" id="bR7-ET-sZD"/>
                     </connections>
@@ -207,14 +162,8 @@
         <image name="RobbyBack" width="844" height="390"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="player0" width="360" height="366"/>
-        <namedColor name="deliveryrunBlack">
-            <color red="0.14509803921568629" green="0.14901960784313725" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="deliveryrunYellow">
             <color red="1" green="0.89803921568627454" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

@@ -20,7 +20,6 @@ class SettingView: UIView {
     
     var backgroundValue:Float = 0.0
     var soundValue:Float = 0.0
-    var settingViewIsHidden: Bool = false
     
     // StoryBoard Load
     required init?(coder aDecoder: NSCoder) {
@@ -60,7 +59,6 @@ class SettingView: UIView {
     }
     
     @IBAction func settingCheckButtonPressed(_ sender: CustomGameButton) {
-        settingViewIsHidden.toggle()
         self.isHidden.toggle()
     }
 }
