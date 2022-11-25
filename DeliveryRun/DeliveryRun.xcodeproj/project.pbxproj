@@ -110,8 +110,8 @@
 			children = (
 				638D9B29292B46750024E821 /* QuestTableCell.swift */,
 				638D9B2A292B46750024E821 /* QuestTableCell.xib */,
-				6396605129233CD30002E6B2 /* SettingView.xib */,
 				6396605329233D3E0002E6B2 /* SettingView.swift */,
+				6396605129233CD30002E6B2 /* SettingView.xib */,
 			);
 			path = XibFile;
 			sourceTree = "<group>";
