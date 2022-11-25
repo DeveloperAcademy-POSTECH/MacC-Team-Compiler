@@ -23,7 +23,7 @@ class GarageViewController: UIViewController {
         super.viewDidLoad()
         // MARK: image Blur 처리방식
         let image = UIImage(named: "RobbyBack")
-        backgroundImage.image = image?.applyBlur_usingClamp(radius: 50)
+        backgroundImage.image = image?.applyBlur_usingClamp(radius: 30)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "PlayerCollectionCell", bundle: nil), forCellWithReuseIdentifier: "PlayerCollectionCell")
@@ -50,10 +50,19 @@ class GarageViewController: UIViewController {
     }
 }
 
-extension GarageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension GarageViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         players.count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            
+            let width: CGFloat = (collectionView.frame.width)
+        let height: CGFloat =
+        (collectionView.frame.height)
+            
+            return CGSize(width: width, height: height)
+        }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // Cell Property
