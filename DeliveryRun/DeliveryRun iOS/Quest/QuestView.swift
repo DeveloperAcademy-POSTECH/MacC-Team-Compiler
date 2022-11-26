@@ -71,7 +71,7 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
         let verticalPadding: CGFloat = 10
 
         let maskLayer = CALayer()
-        maskLayer.cornerRadius = 10    //if you want round edges
+        maskLayer.cornerRadius = 10
         maskLayer.backgroundColor = UIColor.black.cgColor
         maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: verticalPadding/2, dy: verticalPadding/2)
         cell.layer.mask = maskLayer

@@ -15,24 +15,24 @@ class QuestTableCell: UITableViewCell {
     @IBOutlet weak var questProgressBar: CustomUiProgressView!
     @IBOutlet weak var questProgressLabel: CustomQuestLabel!
     @IBOutlet weak var questImage: UIImageView!
-    @IBOutlet weak var questCheckButton: CustomQuestButton!
+    @IBOutlet weak var questCheckButton: CustomGameButton!
     
     override func awakeFromNib() {
-        
         super.awakeFromNib()
-        questSubTitleLabel.font = UIFont(name: "BMJUAOTF", size: 12)
+        
+        questSubTitleLabel.font = UIFont(name: "BMJUAOTF", size: 15)
+        
+        questCheckButton.backgroundColor = .deliveryrunRed
+        questCheckButton.titleLabel!.font = UIFont(name: "BMJUAOTF", size: 25)
         questCheckButton.setTitle("보상 받기", for: .normal)
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     
-    @IBAction func RewardPressed(_ sender: CustomQuestButton) {
+    @IBAction func RewardPressed(_ sender: CustomGameButton) {
         print(questTitleLabel.text)
     }
 }

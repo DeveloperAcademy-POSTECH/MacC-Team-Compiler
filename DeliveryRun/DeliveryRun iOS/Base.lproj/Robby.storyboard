@@ -99,7 +99,7 @@
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kew-i8-5gm" userLabel="QuestView" customClass="QuestView" customModule="DeliveryRun" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="25" width="844" height="340"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bNo-s9-wk6"/>

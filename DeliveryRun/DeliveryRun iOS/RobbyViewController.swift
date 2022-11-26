@@ -61,7 +61,7 @@ class CustomGameButton: UIButton {
         self.tintColor = .white
         self.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 30), forImageIn: .normal)
         self.layer.borderColor = UIColor.white.cgColor
-        self.layer.borderWidth = 0.5
+        self.layer.borderWidth = 2
         self.layer.cornerRadius = 10
     }
 }
