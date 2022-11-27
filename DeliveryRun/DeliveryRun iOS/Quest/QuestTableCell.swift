@@ -12,7 +12,7 @@ class QuestTableCell: UITableViewCell {
     @IBOutlet weak var questTitleLabel: UILabel!
     @IBOutlet weak var questSubTitleLabel: UILabel!
     @IBOutlet weak var questProgressLabel: UILabel!
-    @IBOutlet weak var questProgressBar: CustomUiProgressView!
+    @IBOutlet weak var questProgressBar: CustomUIProgressView!
     @IBOutlet weak var questImage: UIImageView!
     @IBOutlet weak var questCheckButton: CustomGameButton!
     
@@ -31,6 +31,11 @@ class QuestTableCell: UITableViewCell {
         questProgressLabel.textAlignment = .center
         questProgressLabel.textColor = .white
         
+        questImage.layer.cornerRadius = 10
+        questImage.layer.borderWidth = 1
+        questImage.layer.borderColor = UIColor.white.cgColor
+        questImage.layer.masksToBounds = true
+        
         questCheckButton.backgroundColor = .deliveryrunRed
         questCheckButton.titleLabel!.font = UIFont(name: "BMJUAOTF", size: 25)
         questCheckButton.setTitle("보상 받기", for: .normal)
@@ -47,20 +52,13 @@ class QuestTableCell: UITableViewCell {
 }
 
 
-class CustomUiProgressView: UIProgressView {
-    
+class CustomUIProgressView: UIProgressView {
     required init (coder aDecorder:NSCoder) {
         super.init(coder: aDecorder)!
         self.progressTintColor = .deliveryrunYellow
-    }
-    
-}
-
-class CustomQuestLabel: UILabel {
-    required init (coder aDecorder:NSCoder) {
-        super.init(coder: aDecorder)!
-        self.font = UIFont(name: "BMJUAOTF", size: 16)
-        self.textColor = .white
-        self.textAlignment = .center
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 5
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.white.cgColor
     }
 }
