@@ -9,26 +9,39 @@ import UIKit
 import Foundation
 
 class SettingView: UIView {
+    
+    let nibName = "SettingView"
+    
+    @IBOutlet weak var BackMusicView: UIView!
+    @IBOutlet weak var SoundMusicView: UIView!
     @IBOutlet weak var backgroundSlider: CustomUiSlider!
     @IBOutlet weak var soundSlider: CustomUiSlider!
     @IBOutlet weak var byLabel: UILabel!
+    
     var backgroundValue:Float = 0.0
     var soundValue:Float = 0.0
-    var settingViewIsHidden = false
-    let nibName = "SettingView"
-    var contentView: UIView?
     
-    // StoryBoard로 불러오기!
+    // StoryBoard Load
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        // 기본 View 설정
         guard let view = loadViewFromNib() else { return }
-        view.frame = self.bounds
         self.addSubview(view)
-        contentView = view
-        byLabel.text = "Developed by Team Compiler ver 1.0.0"
-    }
-    func returnFloat() -> Float {
-        0.0
+        view.frame = self.bounds
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 10
+        
+        BackMusicView.backgroundColor = .deliveryrunBlack
+        BackMusicView.layer.cornerRadius = 10
+        
+        SoundMusicView.backgroundColor = .deliveryrunBlack
+        SoundMusicView.layer.cornerRadius = 10
+        
+        byLabel.text = "Developed by Team Compiler\nver 1.0.0"
+        byLabel.font = UIFont(name:"BMJUAOTF", size: 15)
+        byLabel.textAlignment = .center
+        byLabel.numberOfLines = 2
     }
     
     func loadViewFromNib() -> UIView? {
@@ -44,8 +57,8 @@ class SettingView: UIView {
     @IBAction func setSoundValue(_ sender: CustomUiSlider) {
         soundValue = soundSlider.value
     }
+    
     @IBAction func settingCheckButtonPressed(_ sender: CustomGameButton) {
-        settingViewIsHidden.toggle()
         self.isHidden.toggle()
     }
 }
@@ -54,22 +67,14 @@ class SettingView: UIView {
 class CustomUiSlider: UISlider {
     required init (coder aDecorder:NSCoder) {
         super.init(coder: aDecorder)!
-        self.thumbTintColor = .deliveryrunRed
-        self.minimumTrackTintColor = .deliveryrunYellow
+        self.thumbTintColor = .deliveryrunYellow
+        self.minimumTrackTintColor = .deliveryrunRed
         self.maximumTrackTintColor = .white
     }
     
     override func trackRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.trackRect(forBounds: bounds)
-        rect.size.height = 7
+        rect.size.height = 5
         return rect
     } 
-}
-
-class CustomUILabel: UILabel {
-    required init (coder aDecorder:NSCoder) {
-        super.init(coder: aDecorder)!
-        self.font = UIFont(name: "BMJUAOTF", size: 30)
-        self.textColor = .white
-    }
 }

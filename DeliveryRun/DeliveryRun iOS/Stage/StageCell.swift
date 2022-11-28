@@ -88,14 +88,14 @@ class StageCell: UICollectionViewCell {
     // isSelected
     override var isSelected: Bool {
         didSet {
-                if isSelected {
-                    self.backView.layer.borderColor = UIColor.deliveryrunYellow!.cgColor
-                    self.backView.layer.borderWidth = 5
-                } else {
-                    self.backView.layer.borderColor = UIColor.white.cgColor
-                    self.backView.layer.borderWidth = 2
-                }
+            if isSelected {
+                self.backView.layer.borderColor = UIColor.deliveryrunYellow!.cgColor
+                self.backView.layer.borderWidth = 5
+            } else {
+                self.backView.layer.borderColor = UIColor.white.cgColor
+                self.backView.layer.borderWidth = 2
             }
+        }
     }
 }
 

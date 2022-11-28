@@ -62,6 +62,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressSettingButton:" destination="GYM-j8-IpM" eventType="touchUpInside" id="IpK-3O-fox"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-ba-mCW" userLabel="Back Button">
                                 <rect key="frame" x="0.0" y="25" width="40" height="40"/>
@@ -162,10 +165,15 @@
                                     <outlet property="delegate" destination="GYM-j8-IpM" id="zAf-Wu-4TE"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndm-P1-jfg" userLabel="SettingView" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="25" width="852" height="343"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5vu-bH-eqb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="5vu-bH-eqb" firstAttribute="trailing" secondItem="Ndm-P1-jfg" secondAttribute="trailing" id="2UJ-iZ-ocy"/>
                             <constraint firstAttribute="trailing" secondItem="Ljm-JV-vWF" secondAttribute="trailing" constant="324" id="7uK-fW-uwJ"/>
                             <constraint firstItem="aG4-b2-XBe" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" id="8vX-C5-lR4"/>
                             <constraint firstAttribute="trailing" secondItem="aG4-b2-XBe" secondAttribute="trailing" id="9Ui-5w-qTq"/>
@@ -175,6 +183,7 @@
                             <constraint firstItem="G3X-ba-mCW" firstAttribute="leading" secondItem="5vu-bH-eqb" secondAttribute="leading" id="ICE-LZ-eqp"/>
                             <constraint firstAttribute="bottom" secondItem="Ljm-JV-vWF" secondAttribute="bottom" constant="30" id="KPl-2p-5JI"/>
                             <constraint firstAttribute="bottom" secondItem="zeZ-pv-DNR" secondAttribute="bottom" constant="30" id="L5Q-MK-LRn"/>
+                            <constraint firstItem="Ndm-P1-jfg" firstAttribute="leading" secondItem="5vu-bH-eqb" secondAttribute="leading" id="QyR-Ho-bd5"/>
                             <constraint firstItem="5vu-bH-eqb" firstAttribute="trailing" secondItem="CLB-6b-RlG" secondAttribute="trailing" id="Vlw-XJ-PUO"/>
                             <constraint firstItem="Ljm-JV-vWF" firstAttribute="leading" secondItem="5vu-bH-eqb" secondAttribute="leading" id="Xkh-x5-RCe"/>
                             <constraint firstItem="G3X-ba-mCW" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="25" id="Ypd-yb-TCq"/>
@@ -182,14 +191,17 @@
                             <constraint firstItem="kSz-5T-K3Y" firstAttribute="trailing" secondItem="L80-eE-Jld" secondAttribute="trailing" id="avy-O2-dqY"/>
                             <constraint firstItem="5vu-bH-eqb" firstAttribute="trailing" secondItem="zeZ-pv-DNR" secondAttribute="trailing" id="dMz-Qm-joE"/>
                             <constraint firstAttribute="bottom" secondItem="aG4-b2-XBe" secondAttribute="bottom" id="enW-sQ-MNo"/>
+                            <constraint firstAttribute="bottom" secondItem="Ndm-P1-jfg" secondAttribute="bottom" constant="25" id="hWg-n7-me1"/>
                             <constraint firstItem="aG4-b2-XBe" firstAttribute="leading" secondItem="L80-eE-Jld" secondAttribute="leading" id="mBM-0B-iru"/>
                             <constraint firstItem="kSz-5T-K3Y" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" id="mYL-gG-Uvk"/>
                             <constraint firstItem="Ljm-JV-vWF" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="90" id="oDM-d0-1f3"/>
+                            <constraint firstItem="Ndm-P1-jfg" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="25" id="p3F-wX-acf"/>
                             <constraint firstItem="CLB-6b-RlG" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="25" id="qMx-l3-uzW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HBe-ev-GK8"/>
                     <connections>
+                        <outlet property="SettingView" destination="Ndm-P1-jfg" id="TJx-UP-6Wp"/>
                         <outlet property="StageCollectionView" destination="Ljm-JV-vWF" id="fkl-1n-KmA"/>
                         <outlet property="recordLabel" destination="zbi-qO-WUR" id="SQy-Dk-paw"/>
                         <outlet property="stageDetailView" destination="zeZ-pv-DNR" id="c9d-uP-Cbc"/>
