@@ -29,17 +29,24 @@ class SettingView: UIView {
         guard let view = loadViewFromNib() else { return }
         self.addSubview(view)
         view.frame = self.bounds
-        view.backgroundColor = .white
+        view.backgroundColor = .deliveryrunPurple
+        view.layer.borderColor = UIColor.white.cgColor
+        view.layer.borderWidth = 3
         view.layer.cornerRadius = 10
         
-        BackMusicView.backgroundColor = .deliveryrunBlack
+        BackMusicView.backgroundColor = .deliveryrunBlack?.withAlphaComponent(0.6)
         BackMusicView.layer.cornerRadius = 10
+        BackMusicView.layer.borderColor = UIColor.white.cgColor
+        BackMusicView.layer.borderWidth = 1
         
-        SoundMusicView.backgroundColor = .deliveryrunBlack
+        SoundMusicView.backgroundColor = .deliveryrunBlack?.withAlphaComponent(0.6)
         SoundMusicView.layer.cornerRadius = 10
+        SoundMusicView.layer.borderColor = UIColor.white.cgColor
+        SoundMusicView.layer.borderWidth = 1
         
         byLabel.text = "Developed by Team Compiler\nver 1.0.0"
         byLabel.font = UIFont(name:"BMJUAOTF", size: 15)
+        byLabel.textColor = .white
         byLabel.textAlignment = .center
         byLabel.numberOfLines = 2
     }

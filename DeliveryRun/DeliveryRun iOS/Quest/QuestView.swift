@@ -27,11 +27,14 @@ class QuestView: UIView {
         guard let view = loadViewFromNib() else { return }
         self.addSubview(view)
         view.frame = self.bounds
-        view.backgroundColor = .white
+        view.backgroundColor = .deliveryrunPurple
         view.layer.cornerRadius = 10
+        view.layer.borderColor = UIColor.white.cgColor
+        view.layer.borderWidth = 3
         
         questTableView.dataSource = self
         questTableView.delegate = self
+        questTableView.backgroundColor = .clear
         questTableView.showsVerticalScrollIndicator = false
         questTableView.showsHorizontalScrollIndicator = false
         questTableView.register(UINib(nibName: "QuestTableCell", bundle: nil), forCellReuseIdentifier: "QuestTableCell")
@@ -60,7 +63,8 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
         cell.questProgressLabel.text = String(format: "%D / %D", quests[indexPath.row].nowNumber, quests[indexPath.row].totalNumber)
         
         // Cell Layout
-        cell.backgroundColor = UIColor.deliveryrunBlack
+        cell.backgroundColor = UIColor.deliveryrunBlack?.withAlphaComponent(0.6)
+        cell.layer.borderColor = UIColor.white.cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 10
         cell.clipsToBounds = true
@@ -68,12 +72,10 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let verticalPadding: CGFloat = 10
-
         let maskLayer = CALayer()
         maskLayer.cornerRadius = 10
         maskLayer.backgroundColor = UIColor.black.cgColor
-        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: verticalPadding/2, dy: verticalPadding/2)
+        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 5, dy: 5)
         cell.layer.mask = maskLayer
     }
 }

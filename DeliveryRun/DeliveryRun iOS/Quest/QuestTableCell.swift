@@ -51,7 +51,6 @@ class QuestTableCell: UITableViewCell {
     }
 }
 
-
 class CustomUIProgressView: UIProgressView {
     required init (coder aDecorder:NSCoder) {
         super.init(coder: aDecorder)!
