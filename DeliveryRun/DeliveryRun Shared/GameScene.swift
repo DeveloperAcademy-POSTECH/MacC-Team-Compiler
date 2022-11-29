@@ -26,11 +26,12 @@ class GameScene: SKScene {
     var accelButton: SKSpriteNode!
     var breakButton: SKSpriteNode!
     var itemButton: SKSpriteNode!
-    var pauseButton: SKSpriteNode!
     var itemImage: SKSpriteNode!
+    var pauseButton: SKSpriteNode!
     
-    // Screen
+    // HUD
     private let pauseScreen = PauseScreen()
+    private let statusBar = StatusBar()
     
     // Boolean
     var jumpAction = false
@@ -128,6 +129,7 @@ class GameScene: SKScene {
         cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
         
         // Status Bar
+        cameraNode!.addChild(statusBar)
         status = childNode(withName: "status")
         locationIcon = status?.childNode(withName: "locationIcon")
         timeText = status?.childNode(withName: "time") as? SKLabelNode
