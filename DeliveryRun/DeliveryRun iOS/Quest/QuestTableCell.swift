@@ -47,7 +47,6 @@ class QuestTableCell: UITableViewCell {
 
     
     @IBAction func RewardPressed(_ sender: CustomGameButton) {
-        print(questTitleLabel.text)
     }
 }
 

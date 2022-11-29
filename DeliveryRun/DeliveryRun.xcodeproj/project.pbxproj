@@ -14,6 +14,7 @@
 		638D9B2F292B93260024E821 /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D9B2E292B93260024E821 /* Quest.swift */; };
 		639553FC2935B49300E3DECA /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639553FB2935B49300E3DECA /* Setting.swift */; };
 		639553FE2935B50200E3DECA /* PlayerSkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639553FD2935B50200E3DECA /* PlayerSkin.swift */; };
+		639554002935BC8D00E3DECA /* UserDafultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639553FF2935BC8D00E3DECA /* UserDafultData.swift */; };
 		6396605229233CD30002E6B2 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6396605129233CD30002E6B2 /* SettingView.xib */; };
 		6396605429233D3E0002E6B2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396605329233D3E0002E6B2 /* SettingView.swift */; };
 		6396605B2923633E0002E6B2 /* UIkitDocument in Resources */ = {isa = PBXBuildFile; fileRef = 6396605A2923633E0002E6B2 /* UIkitDocument */; };
@@ -56,6 +57,7 @@
 		638D9B2E292B93260024E821 /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		639553FB2935B49300E3DECA /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		639553FD2935B50200E3DECA /* PlayerSkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSkin.swift; sourceTree = "<group>"; };
+		639553FF2935BC8D00E3DECA /* UserDafultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDafultData.swift; sourceTree = "<group>"; };
 		6396605129233CD30002E6B2 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
 		6396605329233D3E0002E6B2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		6396605A2923633E0002E6B2 /* UIkitDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = UIkitDocument; sourceTree = "<group>"; };
@@ -115,13 +117,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		63966059292344B00002E6B2 /* XibFile */ = {
+		63966059292344B00002E6B2 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				6396605329233D3E0002E6B2 /* SettingView.swift */,
 				6396605129233CD30002E6B2 /* SettingView.xib */,
 			);
-			path = XibFile;
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		63EFFF6A291A42B9005FF169 /* Sounds */ = {
@@ -151,6 +153,7 @@
 		6F28EE8F28F5444500D7330F = {
 			isa = PBXGroup;
 			children = (
+				639553FF2935BC8D00E3DECA /* UserDafultData.swift */,
 				6F28EE9428F5444500D7330F /* DeliveryRun Shared */,
 				6F28EE9F28F5444600D7330F /* DeliveryRun iOS */,
 				6F28EE9E28F5444600D7330F /* Products */,
@@ -188,7 +191,7 @@
 				638D9B2D292B93070024E821 /* Model */,
 				6FF3371929309A3600D04BDB /* Quest */,
 				6F5089A3292B602300B26623 /* Stage */,
-				63966059292344B00002E6B2 /* XibFile */,
+				63966059292344B00002E6B2 /* Setting */,
 				6F28EEA028F5444600D7330F /* AppDelegate.swift */,
 				6F28EEA228F5444600D7330F /* RobbyViewController.swift */,
 				63DC0EAA28F5863100B145B9 /* GameViewController.swift */,
@@ -337,6 +340,7 @@
 				63664AB829123427006E75D7 /* Sound.swift in Sources */,
 				6F28EEA128F5444600D7330F /* AppDelegate.swift in Sources */,
 				639553FC2935B49300E3DECA /* Setting.swift in Sources */,
+				639554002935BC8D00E3DECA /* UserDafultData.swift in Sources */,
 				6396605429233D3E0002E6B2 /* SettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

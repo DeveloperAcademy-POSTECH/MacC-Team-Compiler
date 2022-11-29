@@ -8,6 +8,10 @@
 import UIKit
 
 class StageViewController: UIViewController {
+    
+    let userDefaultData = UserDefaultData()
+    
+    
     @IBOutlet weak var stageCollectionView: UICollectionView!
     @IBOutlet weak var stageDetailView: UIView!
     @IBOutlet weak var settingView: SettingView!

@@ -10,16 +10,17 @@ import Foundation
 
 class SettingView: UIView {
     
+    
     let nibName = "SettingView"
+    
+    let userDefaultData = UserDefaultData()
     
     @IBOutlet weak var BackMusicView: UIView!
     @IBOutlet weak var SoundMusicView: UIView!
-    @IBOutlet weak var backgroundSlider: CustomUiSlider!
-    @IBOutlet weak var soundSlider: CustomUiSlider!
+
+    @IBOutlet weak var BackgroundMusic: UISwitch!
+    @IBOutlet weak var InGameSound: UISwitch!
     @IBOutlet weak var byLabel: UILabel!
-    
-    var backgroundValue:Float = 0.0
-    var soundValue:Float = 0.0
     
     // StoryBoard Load
     required init?(coder aDecoder: NSCoder) {
@@ -49,6 +50,10 @@ class SettingView: UIView {
         byLabel.textColor = .white
         byLabel.textAlignment = .center
         byLabel.numberOfLines = 2
+        
+        BackgroundMusic.isOn = userDefaultData.backgroundMusic
+        InGameSound.isOn = userDefaultData.inGameSound
+        
     }
     
     func loadViewFromNib() -> UIView? {
@@ -57,16 +62,9 @@ class SettingView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
     
-    @IBAction func setBackgroundValue(_ sender: CustomUiSlider) {
-        backgroundValue = backgroundSlider.value
-    }
-    
-    @IBAction func setSoundValue(_ sender: CustomUiSlider) {
-        soundValue = soundSlider.value
-    }
-    
     @IBAction func settingCheckButtonPressed(_ sender: CustomGameButton) {
         self.isHidden.toggle()
+        userDefaultData.setSetting(backgroundMusic: BackgroundMusic.isOn, inGameSound: InGameSound.isOn)
     }
 }
 

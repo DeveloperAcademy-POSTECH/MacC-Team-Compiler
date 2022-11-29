@@ -19,7 +19,9 @@ class RobbyViewController: UIViewController {
     @IBOutlet weak var startButton: CustomGameButton!
     @IBOutlet weak var settingButton: UIButton!
     
-    var toggleBool:Bool = false
+    let userDefaultData = UserDefaultData()
+    
+    
     var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
     
     override func viewDidLoad() {
@@ -42,6 +44,8 @@ class RobbyViewController: UIViewController {
         questView.isHidden = true
         settingView.layer.opacity = 1.0
         questView.layer.opacity = 1.0
+        
+        // UserDafault Get
     }
     
     @IBAction func SettingPressed(_ sender: UIButton) {

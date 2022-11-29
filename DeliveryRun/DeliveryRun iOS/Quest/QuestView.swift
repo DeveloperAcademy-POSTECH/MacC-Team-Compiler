@@ -12,6 +12,8 @@ class QuestView: UIView {
 
     let nibName = "QuestView"
     
+    let userDefaultData = UserDefaultData()
+    
     @IBOutlet weak var questCheckButton: CustomGameButton!
     @IBOutlet weak var questTableView: UITableView!
     
