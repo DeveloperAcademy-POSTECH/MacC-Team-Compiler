@@ -71,8 +71,6 @@ class GameScene: SKScene {
     let timeLabel = SKLabelNode()
     let scoreLabel = SKLabelNode()
     
-    // Sound
-    let soundPlayer = SoundPlayer()
     
     var soundPlayerModel = Sound(audioPlayer: AVAudioPlayer())
     
