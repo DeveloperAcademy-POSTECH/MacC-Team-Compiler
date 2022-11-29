@@ -7,6 +7,7 @@
 
 import UIKit
 import Foundation
+import AVFAudio
 
 class SettingView: UIView {
     
@@ -15,8 +16,10 @@ class SettingView: UIView {
     
     let userDefaultData = UserDefaultData()
     
-    @IBOutlet weak var BackMusicView: UIView!
-    @IBOutlet weak var SoundMusicView: UIView!
+    
+    
+    var sound = Sound(audioPlayer: AVAudioPlayer())
+    
 
     @IBOutlet weak var BackgroundMusic: UISwitch!
     @IBOutlet weak var InGameSound: UISwitch!
@@ -35,15 +38,15 @@ class SettingView: UIView {
         view.layer.borderWidth = 3
         view.layer.cornerRadius = 10
         
-        BackMusicView.backgroundColor = .deliveryrunBlack?.withAlphaComponent(0.6)
-        BackMusicView.layer.cornerRadius = 10
-        BackMusicView.layer.borderColor = UIColor.white.cgColor
-        BackMusicView.layer.borderWidth = 1
-        
-        SoundMusicView.backgroundColor = .deliveryrunBlack?.withAlphaComponent(0.6)
-        SoundMusicView.layer.cornerRadius = 10
-        SoundMusicView.layer.borderColor = UIColor.white.cgColor
-        SoundMusicView.layer.borderWidth = 1
+//        BackMusicView.backgroundColor = .deliveryrunBlack?.withAlphaComponent(0.6)
+//        BackMusicView.layer.cornerRadius = 10
+//        BackMusicView.layer.borderColor = UIColor.white.cgColor
+//        BackMusicView.layer.borderWidth = 1
+//
+//        SoundMusicView.backgroundColor = .deliveryrunBlack?.withAlphaComponent(0.6)
+//        SoundMusicView.layer.cornerRadius = 10
+//        SoundMusicView.layer.borderColor = UIColor.white.cgColor
+//        SoundMusicView.layer.borderWidth = 1
         
         byLabel.text = "Developed by Team Compiler\nver 1.0.0"
         byLabel.font = UIFont(name:"BMJUAOTF", size: 15)
@@ -65,6 +68,13 @@ class SettingView: UIView {
     @IBAction func settingCheckButtonPressed(_ sender: CustomGameButton) {
         self.isHidden.toggle()
         userDefaultData.setSetting(backgroundMusic: BackgroundMusic.isOn, inGameSound: InGameSound.isOn)
+    }
+    @IBAction func backgroundOnOff(_ sender: UISwitch) {
+        if BackgroundMusic.isOn {
+            sound.playSound(soundName: "robby")
+        } else {
+            sound.stopSound()
+        }
     }
 }
 

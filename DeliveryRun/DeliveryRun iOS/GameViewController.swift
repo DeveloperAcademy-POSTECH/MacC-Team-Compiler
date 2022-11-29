@@ -20,6 +20,8 @@ protocol GameSceneDelegate {
 
 class GameViewController: UIViewController, GameSceneDelegate {
     
+    let userDefaultData = UserDefaultData()
+    
     var backgroundMusicPlayer = Sound(audioPlayer: AVAudioPlayer())
     
     @IBOutlet weak var recordLabel: UILabel!
@@ -39,6 +41,7 @@ class GameViewController: UIViewController, GameSceneDelegate {
     func getTimeRap(recordTime paasedTime:Int) {
         timeRap = paasedTime
         recordLabel.text = String(format: "당신의 기록은 %D초 입니다.", timeRap)
+        userDefaultData.setStage(myRecord: Double(timeRap), satr: 2, isLock: true)
     }
     
     override func viewDidLoad() {

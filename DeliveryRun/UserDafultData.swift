@@ -14,6 +14,11 @@ class UserDefaultData {
         
         self.backgroundMusic = defaults.bool(forKey: "BackgroundMusic")
         self.inGameSound = defaults.bool(forKey: "InGameSound")
+        self.myRecord = defaults.double(forKey: "MyRecord")
+        self.isLock = defaults.bool(forKey: "IsLock")
+        
+        // Find Path
+        UserDefaultData.findPath()
     }
     
     var backgroundMusic:Bool = false
@@ -49,4 +54,9 @@ class UserDefaultData {
     
     let defaults = UserDefaults.standard
     
+    
+    // Find Path
+    static func findPath() {
+        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+    }
 }

@@ -27,6 +27,7 @@ class RobbyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         questButton.setTitle(" 퀘스트", for: .normal)
         questButton.setImage(UIImage(systemName: "list.bullet.circle.fill"), for: .normal)
         
@@ -54,6 +55,7 @@ class RobbyViewController: UIViewController {
     @IBAction func QeustPressed(_ sender: CustomGameButton) {
         questView.isHidden = false
     }
+    
 }
 
 
