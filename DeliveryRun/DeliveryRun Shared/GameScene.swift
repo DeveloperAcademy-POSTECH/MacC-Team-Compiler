@@ -22,11 +22,12 @@ class GameScene: SKScene {
     var moon : SKShapeNode?
     
     // Buttons
-    var Button: SKNode?
-    var jumpButton: SKNode?
-    var accelButton: SKNode?
-    var breakButton: SKNode?
-    var pauseButton: SKNode?
+    var jumpButton: SKSpriteNode!
+    var accelButton: SKSpriteNode!
+    var breakButton: SKSpriteNode!
+    var itemButton: SKSpriteNode!
+    var pauseButton: SKSpriteNode!
+    var itemImage: SKSpriteNode!
     
     // Screen
     private let pauseScreen = PauseScreen()
@@ -35,6 +36,7 @@ class GameScene: SKScene {
     var jumpAction = false
     var accelAction = false
     var breakAction = false
+    var itemAction = false
     var gameStart = false
     var isGamePaused = false
     var gameOver = false
@@ -131,12 +133,47 @@ class GameScene: SKScene {
         timeText = status?.childNode(withName: "time") as? SKLabelNode
         speederText = status?.childNode(withName: "speed") as? SKLabelNode
         
-        // Button
-        Button = childNode(withName: "Button")
-        jumpButton = Button?.childNode(withName: "jumpButton")
-        accelButton = Button?.childNode(withName: "accelButton")
-        breakButton = Button?.childNode(withName: "breakButton")
-        pauseButton = Button?.childNode(withName: "pauseButton")
+        // Break Button
+        breakButton = SKSpriteNode(imageNamed: "Break Button")
+        breakButton.name = "Break"
+        breakButton.scale(to: CGSize(width: 125, height: 125))
+        breakButton.zPosition = 5.0
+        addChild(breakButton)
+        
+        // Accel Button
+        accelButton = SKSpriteNode(imageNamed: "Accel Button")
+        accelButton.name = "Accel"
+        accelButton.scale(to: CGSize(width: 170, height: 125))
+        accelButton.zPosition = 5.0
+        addChild(accelButton)
+        
+        // Jump Button
+        jumpButton = SKSpriteNode(imageNamed: "Jump Button")
+        jumpButton.name = "Jump"
+        jumpButton.scale(to: CGSize(width: 180, height: 125))
+        jumpButton.zPosition = 5.0
+        addChild(jumpButton)
+        
+        // Item Button
+        itemButton = SKSpriteNode(imageNamed: "Item Button")
+        itemButton.name = "Item"
+        itemButton.scale(to: CGSize(width: 100, height: 100))
+        itemButton.zPosition = 5.0
+        addChild(itemButton)
+        
+        // Item Image
+        itemImage = SKSpriteNode(imageNamed: "Item Button")
+        itemImage.name = "Item Image"
+        itemImage.scale(to: CGSize(width: 100, height: 100))
+        itemImage.zPosition = 5.0
+        addChild(itemImage)
+        
+        // Pause Button
+        pauseButton = SKSpriteNode(imageNamed: "Pause")
+        pauseButton.name = "Pause"
+        pauseButton.scale(to: CGSize(width: 30, height: 35))
+        pauseButton.zPosition = 5.0
+        addChild(pauseButton)
     }
 }
 
@@ -149,13 +186,14 @@ extension GameScene {
         gameStart = true
         
         for touch in touches {
-            let location = touch.location(in: Button!)
+            let location = touch.location(in: self)
             
-            jumpAction = jumpButton!.frame.contains(location)
-            accelAction = accelButton!.frame.contains(location)
-            breakAction = breakButton!.frame.contains(location)
+            jumpAction = jumpButton.frame.contains(location)
+            accelAction = accelButton.frame.contains(location)
+            breakAction = breakButton.frame.contains(location)
+            itemAction = itemButton.frame.contains(location)
             
-            if pauseButton!.frame.contains(location) {
+            if pauseButton.frame.contains(location) {
                 isGamePaused = true
                 cameraNode!.addChild(pauseScreen)
                 pauseScreen.skView = view
@@ -171,16 +209,18 @@ extension GameScene {
             if breakAction {
                 breaking(deltaTime: 0)
             }
-            
-            
-            if !(jumpButton?.contains(location))! {
-                jumpAction = false
-            }
-            if !(accelButton?.contains(location))! {
-                accelAction = false
-            }
-            if !(breakButton?.contains(location))! {
-                breakAction = false
+            if itemAction {
+                if itemImage.name == "Drink" {
+                    print("drink")
+                    playerSpeed += 10
+                    itemImage.texture = SKTexture(imageNamed:"Item Button")
+                    itemImage.name = "Item Image"
+                }
+                else if itemImage.name == "Star" {
+                    playerStateMachine.enter(GodState.self)
+                    itemImage.texture = SKTexture(imageNamed:"Item Button")
+                    itemImage.name = "Item Image"
+                }
             }
         }
     }
@@ -189,9 +229,10 @@ extension GameScene {
         for touch in touches {
             let location = touch.location(in: self)
             
-            jumpAction = jumpButton!.frame.contains(location)
-            accelAction = accelButton!.frame.contains(location)
-            breakAction = breakButton!.frame.contains(location)
+            jumpAction = jumpButton.frame.contains(location)
+            accelAction = accelButton.frame.contains(location)
+            breakAction = breakButton.frame.contains(location)
+            itemAction = itemButton.frame.contains(location)
             
             if jumpAction {
                 running(deltaTime: 0)
@@ -305,7 +346,12 @@ extension GameScene {
         // Node 위치 지정
         cameraNode?.position.x = player.position.x + 300
         status?.position.x = (cameraNode?.position.x)!
-        Button?.position.x = (cameraNode?.position.x)!
+        breakButton.position = CGPoint(x: (cameraNode!.position.x) - 470, y: (cameraNode!.position.y) - 200)
+        accelButton.position = CGPoint(x: (cameraNode!.position.x) - 300, y: (cameraNode!.position.y) - 200)
+        jumpButton.position = CGPoint(x: (cameraNode!.position.x) + 480, y: (cameraNode!.position.y) - 200)
+        itemButton.position = CGPoint(x: (cameraNode!.position.x) + 300, y: (cameraNode!.position.y) - 200)
+        itemImage.position = CGPoint(x: (cameraNode!.position.x) + 300, y: (cameraNode!.position.y) - 200)
+        pauseButton.position = CGPoint(x: (cameraNode!.position.x) + 530, y: (cameraNode!.position.y) + 240)
     }
 }
 
@@ -352,28 +398,40 @@ extension GameScene: SKPhysicsContactDelegate {
             if contact.bodyA.node?.name == "drink" {
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyA.node?.removeFromParent()
-                playerSpeed += 10
-                soundPlayerModel.playSound(soundName: "sound1")
+                
+                if itemImage.name == "Item Image" {
+                    itemImage.texture = SKTexture(imageNamed: "drink0")
+                    itemImage.name = "Drink"
+                }
             }
             else if contact.bodyB.node?.name == "drink" {
                 contact.bodyB.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyB.node?.removeFromParent()
-                playerSpeed += 10
-                soundPlayerModel.playSound(soundName: "sound1")
+                
+                if itemImage.name == "Item Image" {
+                    itemImage.texture = SKTexture(imageNamed: "drink0")
+                    itemImage.name = "Drink"
+                }
             }
             
             // Star 획득하는 경우
             if contact.bodyA.node?.name == "star" {
-                playerStateMachine.enter(GodState.self)
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyA.node?.removeFromParent()
-                soundPlayerModel.playSound(soundName: "sound2")
+                
+                if itemImage.name == "Item Image" {
+                    itemImage.texture = SKTexture(imageNamed: "star0")
+                    itemImage.name = "Star"
+                }
             }
             else if contact.bodyB.node?.name == "star" {
-                playerStateMachine.enter(GodState.self)
                 contact.bodyB.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyB.node?.removeFromParent()
-                soundPlayerModel.playSound(soundName: "sound2")
+                
+                if itemImage.name == "Item Image" {
+                    itemImage.texture = SKTexture(imageNamed: "star0")
+                    itemImage.name = "Star"
+                }
             }
         }
     }
