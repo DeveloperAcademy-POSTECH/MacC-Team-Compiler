@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "moon.png",
+      "filename" : "Finish Line Short.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Finish Line Short@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Finish Line Short@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -110,13 +110,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		63966059292344B00002E6B2 /* XibFile */ = {
+		63966059292344B00002E6B2 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				6396605329233D3E0002E6B2 /* SettingView.swift */,
 				6396605129233CD30002E6B2 /* SettingView.xib */,
 			);
-			path = XibFile;
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		63EFFF6A291A42B9005FF169 /* Sounds */ = {
@@ -184,7 +184,7 @@
 				638D9B2D292B93070024E821 /* Model */,
 				6FF3371929309A3600D04BDB /* Quest */,
 				6F5089A3292B602300B26623 /* Stage */,
-				63966059292344B00002E6B2 /* XibFile */,
+				63966059292344B00002E6B2 /* Setting */,
 				63664AB729123427006E75D7 /* Sound.swift */,
 				6F28EEA028F5444600D7330F /* AppDelegate.swift */,
 				6F28EEA228F5444600D7330F /* RobbyViewController.swift */,

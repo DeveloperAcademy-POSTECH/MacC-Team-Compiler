@@ -7,32 +7,6 @@
 
 import SpriteKit
 
-// MARK: - Status Bar
-class StatusBar: SKNode {
-    // Nodes
-    private var locationBar: SKShapeNode!
-    
-    // Initialize
-    override init() {
-        super.init()
-        
-        // Location Bar
-        locationBar = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width - 300, height: 12), cornerRadius: 5)
-        locationBar.fillColor = .deliveryrunRed!
-        locationBar.lineWidth = 1
-        locationBar.strokeColor = .white
-        locationBar.position = CGPoint(x: 0, y: 164)
-        locationBar.zPosition = 5.0
-        addChild(locationBar)
-        
-        // Location Line
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-}
-
 // MARK: - Pause Screen
 class PauseScreen: SKNode {
     // Nodes
