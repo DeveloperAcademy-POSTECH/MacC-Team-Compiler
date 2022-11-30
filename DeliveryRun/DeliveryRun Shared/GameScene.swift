@@ -106,7 +106,7 @@ class GameScene: SKScene {
             AccelingState(playerNode: player),
             BreakingState(playerNode: player),
             DamageState(playerNode: player),
-            GodState(playerNode:player)
+            StarState(playerNode:player)
         ])
         playerStateMachine.enter(RunningState.self)
     }
@@ -302,7 +302,7 @@ extension GameScene {
                     itemImage.name = "Item Image"
                 }
                 else if itemImage.name == "Star" {
-                    playerStateMachine.enter(GodState.self)
+                    playerStateMachine.enter(StarState.self)
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
                     itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"

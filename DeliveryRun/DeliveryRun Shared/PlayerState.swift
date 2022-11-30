@@ -44,7 +44,7 @@ class JumpingState: PlayerState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         if hasFinishedJumping && stateClass is LandingState.Type { return true }
         if hasFinishedJumping && stateClass is DamageState.Type { return true }
-        if stateClass is GodState.Type { return true }
+        if stateClass is StarState.Type { return true }
         return false
     }
     
@@ -83,7 +83,7 @@ class LandingState: PlayerState {
 class AccelingState: PlayerState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
-        case is RunningState.Type, is JumpingState.Type, is GodState.Type: return true
+        case is RunningState.Type, is JumpingState.Type, is StarState.Type: return true
         default: return false
         }
     }
@@ -104,7 +104,7 @@ class BreakingState: PlayerState {
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
-        case is RunningState.Type, is DamageState.Type, is GodState.Type: return true
+        case is RunningState.Type, is DamageState.Type, is StarState.Type: return true
         default: return false
         }
     }
@@ -152,11 +152,11 @@ class DamageState: PlayerState {
     }
 }
 
-// God State
-class GodState: PlayerState {
+// Star State
+class StarState: PlayerState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
-        case is GodState.Type, is DamageState.Type: return false
+        case is StarState.Type, is DamageState.Type: return false
         default: return true
         }
     }
