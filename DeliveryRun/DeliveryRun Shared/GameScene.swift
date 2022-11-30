@@ -31,14 +31,16 @@ class GameScene: SKScene {
     var pauseButton: SKSpriteNode!
     
     // HUD
-    var HUD: SKNode!
     private let pauseScreen = PauseScreen()
+    var HUD: SKNode!
     var locationBar: SKShapeNode!
     var startLineShort: SKSpriteNode!
     var finishLineShort: SKSpriteNode!
     var playerIcon: SKSpriteNode!
     var timerIcon: SKSpriteNode!
+    var speederIcon: SKSpriteNode!
     var timerText: SKLabelNode!
+    var speederText: SKLabelNode!
     var locationBarLength: Double!
     
     // Boolean
@@ -64,13 +66,10 @@ class GameScene: SKScene {
     var totalTime = 100
     var passedTime = 0
     
-    var speederText: SKLabelNode?
     var score: Int = 0
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
-    
-    var status: SKNode?
     var endPoint = 20000.0
     
     // Sound
@@ -169,7 +168,7 @@ class GameScene: SKScene {
         itemImage = SKSpriteNode(imageNamed: "Item Button")
         itemImage.name = "Item Image"
         itemImage.scale(to: CGSize(width: 100, height: 100))
-        itemImage.position = CGPoint(x: 300, y: -200)
+        itemImage.position = CGPoint(x: itemButton.frame.midX, y: itemButton.frame.midY)
         itemImage.zPosition = 5.0
         Button.addChild(itemImage)
         
@@ -189,10 +188,10 @@ class GameScene: SKScene {
         HUD.name = "HUD"
         HUD.zPosition = 5.0
         addChild(HUD)
-        status = childNode(withName: "status")
         
         // Location Bar
         locationBar = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width - 100, height: 15), cornerRadius: 5)
+        locationBar.name = "Location Bar"
         locationBar.fillColor = .deliveryrunRed!
         locationBar.lineWidth = 1
         locationBar.strokeColor = .white
@@ -217,6 +216,7 @@ class GameScene: SKScene {
         
         // Player Location Icon
         playerIcon = SKSpriteNode(imageNamed: "player0")
+        playerIcon.name = "Player Location"
         playerIcon.scale(to: CGSize(width: 50, height: 50))
         playerIcon.position.y = 220
         playerIcon.zPosition = 5.0
@@ -224,13 +224,15 @@ class GameScene: SKScene {
         
         // Timer Icon
         timerIcon = SKSpriteNode(imageNamed: "Timer")
+        timerIcon.name = "Timer Icon"
         timerIcon.scale(to: CGSize(width: 45, height: 60))
         timerIcon.position = CGPoint(x: locationBar.frame.minX - 150, y: locationBar.frame.midY)
         timerIcon.zPosition = 5.0
         HUD.addChild(timerIcon)
         
-        // Timer Text
+        // Timer Label
         timerText = SKLabelNode(fontNamed: "BMJUAOTF")
+        timerText.name = "Timer Label"
         timerText.fontSize = 40
         timerText.fontColor = .red
         timerText.verticalAlignmentMode = .center
@@ -239,7 +241,24 @@ class GameScene: SKScene {
         timerText.zPosition = 5.0
         HUD.addChild(timerText)
         
-        speederText = status?.childNode(withName: "speed") as? SKLabelNode
+        // Speeder Icon
+        speederIcon = SKSpriteNode(imageNamed: "speed")
+        speederIcon.name = "Speeder Label"
+        speederIcon.scale(to: CGSize(width: 50, height: 60))
+        speederIcon.position = CGPoint(x: -80, y: -200)
+        speederIcon.zPosition = 5.0
+        HUD.addChild(speederIcon)
+        
+        // Speeder Label
+        speederText = SKLabelNode(fontNamed: "BMJUAOTF")
+        speederText.name = "Speed Label"
+        speederText.fontSize = 40
+        speederText.fontColor = .deliveryrunMint
+        speederText.verticalAlignmentMode = .center
+        speederText.horizontalAlignmentMode = .center
+        speederText.position = CGPoint(x: speederIcon.frame.maxX + 80, y: -200)
+        speederText.zPosition = 5.0
+        HUD.addChild(speederText)
     }
 }
 
@@ -279,11 +298,13 @@ extension GameScene {
                 if itemImage.name == "Drink" {
                     playerSpeed += 10
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
+                    itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"
                 }
                 else if itemImage.name == "Star" {
                     playerStateMachine.enter(GodState.self)
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
+                    itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"
                 }
             }
@@ -402,7 +423,6 @@ extension GameScene {
             } else {
                 running(deltaTime: deltaTime)
             }
-            print(player.position.x)
             
             if player.position.x >= endPoint && !(gameOver) {
                 endGame()
@@ -410,15 +430,15 @@ extension GameScene {
             }
         }
         
-        timerText.text = String(format: "%D", passedTime)
-        speederText?.text = String(format: "%.2f", playerSpeed)
-        
         // Node 위치 지정
         cameraNode?.position.x = player.position.x + 300
-        status?.position.x = (cameraNode?.position.x)!
         Button.position = CGPoint(x: (cameraNode!.position.x), y: (cameraNode!.position.y))
         HUD.position = CGPoint(x: (cameraNode!.position.x), y: (cameraNode!.position.y))
         playerIcon.position.x = ((player.position.x / endPoint) * locationBarLength) - locationBarLength / 2.0
+        
+        // Label Text 설정
+        timerText.text = String(format: "%D", passedTime)
+        speederText.text = String(format: "%d km/h", Int(playerSpeed * 6))
     }
 }
 
@@ -475,21 +495,23 @@ extension GameScene: SKPhysicsContactDelegate {
             }
             
             // Star 획득
-            if contact.bodyA.node?.name == "star" {
+            if contact.bodyA.node?.name == "Star Bubble" {
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyA.node?.removeFromParent()
                 
                 if itemImage.name == "Item Image" {
-                    itemImage.texture = SKTexture(imageNamed: "star0")
+                    itemImage.texture = SKTexture(imageNamed: "Star Item")
+                    itemImage.scale(to: CGSize(width: 70, height: 70))
                     itemImage.name = "Star"
                 }
             }
-            else if contact.bodyB.node?.name == "star" {
+            else if contact.bodyB.node?.name == "Star Bubble" {
                 contact.bodyB.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyB.node?.removeFromParent()
                 
                 if itemImage.name == "Item Image" {
-                    itemImage.texture = SKTexture(imageNamed: "star0")
+                    itemImage.texture = SKTexture(imageNamed: "Star Item")
+                    itemImage.scale(to: CGSize(width: 70, height: 70))
                     itemImage.name = "Star"
                 }
             }
