@@ -424,6 +424,7 @@ extension GameScene {
                 running(deltaTime: deltaTime)
             }
             
+            // 도착 시 게임 종료
             if player.position.x >= endPoint && !(gameOver) {
                 endGame()
                 gameOver = true
@@ -475,21 +476,23 @@ extension GameScene: SKPhysicsContactDelegate {
         
         if collision.matches(.player, .reward) {
             // Drink 획득
-            if contact.bodyA.node?.name == "drink" {
+            if contact.bodyA.node?.name == "Drink Bubble" {
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyA.node?.removeFromParent()
                 
                 if itemImage.name == "Item Image" {
-                    itemImage.texture = SKTexture(imageNamed: "drink0")
+                    itemImage.texture = SKTexture(imageNamed: "Drink Item")
+                    itemImage.scale(to: CGSize(width: 45, height: 75))
                     itemImage.name = "Drink"
                 }
             }
-            else if contact.bodyB.node?.name == "drink" {
+            else if contact.bodyB.node?.name == "Drink Bubble" {
                 contact.bodyB.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyB.node?.removeFromParent()
                 
                 if itemImage.name == "Item Image" {
-                    itemImage.texture = SKTexture(imageNamed: "drink0")
+                    itemImage.texture = SKTexture(imageNamed: "Drink Item")
+                    itemImage.scale(to: CGSize(width: 45, height: 75))
                     itemImage.name = "Drink"
                 }
             }
