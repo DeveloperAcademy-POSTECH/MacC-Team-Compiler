@@ -12,6 +12,8 @@ import AVFoundation
 
 class RobbyViewController: UIViewController {
     
+    let userDefault = UserDefaultData.shared
+    
     @IBOutlet weak var settingView: SettingView!
     @IBOutlet weak var questView: QuestView!
     @IBOutlet weak var questButton: CustomGameButton!
@@ -19,7 +21,6 @@ class RobbyViewController: UIViewController {
     @IBOutlet weak var startButton: CustomGameButton!
     @IBOutlet weak var settingButton: UIButton!
     
-    let userDefaultData = UserDefaultData()
     
     
     var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
@@ -47,6 +48,7 @@ class RobbyViewController: UIViewController {
         questView.layer.opacity = 1.0
         
         // UserDafault Get
+        settingView.BackgroundMusic
     }
     
     @IBAction func SettingPressed(_ sender: UIButton) {

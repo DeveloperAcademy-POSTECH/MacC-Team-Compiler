@@ -9,54 +9,81 @@ import Foundation
 
 
 class UserDefaultData {
-    static let shared = UserDefaultData()
-    init() {
-        
-        self.backgroundMusic = defaults.bool(forKey: "BackgroundMusic")
-        self.inGameSound = defaults.bool(forKey: "InGameSound")
-        self.myRecord = defaults.double(forKey: "MyRecord")
-        self.isLock = defaults.bool(forKey: "IsLock")
-        
-        // Find Path
-        UserDefaultData.findPath()
-    }
-    
-    var backgroundMusic:Bool = false
-    var inGameSound:Bool = false
-    
-    var playerSkin:String = "default"
-    
-    var nowNumber:Int = 0
-    var isClear:Bool = false
-    
-    var myRecord:Double = 0.0
-    var star:Int = 0
-    var isLock:Bool = false
-    
-    func setSetting(backgroundMusic:Bool, inGameSound:Bool) {
-        defaults.set(backgroundMusic, forKey: "BackgroundMusic")
-        defaults.set(inGameSound, forKey: "InGameSound")
-    }
-    
-    func setPlayerSkin(skinName:String) {
-        defaults.set(skinName, forKey: "PlayerSkin")
-    }
-    
-    func setQuest(nowNumber:Int, isClear:Bool) {
-        defaults.set(nowNumber, forKey: "NowNumber")
-        defaults.set(isClear, forKey: "IsClaer")
-    }
-    
-    func setStage(myRecord:Double, satr:Int, isLock:Bool) {
-        defaults.set(myRecord, forKey: "MyRecord")
-        defaults.set(isLock, forKey: "IsLock")
-    }
     
     let defaults = UserDefaults.standard
     
-    
-    // Find Path
+    // Find Plist Path
     static func findPath() {
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+    }
+    static let shared:UserDefaultData = {
+        let instance = UserDefaultData()
+        
+        // SetUp
+
+        return instance
+    }()
+    
+    init() {
+        self.backgroundMusic = UserDefaults.standard.bool(forKey: "BackgroundMusic")
+        self.inGameSound = UserDefaults.standard.bool(forKey: "InGameSound")
+        self.playerSkin = UserDefaults.standard.string(forKey: "PlayerSkin") ?? "default"
+        self.nowNumber = 0
+        self.isClear = false
+        self.myRecord = 0.0
+        self.star = 0
+        self.isLock = false
+        self.jumpData = 0
+        self.breakData = 0
+        self.collisionData = 0
+    }
+    
+    
+    // Setting
+    var backgroundMusic:Bool = false
+    var inGameSound:Bool = false
+    
+    func settingSave(backgroundMusic:Bool, inGameSound:Bool) {
+        defaults.set(backgroundMusic, forKey: "BackgroundMusic")
+        defaults.set(backgroundMusic, forKey: "InGameMusic")
+    }
+    
+    // PlayerSkin
+    var playerSkin:String = "default"
+    
+    func playerSkinSave(playerSkin:String) {
+        defaults.set(playerSkin,forKey: "PlayerSkin")
+    }
+    
+    // Quest
+    var nowNumber:Int
+    var isClear:Bool
+    
+    // Stage
+    var myRecord:Double
+    var star:Int
+    var isLock:Bool
+    
+    // Tracking Data
+    var jumpData:Int
+    var breakData:Int
+    var collisionData:Int
+    
+    
+}
+
+
+extension UserDefaults {
+    
+    // MARK: UserDefault Object 변환사용
+    func setUserDefaultObject<T: Codable>(_ data: T?, forKey defaultName:String) {
+        let encoded = try? JSONEncoder().encode(data)
+        set(encoded,  forKey: defaultName)
+    }
+    func userDefaultObject<T: Codable>(dataType: T.Type, key: String) -> T? {
+        guard let userDefaultData = data(forKey: key) else {
+            return nil
+        }
+        return try? JSONDecoder().decode(T.self, from: userDefaultData)
     }
 }

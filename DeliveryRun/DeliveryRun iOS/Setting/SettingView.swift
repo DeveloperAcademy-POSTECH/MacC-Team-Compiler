@@ -14,7 +14,7 @@ class SettingView: UIView {
     
     let nibName = "SettingView"
     
-    let userDefaultData = UserDefaultData()
+    let userDefault = UserDefaultData.shared
     
     
     
@@ -54,8 +54,9 @@ class SettingView: UIView {
         byLabel.textAlignment = .center
         byLabel.numberOfLines = 2
         
-        BackgroundMusic.isOn = userDefaultData.backgroundMusic
-        InGameSound.isOn = userDefaultData.inGameSound
+        // UserDefault Get
+        BackgroundMusic.isOn = false
+        InGameSound.isOn = false
         
     }
     
@@ -67,7 +68,10 @@ class SettingView: UIView {
     
     @IBAction func settingCheckButtonPressed(_ sender: CustomGameButton) {
         self.isHidden.toggle()
-        userDefaultData.setSetting(backgroundMusic: BackgroundMusic.isOn, inGameSound: InGameSound.isOn)
+        
+        // UserDefault Set
+        
+        
     }
     @IBAction func backgroundOnOff(_ sender: UISwitch) {
         if BackgroundMusic.isOn {

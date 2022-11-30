@@ -11,14 +11,18 @@ import AVFoundation
 
 class GameScene: SKScene{
     
-    var recordTime: Int = 0
+    
     var viewController: GameViewController!
-    var statusPause:Bool = false
+    
+    //Tracking Data
+    var jumpData = 0
+    var breakData = 0
+    var collisionData = 0
     
     
     // Player And LandScape
     let player = SKSpriteNode(imageNamed: "player0")
-    var moon : SKShapeNode?
+    
     
     // Buttons
     var Button: SKNode?
@@ -34,8 +38,8 @@ class GameScene: SKScene{
     var jumpAction = false
     var accelAction = false
     var breakAction = false
-    var gameStart = false
-    var isGamePaused = false
+    var startAction = false
+    var pauseAction = false
     
     // CameraNode
     var cameraNode: SKCameraNode?
@@ -44,33 +48,33 @@ class GameScene: SKScene{
     var playerStateMachine : GKStateMachine!
     
     // Update CurrentTime
-    var previousTimeInterval:TimeInterval = 0.0
+    var previousTimeInterval:TimeInterval = Constant.previousTimeInterval
     
     // Timer & Speeder & Location
     var timeText: SKLabelNode?
     var timer = Timer()
-    var totalTime = 100
-    var passedTime = 0
+    
+    var totalTime = Constant.totalTime
+    var passedTime = Constant.passedTiem
+    var recordTime: Int = Constant.recoredTime
+    
     
     var speederText: SKLabelNode?
-    var score: Int = 0
-    var playerSpeed = 3.0
-    let maxSpeed = 10.0
-    let minSpeed = 1.0
+    var score: Int = Constant.score
+    var playerSpeed = Constant.playerSpeed
+    let maxSpeed = Constant.maxSpeed
+    let minSpeed = Constant.minSpeed
     
     var status: SKNode?
     var locationIcon: SKNode?
-    var locationBarLength = 530.0
-    var positionEndZone = 21060.0
+    var locationBarWidth = Constant.locationBarWidth
+    var EndZoneWidth = Constant.EndZoneWidth
     
     
     // Label
     let speedLabel = SKLabelNode()
     let timeLabel = SKLabelNode()
     let scoreLabel = SKLabelNode()
-    
-    
-    var soundPlayerModel = Sound(audioPlayer: AVAudioPlayer())
     
     @objc func updateTimer() {
         if totalTime > passedTime {
@@ -139,10 +143,11 @@ class GameScene: SKScene{
 // MARK: Touches
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !gameStart {
+        if !startAction {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         }
-        gameStart = true
+        
+        startAction = true
         
         for touch in touches {
             let location = touch.location(in: Button!)
@@ -150,10 +155,10 @@ extension GameScene {
             jumpAction = jumpButton!.frame.contains(location)
             accelAction = accelButton!.frame.contains(location)
             breakAction = breakButton!.frame.contains(location)
+            pauseAction = pauseButton!.frame.contains(location)
             
-            if pauseButton!.frame.contains(location) {
-                gamePause()
-                
+            if pauseAction {
+                pause()
             }
             
             if jumpAction {
@@ -205,8 +210,11 @@ extension GameScene {
 
 // MARK: Game Acion
 extension GameScene {
+    
+    // Playee Function
+    
     func running(deltaTime:TimeInterval) {
-        if !(gameStart) {
+        if !(startAction) {
             playerSpeed = 0.0
         } else {
             if (playerSpeed < minSpeed) {
@@ -226,6 +234,7 @@ extension GameScene {
     }
     func jumping() {
         playerStateMachine.enter(JumpingState.self)
+        jumpData += 1
     }
     func landing() {
         playerStateMachine.enter(LandingState.self)
@@ -243,6 +252,7 @@ extension GameScene {
     func breaking(deltaTime:TimeInterval) {
         if playerSpeed < minSpeed {
             playerSpeed = minSpeed
+            breakData += 1
         }
         playerSpeed -= deltaTime / 5
         playerStateMachine.enter(BreakingState.self)
@@ -251,6 +261,7 @@ extension GameScene {
     func damaging() {
         playerSpeed = minSpeed
         playerStateMachine.enter(DamageState.self)
+        collisionData += 1
     }
     
     func invicible() {
@@ -260,19 +271,23 @@ extension GameScene {
         }
     }
     
-    func gameOver() {
+    // Game UI Function
+    func pause() {
+        self.viewController.pauseView.isHidden = false
         self.view?.isPaused = true
     }
+    func resume() {
+        self.viewController.pauseView.isHidden = true
+        self.view?.isPaused = false
+    }
     
-    func textUp() {
+    func restartGame() {
+        self.viewController.pauseView.isHidden = true
+        self.view?.isPaused = false
         
     }
     
-    func gamePause() {
-        self.view?.isPaused.toggle()
-        self.viewController.pauseView.isHidden.toggle()
-
-    }
+    
 }
 
 
@@ -301,7 +316,7 @@ extension GameScene {
         
         timeText?.text = String(format: "%D", passedTime)
         speederText?.text = String(format: "%.2f", playerSpeed)
-        locationIcon?.position.x  = (((player.position.x) / positionEndZone) * locationBarLength) - 250
+        locationIcon?.position.x  = (((player.position.x) / EndZoneWidth) * locationBarWidth) - 250
         
         // Node 위치 지정
         cameraNode?.position.x = player.position.x + 300
@@ -338,7 +353,7 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .ending) {
-            gameOver()
+            
         }
         
         if collision.matches(.player, .ground) {
@@ -351,13 +366,11 @@ extension GameScene: SKPhysicsContactDelegate {
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyA.node?.removeFromParent()
                 playerSpeed += 10
-                soundPlayerModel.playSound(soundName: "sound1")
             }
             else if contact.bodyB.node?.name == "drink" {
                 contact.bodyB.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyB.node?.removeFromParent()
                 playerSpeed += 10
-                soundPlayerModel.playSound(soundName: "sound1")
             }
             
             // Star 획득하는 경우
@@ -365,13 +378,11 @@ extension GameScene: SKPhysicsContactDelegate {
                 playerStateMachine.enter(GodState.self)
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyA.node?.removeFromParent()
-                soundPlayerModel.playSound(soundName: "sound2")
             }
             else if contact.bodyB.node?.name == "star" {
                 playerStateMachine.enter(GodState.self)
                 contact.bodyB.node?.physicsBody?.categoryBitMask = 0
                 contact.bodyB.node?.removeFromParent()
-                soundPlayerModel.playSound(soundName: "sound2")
             }
         }
     }

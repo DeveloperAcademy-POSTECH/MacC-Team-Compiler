@@ -9,7 +9,7 @@ import UIKit
 
 class StageViewController: UIViewController {
     
-    let userDefaultData = UserDefaultData()
+    let userDefault = UserDefaultData.shared
     
     
     @IBOutlet weak var stageCollectionView: UICollectionView!
