@@ -9,13 +9,12 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
-
-class GameScene: SKScene {
+class GameScene: SKScene{
     
-    // GameOver Delegate 사용
-    var viewController: GameViewController!
     var recordTime: Int = 0
-    var sceneDelegate: GameSceneDelegate?
+    var viewController: GameViewController!
+    var statusPause:Bool = false
+    
     
     // Player And LandScape
     let player = SKSpriteNode(imageNamed: "player0")
@@ -37,7 +36,6 @@ class GameScene: SKScene {
     var breakAction = false
     var gameStart = false
     var isGamePaused = false
-    var gameOver = false
     
     // CameraNode
     var cameraNode: SKCameraNode?
@@ -84,8 +82,8 @@ class GameScene: SKScene {
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
-        // Delegate 연결
-        sceneDelegate = self.viewController
+        
+        // Physical Delegate
         physicsWorld.contactDelegate = self
         
         // Node 생성
@@ -154,10 +152,8 @@ extension GameScene {
             breakAction = breakButton!.frame.contains(location)
             
             if pauseButton!.frame.contains(location) {
-                isGamePaused = true
-                cameraNode!.addChild(pauseScreen)
-                pauseScreen.skView = view
-                pauseScreen.gameScene = self
+                gamePause()
+                
             }
             
             if jumpAction {
@@ -264,9 +260,18 @@ extension GameScene {
         }
     }
     
-    func endGame() {
-        self.sceneDelegate?.popupGameOver()
-        self.sceneDelegate?.getTimeRap(recordTime: passedTime)
+    func gameOver() {
+        self.view?.isPaused = true
+    }
+    
+    func textUp() {
+        
+    }
+    
+    func gamePause() {
+        self.view?.isPaused.toggle()
+        self.viewController.pauseView.isHidden.toggle()
+
     }
 }
 
@@ -274,7 +279,6 @@ extension GameScene {
 // MARK: Game Loop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
-        if !isGamePaused {
             // Player 횡스크롤 이동
             if currentTime > 1 {
                 previousTimeInterval = currentTime - 1
@@ -294,7 +298,6 @@ extension GameScene {
             } else {
                 running(deltaTime: deltaTime)
             }
-        }
         
         timeText?.text = String(format: "%D", passedTime)
         speederText?.text = String(format: "%.2f", playerSpeed)
@@ -335,10 +338,7 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .ending) {
-            if !(gameOver) {
-                endGame()
-                gameOver = true
-            }
+            gameOver()
         }
         
         if collision.matches(.player, .ground) {
@@ -376,3 +376,4 @@ extension GameScene: SKPhysicsContactDelegate {
         }
     }
 }
+

@@ -12,26 +12,42 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
-protocol GameSceneDelegate {
-    func popupGameOver()
-    func changeView()
-    func getTimeRap(recordTime:Int)
-}
+class GameViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        gameEndView.isHidden = true
+        pauseView.isHidden = true
+        super.viewDidLoad()
+        if let scene = GKScene(fileNamed: "GameScene") {
 
-class GameViewController: UIViewController, GameSceneDelegate {
+            // Root 노드 생성
+            if let sceneNode = scene.rootNode as! GameScene? {
+                sceneNode.viewController = self
+                sceneNode.scaleMode = .aspectFill
+                sceneNode.statusPause = self.statusPause
+
+                // Present the scene
+                if let view = self.view as! SKView? {
+                    view.presentScene(sceneNode)
+                    view.ignoresSiblingOrder = false
+                }
+            }
+        }
+    }
+    func pauseMenu() {
+        pauseView.isHidden.toggle()
+    }
     
     let userDefaultData = UserDefaultData()
+    var stopValue: Bool = false
+    var statusPause:Bool = false
     
-    var backgroundMusicPlayer = Sound(audioPlayer: AVAudioPlayer())
-    
-    @IBOutlet weak var recordLabel: UILabel!
-    @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var endButton: CustomGameButton!
+    @IBOutlet weak var gameEndView: UIView!
+    @IBOutlet weak var pauseView: UIView!
     var timeRap = 0
     
     func popupGameOver() {
-        popupView.isHidden = false
-        backgroundMusicPlayer.stopSound()
+        gameEndView.isHidden = false
     }
     
     func changeView() {
@@ -40,22 +56,40 @@ class GameViewController: UIViewController, GameSceneDelegate {
 
     func getTimeRap(recordTime paasedTime:Int) {
         timeRap = paasedTime
-        recordLabel.text = String(format: "당신의 기록은 %D초 입니다.", timeRap)
         userDefaultData.setStage(myRecord: Double(timeRap), satr: 2, isLock: true)
     }
     
-    override func viewDidLoad() {
-        backgroundMusicPlayer.playSound(soundName: "ingame")
-        popupView.isHidden = true
-        super.viewDidLoad()
+    
+    @IBAction func pausePlayPressed(_ sender: UIButton) {
+        if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
+            gameScene.gamePause()
+        }
         
-        endButton.setTitle("돌아가기", for: .normal)
+    }
+    
+    @IBAction func pauseRePlayPressed(_ sender: UIButton) {
+        
+        if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
+            if let newScene = GKScene(fileNamed: "GameScene") {
+                if let newSceneNode = newScene.rootNode as! GameScene? {
+                    newSceneNode.viewController = self
+                    newSceneNode.scaleMode = .aspectFill
+                    let animation = SKTransition.fade(withDuration: 1.0)
+                    view.presentScene(newSceneNode, transition: animation)
+                }
+            }
+        }
+        
+    }
+    
+    
+    @IBAction func replayPressed(_ sender: UIButton) {
         
         if let scene = GKScene(fileNamed: "GameScene") {
             
             // Root 노드 생성
             if let sceneNode = scene.rootNode as! GameScene? {
-                sceneNode.viewController = self
+//                sceneNode.viewController = self
                 sceneNode.scaleMode = .aspectFill
                 
                 // Present the scene
@@ -68,3 +102,7 @@ class GameViewController: UIViewController, GameSceneDelegate {
     }
     
 }
+
+
+//MARK: Update Custom 및 Scene CusTomObject 생성시 SKSeneDelegate SKViewDelgate 사용해야함
+
