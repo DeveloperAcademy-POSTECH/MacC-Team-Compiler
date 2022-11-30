@@ -38,6 +38,7 @@ class GameScene: SKScene {
     var finishLineShort: SKSpriteNode!
     var playerIcon: SKSpriteNode!
     var timerIcon: SKSpriteNode!
+    var timerText: SKLabelNode!
     var locationBarLength: Double!
     
     // Boolean
@@ -59,7 +60,6 @@ class GameScene: SKScene {
     var previousTimeInterval:TimeInterval = 0.0
     
     // Timer & Speeder & Location
-    var timeText: SKLabelNode?
     var timer = Timer()
     var totalTime = 100
     var passedTime = 0
@@ -223,13 +223,22 @@ class GameScene: SKScene {
         HUD.addChild(playerIcon)
         
         // Timer Icon
-        timerIcon = SKSpriteNode(imageNamed: "timer")
-        timerIcon.scale(to: CGSize(width: 100, height: 100))
-        timerIcon.position = CGPoint(x: -550, y: 220)
+        timerIcon = SKSpriteNode(imageNamed: "Timer")
+        timerIcon.scale(to: CGSize(width: 45, height: 60))
+        timerIcon.position = CGPoint(x: locationBar.frame.minX - 150, y: locationBar.frame.midY)
         timerIcon.zPosition = 5.0
         HUD.addChild(timerIcon)
         
-        timeText = status?.childNode(withName: "time") as? SKLabelNode
+        // Timer Text
+        timerText = SKLabelNode(fontNamed: "BMJUAOTF")
+        timerText.fontSize = 40
+        timerText.fontColor = .red
+        timerText.verticalAlignmentMode = .center
+        timerText.horizontalAlignmentMode = .center
+        timerText.position = CGPoint(x: timerIcon.frame.maxX + 50, y: locationBar.frame.midY - 8)
+        timerText.zPosition = 5.0
+        HUD.addChild(timerText)
+        
         speederText = status?.childNode(withName: "speed") as? SKLabelNode
     }
 }
@@ -401,7 +410,7 @@ extension GameScene {
             }
         }
         
-        timeText?.text = String(format: "%D", passedTime)
+        timerText.text = String(format: "%D", passedTime)
         speederText?.text = String(format: "%.2f", playerSpeed)
         
         // Node 위치 지정
