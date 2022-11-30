@@ -12,7 +12,8 @@ class QuestView: UIView {
 
     let nibName = "QuestView"
     
-    let userDefaultData = UserDefaultData()
+    let userDefault = UserDefaultData.shared
+    
     
     @IBOutlet weak var questCheckButton: CustomGameButton!
     @IBOutlet weak var questTableView: UITableView!
@@ -60,9 +61,14 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
         let cell = questTableView.dequeueReusableCell(withIdentifier: "QuestTableCell", for: indexPath) as! QuestTableCell
         cell.questTitleLabel.text = quests[indexPath.row].title
         cell.questSubTitleLabel.text = quests[indexPath.row].subTitle
-        cell.questImage.image = quests[indexPath.row].image
+        cell.questImage.image = UIImage(named: quests[indexPath.row].imageURL)
         cell.questProgressBar.progress = Float(quests[indexPath.row].nowNumber) / Float(quests[indexPath.row].totalNumber)
         cell.questProgressLabel.text = String(format: "%D / %D", quests[indexPath.row].nowNumber, quests[indexPath.row].totalNumber)
+        if quests[indexPath.row].totalNumber <= quests[indexPath.row].nowNumber {
+            cell.questCheckButton.isHidden = false
+        } else {
+            cell.questCheckButton.isHidden = true
+        }
         
         // Cell Layout
         cell.backgroundColor = UIColor.deliveryrunBlack?.withAlphaComponent(0.6)
@@ -81,3 +87,11 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
         cell.layer.mask = maskLayer
     }
 }
+
+
+
+let quests:[Quest] = [
+    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest1")!,
+    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest2")!,
+    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest3")!
+]

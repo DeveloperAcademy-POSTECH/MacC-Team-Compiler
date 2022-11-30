@@ -19,6 +19,8 @@ class StageViewController: UIViewController {
     @IBOutlet weak var stageNameLabel: UILabel!
     @IBOutlet weak var recordLabel: UILabel!
     
+    @IBOutlet weak var starImage: UIImageView!
+    
     @IBOutlet weak var starImageOne: UIImageView!
     @IBOutlet weak var starImageTwo: UIImageView!
     @IBOutlet weak var starImageThree: UIImageView!
@@ -53,37 +55,41 @@ class StageViewController: UIViewController {
         startButton.layer.borderWidth = 2
         startButton.layer.borderColor = UIColor.white.cgColor
         
-        stageNameLabel.text = stageList[0].stageName
+        stageNameLabel.text = stages[0].name
         stageNameLabel.textColor = .white
         stageNameLabel.font = UIFont(name:"BMJUAOTF", size: 35)
         
-        recordLabel.text = "목표기록 : \(stageList[0].targetRecord)\n현재기록 : \(stageList[0].myRecord)"
+        recordLabel.text = "목표기록 : \(stages[0].targetRecord)\n현재기록 : \(stages[0].myRecord)"
         recordLabel.textAlignment = .center
         recordLabel.numberOfLines = 2
         recordLabel.textColor = .white
         recordLabel.font = UIFont(name:"BMJUAOTF", size: 20)
         
         // 별 개수에 따라 색 변경
-        switch stageList[0].star {
-        case 1:
+        switch stages[0].star {
+        case "resultStar1":
             starImageOne.tintColor = .deliveryrunYellow
             starImageTwo.tintColor = .systemGray
             starImageThree.tintColor = .systemGray
+            starImage.image = UIImage(named: "resultStar1")
             break
-        case 2:
+        case "resultStar2":
             starImageOne.tintColor = .deliveryrunYellow
             starImageTwo.tintColor = .deliveryrunYellow
             starImageThree.tintColor = .systemGray
+            starImage.image = UIImage(named: "resultStar2")
             break
-        case 3:
+        case "resultStar3":
             starImageOne.tintColor = .deliveryrunYellow
             starImageTwo.tintColor = .deliveryrunYellow
             starImageThree.tintColor = .deliveryrunYellow
+            starImage.image = UIImage(named: "resultStar3")
             break
         default:
             starImageOne.tintColor = .systemGray
             starImageTwo.tintColor = .systemGray
             starImageThree.tintColor = .systemGray
+            starImage.image = UIImage(named: "resultStar1")
             break
         }
     }
@@ -93,7 +99,7 @@ class StageViewController: UIViewController {
 extension StageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     // Cell 수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return stageList.count
+        return stages.count
     }
     
     // Cell 초기화
@@ -101,7 +107,7 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stagecell", for: indexPath) as! StageCell
         
         // Cell이 Lock인 경우
-        cell.isLock = stageList[indexPath.row].isLock
+        cell.isLock = stages[indexPath.row].isLock
         if cell.isLock {
             cell.addSubview(cell.lockView)
             cell.addSubview(cell.lockImageView)
@@ -120,7 +126,7 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         // Cell 텍스트 및 이미지 구성
         cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
-        cell.foodImageView.image = UIImage(named:stageList[indexPath.row].foodImageName)?.resized(to:CGSize(width:40, height:40))
+        cell.foodImageView.image = UIImage(named:stages[indexPath.row].image)?.resized(to:CGSize(width:40, height:40))
         return cell
     }
 }
@@ -150,31 +156,54 @@ extension StageViewController: UICollectionViewDelegateFlowLayout {
 extension StageViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Label 수정
-        stageNameLabel.text = stageList[indexPath.row].stageName
-        recordLabel.text = "목표기록 : \(stageList[indexPath.row].targetRecord)\n현재기록 : \(stageList[indexPath.row].myRecord)"
+        stageNameLabel.text = stages[indexPath.row].name
+        recordLabel.text = "목표기록 : \(stages[indexPath.row].targetRecord)\n현재기록 : \(stages[indexPath.row].myRecord)"
         
         // 별 개수에 따라 색 변경
-        switch stageList[indexPath.row].star {
-        case 1:
+        switch stages[indexPath.row].star {
+        case "resultStar1":
             starImageOne.tintColor = .deliveryrunYellow
             starImageTwo.tintColor = .systemGray
             starImageThree.tintColor = .systemGray
+            starImage.image = UIImage(named: "resultStar1")
             break
-        case 2:
+        case "resultStar2":
             starImageOne.tintColor = .deliveryrunYellow
             starImageTwo.tintColor = .deliveryrunYellow
             starImageThree.tintColor = .systemGray
+            starImage.image = UIImage(named: "resultStar2")
             break
-        case 3:
+        case "resultStar3":
             starImageOne.tintColor = .deliveryrunYellow
             starImageTwo.tintColor = .deliveryrunYellow
             starImageThree.tintColor = .deliveryrunYellow
+            starImage.image = UIImage(named: "resultStar3")
             break
         default:
             starImageOne.tintColor = .systemGray
             starImageTwo.tintColor = .systemGray
             starImageThree.tintColor = .systemGray
+            starImage.image = UIImage(named: "resultStar1")
             break
         }
     }
 }
+
+
+let stages: [Stage] = [
+    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage1")!,
+    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage2")!,
+    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage3")!,
+    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage4")!,
+    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage5")!,
+    Stage(name: "스테이지 6", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+    Stage(name: "스테이지 7", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+    Stage(name: "스테이지 8", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+    Stage(name: "스테이지 9", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+    Stage(name: "스테이지 10", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+    Stage(name: "스테이지 11", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+    Stage(name: "스테이지 12", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+    Stage(name: "스테이지 13", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+    Stage(name: "스테이지 14", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+    Stage(name: "스테이지 15", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true)
+]

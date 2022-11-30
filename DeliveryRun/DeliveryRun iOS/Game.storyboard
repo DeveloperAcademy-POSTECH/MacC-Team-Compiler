@@ -68,7 +68,7 @@
                                     <constraint firstItem="mzX-CP-66Y" firstAttribute="centerY" secondItem="lmJ-eZ-I1U" secondAttribute="centerY" id="aGV-wt-fnm"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pT7-38-du8" userLabel="GameEndView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pT7-38-du8" userLabel="ArrivalView">
                                 <rect key="frame" x="60" y="79" width="732" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도착 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcW-Lf-xIw" userLabel="TitleLabel">
@@ -81,7 +81,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이전 기록 : 00.00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNg-p5-b86">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이전 기록 : 00.00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNg-p5-b86" userLabel="PreviousRecord">
                                         <rect key="frame" x="281" y="78" width="170" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="oFI-ij-IsL"/>
@@ -90,7 +90,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 기록 : 00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixr-Ec-8fc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 기록 : 00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixr-Ec-8fc" userLabel="PresentRecord">
                                         <rect key="frame" x="280.33333333333331" y="112" width="171.33333333333331" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="cT6-1n-R8S"/>
@@ -163,7 +163,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="IhL-sx-zuV"/>
                     <connections>
-                        <outlet property="gameEndView" destination="pT7-38-du8" id="38e-Tm-G6B"/>
+                        <outlet property="PresentRecord" destination="ixr-Ec-8fc" id="3hs-CL-njf"/>
+                        <outlet property="PreviousRecord" destination="QNg-p5-b86" id="wob-sI-pSV"/>
+                        <outlet property="arrivalView" destination="pT7-38-du8" id="8fu-BD-exi"/>
                         <outlet property="pauseView" destination="lmJ-eZ-I1U" id="xGQ-Uz-MRk"/>
                     </connections>
                 </viewController>

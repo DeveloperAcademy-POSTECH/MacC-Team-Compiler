@@ -11,13 +11,15 @@ import AVFoundation
 
 class GameScene: SKScene{
     
-    
     var viewController: GameViewController!
+    let userDefault = UserDefaultData.shared
     
     //Tracking Data
-    var jumpData = 0
-    var breakData = 0
-    var collisionData = 0
+    var jumpData:Int = 0
+    var breakData:Int = 0
+    var collisionData:Int = 0
+    var previousTimeRecord:Double = 0.00
+    var isClear:Bool = false
     
     
     // Player And LandScape
@@ -54,9 +56,8 @@ class GameScene: SKScene{
     var timeText: SKLabelNode?
     var timer = Timer()
     
-    var totalTime = Constant.totalTime
-    var passedTime = Constant.passedTiem
-    var recordTime: Int = Constant.recoredTime
+    let endTime = Constant.endTime
+    var elapsedTime = Constant.elapsedTime
     
     
     var speederText: SKLabelNode?
@@ -77,8 +78,8 @@ class GameScene: SKScene{
     let scoreLabel = SKLabelNode()
     
     @objc func updateTimer() {
-        if totalTime > passedTime {
-            passedTime += 1
+        if endTime > elapsedTime {
+            elapsedTime += 1
         } else {
             timer.invalidate()
         }
@@ -86,6 +87,14 @@ class GameScene: SKScene{
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
+        
+        // UserDefaultTrackingData
+        UserDefaultData.findPath()
+        self.jumpData = UserDefaultData.staticDefaults.integer(forKey:"JumpData")
+        self.breakData = UserDefaultData.staticDefaults.integer(forKey:"BreakData")
+        self.collisionData = UserDefaultData.staticDefaults.integer(forKey:"CollisionData")
+        self.previousTimeRecord = UserDefaultData.staticDefaults.double(forKey: "Record1")
+        self.isClear = UserDefaultData.staticDefaults.bool(forKey: "FirstStageClear")
         
         // Physical Delegate
         physicsWorld.contactDelegate = self
@@ -163,12 +172,14 @@ extension GameScene {
             
             if jumpAction {
                 jumping()
+                jumpData += 1
             }
             if accelAction {
                 acceling(deltaTime: 0)
             }
             if breakAction {
                 breaking(deltaTime: 0)
+                breakData += 1
             }
             
             
@@ -234,7 +245,6 @@ extension GameScene {
     }
     func jumping() {
         playerStateMachine.enter(JumpingState.self)
-        jumpData += 1
     }
     func landing() {
         playerStateMachine.enter(LandingState.self)
@@ -252,7 +262,6 @@ extension GameScene {
     func breaking(deltaTime:TimeInterval) {
         if playerSpeed < minSpeed {
             playerSpeed = minSpeed
-            breakData += 1
         }
         playerSpeed -= deltaTime / 5
         playerStateMachine.enter(BreakingState.self)
@@ -261,7 +270,6 @@ extension GameScene {
     func damaging() {
         playerSpeed = minSpeed
         playerStateMachine.enter(DamageState.self)
-        collisionData += 1
     }
     
     func invicible() {
@@ -285,6 +293,17 @@ extension GameScene {
         self.viewController.pauseView.isHidden = true
         self.view?.isPaused = false
         
+    }
+    func reTryGame() {
+        self.viewController.arrivalView.isHidden = true
+    }
+    
+    func arrival(timeRecord:Double) {
+        self.viewController.arrivalView.isHidden = false
+        self.viewController.PreviousRecord.text = String(format: "당신의 이전기록은 %.2f 입니다", previousTimeRecord)
+        self.viewController.PresentRecord.text = String(format: "당신의 현재기록은 %.2f 입니다", timeRecord)
+        userDefault.firstStageCompleted(timeRecord: timeRecord)
+        userDefault.trackingDataSave(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
     }
     
     
@@ -314,7 +333,7 @@ extension GameScene {
                 running(deltaTime: deltaTime)
             }
         
-        timeText?.text = String(format: "%D", passedTime)
+        timeText?.text = String(format: "%D", elapsedTime)
         speederText?.text = String(format: "%.2f", playerSpeed)
         locationIcon?.position.x  = (((player.position.x) / EndZoneWidth) * locationBarWidth) - 250
         
@@ -353,7 +372,7 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .ending) {
-            
+            arrival(timeRecord: Double(elapsedTime))
         }
         
         if collision.matches(.player, .ground) {

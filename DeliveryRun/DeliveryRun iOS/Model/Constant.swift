@@ -10,8 +10,8 @@ import Foundation
 
 class Constant {
     static let previousTimeInterval = 0.0
-    static let totalTime = 100
-    static let passedTiem = 0
+    static let endTime = 100
+    static let elapsedTime = 0
     static let recoredTime = 0
     static let score = 0
     static let playerSpeed = 3.0

@@ -15,7 +15,7 @@ import AVFoundation
 class GameViewController: UIViewController {
     
     override func viewDidLoad() {
-        gameEndView.isHidden = true
+        arrivalView.isHidden = true
         pauseView.isHidden = true
         super.viewDidLoad()
         if let scene = GKScene(fileNamed: "GameScene") {
@@ -37,9 +37,11 @@ class GameViewController: UIViewController {
     let userDefaultData = UserDefaultData()
     var timeRap = 0
     
-    @IBOutlet weak var gameEndView: UIView!
+    @IBOutlet weak var arrivalView: UIView!
     @IBOutlet weak var pauseView: UIView!
     
+    @IBOutlet weak var PresentRecord: UILabel!
+    @IBOutlet weak var PreviousRecord: UILabel!
     func getTimeRap(recordTime paasedTime:Int) {
         timeRap = paasedTime
     }
@@ -70,18 +72,14 @@ class GameViewController: UIViewController {
     
     
     @IBAction func replayPressed(_ sender: UIButton) {
-        
-        if let scene = GKScene(fileNamed: "GameScene") {
-            
-            // Root 노드 생성
-            if let sceneNode = scene.rootNode as! GameScene? {
-//                sceneNode.viewController = self
-                sceneNode.scaleMode = .aspectFill
-                
-                // Present the scene
-                if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-                    view.ignoresSiblingOrder = false
+        if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
+            gameScene.reTryGame()
+            if let newScene = GKScene(fileNamed: "GameScene") {
+                if let newSceneNode = newScene.rootNode as! GameScene? {
+                    newSceneNode.scaleMode = .aspectFill
+                    newSceneNode.viewController = self
+                    let animation = SKTransition.fade(withDuration: 2.0)
+                    view.presentScene(newSceneNode, transition: animation)
                 }
             }
         }
