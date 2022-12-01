@@ -18,12 +18,7 @@ class StageViewController: UIViewController {
     @IBOutlet weak var startButton: CustomGameButton!
     @IBOutlet weak var stageNameLabel: UILabel!
     @IBOutlet weak var recordLabel: UILabel!
-    
     @IBOutlet weak var starImage: UIImageView!
-    
-    @IBOutlet weak var starImageOne: UIImageView!
-    @IBOutlet weak var starImageTwo: UIImageView!
-    @IBOutlet weak var starImageThree: UIImageView!
     
     @IBAction func pressSettingButton(_ sender: Any) {
         settingView.isHidden = false
@@ -68,47 +63,32 @@ class StageViewController: UIViewController {
         // 별 개수에 따라 색 변경
         switch stages[0].star {
         case "resultStar1":
-            starImageOne.tintColor = .deliveryrunYellow
-            starImageTwo.tintColor = .systemGray
-            starImageThree.tintColor = .systemGray
             starImage.image = UIImage(named: "resultStar1")
             break
         case "resultStar2":
-            starImageOne.tintColor = .deliveryrunYellow
-            starImageTwo.tintColor = .deliveryrunYellow
-            starImageThree.tintColor = .systemGray
             starImage.image = UIImage(named: "resultStar2")
             break
         case "resultStar3":
-            starImageOne.tintColor = .deliveryrunYellow
-            starImageTwo.tintColor = .deliveryrunYellow
-            starImageThree.tintColor = .deliveryrunYellow
             starImage.image = UIImage(named: "resultStar3")
             break
         default:
-            starImageOne.tintColor = .systemGray
-            starImageTwo.tintColor = .systemGray
-            starImageThree.tintColor = .systemGray
             starImage.image = UIImage(named: "resultStar1")
             break
         }
     }
     
-    
     @IBAction func goRobby(_ sender: UIButton) {
         let robby = UIStoryboard.init(name: "Robby", bundle: nil)
-                guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "Robby")as? RobbyViewController else {return}
-                
+                guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
         RobbyViewController.modalPresentationStyle = .fullScreen
-                self.present(RobbyViewController, animated: true, completion: nil)
+                self.present(RobbyViewController, animated: false, completion: nil)
     }
+    
     @IBAction func goDelivery(_ sender: CustomGameButton) {
         let game = UIStoryboard.init(name: "Game", bundle: nil)
                 guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController")as? GameViewController else {return}
-
         GameViewController.modalPresentationStyle = .fullScreen
-                self.present(GameViewController, animated: true, completion: nil)
-
+                self.present(GameViewController, animated: false, completion: nil)
     }
 }
 
@@ -179,27 +159,15 @@ extension StageViewController {
         // 별 개수에 따라 색 변경
         switch stages[indexPath.row].star {
         case "resultStar1":
-            starImageOne.tintColor = .deliveryrunYellow
-            starImageTwo.tintColor = .systemGray
-            starImageThree.tintColor = .systemGray
             starImage.image = UIImage(named: "resultStar1")
             break
         case "resultStar2":
-            starImageOne.tintColor = .deliveryrunYellow
-            starImageTwo.tintColor = .deliveryrunYellow
-            starImageThree.tintColor = .systemGray
             starImage.image = UIImage(named: "resultStar2")
             break
         case "resultStar3":
-            starImageOne.tintColor = .deliveryrunYellow
-            starImageTwo.tintColor = .deliveryrunYellow
-            starImageThree.tintColor = .deliveryrunYellow
             starImage.image = UIImage(named: "resultStar3")
             break
         default:
-            starImageOne.tintColor = .systemGray
-            starImageTwo.tintColor = .systemGray
-            starImageThree.tintColor = .systemGray
             starImage.image = UIImage(named: "resultStar1")
             break
         }
