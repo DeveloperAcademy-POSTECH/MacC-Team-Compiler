@@ -58,6 +58,13 @@ class RobbyViewController: UIViewController {
         questView.isHidden = false
     }
     
+    @IBAction func goDelivery(_ sender: CustomGameButton) {
+        let stage = UIStoryboard.init(name: "Stage", bundle: nil)
+                guard let StageViewController = stage.instantiateViewController(withIdentifier: "StageViewController")as? StageViewController else {return}
+                
+        StageViewController.modalPresentationStyle = .fullScreen
+                self.present(StageViewController, animated: true, completion: nil)
+    }
 }
 
 

@@ -11,30 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Robby-->
-        <scene sceneID="b1Z-Td-ub8">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Robby" referencedIdentifier="Robby" id="ebE-Uc-Flz" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="8We-AF-OC1"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Xs-hz-nUN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="930" y="623"/>
-        </scene>
-        <!--Game-->
-        <scene sceneID="0ki-BQ-z2c">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Game" referencedIdentifier="Game" id="CTa-8A-0BM" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="eoU-U2-1u0"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RB2-G4-TDX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1400" y="-5"/>
-        </scene>
         <!--Stage View Controller-->
         <scene sceneID="OzX-Le-C3u">
             <objects>
-                <viewController storyboardIdentifier="Stage" id="GYM-j8-IpM" customClass="StageViewController" customModule="DeliveryRun" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StageViewController" id="GYM-j8-IpM" customClass="StageViewController" customModule="DeliveryRun" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L80-eE-Jld">
                         <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +59,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ebE-Uc-Flz" kind="show" animates="NO" id="XI8-ot-tSB"/>
+                                    <action selector="goRobby:" destination="GYM-j8-IpM" eventType="touchUpInside" id="jnm-dX-QsU"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeZ-pv-DNR">
@@ -129,7 +109,7 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
-                                                    <segue destination="CTa-8A-0BM" kind="show" animates="NO" id="Ur9-3j-CXZ"/>
+                                                    <action selector="goDelivery:" destination="GYM-j8-IpM" eventType="touchUpInside" id="jGS-nq-anl"/>
                                                 </connections>
                                             </button>
                                         </subviews>

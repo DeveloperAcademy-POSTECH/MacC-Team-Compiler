@@ -56,14 +56,22 @@ class GameViewController: UIViewController {
     
     @IBAction func pauseRePlayPressed(_ sender: UIButton) {
         
-        if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
+        if let view = self.view as! SKView?, let gameScene = view.scene as?
+            GameScene {
             gameScene.restartGame()
-            if let newScene = GKScene(fileNamed: "GameScene") {
-                if let newSceneNode = newScene.rootNode as! GameScene? {
-                    newSceneNode.scaleMode = .aspectFill
-                    newSceneNode.viewController = self
-                    let animation = SKTransition.fade(withDuration: 2.0)
-                    view.presentScene(newSceneNode, transition: animation)
+
+        }
+        if let scene = GKScene(fileNamed: "GameScene") {
+
+            // Root 노드 생성
+            if let sceneNode = scene.rootNode as! GameScene? {
+                sceneNode.viewController = self
+                sceneNode.scaleMode = .aspectFill
+
+                // Present the scene
+                if let view = self.view as! SKView? {
+                    view.presentScene(sceneNode)
+                    view.ignoresSiblingOrder = false
                 }
             }
         }
@@ -74,17 +82,42 @@ class GameViewController: UIViewController {
     @IBAction func replayPressed(_ sender: UIButton) {
         if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
             gameScene.reTryGame()
-            if let newScene = GKScene(fileNamed: "GameScene") {
-                if let newSceneNode = newScene.rootNode as! GameScene? {
-                    newSceneNode.scaleMode = .aspectFill
-                    newSceneNode.viewController = self
-                    let animation = SKTransition.fade(withDuration: 2.0)
-                    view.presentScene(newSceneNode, transition: animation)
+        }
+        if let scene = GKScene(fileNamed: "GameScene") {
+
+            // Root 노드 생성
+            if let sceneNode = scene.rootNode as! GameScene? {
+                sceneNode.viewController = self
+                sceneNode.scaleMode = .aspectFill
+
+                // Present the scene
+                if let view = self.view as! SKView? {
+                    view.presentScene(sceneNode)
+                    view.ignoresSiblingOrder = false
                 }
             }
         }
     }
     
+    @IBAction func goStagePressed(_ sender: UIButton) {
+        
+        let stage = UIStoryboard.init(name: "Stage", bundle: nil)
+        guard let StageViewController = stage.instantiateViewController(identifier: "StageViewController") as? StageViewController else { return }
+        StageViewController.modalPresentationStyle = .fullScreen
+        self.present(StageViewController, animated: true, completion: nil)
+        self.performSegue(withIdentifier: "Stage", sender: self)
+    }
+    @IBAction func goRobbyPressed(_ sender: UIButton) {
+        if let view = self.view as! SKView?, let gameScene = view.scene as?
+            GameScene {
+            gameScene.removeFromParent()
+            let robby = UIStoryboard.init(name: "Robby", bundle: nil)
+                    guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
+
+            RobbyViewController.modalPresentationStyle = .fullScreen
+                    self.present(RobbyViewController, animated: true, completion: nil)
+        }
+    }
 }
 
 

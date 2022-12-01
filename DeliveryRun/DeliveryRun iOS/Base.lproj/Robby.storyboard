@@ -27,7 +27,7 @@
         <!--Robby View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController storyboardIdentifier="Robby" id="BV1-FR-VrT" customClass="RobbyViewController" customModule="DeliveryRun" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RobbyViewController" id="BV1-FR-VrT" customClass="RobbyViewController" customModule="DeliveryRun" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="844" height="390"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="배달준비"/>
                                 <connections>
-                                    <segue destination="qCp-ty-pZp" kind="show" animates="NO" id="7Lm-g8-zS5"/>
+                                    <action selector="goDelivery:" destination="BV1-FR-VrT" eventType="touchUpInside" id="LL0-u1-J2h"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOz-lf-BoN" userLabel="GarageButton" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
@@ -145,16 +145,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="74.644549763033169" y="-3.0769230769230766"/>
-        </scene>
-        <!--Stage-->
-        <scene sceneID="qKu-2h-Ev4">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Stage" referencedIdentifier="Stage" id="qCp-ty-pZp" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="89Y-Yo-szb"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v1P-qr-cc9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="603" y="-3"/>
         </scene>
     </scenes>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

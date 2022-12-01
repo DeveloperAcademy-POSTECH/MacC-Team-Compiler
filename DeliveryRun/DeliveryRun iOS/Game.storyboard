@@ -12,7 +12,7 @@
         <!--Game View Controller-->
         <scene sceneID="y4o-l7-Fgd">
             <objects>
-                <viewController storyboardIdentifier="Game" id="P36-JN-cAo" customClass="GameViewController" customModule="DeliveryRun" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="P36-JN-cAo" customClass="GameViewController" customModule="DeliveryRun" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="sF4-LD-e1S" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,7 +50,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="로비"/>
                                                 <connections>
-                                                    <segue destination="huK-LA-2Fr" kind="show" id="IM9-pO-cSj"/>
+                                                    <action selector="goRobbyPressed:" destination="P36-JN-cAo" eventType="touchUpInside" id="jAJ-6d-rlD"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -111,7 +111,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="스테이지로"/>
                                         <connections>
-                                            <segue destination="DIi-1c-6Bo" kind="show" animates="NO" id="F9z-zW-mjh"/>
+                                            <action selector="goStagePressed:" destination="P36-JN-cAo" eventType="touchUpInside" id="64b-zH-rNQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGx-zW-l0v" userLabel="ReplayerButton">
@@ -172,26 +172,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3W-Uz-dZX" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="133.80281690140845" y="533.58778625954199"/>
-        </scene>
-        <!--Robby-->
-        <scene sceneID="cWn-0X-K2g">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Robby" referencedIdentifier="Robby" id="huK-LA-2Fr" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="4k7-f9-YWR"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tEE-Ng-C9m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="588" y="533"/>
-        </scene>
-        <!--Stage-->
-        <scene sceneID="gKX-Vs-YRr">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Stage" referencedIdentifier="Stage" id="DIi-1c-6Bo" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="zgf-r2-TTV"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kxn-S3-w0m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="131" y="1101"/>
         </scene>
     </scenes>
     <resources>

@@ -294,6 +294,7 @@ extension GameScene {
         self.view?.isPaused = false
         
     }
+    
     func reTryGame() {
         self.viewController.arrivalView.isHidden = true
     }
