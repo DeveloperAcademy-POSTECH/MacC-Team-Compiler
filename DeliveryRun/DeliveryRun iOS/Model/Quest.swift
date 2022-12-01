@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class Quest: Codable {
     let title: String
     let subTitle: String

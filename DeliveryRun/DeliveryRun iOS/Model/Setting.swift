@@ -15,5 +15,4 @@ class Setting {
         self.backgroundMusic = backgroundMusic
         self.inGameSound = inGameSound
     }
-    
 }

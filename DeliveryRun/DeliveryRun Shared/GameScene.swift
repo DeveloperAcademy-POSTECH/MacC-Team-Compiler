@@ -22,9 +22,8 @@ class GameScene: SKScene{
     var isClear:Bool = false
     
     
-    // Player And LandScape
+    // Player
     let player = SKSpriteNode(imageNamed: "player0")
-    
     
     // Buttons
     var Button: SKNode!
@@ -63,14 +62,12 @@ class GameScene: SKScene{
     // Player State
     var playerStateMachine : GKStateMachine!
     
-    // Update CurrentTime
-    var previousTimeInterval:TimeInterval = Constant.previousTimeInterval
-    
-    // Timer & Speeder & Location
+    // Variables
     var timer = Timer()
     
-    let endTime = Constant.endTime
-    var elapsedTime = Constant.elapsedTime
+    var previousTimeInterval:TimeInterval = 0.0
+    let endTime = 100
+    var elapsedTime = 0
     
     var score: Int = 0
     var playerSpeed = 3.0
@@ -117,6 +114,7 @@ class GameScene: SKScene{
             DamageState(playerNode: player),
             StarState(playerNode:player)
         ])
+        
         playerStateMachine.enter(RunningState.self)
     }
     
@@ -288,7 +286,6 @@ extension GameScene {
         
         for touch in touches {
             let location = touch.location(in: Button!)
-            
             jumpAction = jumpButton.frame.contains(location)
             accelAction = accelButton.frame.contains(location)
             breakAction = breakButton.frame.contains(location)
@@ -303,13 +300,16 @@ extension GameScene {
                 jumping()
                 jumpData += 1
             }
+            
             if accelAction {
                 acceling(deltaTime: 0)
             }
+            
             if breakAction {
                 breaking(deltaTime: 0)
                 breakData += 1
             }
+            
             if itemAction {
                 if itemImage.name == "Drink" {
                     playerSpeed += 10
@@ -330,7 +330,6 @@ extension GameScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-            
             jumpAction = jumpButton.frame.contains(location)
             accelAction = accelButton.frame.contains(location)
             breakAction = breakButton.frame.contains(location)
@@ -415,6 +414,7 @@ extension GameScene {
         self.viewController.pauseView.isHidden = false
         self.view?.isPaused = true
     }
+    
     func resume() {
         self.viewController.pauseView.isHidden = true
         self.view?.isPaused = false
@@ -436,8 +436,6 @@ extension GameScene {
         userDefault.firstStageCompleted(timeRecord: timeRecord)
         userDefault.trackingDataSave(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
     }
-    
-    
 }
 
 

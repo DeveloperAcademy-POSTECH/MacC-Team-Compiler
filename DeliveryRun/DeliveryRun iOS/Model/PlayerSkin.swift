@@ -7,17 +7,13 @@
 
 import Foundation
 
-
-
 class PlayerSkin {
     let color:String
     
     init(color: String) {
         self.color = color
     }
-    
 }
 
 
-let playerSkins:[String] =  [
-"default", "red", "blue", "yellow"]
+let playerSkins:[String] =  ["default", "red", "blue", "yellow"]

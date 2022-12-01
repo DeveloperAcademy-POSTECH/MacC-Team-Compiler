@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6300A64429372CEA00AF532C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6300A64329372CEA00AF532C /* Constant.swift */; };
 		6372509428FFC7F700117CF8 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372509328FFC7F700117CF8 /* PlayerState.swift */; };
 		638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D9B29292B46750024E821 /* QuestTableCell.swift */; };
 		638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638D9B2A292B46750024E821 /* QuestTableCell.xib */; };
@@ -51,7 +50,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6300A64329372CEA00AF532C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		6372509328FFC7F700117CF8 /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		638D9B29292B46750024E821 /* QuestTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTableCell.swift; sourceTree = "<group>"; };
 		638D9B2A292B46750024E821 /* QuestTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestTableCell.xib; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 				6F5D4AB3292CA69C00572DC0 /* Stage.swift */,
 				639553FB2935B49300E3DECA /* Setting.swift */,
 				639553FD2935B50200E3DECA /* PlayerSkin.swift */,
-				6300A64329372CEA00AF532C /* Constant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -335,7 +332,6 @@
 				6F28EEA328F5444600D7330F /* RobbyViewController.swift in Sources */,
 				6F2F6C2028FB3A9B000B9507 /* StageViewController.swift in Sources */,
 				6FF3371B29309CC700D04BDB /* QuestView.swift in Sources */,
-				6300A64429372CEA00AF532C /* Constant.swift in Sources */,
 				6FA60FAF28F69431003846EF /* Color.swift in Sources */,
 				638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */,
 				6FE9943D29123850004753BA /* HUD.swift in Sources */,
