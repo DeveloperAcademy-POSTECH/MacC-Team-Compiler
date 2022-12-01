@@ -19,9 +19,6 @@ class UserDefaultData {
     }
     static let shared:UserDefaultData = {
         let instance = UserDefaultData()
-        
-        // SetUp
-
         return instance
     }()
     
@@ -29,8 +26,6 @@ class UserDefaultData {
         self.backgroundMusic = UserDefaults.standard.bool(forKey: "BackgroundMusic")
         self.inGameSound = UserDefaults.standard.bool(forKey: "InGameSound")
         self.playerSkin = UserDefaults.standard.string(forKey: "PlayerSkin") ?? "default"
-        
-
         self.jumpData = UserDefaults.standard.integer(forKey: "JumpData")
         self.breakData = UserDefaults.standard.integer(forKey: "BreakData")
         self.collisionData = UserDefaults.standard.integer(forKey: "CollisionData")
@@ -48,7 +43,6 @@ class UserDefaultData {
         
         
         // Stage Setting
-        
         self.firstStageRecord = UserDefaults.standard.double(forKey: "Record1")
         self.firstStageClear = UserDefaults.standard.bool(forKey: "FirstStageClear")
         
@@ -83,9 +77,7 @@ class UserDefaultData {
         let stage5 = Stage(name: "스테이지 5", image: "star0", targetRecord: 90.0, myRecord: self.fiveStageRecord, isLock: !self.fourStageClear)
         self.fiveStage = stage5
         UserDefaults.standard.setObjectToUserDefault(stage5, forKey: "Stage5")
-        
     }
-    
     
     // Setting
     var backgroundMusic:Bool = false
@@ -149,8 +141,6 @@ class UserDefaultData {
         defaults.set(true, forKey: "FiveStageClear")
     }
     
-    
-    
     // Tracking Data
     var jumpData:Int = 0
     var breakData:Int = 0
@@ -166,12 +156,12 @@ class UserDefaultData {
 
 
 extension UserDefaults {
-    
     // MARK: UserDefault Object 변환사용
     func setObjectToUserDefault<T: Codable>(_ data: T?, forKey defaultName:String) {
         let encoded = try? JSONEncoder().encode(data)
         set(encoded,  forKey: defaultName)
     }
+    
     func setUserDefaultToObject<T: Codable>(dataType: T.Type, key: String) -> T? {
         guard let userDefaultData = data(forKey: key) else {
             return nil

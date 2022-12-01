@@ -21,13 +21,10 @@ class RobbyViewController: UIViewController {
     @IBOutlet weak var startButton: CustomGameButton!
     @IBOutlet weak var settingButton: UIButton!
     
-    
-    
     var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         questButton.setTitle(" 퀘스트", for: .normal)
         questButton.setImage(UIImage(systemName: "list.bullet.circle.fill"), for: .normal)
@@ -61,9 +58,8 @@ class RobbyViewController: UIViewController {
     @IBAction func goDelivery(_ sender: CustomGameButton) {
         let stage = UIStoryboard.init(name: "Stage", bundle: nil)
                 guard let StageViewController = stage.instantiateViewController(withIdentifier: "StageViewController")as? StageViewController else {return}
-                
         StageViewController.modalPresentationStyle = .fullScreen
-                self.present(StageViewController, animated: true, completion: nil)
+                self.present(StageViewController, animated: false, completion: nil)
     }
 }
 
