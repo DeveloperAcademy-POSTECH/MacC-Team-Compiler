@@ -195,6 +195,7 @@
 				6FF3371929309A3600D04BDB /* Quest */,
 				6F5089A3292B602300B26623 /* Stage */,
 				63966059292344B00002E6B2 /* Setting */,
+				63664AB729123427006E75D7 /* Sound.swift */,
 				6F28EEA028F5444600D7330F /* AppDelegate.swift */,
 				6F28EEA228F5444600D7330F /* RobbyViewController.swift */,
 				63DC0EAA28F5863100B145B9 /* GameViewController.swift */,
