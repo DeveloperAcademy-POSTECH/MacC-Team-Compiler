@@ -9,7 +9,6 @@ import UIKit
 import Foundation
 
 class Stage: Codable{
-    
     let name: String
     let image: String
     let targetRecord: Double

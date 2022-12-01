@@ -131,7 +131,7 @@
                                     <outlet property="delegate" destination="GYM-j8-IpM" id="zAf-Wu-4TE"/>
                                 </connections>
                             </collectionView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndm-P1-jfg" userLabel="SettingView" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndm-P1-jfg" userLabel="SettingView" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="25" width="852" height="343"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>

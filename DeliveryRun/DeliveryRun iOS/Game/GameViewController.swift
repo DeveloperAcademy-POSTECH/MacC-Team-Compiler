@@ -113,6 +113,3 @@ class GameViewController: UIViewController {
     }
 }
 
-
-//MARK: Update Custom 및 Scene CusTomObject 생성시 SKSeneDelegate SKViewDelgate 사용해야함
-

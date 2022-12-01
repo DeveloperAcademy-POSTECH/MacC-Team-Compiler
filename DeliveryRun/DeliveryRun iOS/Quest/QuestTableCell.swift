@@ -49,14 +49,3 @@ class QuestTableCell: UITableViewCell {
     @IBAction func RewardPressed(_ sender: CustomGameButton) {
     }
 }
-
-class CustomUIProgressView: UIProgressView {
-    required init (coder aDecorder:NSCoder) {
-        super.init(coder: aDecorder)!
-        self.progressTintColor = .deliveryrunYellow
-        self.layer.masksToBounds = true
-        self.layer.cornerRadius = 5
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.white.cgColor
-    }
-}
