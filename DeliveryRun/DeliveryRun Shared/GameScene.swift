@@ -444,31 +444,30 @@ extension GameScene {
 // MARK: Game Loop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
-            // Player 횡스크롤 이동
-            if currentTime > 1 {
-                previousTimeInterval = currentTime - 1
-            }
-            let deltaTime = currentTime - previousTimeInterval
-            previousTimeInterval = currentTime
-            let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
-            let move = SKAction.move(by: diplacement, duration: 0)
-            player.run(SKAction.sequence([move]))
+        // Player 횡스크롤 이동
+        if currentTime > 1 {
+            previousTimeInterval = currentTime - 1
+        }
+        let deltaTime = currentTime - previousTimeInterval
+        previousTimeInterval = currentTime
+        let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
+        let move = SKAction.move(by: diplacement, duration: 0)
+        player.run(SKAction.sequence([move]))
+        
+        if jumpAction {
+            jumping()
+        } else if accelAction {
+            acceling(deltaTime: deltaTime)
+        } else if breakAction {
+            breaking(deltaTime: deltaTime)
+        } else {
+            running(deltaTime: deltaTime)
+        }
             
-            if jumpAction {
-                jumping()
-            } else if accelAction {
-                acceling(deltaTime: deltaTime)
-            } else if breakAction {
-                breaking(deltaTime: deltaTime)
-            } else {
-                running(deltaTime: deltaTime)
-            }
-            
-            // 도착 시 게임 종료
-            if player.position.x >= endPoint && !(gameOver) {
-                arrival(timeRecord: Double(elapsedTime))
-                gameOver = true
-            }
+        // 도착 시 게임 종료
+        if player.position.x >= endPoint && !(gameOver) {
+            arrival(timeRecord: Double(elapsedTime))
+            gameOver = true
         }
         
         // Node 위치 지정

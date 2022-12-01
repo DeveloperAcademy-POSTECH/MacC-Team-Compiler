@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6300A64429372CEA00AF532C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6300A64329372CEA00AF532C /* Constant.swift */; };
-		63664AB829123427006E75D7 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63664AB729123427006E75D7 /* Sound.swift */; };
 		6372509428FFC7F700117CF8 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372509328FFC7F700117CF8 /* PlayerState.swift */; };
 		638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D9B29292B46750024E821 /* QuestTableCell.swift */; };
 		638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638D9B2A292B46750024E821 /* QuestTableCell.xib */; };
@@ -45,6 +44,7 @@
 		6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */; };
 		6FA60FAF28F69431003846EF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA60FAE28F69431003846EF /* Color.swift */; };
 		6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */; };
+		6FBFE15329390D9200A1927D /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFE15229390D9200A1927D /* Sound.swift */; };
 		6FE9943D29123850004753BA /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE9943C29123850004753BA /* HUD.swift */; };
 		6FF3371B29309CC700D04BDB /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF3371A29309CC700D04BDB /* QuestView.swift */; };
 		6FF3371D29309CD700D04BDB /* QuestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF3371C29309CD700D04BDB /* QuestView.xib */; };
@@ -52,7 +52,6 @@
 
 /* Begin PBXFileReference section */
 		6300A64329372CEA00AF532C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		63664AB729123427006E75D7 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		6372509328FFC7F700117CF8 /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		638D9B29292B46750024E821 /* QuestTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTableCell.swift; sourceTree = "<group>"; };
 		638D9B2A292B46750024E821 /* QuestTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestTableCell.xib; sourceTree = "<group>"; };
@@ -91,6 +90,7 @@
 		6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileSet.sks; sourceTree = "<group>"; };
 		6FA60FAE28F69431003846EF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
+		6FBFE15229390D9200A1927D /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		6FE9943C29123850004753BA /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		6FF3371A29309CC700D04BDB /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
 		6FF3371C29309CD700D04BDB /* QuestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestView.xib; sourceTree = "<group>"; };
@@ -110,9 +110,9 @@
 		638D9B2D292B93070024E821 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6FBFE15229390D9200A1927D /* Sound.swift */,
 				638D9B2E292B93260024E821 /* Quest.swift */,
 				6F5D4AB3292CA69C00572DC0 /* Stage.swift */,
-				63664AB729123427006E75D7 /* Sound.swift */,
 				639553FB2935B49300E3DECA /* Setting.swift */,
 				639553FD2935B50200E3DECA /* PlayerSkin.swift */,
 				6300A64329372CEA00AF532C /* Constant.swift */,
@@ -195,7 +195,6 @@
 				6FF3371929309A3600D04BDB /* Quest */,
 				6F5089A3292B602300B26623 /* Stage */,
 				63966059292344B00002E6B2 /* Setting */,
-				63664AB729123427006E75D7 /* Sound.swift */,
 				6F28EEA028F5444600D7330F /* AppDelegate.swift */,
 				6F28EEA228F5444600D7330F /* RobbyViewController.swift */,
 				63DC0EAA28F5863100B145B9 /* GameViewController.swift */,
@@ -341,8 +340,8 @@
 				638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */,
 				6FE9943D29123850004753BA /* HUD.swift in Sources */,
 				6F5D4AB4292CA69C00572DC0 /* Stage.swift in Sources */,
+				6FBFE15329390D9200A1927D /* Sound.swift in Sources */,
 				6F2E1D9A2924BB2500CAE76E /* StageCell.swift in Sources */,
-				63664AB829123427006E75D7 /* Sound.swift in Sources */,
 				6F28EEA128F5444600D7330F /* AppDelegate.swift in Sources */,
 				639553FC2935B49300E3DECA /* Setting.swift in Sources */,
 				639554002935BC8D00E3DECA /* UserDafultData.swift in Sources */,
@@ -492,12 +491,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S5VGQ6HPYR;
+				DEVELOPMENT_TEAM = 2K43262B89;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DeliveryRun-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Game;
+				INFOPLIST_KEY_UIMainStoryboardFile = Robby;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -529,7 +528,7 @@
 				INFOPLIST_FILE = "DeliveryRun-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Game;
+				INFOPLIST_KEY_UIMainStoryboardFile = Robby;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
