@@ -43,9 +43,6 @@ class RobbyViewController: UIViewController {
         questView.isHidden = true
         settingView.layer.opacity = 1.0
         questView.layer.opacity = 1.0
-        
-        // UserDafault Get
-        settingView.BackgroundMusic
     }
     
     @IBAction func SettingPressed(_ sender: UIButton) {
