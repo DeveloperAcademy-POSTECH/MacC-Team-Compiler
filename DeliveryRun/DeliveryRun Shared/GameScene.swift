@@ -36,7 +36,7 @@ class GameScene: SKScene {
     var locationBar: SKShapeNode!
     var startLineShort: SKSpriteNode!
     var finishLineShort: SKSpriteNode!
-    var playerIcon: SKSpriteNode!
+    var playerLocation: SKShapeNode!
     var timerIcon: SKSpriteNode!
     var speederIcon: SKSpriteNode!
     var timerText: SKLabelNode!
@@ -94,7 +94,7 @@ class GameScene: SKScene {
         // Node 생성
         cameraNode = childNode(withName: "cameraNode") as? SKCameraNode
 
-        generatePlayer()
+        setupPlayer()
         setupButtonNode()
         setupHUDNode()
         
@@ -112,7 +112,7 @@ class GameScene: SKScene {
     }
     
     // Player 생성
-    private func generatePlayer() {
+    private func setupPlayer() {
         player.position = CGPoint(x:0, y: 0)
         player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.height/2)
         player.scale(to: CGSize(width: 120, height: 120))
@@ -195,7 +195,7 @@ class GameScene: SKScene {
         locationBar.fillColor = .deliveryrunRed!
         locationBar.lineWidth = 1
         locationBar.strokeColor = .white
-        locationBar.position = CGPoint(x: 0, y: 240)
+        locationBar.position = CGPoint(x: 0, y: 225)
         locationBar.zPosition = 5.0
         locationBarLength = locationBar.frame.width - 100.0
         HUD.addChild(locationBar)
@@ -203,24 +203,30 @@ class GameScene: SKScene {
         // Start Line Short
         startLineShort = SKSpriteNode(imageNamed: "Finish Line Short")
         startLineShort.scale(to: CGSize(width: 10, height: 15))
-        startLineShort.position = CGPoint(x: locationBar.frame.minX + 50, y: 240)
+        startLineShort.position = CGPoint(x: locationBar.frame.minX + 50, y: locationBar.frame.midY)
         startLineShort.zPosition = 5.0
         HUD.addChild(startLineShort)
         
         // Finish Line Short
         finishLineShort = SKSpriteNode(imageNamed: "Finish Line Short")
         finishLineShort.scale(to: CGSize(width: 10, height: 15))
-        finishLineShort.position = CGPoint(x: locationBar.frame.maxX - 50, y: 240)
+        finishLineShort.position = CGPoint(x: locationBar.frame.maxX - 50, y: locationBar.frame.midY)
         finishLineShort.zPosition = 5.0
         HUD.addChild(finishLineShort)
         
-        // Player Location Icon
-        playerIcon = SKSpriteNode(imageNamed: "player0")
-        playerIcon.name = "Player Location"
-        playerIcon.scale(to: CGSize(width: 50, height: 50))
-        playerIcon.position.y = 220
-        playerIcon.zPosition = 5.0
-        HUD.addChild(playerIcon)
+        // Player Location
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: 0.0, y: -10.0))
+        path.addLine(to: CGPoint(x: 12.5, y: 10.0))
+        path.addLine(to: CGPoint(x: -12.5, y: 10.0))
+        path.addLine(to: CGPoint(x: 0.0, y: -10.0))
+        playerLocation = SKShapeNode(path: path.cgPath)
+        playerLocation.fillColor = .deliveryrunYellow!
+        playerLocation.strokeColor = .white
+        playerLocation.lineWidth = 2
+        playerLocation.position.y = 240
+        playerLocation.zPosition = 5.0
+        HUD.addChild(playerLocation)
         
         // Timer Icon
         timerIcon = SKSpriteNode(imageNamed: "Timer")
@@ -435,7 +441,7 @@ extension GameScene {
         cameraNode?.position.x = player.position.x + 300
         Button.position = CGPoint(x: (cameraNode!.position.x), y: (cameraNode!.position.y))
         HUD.position = CGPoint(x: (cameraNode!.position.x), y: (cameraNode!.position.y))
-        playerIcon.position.x = ((player.position.x / endPoint) * locationBarLength) - locationBarLength / 2.0
+        playerLocation.position.x = ((player.position.x / endPoint) * locationBarLength) - locationBarLength / 2.0
         
         // Label Text 설정
         timerText.text = String(format: "%D", passedTime)
