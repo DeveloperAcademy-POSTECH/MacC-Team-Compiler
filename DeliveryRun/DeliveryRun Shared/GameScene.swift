@@ -292,7 +292,7 @@ extension GameScene {
             }
             
             if jumpAction {
-                jumping()
+                playerStateMachine.enter(JumpingState.self)
             }
             if accelAction {
                 acceling(deltaTime: 0)
@@ -303,6 +303,12 @@ extension GameScene {
             if itemAction {
                 if itemImage.name == "Drink" {
                     playerSpeed += 10
+                    itemImage.texture = SKTexture(imageNamed:"Item Button")
+                    itemImage.scale(to: CGSize(width: 100, height: 100))
+                    itemImage.name = "Item Image"
+                }
+                else if itemImage.name == "Wing" {
+                    print("Wing")
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
                     itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"
@@ -363,12 +369,7 @@ extension GameScene {
         }
         playerStateMachine.enter(RunningState.self)
     }
-    func jumping() {
-        playerStateMachine.enter(JumpingState.self)
-    }
-    func landing() {
-        playerStateMachine.enter(LandingState.self)
-    }
+    
     func acceling(deltaTime:TimeInterval) {
         if playerSpeed <= maxSpeed * 1.5 {
             playerSpeed += deltaTime / 5
@@ -421,7 +422,7 @@ extension GameScene {
             player.run(SKAction.sequence([move]))
             
             if jumpAction {
-                jumping()
+                playerStateMachine.enter(JumpingState.self)
             } else if accelAction {
                 acceling(deltaTime: deltaTime)
             } else if breakAction {
@@ -477,7 +478,7 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .ground) {
-            landing()
+            playerStateMachine.enter(LandingState.self)
         }
         
         if collision.matches(.player, .reward) {
@@ -500,6 +501,28 @@ extension GameScene: SKPhysicsContactDelegate {
                     itemImage.texture = SKTexture(imageNamed: "Drink Item")
                     itemImage.scale(to: CGSize(width: 45, height: 75))
                     itemImage.name = "Drink"
+                }
+            }
+            
+            // Wing 획득
+            if contact.bodyA.node?.name == "Wing Bubble" {
+                contact.bodyA.node?.physicsBody?.categoryBitMask = 0
+                contact.bodyA.node?.removeFromParent()
+                
+                if itemImage.name == "Item Image" {
+                    itemImage.texture = SKTexture(imageNamed: "Wing Item")
+                    itemImage.scale(to: CGSize(width: 90, height: 77))
+                    itemImage.name = "Wing"
+                }
+            }
+            else if contact.bodyB.node?.name == "Wing Bubble" {
+                contact.bodyB.node?.physicsBody?.categoryBitMask = 0
+                contact.bodyB.node?.removeFromParent()
+                
+                if itemImage.name == "Item Image" {
+                    itemImage.texture = SKTexture(imageNamed: "Wing Item")
+                    itemImage.scale(to: CGSize(width: 90, height: 77))
+                    itemImage.name = "Wing"
                 }
             }
             
