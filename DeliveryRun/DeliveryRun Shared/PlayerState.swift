@@ -145,24 +145,6 @@ class DamageState: PlayerState {
 }
 
 // MARK: - Item State
-// Drink State
-class DrinkState: PlayerState {
-    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        switch stateClass {
-        case is RunningState.Type, is JumpingState.Type, is StarState.Type: return true
-        default: return false
-        }
-    }
-    
-    let textures: Array<SKTexture> = (6..<8).map({ return "player\($0)"}).map(SKTexture.init)
-    lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
-    
-    override func didEnter(from previousState: GKState?) {
-        playerNode.removeAction(forKey: characterAnimationKey)
-        playerNode.run(action, withKey: characterAnimationKey)
-    }
-}
-
 // Star State
 class StarState: PlayerState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
