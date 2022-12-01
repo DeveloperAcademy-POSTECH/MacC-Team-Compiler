@@ -29,3 +29,26 @@ struct Sound {
         audioPlayer.stop()
     }
 }
+
+// MARK: Sounds 0... 게임내 사운드를 담당
+let sounds:[Sound] = [
+Sound(
+    audioPlayer: AVAudioPlayer()),
+Sound(
+    audioPlayer: AVAudioPlayer()),
+Sound(
+    audioPlayer: AVAudioPlayer()),
+Sound(
+    audioPlayer: AVAudioPlayer()),
+Sound(
+    audioPlayer: AVAudioPlayer()),
+Sound(
+    audioPlayer: AVAudioPlayer()),
+Sound(
+    audioPlayer: AVAudioPlayer()),
+Sound(
+    audioPlayer: AVAudioPlayer()),
+Sound(
+    audioPlayer: AVAudioPlayer()),
+Sound(
+    audioPlayer: AVAudioPlayer()),]

@@ -69,7 +69,7 @@ class PauseScreen: SKNode {
         
         if isPlay {
             isPlay = false
-            gameScene?.isGamePaused = false
+            gameScene?.pauseAction = false
             self.removeFromParent()
         }
         if isRestart {
