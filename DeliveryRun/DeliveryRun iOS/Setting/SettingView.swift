@@ -7,19 +7,18 @@
 
 import UIKit
 import Foundation
+import AVFAudio
 
 class SettingView: UIView {
-    
     let nibName = "SettingView"
     
-    @IBOutlet weak var BackMusicView: UIView!
-    @IBOutlet weak var SoundMusicView: UIView!
-    @IBOutlet weak var backgroundSlider: CustomUiSlider!
-    @IBOutlet weak var soundSlider: CustomUiSlider!
-    @IBOutlet weak var byLabel: UILabel!
+    let userDefault = UserDefaultData.shared
     
-    var backgroundValue:Float = 0.0
-    var soundValue:Float = 0.0
+    var sound = Sound(audioPlayer: AVAudioPlayer())
+
+    @IBOutlet weak var BackgroundMusic: UISwitch!
+    @IBOutlet weak var InGameSound: UISwitch!
+    @IBOutlet weak var byLabel: UILabel!
     
     // StoryBoard Load
     required init?(coder aDecoder: NSCoder) {
@@ -34,21 +33,15 @@ class SettingView: UIView {
         view.layer.borderWidth = 3
         view.layer.cornerRadius = 10
         
-        BackMusicView.backgroundColor = .deliveryrunBlack?.withAlphaComponent(0.6)
-        BackMusicView.layer.cornerRadius = 10
-        BackMusicView.layer.borderColor = UIColor.white.cgColor
-        BackMusicView.layer.borderWidth = 1
-        
-        SoundMusicView.backgroundColor = .deliveryrunBlack?.withAlphaComponent(0.6)
-        SoundMusicView.layer.cornerRadius = 10
-        SoundMusicView.layer.borderColor = UIColor.white.cgColor
-        SoundMusicView.layer.borderWidth = 1
-        
         byLabel.text = "Developed by Team Compiler\nver 1.0.0"
         byLabel.font = UIFont(name:"BMJUAOTF", size: 15)
         byLabel.textColor = .white
         byLabel.textAlignment = .center
         byLabel.numberOfLines = 2
+        
+        // UserDefault Get
+        BackgroundMusic.isOn = false
+        InGameSound.isOn = false
     }
     
     func loadViewFromNib() -> UIView? {
@@ -57,16 +50,16 @@ class SettingView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
     
-    @IBAction func setBackgroundValue(_ sender: CustomUiSlider) {
-        backgroundValue = backgroundSlider.value
-    }
-    
-    @IBAction func setSoundValue(_ sender: CustomUiSlider) {
-        soundValue = soundSlider.value
-    }
-    
     @IBAction func settingCheckButtonPressed(_ sender: CustomGameButton) {
         self.isHidden.toggle()
+    }
+    
+    @IBAction func backgroundOnOff(_ sender: UISwitch) {
+        if BackgroundMusic.isOn {
+            sound.playSound(soundName: "robby")
+        } else {
+            sound.stopSound()
+        }
     }
 }
 

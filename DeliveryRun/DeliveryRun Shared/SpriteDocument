@@ -1,8 +1,4 @@
 
-A SKNode is an empty node with no visual representation on the screen. As you mentioned, the typical use of SKNode is when you want to have a bunch of nodes with a shared parent, so you can move them all around at once. For example, you might have a SKNode for the background layer and another for the foreground layer.
-
-A SKSpriteNode is when you have a visual sprite that you want to show up on the screen (like a main character or an enemy). SKSpriteNodes can also have children - for example a SKSpriteNode for a car might have some other SKSpriteNode children for wheels.
-
 Friction
 This property is used to apply a frictional force to physics bodies in contact with this physics body. The property must be a value between 0.0 and 1.0. The default value is 0.2.
 
@@ -11,7 +7,6 @@ This property is used to apply a frictional force to physics bodies in contact w
     
     var totalTime = 0
     var passedTime = 0
-    
     
     
     @IBAction func PressedButton(_ sender: UIButton){
@@ -25,6 +20,7 @@ This property is used to apply a frictional force to physics bodies in contact w
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         
         }
+        
     @objc func updateTimer() {
         if totalTime < passedTime {
             passedTime += 1

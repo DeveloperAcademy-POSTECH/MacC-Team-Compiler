@@ -9,17 +9,21 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
-
-class GameScene: SKScene {
+class GameScene: SKScene{
     
-    // GameOver Delegate 사용
     var viewController: GameViewController!
-    var recordTime: Int = 0
-    var sceneDelegate: GameSceneDelegate?
+    let userDefault = UserDefaultData.shared
     
-    // Player And LandScape
+    //Tracking Data
+    var jumpData:Int = 0
+    var breakData:Int = 0
+    var collisionData:Int = 0
+    var previousTimeRecord:Double = 0.00
+    var isClear:Bool = false
+    
+    
+    // Player
     let player = SKSpriteNode(imageNamed: "player0")
-    var moon : SKShapeNode?
     
     // Buttons
     var Button: SKNode!
@@ -48,8 +52,8 @@ class GameScene: SKScene {
     var accelAction = false
     var breakAction = false
     var itemAction = false
-    var gameStart = false
-    var isGamePaused = false
+    var startAction = false
+    var pauseAction = false
     var gameOver = false
     
     // CameraNode
@@ -58,13 +62,12 @@ class GameScene: SKScene {
     // Player State
     var playerStateMachine : GKStateMachine!
     
-    // Update CurrentTime
-    var previousTimeInterval:TimeInterval = 0.0
-    
-    // Timer & Speeder & Location
+    // Variables
     var timer = Timer()
-    var totalTime = 100
-    var passedTime = 0
+    
+    var previousTimeInterval:TimeInterval = 0.0
+    let endTime = 100
+    var elapsedTime = 0
     
     var score: Int = 0
     var playerSpeed = 3.0
@@ -72,14 +75,9 @@ class GameScene: SKScene {
     let minSpeed = 1.0
     var endPoint = 20000.0
     
-    // Sound
-    let soundPlayer = SoundPlayer()
-    
-    var soundPlayerModel = Sound(audioPlayer: AVAudioPlayer())
-    
     @objc func updateTimer() {
-        if totalTime > passedTime {
-            passedTime += 1
+        if endTime > elapsedTime {
+            elapsedTime += 1
         } else {
             timer.invalidate()
         }
@@ -87,8 +85,16 @@ class GameScene: SKScene {
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
-        // Delegate 연결
-        sceneDelegate = self.viewController
+        
+        // UserDefaultTrackingData
+        UserDefaultData.findPath()
+        self.jumpData = UserDefaultData.staticDefaults.integer(forKey:"JumpData")
+        self.breakData = UserDefaultData.staticDefaults.integer(forKey:"BreakData")
+        self.collisionData = UserDefaultData.staticDefaults.integer(forKey:"CollisionData")
+        self.previousTimeRecord = UserDefaultData.staticDefaults.double(forKey: "Record1")
+        self.isClear = UserDefaultData.staticDefaults.bool(forKey: "FirstStageClear")
+        
+        // Physical Delegate
         physicsWorld.contactDelegate = self
         
         // Node 생성
@@ -108,6 +114,7 @@ class GameScene: SKScene {
             DamageState(playerNode: player),
             StarState(playerNode:player)
         ])
+        
         playerStateMachine.enter(RunningState.self)
     }
     
@@ -271,35 +278,38 @@ class GameScene: SKScene {
 // MARK: Touches
 extension GameScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !gameStart {
+        if !startAction {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         }
-        gameStart = true
+        
+        startAction = true
         
         for touch in touches {
             let location = touch.location(in: Button!)
-            
             jumpAction = jumpButton.frame.contains(location)
             accelAction = accelButton.frame.contains(location)
             breakAction = breakButton.frame.contains(location)
             itemAction = itemButton.frame.contains(location)
+            pauseAction = pauseButton.frame.contains(location)
             
-            if pauseButton.frame.contains(location) {
-                isGamePaused = true
-                cameraNode!.addChild(pauseScreen)
-                pauseScreen.skView = view
-                pauseScreen.gameScene = self
+            if pauseAction {
+                pause()
             }
             
             if jumpAction {
                 jumping()
+                jumpData += 1
             }
+            
             if accelAction {
                 acceling(deltaTime: 0)
             }
+            
             if breakAction {
                 breaking(deltaTime: 0)
+                breakData += 1
             }
+            
             if itemAction {
                 if itemImage.name == "Drink" {
                     playerSpeed += 10
@@ -320,7 +330,6 @@ extension GameScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-            
             jumpAction = jumpButton.frame.contains(location)
             accelAction = accelButton.frame.contains(location)
             breakAction = breakButton.frame.contains(location)
@@ -344,8 +353,9 @@ extension GameScene {
 
 // MARK: Game Acion
 extension GameScene {
+    // Player Function
     func running(deltaTime:TimeInterval) {
-        if !(gameStart) {
+        if !(startAction) {
             playerSpeed = 0.0
         } else {
             if (playerSpeed < minSpeed) {
@@ -399,9 +409,32 @@ extension GameScene {
         }
     }
     
-    func endGame() {
-        self.sceneDelegate?.popupGameOver()
-        self.sceneDelegate?.getTimeRap(recordTime: passedTime)
+    // Game UI Function
+    func pause() {
+        self.viewController.pauseView.isHidden = false
+        self.view?.isPaused = true
+    }
+    
+    func resume() {
+        self.viewController.pauseView.isHidden = true
+        self.view?.isPaused = false
+    }
+    
+    func restartGame() {
+        self.viewController.pauseView.isHidden = true
+        self.view?.isPaused = false
+    }
+    
+    func reTryGame() {
+        self.viewController.arrivalView.isHidden = true
+    }
+    
+    func arrival(timeRecord:Double) {
+        self.viewController.arrivalView.isHidden = false
+        self.viewController.PreviousRecord.text = String(format: "당신의 이전기록은 %.2f 입니다", previousTimeRecord)
+        self.viewController.PresentRecord.text = String(format: "당신의 현재기록은 %.2f 입니다", timeRecord)
+        userDefault.firstStageCompleted(timeRecord: timeRecord)
+        userDefault.trackingDataSave(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
     }
 }
 
@@ -409,32 +442,30 @@ extension GameScene {
 // MARK: Game Loop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
-        if !isGamePaused {
-            // Player 횡스크롤 이동
-            if currentTime > 1 {
-                previousTimeInterval = currentTime - 1
-            }
-            let deltaTime = currentTime - previousTimeInterval
-            previousTimeInterval = currentTime
-            let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
-            let move = SKAction.move(by: diplacement, duration: 0)
-            player.run(SKAction.sequence([move]))
+        // Player 횡스크롤 이동
+        if currentTime > 1 {
+            previousTimeInterval = currentTime - 1
+        }
+        let deltaTime = currentTime - previousTimeInterval
+        previousTimeInterval = currentTime
+        let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
+        let move = SKAction.move(by: diplacement, duration: 0)
+        player.run(SKAction.sequence([move]))
+        
+        if jumpAction {
+            jumping()
+        } else if accelAction {
+            acceling(deltaTime: deltaTime)
+        } else if breakAction {
+            breaking(deltaTime: deltaTime)
+        } else {
+            running(deltaTime: deltaTime)
+        }
             
-            if jumpAction {
-                jumping()
-            } else if accelAction {
-                acceling(deltaTime: deltaTime)
-            } else if breakAction {
-                breaking(deltaTime: deltaTime)
-            } else {
-                running(deltaTime: deltaTime)
-            }
-            
-            // 도착 시 게임 종료
-            if player.position.x >= endPoint && !(gameOver) {
-                endGame()
-                gameOver = true
-            }
+        // 도착 시 게임 종료
+        if player.position.x >= endPoint && !(gameOver) {
+            arrival(timeRecord: Double(elapsedTime))
+            gameOver = true
         }
         
         // Node 위치 지정
@@ -444,7 +475,7 @@ extension GameScene {
         playerLocation.position.x = ((player.position.x / endPoint) * locationBarLength) - locationBarLength / 2.0
         
         // Label Text 설정
-        timerText.text = String(format: "%D", passedTime)
+        timerText.text = String(format: "%D", elapsedTime)
         speederText.text = String(format: "%d km/h", Int(playerSpeed * 6))
     }
 }
@@ -527,3 +558,4 @@ extension GameScene: SKPhysicsContactDelegate {
         }
     }
 }
+

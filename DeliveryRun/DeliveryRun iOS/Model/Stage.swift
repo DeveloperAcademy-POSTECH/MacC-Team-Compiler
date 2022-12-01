@@ -8,29 +8,31 @@
 import UIKit
 import Foundation
 
-struct Stage {
-    let stageName: String
-    let foodImageName: String
+class Stage: Codable{
+    
+    let name: String
+    let image: String
     let targetRecord: Double
     var myRecord: Double
-    var star: Int
+    var star: String {
+        get {
+            if targetRecord + 15 < myRecord {
+                return "resultStar1"
+            }
+            if targetRecord - 15 > myRecord {
+                return "resultStar3"
+            }
+            return "resultStar2"
+        }
+    }
     var isLock: Bool
+    
+    init(name: String, image: String, targetRecord: Double, myRecord:Double,isLock: Bool) {
+        self.name = name
+        self.image = image
+        self.targetRecord = targetRecord
+        self.myRecord = myRecord
+        self.isLock = isLock
+    }
 }
 
-let stageList: [Stage] = [
-    Stage(stageName: "스테이지 1", foodImageName: "star0", targetRecord: 90.0, myRecord: 0.0, star: 3, isLock: false),
-    Stage(stageName: "스테이지 2", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 2, isLock: true),
-    Stage(stageName: "스테이지 3", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 1, isLock: true),
-    Stage(stageName: "스테이지 4", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-    Stage(stageName: "스테이지 5", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-    Stage(stageName: "스테이지 6", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-    Stage(stageName: "스테이지 7", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-    Stage(stageName: "스테이지 8", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-    Stage(stageName: "스테이지 9", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-    Stage(stageName: "스테이지 10", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-    Stage(stageName: "스테이지 11", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-    Stage(stageName: "스테이지 12", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-    Stage(stageName: "스테이지 13", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-    Stage(stageName: "스테이지 14", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false),
-    Stage(stageName: "스테이지 15", foodImageName: "", targetRecord: 90.0, myRecord: 0.0, star: 0, isLock: false)
-]

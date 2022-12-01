@@ -12,49 +12,18 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
-protocol GameSceneDelegate {
-    func popupGameOver()
-    func changeView()
-    func getTimeRap(recordTime:Int)
-}
-
-class GameViewController: UIViewController, GameSceneDelegate {
-    
-    var backgroundMusicPlayer = Sound(audioPlayer: AVAudioPlayer())
-    
-    @IBOutlet weak var recordLabel: UILabel!
-    @IBOutlet weak var popupView: UIView!
-    @IBOutlet weak var endButton: CustomGameButton!
-    var timeRap = 0
-    
-    func popupGameOver() {
-        popupView.isHidden = false
-        backgroundMusicPlayer.stopSound()
-    }
-    
-    func changeView() {
-        self.present(StageViewController(), animated: false)
-    }
-
-    func getTimeRap(recordTime paasedTime:Int) {
-        timeRap = paasedTime
-        recordLabel.text = String(format: "당신의 기록은 %D초 입니다.", timeRap)
-    }
+class GameViewController: UIViewController {
     
     override func viewDidLoad() {
-        backgroundMusicPlayer.playSound(soundName: "ingame")
-        popupView.isHidden = true
+        arrivalView.isHidden = true
+        pauseView.isHidden = true
         super.viewDidLoad()
-        
-        endButton.setTitle("돌아가기", for: .normal)
-        
         if let scene = GKScene(fileNamed: "GameScene") {
-            
             // Root 노드 생성
             if let sceneNode = scene.rootNode as! GameScene? {
                 sceneNode.viewController = self
                 sceneNode.scaleMode = .aspectFill
-                
+
                 // Present the scene
                 if let view = self.view as! SKView? {
                     view.presentScene(sceneNode)
@@ -64,4 +33,86 @@ class GameViewController: UIViewController, GameSceneDelegate {
         }
     }
     
+    let userDefaultData = UserDefaultData()
+    var timeRap = 0
+    
+    @IBOutlet weak var arrivalView: UIView!
+    @IBOutlet weak var pauseView: UIView!
+    
+    @IBOutlet weak var PresentRecord: UILabel!
+    @IBOutlet weak var PreviousRecord: UILabel!
+    func getTimeRap(recordTime paasedTime:Int) {
+        timeRap = paasedTime
+    }
+    
+    @IBAction func pausePlayPressed(_ sender: UIButton) {
+        if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
+            gameScene.resume()
+        }
+    }
+    
+    @IBAction func pauseRePlayPressed(_ sender: UIButton) {
+        if let view = self.view as! SKView?, let gameScene = view.scene as?
+            GameScene {
+            gameScene.restartGame()
+        }
+        
+        if let scene = GKScene(fileNamed: "GameScene") {
+            // Root 노드 생성
+            if let sceneNode = scene.rootNode as! GameScene? {
+                sceneNode.viewController = self
+                sceneNode.scaleMode = .aspectFill
+
+                // Present the scene
+                if let view = self.view as! SKView? {
+                    view.presentScene(sceneNode)
+                    view.ignoresSiblingOrder = false
+                }
+            }
+        }
+    }
+    
+    
+    @IBAction func replayPressed(_ sender: UIButton) {
+        if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
+            gameScene.reTryGame()
+        }
+        
+        if let scene = GKScene(fileNamed: "GameScene") {
+            // Root 노드 생성
+            if let sceneNode = scene.rootNode as! GameScene? {
+                sceneNode.viewController = self
+                sceneNode.scaleMode = .aspectFill
+
+                // Present the scene
+                if let view = self.view as! SKView? {
+                    view.presentScene(sceneNode)
+                    view.ignoresSiblingOrder = false
+                }
+            }
+        }
+    }
+    
+    @IBAction func goStagePressed(_ sender: UIButton) {
+        let stage = UIStoryboard.init(name: "Stage", bundle: nil)
+        guard let StageViewController = stage.instantiateViewController(identifier: "StageViewController") as? StageViewController else { return }
+        StageViewController.modalPresentationStyle = .fullScreen
+        self.present(StageViewController, animated: false, completion: nil)
+        self.performSegue(withIdentifier: "Stage", sender: self)
+    }
+    
+    @IBAction func goRobbyPressed(_ sender: UIButton) {
+        if let view = self.view as! SKView?, let gameScene = view.scene as?
+            GameScene {
+            gameScene.removeFromParent()
+            let robby = UIStoryboard.init(name: "Robby", bundle: nil)
+                    guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
+            RobbyViewController.modalPresentationStyle = .fullScreen
+                    self.present(RobbyViewController, animated: false, completion: nil)
+        }
+    }
 }
+
+
+//MARK: Update Custom 및 Scene CusTomObject 생성시 SKSeneDelegate SKViewDelgate 사용해야함
+

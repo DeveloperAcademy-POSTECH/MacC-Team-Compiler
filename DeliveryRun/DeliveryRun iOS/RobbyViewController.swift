@@ -12,6 +12,8 @@ import AVFoundation
 
 class RobbyViewController: UIViewController {
     
+    let userDefault = UserDefaultData.shared
+    
     @IBOutlet weak var settingView: SettingView!
     @IBOutlet weak var questView: QuestView!
     @IBOutlet weak var questButton: CustomGameButton!
@@ -19,7 +21,6 @@ class RobbyViewController: UIViewController {
     @IBOutlet weak var startButton: CustomGameButton!
     @IBOutlet weak var settingButton: UIButton!
     
-    var toggleBool:Bool = false
     var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
     
     override func viewDidLoad() {
@@ -49,6 +50,13 @@ class RobbyViewController: UIViewController {
     }
     @IBAction func QeustPressed(_ sender: CustomGameButton) {
         questView.isHidden = false
+    }
+    
+    @IBAction func goDelivery(_ sender: CustomGameButton) {
+        let stage = UIStoryboard.init(name: "Stage", bundle: nil)
+                guard let StageViewController = stage.instantiateViewController(withIdentifier: "StageViewController")as? StageViewController else {return}
+        StageViewController.modalPresentationStyle = .fullScreen
+                self.present(StageViewController, animated: false, completion: nil)
     }
 }
 
