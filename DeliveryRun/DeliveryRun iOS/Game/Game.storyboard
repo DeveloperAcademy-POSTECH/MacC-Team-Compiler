@@ -146,17 +146,39 @@
                                     <constraint firstItem="ixr-Ec-8fc" firstAttribute="centerX" secondItem="pT7-38-du8" secondAttribute="centerX" id="sld-Rx-NoF"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PR5-Dy-Wg3" userLabel="StoryView" customClass="StoryView" customModule="DeliveryRun" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="196.66666666666663" width="852" height="196.33333333333337"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1G-R7-JFl" userLabel="nextButton">
+                                <rect key="frame" x="732" y="289" width="120" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="MZW-o7-S7n"/>
+                                    <constraint firstAttribute="height" constant="50" id="sKT-K3-06Q"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="nextText"/>
+                                <connections>
+                                    <action selector="nextTextPressed:" destination="P36-JN-cAo" eventType="touchUpInside" id="gB1-vh-Bwq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4O3-Ak-n06"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4O3-Ak-n06" firstAttribute="bottom" secondItem="lmJ-eZ-I1U" secondAttribute="bottom" constant="120" id="195-Sq-wOa"/>
+                            <constraint firstAttribute="bottom" secondItem="PR5-Dy-Wg3" secondAttribute="bottom" id="2v3-dp-U6F"/>
                             <constraint firstItem="4O3-Ak-n06" firstAttribute="trailing" secondItem="lmJ-eZ-I1U" secondAttribute="trailing" constant="200" id="A7G-ts-4Qz"/>
                             <constraint firstItem="4O3-Ak-n06" firstAttribute="trailing" secondItem="pT7-38-du8" secondAttribute="trailing" constant="60" id="Ava-Zh-53b"/>
+                            <constraint firstItem="PR5-Dy-Wg3" firstAttribute="top" secondItem="sF4-LD-e1S" secondAttribute="centerY" id="C3R-fp-6oC"/>
                             <constraint firstItem="pT7-38-du8" firstAttribute="top" secondItem="4O3-Ak-n06" secondAttribute="top" constant="20" id="SdG-k1-YPj"/>
                             <constraint firstItem="4O3-Ak-n06" firstAttribute="bottom" secondItem="pT7-38-du8" secondAttribute="bottom" constant="20" id="TJF-mw-Rwv"/>
                             <constraint firstItem="4O3-Ak-n06" firstAttribute="trailing" secondItem="pT7-38-du8" secondAttribute="trailing" constant="60" id="UQ3-ko-IRp"/>
+                            <constraint firstItem="4O3-Ak-n06" firstAttribute="trailing" secondItem="PR5-Dy-Wg3" secondAttribute="trailing" id="Wzu-sN-7au"/>
+                            <constraint firstItem="PR5-Dy-Wg3" firstAttribute="leading" secondItem="4O3-Ak-n06" secondAttribute="leading" id="dJR-FY-Kc2"/>
                             <constraint firstItem="lmJ-eZ-I1U" firstAttribute="top" secondItem="4O3-Ak-n06" secondAttribute="top" constant="120" id="eYx-WC-fky"/>
+                            <constraint firstItem="4O3-Ak-n06" firstAttribute="bottom" secondItem="P1G-R7-JFl" secondAttribute="bottom" constant="20" id="ndE-kE-HeI"/>
+                            <constraint firstItem="4O3-Ak-n06" firstAttribute="trailing" secondItem="P1G-R7-JFl" secondAttribute="trailing" id="vfx-fg-DHB"/>
                             <constraint firstItem="lmJ-eZ-I1U" firstAttribute="leading" secondItem="4O3-Ak-n06" secondAttribute="leading" constant="200" id="xkb-EF-WVN"/>
                             <constraint firstItem="pT7-38-du8" firstAttribute="leading" secondItem="4O3-Ak-n06" secondAttribute="leading" constant="60" id="z38-7i-BdN"/>
                         </constraints>
@@ -166,7 +188,9 @@
                         <outlet property="PresentRecord" destination="ixr-Ec-8fc" id="3hs-CL-njf"/>
                         <outlet property="PreviousRecord" destination="QNg-p5-b86" id="wob-sI-pSV"/>
                         <outlet property="arrivalView" destination="pT7-38-du8" id="8fu-BD-exi"/>
+                        <outlet property="nextTextButton" destination="P1G-R7-JFl" id="SmV-s6-o17"/>
                         <outlet property="pauseView" destination="lmJ-eZ-I1U" id="xGQ-Uz-MRk"/>
+                        <outlet property="storyView" destination="PR5-Dy-Wg3" id="pYA-Bm-coa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3W-Uz-dZX" sceneMemberID="firstResponder"/>
