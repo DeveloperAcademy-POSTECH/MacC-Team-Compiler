@@ -22,14 +22,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="RobbyBack" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aG4-b2-XBe">
                                 <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                             </imageView>
-                            <visualEffectView clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSz-5T-K3Y">
-                                <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Hrv-A1-0g3">
-                                    <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="regular"/>
-                            </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLB-6b-RlG" userLabel="Setting Button">
                                 <rect key="frame" x="812" y="25" width="40" height="40"/>
                                 <constraints>
@@ -131,7 +123,7 @@
                                     <outlet property="delegate" destination="GYM-j8-IpM" id="zAf-Wu-4TE"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndm-P1-jfg" userLabel="SettingView" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndm-P1-jfg" userLabel="SettingView" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="25" width="852" height="343"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -144,8 +136,6 @@
                             <constraint firstItem="aG4-b2-XBe" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" id="8vX-C5-lR4"/>
                             <constraint firstAttribute="trailing" secondItem="aG4-b2-XBe" secondAttribute="trailing" id="9Ui-5w-qTq"/>
                             <constraint firstItem="zeZ-pv-DNR" firstAttribute="leading" secondItem="Ljm-JV-vWF" secondAttribute="trailing" constant="24" id="Bvd-Wb-Pch"/>
-                            <constraint firstItem="kSz-5T-K3Y" firstAttribute="leading" secondItem="L80-eE-Jld" secondAttribute="leading" id="DI9-Rn-bMt"/>
-                            <constraint firstAttribute="bottom" secondItem="kSz-5T-K3Y" secondAttribute="bottom" id="GhA-Po-ejC"/>
                             <constraint firstItem="G3X-ba-mCW" firstAttribute="leading" secondItem="5vu-bH-eqb" secondAttribute="leading" id="ICE-LZ-eqp"/>
                             <constraint firstAttribute="bottom" secondItem="Ljm-JV-vWF" secondAttribute="bottom" constant="30" id="KPl-2p-5JI"/>
                             <constraint firstAttribute="bottom" secondItem="zeZ-pv-DNR" secondAttribute="bottom" constant="30" id="L5Q-MK-LRn"/>
@@ -154,12 +144,10 @@
                             <constraint firstItem="Ljm-JV-vWF" firstAttribute="leading" secondItem="5vu-bH-eqb" secondAttribute="leading" id="Xkh-x5-RCe"/>
                             <constraint firstItem="G3X-ba-mCW" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="25" id="Ypd-yb-TCq"/>
                             <constraint firstItem="zeZ-pv-DNR" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="90" id="aUg-Nz-e8Y"/>
-                            <constraint firstItem="kSz-5T-K3Y" firstAttribute="trailing" secondItem="L80-eE-Jld" secondAttribute="trailing" id="avy-O2-dqY"/>
                             <constraint firstItem="5vu-bH-eqb" firstAttribute="trailing" secondItem="zeZ-pv-DNR" secondAttribute="trailing" id="dMz-Qm-joE"/>
                             <constraint firstAttribute="bottom" secondItem="aG4-b2-XBe" secondAttribute="bottom" id="enW-sQ-MNo"/>
                             <constraint firstAttribute="bottom" secondItem="Ndm-P1-jfg" secondAttribute="bottom" constant="25" id="hWg-n7-me1"/>
                             <constraint firstItem="aG4-b2-XBe" firstAttribute="leading" secondItem="L80-eE-Jld" secondAttribute="leading" id="mBM-0B-iru"/>
-                            <constraint firstItem="kSz-5T-K3Y" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" id="mYL-gG-Uvk"/>
                             <constraint firstItem="Ljm-JV-vWF" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="90" id="oDM-d0-1f3"/>
                             <constraint firstItem="Ndm-P1-jfg" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="25" id="p3F-wX-acf"/>
                             <constraint firstItem="CLB-6b-RlG" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="25" id="qMx-l3-uzW"/>
@@ -169,7 +157,10 @@
                     <connections>
                         <outlet property="SettingView" destination="Ndm-P1-jfg" id="TJx-UP-6Wp"/>
                         <outlet property="StageCollectionView" destination="Ljm-JV-vWF" id="fkl-1n-KmA"/>
+                        <outlet property="backButton" destination="G3X-ba-mCW" id="bof-9k-TjF"/>
+                        <outlet property="backgroundImage" destination="aG4-b2-XBe" id="r4O-kl-xjP"/>
                         <outlet property="recordLabel" destination="zbi-qO-WUR" id="SQy-Dk-paw"/>
+                        <outlet property="settingButton" destination="CLB-6b-RlG" id="jgn-8v-Jkt"/>
                         <outlet property="stageDetailView" destination="zeZ-pv-DNR" id="c9d-uP-Cbc"/>
                         <outlet property="stageNameLabel" destination="xMJ-vd-DkL" id="Htn-Ki-iae"/>
                         <outlet property="starImage" destination="01L-yn-Som" id="Aw9-Tu-Iop"/>
