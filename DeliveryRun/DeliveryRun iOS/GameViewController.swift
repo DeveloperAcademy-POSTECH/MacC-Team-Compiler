@@ -17,6 +17,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         arrivalView.isHidden = true
         pauseView.isHidden = true
+        storyView.isHidden = false
         super.viewDidLoad()
         if let scene = GKScene(fileNamed: "GameScene") {
 
@@ -37,11 +38,16 @@ class GameViewController: UIViewController {
     let userDefaultData = UserDefaultData()
     var timeRap = 0
     
+    var storyNumber:Int = 0
+    
     @IBOutlet weak var arrivalView: UIView!
     @IBOutlet weak var pauseView: UIView!
-    
+    @IBOutlet weak var storyView: StoryView!
     @IBOutlet weak var PresentRecord: UILabel!
     @IBOutlet weak var PreviousRecord: UILabel!
+    
+    @IBOutlet weak var nextStoryButton: UIButton!
+    
     func getTimeRap(recordTime paasedTime:Int) {
         timeRap = paasedTime
     }
@@ -118,8 +124,29 @@ class GameViewController: UIViewController {
                     self.present(RobbyViewController, animated: true, completion: nil)
         }
     }
+    
+    
+    @IBAction func nextTextPressed(_ sender: UIButton) {
+        if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
+            gameScene.isPaused = true
+            if storyNumber <= 2{
+                storyNumber += 1
+            } else {
+                storyNumber = 3
+            }
+            storyView.storyTextLabel.text = storyTexts[storyNumber]
+            if storyNumber == 3 {
+                storyView.isHidden = true
+
+                gameScene.isPaused = false
+                nextStoryButton.isHidden = true
+            }
+        }
+    }
 }
 
+let storyTexts = [
+"시작", "텍스트2", "텍스트3","끝"]
 
 //MARK: Update Custom 및 Scene CusTomObject 생성시 SKSeneDelegate SKViewDelgate 사용해야함
 

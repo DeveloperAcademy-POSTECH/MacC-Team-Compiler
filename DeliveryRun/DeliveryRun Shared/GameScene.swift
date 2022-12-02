@@ -42,6 +42,7 @@ class GameScene: SKScene{
     var breakAction = false
     var startAction = false
     var pauseAction = false
+    var storyAction = false
     
     // CameraNode
     var cameraNode: SKCameraNode?
@@ -287,6 +288,7 @@ extension GameScene {
     func resume() {
         self.viewController.pauseView.isHidden = true
         self.view?.isPaused = false
+
     }
     
     func restartGame() {
@@ -305,6 +307,11 @@ extension GameScene {
         self.viewController.PresentRecord.text = String(format: "당신의 현재기록은 %.2f 입니다", timeRecord)
         userDefault.firstStageCompleted(timeRecord: timeRecord)
         userDefault.trackingDataSave(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
+    }
+    
+    func showStory() {
+        self.viewController.storyView.isHidden = false
+        self.view?.isPaused = true
     }
     
     
