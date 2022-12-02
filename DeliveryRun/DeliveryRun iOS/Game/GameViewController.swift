@@ -17,6 +17,8 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         arrivalView.isHidden = true
         pauseView.isHidden = true
+        storyView.isHidden = true
+        nextTextButton.isHidden = true
         super.viewDidLoad()
         if let scene = GKScene(fileNamed: "GameScene") {
             // Root 노드 생성
@@ -126,7 +128,6 @@ class GameViewController: UIViewController {
                     storyView.storyTextLabel.text = storyTexts[storyNumber]
                     if storyNumber == 3 {
                         storyView.isHidden = true
-
                         gameScene.isPaused = false
                         nextTextButton.isHidden = true
                     }

@@ -395,6 +395,7 @@ extension GameScene {
             playerSpeed = minSpeed
         }
         playerSpeed -= deltaTime / 5
+        
         playerStateMachine.enter(BreakingState.self)
     }
     
@@ -441,6 +442,7 @@ extension GameScene {
     
     func showStory() {
         self.viewController.storyView.isHidden = false
+        self.viewController.nextTextButton.isHidden = false
         self.view?.isPaused = true
     }
 }
@@ -492,7 +494,7 @@ extension GameScene {
 extension GameScene: SKPhysicsContactDelegate {
     struct Collision {
         enum Masks: Int {
-            case damage, player, reward, ground, ending
+            case damage, player, reward, ground, ending, bump
             var bitmask: UInt32 { return 1 << self.rawValue }
         }
         
@@ -512,7 +514,13 @@ extension GameScene: SKPhysicsContactDelegate {
             collisionData += 1
             damaging()
             invicible()
-            contact.bodyA.node?.physicsBody?.categoryBitMask = 0
+//            // MARK: 한번만 충돌이 이루어지는 코드
+//            contact.bodyA.node?.physicsBody?.categoryBitMask = 0
+        }
+        
+        if collision.matches(.player, .bump) {
+            collisionData += 1
+            playerStateMachine.enter(JumpingState.self)
         }
         
         if collision.matches(.player, .ground) {

@@ -23,6 +23,7 @@ class PlayerState: GKState {
 class RunningState: PlayerState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
+        //MARK: PreviousState PresentState 진입 가능여부 - True경우 진입가능
         case is RunningState.Type: return false
         default: return true
         }
@@ -88,7 +89,6 @@ class AccelingState: PlayerState {
     
     let textures: Array<SKTexture> = (6..<8).map({ return "player\($0)"}).map(SKTexture.init)
     lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
-    
     override func didEnter(from previousState: GKState?) {
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
@@ -99,7 +99,7 @@ class AccelingState: PlayerState {
 class BreakingState: PlayerState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
-        case is RunningState.Type, is DamageState.Type, is StarState.Type: return true
+        case is RunningState.Type, is JumpingState.Type, is DamageState.Type, is StarState.Type: return true
         default: return false
         }
     }
@@ -134,7 +134,6 @@ class DamageState: PlayerState {
     override func didEnter(from previousState: GKState?) {
         
         isDamaged = true
-        
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
@@ -166,3 +165,5 @@ class StarState: PlayerState {
         }
     }
 }
+
+
