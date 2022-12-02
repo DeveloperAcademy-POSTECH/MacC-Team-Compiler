@@ -416,14 +416,9 @@ extension GameScene {
         self.view?.isPaused = true
     }
     
-    func reTryGame() {
-        self.viewController.arrivalView.isHidden = true
-    }
-    
     func arrival(timeRecord:Double) {
-        self.viewController.arrivalView.isHidden = false
-        self.viewController.PreviousRecord.text = String(format: "당신의 이전기록은 %.2f 입니다", previousTimeRecord)
-        self.viewController.PresentRecord.text = String(format: "당신의 현재기록은 %.2f 입니다", timeRecord)
+        self.viewController.endBackView.isHidden = false
+        self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
         userDefault.firstStageCompleted(timeRecord: timeRecord)
         userDefault.trackingDataSave(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
     }

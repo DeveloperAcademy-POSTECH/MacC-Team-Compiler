@@ -33,3 +33,12 @@ class CustomUIProgressView: UIProgressView {
         self.layer.borderColor = UIColor.white.cgColor
     }
 }
+
+// UIImage Extension
+extension UIImage {
+    func resized(to size: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size: size).image { _ in
+            draw(in: CGRect(origin: .zero, size: size))
+        }
+    }
+}
