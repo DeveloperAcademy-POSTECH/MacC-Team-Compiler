@@ -112,6 +112,7 @@ class GameScene: SKScene{
             AccelingState(playerNode: player),
             BreakingState(playerNode: player),
             DamageState(playerNode: player),
+            WingState(playerNode: player),
             StarState(playerNode:player)
         ])
         
@@ -318,7 +319,7 @@ extension GameScene {
                     itemImage.name = "Item Image"
                 }
                 else if itemImage.name == "Wing" {
-                    print("Wing")
+                    playerStateMachine.enter(WingState.self)
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
                     itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"
