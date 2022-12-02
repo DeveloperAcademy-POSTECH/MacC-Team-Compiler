@@ -412,18 +412,8 @@ extension GameScene {
     
     // Game UI Function
     func pause() {
-        self.viewController.pauseView.isHidden = false
+        self.viewController.pauseBackView.isHidden = false
         self.view?.isPaused = true
-    }
-    
-    func resume() {
-        self.viewController.pauseView.isHidden = true
-        self.view?.isPaused = false
-    }
-    
-    func restartGame() {
-        self.viewController.pauseView.isHidden = true
-        self.view?.isPaused = false
     }
     
     func reTryGame() {
