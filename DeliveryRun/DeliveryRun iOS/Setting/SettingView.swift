@@ -16,6 +16,8 @@ class SettingView: UIView {
     
     var sound = Sound(audioPlayer: AVAudioPlayer())
 
+    @IBOutlet weak var BackgroundMusicView: UIView!
+    @IBOutlet weak var EffectMusicView: UIView!
     @IBOutlet weak var BackgroundMusic: UISwitch!
     @IBOutlet weak var InGameSound: UISwitch!
     @IBOutlet weak var byLabel: UILabel!
@@ -32,6 +34,16 @@ class SettingView: UIView {
         view.layer.borderColor = UIColor.white.cgColor
         view.layer.borderWidth = 3
         view.layer.cornerRadius = 10
+        
+        BackgroundMusicView.backgroundColor = .deliveryrunBlack!.withAlphaComponent(0.6)
+        BackgroundMusicView.layer.cornerRadius = 10
+        BackgroundMusicView.layer.borderWidth = 1
+        BackgroundMusicView.layer.borderColor = UIColor.white.cgColor
+        
+        EffectMusicView.backgroundColor = .deliveryrunBlack!.withAlphaComponent(0.6)
+        EffectMusicView.layer.cornerRadius = 10
+        EffectMusicView.layer.borderWidth = 1
+        EffectMusicView.layer.borderColor = UIColor.white.cgColor
         
         byLabel.text = "Developed by Team Compiler\nver 1.0.0"
         byLabel.font = UIFont(name:"BMJUAOTF", size: 15)
@@ -50,6 +62,7 @@ class SettingView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
     
+    // Button IBActions
     @IBAction func settingCheckButtonPressed(_ sender: CustomGameButton) {
         self.isHidden.toggle()
     }

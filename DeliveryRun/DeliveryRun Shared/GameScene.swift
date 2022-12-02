@@ -401,7 +401,6 @@ extension GameScene {
     func damaging() {
         playerSpeed = minSpeed
         playerStateMachine.enter(DamageState.self)
-        
     }
     
     func invicible() {
