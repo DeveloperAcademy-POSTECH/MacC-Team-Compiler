@@ -438,6 +438,11 @@ extension GameScene {
         userDefault.firstStageCompleted(timeRecord: timeRecord)
         userDefault.trackingDataSave(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
     }
+    
+    func showStory() {
+        self.viewController.storyView.isHidden = false
+        self.view?.isPaused = true
+    }
 }
 
 

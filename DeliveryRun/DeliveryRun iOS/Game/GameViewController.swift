@@ -35,10 +35,13 @@ class GameViewController: UIViewController {
     
     let userDefaultData = UserDefaultData()
     var timeRap = 0
+    var storyNumber:Int = 0
     
     @IBOutlet weak var arrivalView: UIView!
     @IBOutlet weak var pauseView: UIView!
     
+    @IBOutlet weak var nextTextButton: UIButton!
+    @IBOutlet weak var storyView: StoryView!
     @IBOutlet weak var PresentRecord: UILabel!
     @IBOutlet weak var PreviousRecord: UILabel!
     func getTimeRap(recordTime paasedTime:Int) {
@@ -110,5 +113,27 @@ class GameViewController: UIViewController {
             self.present(RobbyViewController, animated: false, completion: nil)
         }
     }
+    
+    
+    @IBAction func nextTextPressed(_ sender: UIButton) {
+        if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
+                    gameScene.isPaused = true
+                    if storyNumber <= 2{
+                        storyNumber += 1
+                    } else {
+                        storyNumber = 3
+                    }
+                    storyView.storyTextLabel.text = storyTexts[storyNumber]
+                    if storyNumber == 3 {
+                        storyView.isHidden = true
+
+                        gameScene.isPaused = false
+                        nextTextButton.isHidden = true
+                    }
+        }
+    }
 }
 
+let storyTexts = [
+"시작", "텍스트2", "텍스트3","끝"
+]

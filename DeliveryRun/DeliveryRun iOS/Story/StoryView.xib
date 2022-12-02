@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StoryView" customModule="DeliveryRun" customModuleProvider="target">
+            <connections>
+                <outlet property="storyTextLabel" destination="X3M-70-4yh" id="t0E-6b-coT"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait" translatesAutoresizingMaskIntoConstraints="NO" id="yys-3e-P7N">
+                    <rect key="frame" x="0.0" y="59" width="120" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="7bM-ht-r0C"/>
+                        <constraint firstAttribute="height" constant="120" id="JhP-a3-qEC"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안녕 내 이릉은 준기라고해" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3M-70-4yh" userLabel="StoryTextLabel">
+                    <rect key="frame" x="140" y="59" width="175" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="yys-3e-P7N" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="6Lt-fp-N23"/>
+                <constraint firstItem="yys-3e-P7N" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="A3Q-Y0-baY"/>
+                <constraint firstItem="X3M-70-4yh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="cF7-Xl-waS"/>
+                <constraint firstItem="X3M-70-4yh" firstAttribute="leading" secondItem="yys-3e-P7N" secondAttribute="trailing" constant="20" id="uT2-6p-UNN"/>
+            </constraints>
+            <point key="canvasLocation" x="83.802816901408448" y="20.610687022900763"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="portrait" width="220" height="184"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
