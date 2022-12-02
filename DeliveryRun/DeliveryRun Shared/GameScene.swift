@@ -400,6 +400,7 @@ extension GameScene {
     func damaging() {
         playerSpeed = minSpeed
         playerStateMachine.enter(DamageState.self)
+        
     }
     
     func invicible() {
@@ -502,6 +503,7 @@ extension GameScene: SKPhysicsContactDelegate {
         let collision = Collision(masks: (first: contact.bodyA.categoryBitMask, second: contact.bodyB.categoryBitMask))
         
         if collision.matches(.player, .damage) {
+            collisionData += 1
             damaging()
             invicible()
             contact.bodyA.node?.physicsBody?.categoryBitMask = 0
