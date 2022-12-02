@@ -98,7 +98,6 @@ class GameViewController: UIViewController {
         guard let StageViewController = stage.instantiateViewController(identifier: "StageViewController") as? StageViewController else { return }
         StageViewController.modalPresentationStyle = .fullScreen
         self.present(StageViewController, animated: false, completion: nil)
-        self.performSegue(withIdentifier: "Stage", sender: self)
     }
     
     @IBAction func goRobbyPressed(_ sender: UIButton) {
@@ -106,9 +105,9 @@ class GameViewController: UIViewController {
             GameScene {
             gameScene.removeFromParent()
             let robby = UIStoryboard.init(name: "Robby", bundle: nil)
-                    guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
+            guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
             RobbyViewController.modalPresentationStyle = .fullScreen
-                    self.present(RobbyViewController, animated: false, completion: nil)
+            self.present(RobbyViewController, animated: false, completion: nil)
         }
     }
 }
