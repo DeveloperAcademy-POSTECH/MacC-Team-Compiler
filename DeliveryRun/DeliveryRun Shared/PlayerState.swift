@@ -52,7 +52,6 @@ class JumpingState: PlayerState {
     lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
     
     override func didEnter(from previousState: GKState?) {
-        
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
         playerNode.physicsBody?.applyImpulse(CGVector(dx:0, dy:100))
@@ -65,7 +64,6 @@ class JumpingState: PlayerState {
 
 // Landing State
 class LandingState: PlayerState {
-    
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
         case is LandingState.Type,is DamageState.Type, is JumpingState.Type: return false
@@ -92,16 +90,13 @@ class AccelingState: PlayerState {
     lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
     
     override func didEnter(from previousState: GKState?) {
-        
         playerNode.removeAction(forKey: characterAnimationKey)
         playerNode.run(action, withKey: characterAnimationKey)
-        
     }
 }
 
 // Breaking State
 class BreakingState: PlayerState {
-    
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
         case is RunningState.Type, is DamageState.Type, is StarState.Type: return true
@@ -136,7 +131,6 @@ class DamageState: PlayerState {
     let textures: Array<SKTexture> = (12..<14).map({ return "player\($0)"}).map(SKTexture.init)
     lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
     
-    
     override func didEnter(from previousState: GKState?) {
         
         isDamaged = true
@@ -147,11 +141,10 @@ class DamageState: PlayerState {
             self.isDamaged = false
             self.stateMachine?.enter(RunningState.self)
         }
-        
-        
     }
 }
 
+// MARK: - Item State
 // Star State
 class StarState: PlayerState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {

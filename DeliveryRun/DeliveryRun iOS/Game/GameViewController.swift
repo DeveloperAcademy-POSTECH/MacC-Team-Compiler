@@ -105,13 +105,10 @@ class GameViewController: UIViewController {
             GameScene {
             gameScene.removeFromParent()
             let robby = UIStoryboard.init(name: "Robby", bundle: nil)
-                    guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
+            guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
             RobbyViewController.modalPresentationStyle = .fullScreen
-                    self.present(RobbyViewController, animated: false, completion: nil)
+            self.present(RobbyViewController, animated: false, completion: nil)
         }
     }
 }
-
-
-//MARK: Update Custom 및 Scene CusTomObject 생성시 SKSeneDelegate SKViewDelgate 사용해야함
 

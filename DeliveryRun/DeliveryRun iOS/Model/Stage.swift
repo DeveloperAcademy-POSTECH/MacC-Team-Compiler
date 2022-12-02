@@ -9,20 +9,16 @@ import UIKit
 import Foundation
 
 class Stage: Codable{
-    
     let name: String
     let image: String
     let targetRecord: Double
     var myRecord: Double
-    var star: String {
+    var star: Int {
         get {
-            if targetRecord + 15 < myRecord {
-                return "resultStar1"
-            }
-            if targetRecord - 15 > myRecord {
-                return "resultStar3"
-            }
-            return "resultStar2"
+            if targetRecord - 15 >= myRecord { return 3 }
+            else if targetRecord >= myRecord { return 2 }
+            else if targetRecord + 15 >= myRecord { return 1 }
+            return 0
         }
     }
     var isLock: Bool

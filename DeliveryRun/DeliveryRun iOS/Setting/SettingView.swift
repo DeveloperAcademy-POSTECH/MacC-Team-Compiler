@@ -62,19 +62,3 @@ class SettingView: UIView {
         }
     }
 }
-
-
-class CustomUiSlider: UISlider {
-    required init (coder aDecorder:NSCoder) {
-        super.init(coder: aDecorder)!
-        self.thumbTintColor = .deliveryrunYellow
-        self.minimumTrackTintColor = .deliveryrunRed
-        self.maximumTrackTintColor = .white
-    }
-    
-    override func trackRect(forBounds bounds: CGRect) -> CGRect {
-        var rect = super.trackRect(forBounds: bounds)
-        rect.size.height = 5
-        return rect
-    } 
-}

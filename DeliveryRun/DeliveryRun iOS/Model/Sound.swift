@@ -51,4 +51,4 @@ Sound(
 Sound(
     audioPlayer: AVAudioPlayer()),
 Sound(
-    audioPlayer: AVAudioPlayer()),]
+    audioPlayer: AVAudioPlayer())]

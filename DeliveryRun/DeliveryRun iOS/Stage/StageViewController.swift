@@ -62,17 +62,17 @@ class StageViewController: UIViewController {
         
         // 별 개수에 따라 색 변경
         switch stages[0].star {
-        case "resultStar1":
-            starImage.image = UIImage(named: "resultStar1")
+        case 1:
+            starImage.image = UIImage(named: "Result Star 1")
             break
-        case "resultStar2":
-            starImage.image = UIImage(named: "resultStar2")
+        case 2:
+            starImage.image = UIImage(named: "Result Star 2")
             break
-        case "resultStar3":
-            starImage.image = UIImage(named: "resultStar3")
+        case 3:
+            starImage.image = UIImage(named: "Result Star 3")
             break
         default:
-            starImage.image = UIImage(named: "resultStar1")
+            starImage.image = UIImage(named: "Result Star 0")
             break
         }
     }
@@ -158,17 +158,17 @@ extension StageViewController {
         
         // 별 개수에 따라 색 변경
         switch stages[indexPath.row].star {
-        case "resultStar1":
-            starImage.image = UIImage(named: "resultStar1")
+        case 1:
+            starImage.image = UIImage(named: "Result Star 1")
             break
-        case "resultStar2":
-            starImage.image = UIImage(named: "resultStar2")
+        case 2:
+            starImage.image = UIImage(named: "Result Star 2")
             break
-        case "resultStar3":
-            starImage.image = UIImage(named: "resultStar3")
+        case 3:
+            starImage.image = UIImage(named: "Result Star 3")
             break
         default:
-            starImage.image = UIImage(named: "resultStar1")
+            starImage.image = UIImage(named: "Result Star 0")
             break
         }
     }
