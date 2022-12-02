@@ -22,7 +22,6 @@ class SettingView: UIView {
     @IBOutlet weak var InGameSound: UISwitch!
     @IBOutlet weak var byLabel: UILabel!
     
-    // StoryBoard Load
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         

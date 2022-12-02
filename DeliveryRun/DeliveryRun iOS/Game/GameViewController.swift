@@ -13,7 +13,6 @@ import GameplayKit
 import AVFoundation
 
 class GameViewController: UIViewController {
-    
     override func viewDidLoad() {
         arrivalView.isHidden = true
         pauseView.isHidden = true
@@ -74,7 +73,6 @@ class GameViewController: UIViewController {
             }
         }
     }
-    
     
     @IBAction func replayPressed(_ sender: UIButton) {
         if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
