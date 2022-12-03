@@ -343,15 +343,12 @@ extension GameScene {
             itemAction = itemButton.frame.contains(location)
             
             if jumpAction {
-                running(deltaTime: 0)
                 jumpAction = false
             }
             if accelAction {
-                running(deltaTime: 0)
                 accelAction = false
             }
             if breakAction {
-                running(deltaTime: 0)
                 breakAction = false
             }
         }
@@ -434,7 +431,7 @@ extension GameScene {
 // MARK: Game Loop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
-        // Player 횡스크롤 이동
+        // Player 이동
         if currentTime > 1 {
             previousTimeInterval = currentTime - 1
         }
@@ -444,9 +441,11 @@ extension GameScene {
         let move = SKAction.move(by: diplacement, duration: 0)
         player.run(SKAction.sequence([move]))
         
+        // Player Action
         if jumpAction {
             playerStateMachine.enter(JumpingState.self)
-        } else if accelAction {
+        }
+        if accelAction {
             acceling(deltaTime: deltaTime)
         } else if breakAction {
             breaking(deltaTime: deltaTime)
