@@ -114,8 +114,8 @@
 		638862F32939D6B5004CD09C /* Story */ = {
 			isa = PBXGroup;
 			children = (
-				638862F42939D6B5004CD09C /* StoryView.xib */,
 				638862F52939D6B5004CD09C /* StoryView.swift */,
+				638862F42939D6B5004CD09C /* StoryView.xib */,
 			);
 			path = Story;
 			sourceTree = "<group>";

@@ -160,7 +160,7 @@ class GameScene: SKScene{
         jumpButton = SKSpriteNode(imageNamed: "Jump Button")
         jumpButton.name = "Jump"
         jumpButton.scale(to: CGSize(width: 180, height: 125))
-        jumpButton.position = CGPoint(x: 480, y: -200)
+        jumpButton.position = CGPoint(x: 450, y: -200)
         jumpButton.zPosition = 5.0
         Button.addChild(jumpButton)
         
@@ -168,7 +168,7 @@ class GameScene: SKScene{
         itemButton = SKSpriteNode(imageNamed: "Item Button")
         itemButton.name = "Item"
         itemButton.scale(to: CGSize(width: 100, height: 100))
-        itemButton.position = CGPoint(x: 300, y: -200)
+        itemButton.position = CGPoint(x: 280, y: -200)
         itemButton.zPosition = 5.0
         Button.addChild(itemButton)
         
@@ -259,7 +259,7 @@ class GameScene: SKScene{
         speederIcon = SKSpriteNode(imageNamed: "speed")
         speederIcon.name = "Speeder Label"
         speederIcon.scale(to: CGSize(width: 50, height: 60))
-        speederIcon.position = CGPoint(x: -80, y: -200)
+        speederIcon.position = CGPoint(x: -70, y: -200)
         speederIcon.zPosition = 5.0
         HUD.addChild(speederIcon)
         

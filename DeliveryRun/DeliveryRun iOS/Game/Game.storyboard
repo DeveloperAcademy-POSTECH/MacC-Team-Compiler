@@ -165,8 +165,8 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PR5-Dy-Wg3" userLabel="StoryView" customClass="StoryView" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="196.66666666666663" width="852" height="196.33333333333337"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="50" y="206.66666666666663" width="752" height="166.33333333333337"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1G-R7-JFl" userLabel="nextButton">
                                 <rect key="frame" x="732" y="289" width="120" height="50"/>
@@ -185,16 +185,16 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WIL-d1-OzK" firstAttribute="top" secondItem="sF4-LD-e1S" secondAttribute="top" id="2Fq-m8-RjI"/>
-                            <constraint firstAttribute="bottom" secondItem="PR5-Dy-Wg3" secondAttribute="bottom" id="2v3-dp-U6F"/>
+                            <constraint firstAttribute="bottom" secondItem="PR5-Dy-Wg3" secondAttribute="bottom" constant="20" id="2v3-dp-U6F"/>
                             <constraint firstItem="Y67-0T-vHj" firstAttribute="leading" secondItem="sF4-LD-e1S" secondAttribute="leading" id="7hN-YN-HLQ"/>
-                            <constraint firstItem="PR5-Dy-Wg3" firstAttribute="top" secondItem="sF4-LD-e1S" secondAttribute="centerY" id="C3R-fp-6oC"/>
+                            <constraint firstItem="PR5-Dy-Wg3" firstAttribute="top" secondItem="sF4-LD-e1S" secondAttribute="centerY" constant="10" id="C3R-fp-6oC"/>
                             <constraint firstItem="WIL-d1-OzK" firstAttribute="leading" secondItem="sF4-LD-e1S" secondAttribute="leading" id="Weo-0y-Asl"/>
-                            <constraint firstItem="4O3-Ak-n06" firstAttribute="trailing" secondItem="PR5-Dy-Wg3" secondAttribute="trailing" id="Wzu-sN-7au"/>
                             <constraint firstItem="Y67-0T-vHj" firstAttribute="top" secondItem="sF4-LD-e1S" secondAttribute="top" id="Z9k-Sg-nXH"/>
                             <constraint firstAttribute="bottom" secondItem="WIL-d1-OzK" secondAttribute="bottom" id="aBD-JO-VtP"/>
-                            <constraint firstItem="PR5-Dy-Wg3" firstAttribute="leading" secondItem="4O3-Ak-n06" secondAttribute="leading" id="dJR-FY-Kc2"/>
+                            <constraint firstItem="PR5-Dy-Wg3" firstAttribute="leading" secondItem="sF4-LD-e1S" secondAttribute="leading" constant="50" id="dJR-FY-Kc2"/>
                             <constraint firstAttribute="bottom" secondItem="Y67-0T-vHj" secondAttribute="bottom" id="fKL-XQ-gKx"/>
                             <constraint firstItem="4O3-Ak-n06" firstAttribute="bottom" secondItem="P1G-R7-JFl" secondAttribute="bottom" constant="20" id="ndE-kE-HeI"/>
+                            <constraint firstAttribute="trailing" secondItem="PR5-Dy-Wg3" secondAttribute="trailing" constant="50" id="nxL-Cs-did"/>
                             <constraint firstAttribute="trailing" secondItem="WIL-d1-OzK" secondAttribute="trailing" id="rF5-6h-LgU"/>
                             <constraint firstAttribute="trailing" secondItem="Y67-0T-vHj" secondAttribute="trailing" id="roS-FT-lwI"/>
                             <constraint firstItem="4O3-Ak-n06" firstAttribute="trailing" secondItem="P1G-R7-JFl" secondAttribute="trailing" id="vfx-fg-DHB"/>
