@@ -296,18 +296,10 @@ extension GameScene {
             if pauseAction {
                 pause()
             }
-            
             if jumpAction {
-                playerStateMachine.enter(JumpingState.self)
                 jumpData += 1
             }
-            
-            if accelAction {
-                acceling(deltaTime: 0)
-            }
-            
             if breakAction {
-                breaking(deltaTime: 0)
                 breakData += 1
             }
             
