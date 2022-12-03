@@ -409,6 +409,8 @@ extension GameScene {
     func arrival(timeRecord:Double) {
         self.viewController.endBackView.isHidden = false
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
+        Button.removeFromParent()
+        HUD.removeFromParent()
         userDefault.firstStageCompleted(timeRecord: timeRecord)
         userDefault.trackingDataSave(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
     }
