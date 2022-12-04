@@ -164,22 +164,6 @@
                                     <constraint firstItem="pT7-38-du8" firstAttribute="centerY" secondItem="Y67-0T-vHj" secondAttribute="centerY" id="w2r-PK-6To"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PR5-Dy-Wg3" userLabel="StoryView" customClass="StoryView" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="50" y="206.66666666666663" width="752" height="166.33333333333337"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1G-R7-JFl" userLabel="nextButton">
-                                <rect key="frame" x="732" y="289" width="120" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="MZW-o7-S7n"/>
-                                    <constraint firstAttribute="height" constant="50" id="sKT-K3-06Q"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="nextText"/>
-                                <connections>
-                                    <action selector="nextTextPressed:" destination="P36-JN-cAo" eventType="touchUpInside" id="gB1-vh-Bwq"/>
-                                </connections>
-                            </button>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ff-Ay-irD" userLabel="PoliceView">
                                 <rect key="frame" x="326" y="96.666666666666686" width="200" height="200"/>
                                 <subviews>
@@ -216,21 +200,15 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WIL-d1-OzK" firstAttribute="top" secondItem="sF4-LD-e1S" secondAttribute="top" id="2Fq-m8-RjI"/>
-                            <constraint firstAttribute="bottom" secondItem="PR5-Dy-Wg3" secondAttribute="bottom" constant="20" id="2v3-dp-U6F"/>
                             <constraint firstItem="Y67-0T-vHj" firstAttribute="leading" secondItem="sF4-LD-e1S" secondAttribute="leading" id="7hN-YN-HLQ"/>
-                            <constraint firstItem="PR5-Dy-Wg3" firstAttribute="top" secondItem="sF4-LD-e1S" secondAttribute="centerY" constant="10" id="C3R-fp-6oC"/>
-                            <constraint firstItem="2ff-Ay-irD" firstAttribute="centerX" secondItem="PR5-Dy-Wg3" secondAttribute="centerX" id="EL0-u1-9ew"/>
                             <constraint firstItem="2ff-Ay-irD" firstAttribute="centerY" secondItem="WIL-d1-OzK" secondAttribute="centerY" id="Tuj-gn-bbz"/>
                             <constraint firstItem="WIL-d1-OzK" firstAttribute="leading" secondItem="sF4-LD-e1S" secondAttribute="leading" id="Weo-0y-Asl"/>
                             <constraint firstItem="Y67-0T-vHj" firstAttribute="top" secondItem="sF4-LD-e1S" secondAttribute="top" id="Z9k-Sg-nXH"/>
                             <constraint firstAttribute="bottom" secondItem="WIL-d1-OzK" secondAttribute="bottom" id="aBD-JO-VtP"/>
-                            <constraint firstItem="PR5-Dy-Wg3" firstAttribute="leading" secondItem="sF4-LD-e1S" secondAttribute="leading" constant="50" id="dJR-FY-Kc2"/>
                             <constraint firstAttribute="bottom" secondItem="Y67-0T-vHj" secondAttribute="bottom" id="fKL-XQ-gKx"/>
-                            <constraint firstItem="4O3-Ak-n06" firstAttribute="bottom" secondItem="P1G-R7-JFl" secondAttribute="bottom" constant="20" id="ndE-kE-HeI"/>
-                            <constraint firstAttribute="trailing" secondItem="PR5-Dy-Wg3" secondAttribute="trailing" constant="50" id="nxL-Cs-did"/>
                             <constraint firstAttribute="trailing" secondItem="WIL-d1-OzK" secondAttribute="trailing" id="rF5-6h-LgU"/>
                             <constraint firstAttribute="trailing" secondItem="Y67-0T-vHj" secondAttribute="trailing" id="roS-FT-lwI"/>
-                            <constraint firstItem="4O3-Ak-n06" firstAttribute="trailing" secondItem="P1G-R7-JFl" secondAttribute="trailing" id="vfx-fg-DHB"/>
+                            <constraint firstItem="2ff-Ay-irD" firstAttribute="centerX" secondItem="WIL-d1-OzK" secondAttribute="centerX" id="yLb-5N-XK1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IhL-sx-zuV"/>
@@ -238,13 +216,11 @@
                         <outlet property="endBackView" destination="Y67-0T-vHj" id="7ho-RP-mm2"/>
                         <outlet property="endTitleLabel" destination="gcW-Lf-xIw" id="iHj-h5-SUM"/>
                         <outlet property="endView" destination="pT7-38-du8" id="9dl-4H-1Fl"/>
-                        <outlet property="nextTextButton" destination="P1G-R7-JFl" id="SmV-s6-o17"/>
                         <outlet property="nowRecordLabel" destination="ixr-Ec-8fc" id="g54-Go-bq5"/>
                         <outlet property="pauseBackView" destination="WIL-d1-OzK" id="hcN-Tr-r1u"/>
                         <outlet property="pauseLabel" destination="lW4-FU-5Jp" id="KiG-ul-hI9"/>
                         <outlet property="pauseView" destination="lmJ-eZ-I1U" id="ayg-ab-rG5"/>
                         <outlet property="policeView" destination="2ff-Ay-irD" id="cfv-YZ-Fcv"/>
-                        <outlet property="storyView" destination="PR5-Dy-Wg3" id="pYA-Bm-coa"/>
                         <outlet property="targetRecordLabel" destination="QAQ-V8-pJM" id="dMo-6T-ipT"/>
                     </connections>
                 </viewController>
