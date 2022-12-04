@@ -54,6 +54,7 @@ class GameScene: SKScene{
     var itemAction = false
     var startAction = false
     var pauseAction = false
+    var stealAction = false
     var gameOver = false
     
     // CameraNode
@@ -69,6 +70,8 @@ class GameScene: SKScene{
     let endTime = 100
     var elapsedTime = 0
     
+    var catSign:SKNode!
+    var catAnimation = [SKTexture]()
     var score: Int = 0
     var playerSpeed = 3.0
     let maxSpeed = 10.0
@@ -85,6 +88,16 @@ class GameScene: SKScene{
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
+        
+        //Add catSign
+        catSign = childNode(withName: "CatSign")
+        stealAction = true
+        let catTexture = SKTextureAtlas(named:"CatAnimation")
+        
+        for index in 0..<catTexture.textureNames.count {
+            let textureName = "cat" + String(index)
+            catAnimation.append(catTexture.textureNamed(textureName))
+        }
         
         // UserDefaultTrackingData
         UserDefaultData.findPath()
@@ -416,8 +429,21 @@ extension GameScene {
     
     func policeCatch() {
         self.viewController.policeView.isHidden = false
-        
     }
+    
+    func emrgeCat() {
+        if player.position.x >= catSign.position.x {
+            if player.position.x <= catSign.position.x + 1000 && stealAction{
+                stealAction = false
+                createCat()
+            }
+        }
+    }
+    
+    func stealItem() {
+        print("Steal")
+    }
+    
     
     // Game UI Function
     func pause() {
@@ -493,6 +519,10 @@ extension GameScene {
         // Label Text 설정
         timerText.text = String(format: "%D", elapsedTime)
         speederText.text = String(format: "%d km/h", Int(playerSpeed * 6))
+        
+        if startAction {
+            emrgeCat()
+        }
     }
 }
 
@@ -531,6 +561,13 @@ extension GameScene: SKPhysicsContactDelegate {
                 policeCatch()
             } else if contact.bodyB.node?.name == "Police" {
                 policeCatch()
+            }
+            if contact.bodyA.node?.name == "Cat" {
+                stealItem()
+                stealAction = false
+            } else if contact.bodyB.node?.name == "Cat" {
+                stealItem()
+                stealAction = false
             }
         }
     
@@ -613,32 +650,35 @@ extension GameScene: SKPhysicsContactDelegate {
 
 // MARK: Police & Cat
 extension GameScene {
-    
-    func emergePolice() {
-        
-        let node = SKSpriteNode(imageNamed: "police0")
-        node.name = "Police"
-        let randomXPosition = Int(arc4random_uniform(UInt32(self.size.width)))
-        
-        node.position = CGPoint(x: player.position.x + 100.0, y:0)
+
+    func createCat() {
+
+        let node = SKSpriteNode(imageNamed: "cat0")
+        node.name = "Cat"
+        node.position = CGPoint(x: player.position.x + 400.0, y:player.position.y + 100.0)
         node.anchorPoint = CGPoint(x: 0.5, y:1)
         node.scale(to: CGSize(width: 150, height: 150))
         node.zPosition = 5
         
+        node.run(SKAction.repeatForever(SKAction.animate(with: catAnimation, timePerFrame: 0.3)))
+
         let physicalBody = SKPhysicsBody(circleOfRadius: 30)
         node.physicsBody = physicalBody
-        
-        physicalBody.categoryBitMask = Collision.Masks.damage.bitmask
+
+        physicalBody.categoryBitMask = Collision.Masks.interaction.bitmask
         physicalBody.collisionBitMask = Collision.Masks.player.bitmask
         physicalBody.fieldBitMask = Collision.Masks.ground.bitmask
         physicalBody.contactTestBitMask = Collision.Masks.player.bitmask
-        
-        physicalBody.affectedByGravity = false
+
+        physicalBody.pinned = true
         physicalBody.allowsRotation = false
         physicalBody.restitution = 0.2
         physicalBody.friction = 10
-        
+
         addChild(node)
+
+    }
+    func removeCat() {
         
     }
 }
