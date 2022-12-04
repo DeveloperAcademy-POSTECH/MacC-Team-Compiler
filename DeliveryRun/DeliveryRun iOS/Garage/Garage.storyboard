@@ -8,6 +8,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,12 +20,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello I am Garage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2o-WB-bAI">
-                                <rect key="frame" x="358.66666666666669" y="186" width="135" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RobbyBack" translatesAutoresizingMaskIntoConstraints="NO" id="EJ8-F7-ORC" userLabel="Background">
                                 <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                             </imageView>
@@ -67,22 +62,49 @@
                                 <rect key="frame" x="0.0" y="84" width="852" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Ug-4I-BPt">
+                                <rect key="frame" x="120" y="0.0" width="612" height="359"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Stv-eU-98C">
+                                    <size key="itemSize" width="250" height="250"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="PlayerCollectionCell" id="bgA-ic-7YI" customClass="PlayerCollectionCell" customModule="DeliveryRun" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="54.666666666666664" width="250" height="250"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dhK-5k-Env">
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" name="deliveryrunMint"/>
+                                        <size key="customSize" width="250" height="250"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="7Up-Jf-unl"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="sQ0-gt-ZAX"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="EJ8-F7-ORC" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="5A2-91-vMy"/>
                             <constraint firstItem="EJ8-F7-ORC" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="62W-nQ-0t1"/>
-                            <constraint firstItem="n2o-WB-bAI" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="HSQ-Kb-yeI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="S8m-fy-8z5" secondAttribute="trailing" id="O5S-ho-Vgt"/>
                             <constraint firstAttribute="bottom" secondItem="EJ8-F7-ORC" secondAttribute="bottom" id="Rkd-Ht-kpH"/>
                             <constraint firstItem="S8m-fy-8z5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="TfH-EQ-OX5"/>
-                            <constraint firstItem="n2o-WB-bAI" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="UAF-nC-uaJ"/>
+                            <constraint firstItem="0Ug-4I-BPt" firstAttribute="leading" secondItem="t7S-b5-XB7" secondAttribute="trailing" constant="80" id="W8V-Qj-3Vb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XSk-4B-H2S" secondAttribute="trailing" id="X0J-gu-mOl"/>
                             <constraint firstItem="EJ8-F7-ORC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="XHJ-jX-jwQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="0Ug-4I-BPt" secondAttribute="bottom" id="Y0f-FY-Qrq"/>
                             <constraint firstItem="t7S-b5-XB7" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="25" id="ZIQ-jV-hGJ"/>
+                            <constraint firstItem="XSk-4B-H2S" firstAttribute="leading" secondItem="0Ug-4I-BPt" secondAttribute="trailing" constant="80" id="ZuU-6j-14V"/>
                             <constraint firstItem="t7S-b5-XB7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="a5L-cY-gBq"/>
                             <constraint firstItem="S8m-fy-8z5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cfR-T0-uRb"/>
+                            <constraint firstItem="0Ug-4I-BPt" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="fUj-p8-Ci7"/>
                             <constraint firstItem="XSk-4B-H2S" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="25" id="iKa-S9-HKz"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="S8m-fy-8z5" secondAttribute="bottom" constant="25" id="zCf-bD-bXq"/>
                         </constraints>
@@ -90,6 +112,7 @@
                     <connections>
                         <outlet property="backButton" destination="t7S-b5-XB7" id="J35-pI-jWv"/>
                         <outlet property="backgroundView" destination="EJ8-F7-ORC" id="b8e-83-nlF"/>
+                        <outlet property="collectionView" destination="0Ug-4I-BPt" id="oxt-83-D41"/>
                         <outlet property="settingButton" destination="XSk-4B-H2S" id="1OT-V1-xxh"/>
                         <outlet property="settingView" destination="S8m-fy-8z5" id="aan-5f-oKK"/>
                     </connections>
@@ -103,6 +126,9 @@
         <image name="RobbyBack" width="844" height="390"/>
         <image name="arrowshape.backward.fill" catalog="system" width="128" height="104"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="deliveryrunMint">
+            <color red="0.25098039215686274" green="0.8784313725490196" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="deliveryrunYellow">
             <color red="1" green="0.89803921568627454" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

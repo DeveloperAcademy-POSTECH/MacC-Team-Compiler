@@ -18,6 +18,8 @@ class GarageViewController: UIViewController {
     
     @IBOutlet weak var settingView: SettingView!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +42,12 @@ class GarageViewController: UIViewController {
         settingView.isHidden = true
         settingView.layer.opacity = 1.0
         
+        
+        // CollectionView
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UINib(nibName: "PlayerCollectionCell", bundle: nil), forCellWithReuseIdentifier: "PlayerCollectionCell")
+        
     }
     
     
@@ -54,6 +62,42 @@ class GarageViewController: UIViewController {
         settingView.isHidden = false
     }
 }
+
+extension GarageViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    // CollectionNumbers
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        playerSkins.count
+    }
+    
+    // Collection Cell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        //Cell Propery
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionCell", for: indexPath) as! PlayerCollectionCell
+        cell.collectionName = collectionSkins[indexPath.row]
+        cell.collectionImage.image = UIImage(named: collectionSkins[indexPath.row])
+        cell.SpeedLabel.text = String(format: "%D", collectionSpeedStat[indexPath.row])
+        cell.JumpLabel.text = String(format: "%D", collectionJumpStat[indexPath.row])
+        cell.SpeedProgress.progress = Float(Double(collectionSpeedStat[indexPath.row]) / 10.0)
+        cell.JumpProgress.progress = Float(Double(collectionJumpStat[indexPath.row]) / 10.0)
+        return cell
+        
+    }
+    
+    // Collection Size
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            
+        let width: CGFloat = (collectionView.frame.width)
+        let height: CGFloat = (collectionView.frame.height)
+            return CGSize(width: width, height: height)
+        }
+    
+}
+
+let collectionSkins = ["default", "jump", "break", "collision"]
+let collectionSpeedStat = [1, 2, 3, 4]
+let collectionJumpStat = [10, 9, 8, 7]
 
 
 // UIImage Blur

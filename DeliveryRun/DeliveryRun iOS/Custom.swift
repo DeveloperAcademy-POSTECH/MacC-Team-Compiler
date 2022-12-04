@@ -34,6 +34,17 @@ class CustomUIProgressView: UIProgressView {
     }
 }
 
+// Custom UILabel
+class CustomUILabel: UILabel {
+    required init(coder aDecorder:NSCoder) {
+        super.init(coder:aDecorder)!
+        self.font = UIFont(name: "BMJUAOTF", size: 25)
+        self.textAlignment = .left
+        self.textColor = .white
+
+    }
+}
+
 // UIImage Extension
 extension UIImage {
     func resized(to size: CGSize) -> UIImage {
@@ -63,3 +74,4 @@ extension UIImage {
         return UIImage(cgImage: cgimg)
     }
 }
+
