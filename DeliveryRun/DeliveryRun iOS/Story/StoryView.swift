@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 class StoryView: UIView {
     
-    
     let nibName = "StoryView"
-    
     let userDefault = UserDefaultData.shared
     
     func loadViewFromNib() -> UIView? {
@@ -21,7 +19,7 @@ class StoryView: UIView {
     }
 
     @IBOutlet weak var storyTextLabel: UILabel!
-    // StoryBoard Load
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -29,14 +27,15 @@ class StoryView: UIView {
         guard let view = loadViewFromNib() else { return }
         self.addSubview(view)
         view.frame = self.bounds
-        view.backgroundColor = .deliveryrunPurple
+        view.backgroundColor = .deliveryrunBlack!.withAlphaComponent(0.8)
         view.layer.borderColor = UIColor.white.cgColor
         view.layer.borderWidth = 3
         view.layer.cornerRadius = 10
         
-        
+        storyTextLabel.font = UIFont(name: "BMJUAOTF", size: 20)
+        storyTextLabel.textColor = .white
+        storyTextLabel.textAlignment = .left
     }
-    
 }
 
 

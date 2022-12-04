@@ -27,7 +27,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안녕 내 이릉은 준기라고해" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3M-70-4yh" userLabel="StoryTextLabel">
-                    <rect key="frame" x="140" y="59" width="175" height="21"/>
+                    <rect key="frame" x="140" y="74" width="175" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
             <constraints>
                 <constraint firstItem="yys-3e-P7N" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="6Lt-fp-N23"/>
                 <constraint firstItem="yys-3e-P7N" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="A3Q-Y0-baY"/>
-                <constraint firstItem="X3M-70-4yh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="cF7-Xl-waS"/>
+                <constraint firstItem="X3M-70-4yh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="ZHp-Mm-vk8"/>
                 <constraint firstItem="X3M-70-4yh" firstAttribute="leading" secondItem="yys-3e-P7N" secondAttribute="trailing" constant="20" id="uT2-6p-UNN"/>
             </constraints>
             <point key="canvasLocation" x="83.802816901408448" y="20.610687022900763"/>

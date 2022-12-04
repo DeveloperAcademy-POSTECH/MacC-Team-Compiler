@@ -52,6 +52,23 @@
                                     <action selector="SettingPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YIq-wq-axy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8B-hF-QLa" userLabel="Quest Button">
+                                <rect key="frame" x="0.0" y="25" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="EW2-Gb-Yve"/>
+                                    <constraint firstAttribute="width" constant="40" id="qyq-U5-EKC"/>
+                                </constraints>
+                                <color key="tintColor" name="deliveryrunYellow"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="scroll.fill" catalog="system">
+                                    <color key="titleColor" name="deliveryrunYellow"/>
+                                    <color key="titleShadowColor" name="deliveryrunYellow"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                </state>
+                                <connections>
+                                    <action selector="QuestPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="fHC-8o-7K5"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-aL-qVa" userLabel="Start Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
                                 <rect key="frame" x="684" y="315" width="160" height="50"/>
                                 <constraints>
@@ -73,18 +90,6 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="차고"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAy-ZS-MCe" userLabel="Quest Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="255" width="160" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="m0w-Yl-Qvs"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="mdf-vT-sWW"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="퀘스트"/>
-                                <connections>
-                                    <action selector="QeustPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ILM-ti-nTL"/>
-                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player0" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-lM-3qU" userLabel="player">
                                 <rect key="frame" x="362" y="225" width="120" height="120"/>
@@ -108,12 +113,11 @@
                             <constraint firstItem="rlC-aJ-f2j" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="25" id="0eg-Dr-20w"/>
                             <constraint firstItem="kOz-lf-BoN" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="4zB-rx-NtJ"/>
                             <constraint firstItem="Kew-i8-5gm" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="25" id="6op-Ai-WLb"/>
-                            <constraint firstItem="6Ai-lM-3qU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aAy-ZS-MCe" secondAttribute="trailing" constant="8" symbolic="YES" id="Bix-wL-DPZ"/>
+                            <constraint firstItem="Y8B-hF-QLa" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="GG5-hv-wH1"/>
                             <constraint firstItem="Kew-i8-5gm" firstAttribute="trailing" secondItem="bNo-s9-wk6" secondAttribute="trailing" id="IM3-ui-LQz"/>
                             <constraint firstItem="Kew-i8-5gm" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="LGS-o5-Bhb"/>
                             <constraint firstAttribute="bottom" secondItem="Kew-i8-5gm" secondAttribute="bottom" constant="25" id="N7V-oy-Ea2"/>
                             <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="rlC-aJ-f2j" secondAttribute="trailing" id="Nci-Gb-P6n"/>
-                            <constraint firstItem="aAy-ZS-MCe" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="O0H-SC-B6i"/>
                             <constraint firstAttribute="bottom" secondItem="kOz-lf-BoN" secondAttribute="bottom" constant="25" id="PeY-xZ-wot"/>
                             <constraint firstItem="6Ai-lM-3qU" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="SzF-x1-FKd"/>
                             <constraint firstItem="Tae-ZO-LGw" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="25" id="VjH-n0-JZc"/>
@@ -121,7 +125,6 @@
                             <constraint firstAttribute="bottom" secondItem="fFX-aL-qVa" secondAttribute="bottom" constant="25" id="WfE-ZS-tCZ"/>
                             <constraint firstItem="Tae-ZO-LGw" firstAttribute="trailing" secondItem="bNo-s9-wk6" secondAttribute="trailing" id="XKN-YD-fLy"/>
                             <constraint firstAttribute="bottom" secondItem="Tae-ZO-LGw" secondAttribute="bottom" constant="25" id="daV-3N-08T"/>
-                            <constraint firstItem="kOz-lf-BoN" firstAttribute="top" secondItem="aAy-ZS-MCe" secondAttribute="bottom" constant="10" id="dgd-Hi-FSX"/>
                             <constraint firstItem="bNo-s9-wk6" firstAttribute="trailing" secondItem="fFX-aL-qVa" secondAttribute="trailing" id="dwE-dW-aa1"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailing" id="e5D-80-0Zg"/>
                             <constraint firstItem="Tae-ZO-LGw" firstAttribute="leading" secondItem="bNo-s9-wk6" secondAttribute="leading" id="eoB-gj-6UY"/>
@@ -129,13 +132,14 @@
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="jhK-h1-iyh"/>
                             <constraint firstItem="GNU-8W-xnK" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="qni-cQ-jN9"/>
                             <constraint firstAttribute="bottom" secondItem="GNU-8W-xnK" secondAttribute="bottom" id="vlN-0A-QVJ"/>
+                            <constraint firstItem="Y8B-hF-QLa" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="25" id="xtl-L7-QMP"/>
                             <constraint firstAttribute="bottom" secondItem="6Ai-lM-3qU" secondAttribute="bottom" constant="45" id="yJG-R0-cda"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TOA-kh-Zwp"/>
                     <connections>
                         <outlet property="garageButton" destination="kOz-lf-BoN" id="Lhx-iI-y91"/>
-                        <outlet property="questButton" destination="aAy-ZS-MCe" id="mEl-Q2-dov"/>
+                        <outlet property="questButton" destination="Y8B-hF-QLa" id="YUs-QN-Iv5"/>
                         <outlet property="questView" destination="Kew-i8-5gm" id="gbD-tn-Eh7"/>
                         <outlet property="settingButton" destination="rlC-aJ-f2j" id="up0-0F-yaB"/>
                         <outlet property="settingView" destination="Tae-ZO-LGw" id="UNu-IF-0OR"/>
@@ -152,6 +156,7 @@
         <image name="RobbyBack" width="844" height="390"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="player0" width="360" height="366"/>
+        <image name="scroll.fill" catalog="system" width="128" height="116"/>
         <namedColor name="deliveryrunYellow">
             <color red="1" green="0.89803921568627454" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
