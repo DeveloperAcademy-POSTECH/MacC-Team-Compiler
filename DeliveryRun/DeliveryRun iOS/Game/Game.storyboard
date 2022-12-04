@@ -219,6 +219,8 @@
                             <constraint firstAttribute="bottom" secondItem="PR5-Dy-Wg3" secondAttribute="bottom" constant="20" id="2v3-dp-U6F"/>
                             <constraint firstItem="Y67-0T-vHj" firstAttribute="leading" secondItem="sF4-LD-e1S" secondAttribute="leading" id="7hN-YN-HLQ"/>
                             <constraint firstItem="PR5-Dy-Wg3" firstAttribute="top" secondItem="sF4-LD-e1S" secondAttribute="centerY" constant="10" id="C3R-fp-6oC"/>
+                            <constraint firstItem="2ff-Ay-irD" firstAttribute="centerX" secondItem="PR5-Dy-Wg3" secondAttribute="centerX" id="EL0-u1-9ew"/>
+                            <constraint firstItem="2ff-Ay-irD" firstAttribute="centerY" secondItem="WIL-d1-OzK" secondAttribute="centerY" id="Tuj-gn-bbz"/>
                             <constraint firstItem="WIL-d1-OzK" firstAttribute="leading" secondItem="sF4-LD-e1S" secondAttribute="leading" id="Weo-0y-Asl"/>
                             <constraint firstItem="Y67-0T-vHj" firstAttribute="top" secondItem="sF4-LD-e1S" secondAttribute="top" id="Z9k-Sg-nXH"/>
                             <constraint firstAttribute="bottom" secondItem="WIL-d1-OzK" secondAttribute="bottom" id="aBD-JO-VtP"/>
@@ -237,11 +239,11 @@
                         <outlet property="endTitleLabel" destination="gcW-Lf-xIw" id="iHj-h5-SUM"/>
                         <outlet property="endView" destination="pT7-38-du8" id="9dl-4H-1Fl"/>
                         <outlet property="nextTextButton" destination="P1G-R7-JFl" id="SmV-s6-o17"/>
-                        <outlet property="policeView" destination="2ff-Ay-irD" id="cfv-YZ-Fcv"/>
                         <outlet property="nowRecordLabel" destination="ixr-Ec-8fc" id="g54-Go-bq5"/>
                         <outlet property="pauseBackView" destination="WIL-d1-OzK" id="hcN-Tr-r1u"/>
                         <outlet property="pauseLabel" destination="lW4-FU-5Jp" id="KiG-ul-hI9"/>
                         <outlet property="pauseView" destination="lmJ-eZ-I1U" id="ayg-ab-rG5"/>
+                        <outlet property="policeView" destination="2ff-Ay-irD" id="cfv-YZ-Fcv"/>
                         <outlet property="storyView" destination="PR5-Dy-Wg3" id="pYA-Bm-coa"/>
                         <outlet property="targetRecordLabel" destination="QAQ-V8-pJM" id="dMo-6T-ipT"/>
                     </connections>
