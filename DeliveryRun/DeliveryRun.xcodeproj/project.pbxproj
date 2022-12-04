@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6372509428FFC7F700117CF8 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6372509328FFC7F700117CF8 /* PlayerState.swift */; };
+		637DB203293CEA2C007B755C /* Garage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 637DB202293CEA2C007B755C /* Garage.storyboard */; };
+		637DB205293CEA3E007B755C /* GarageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DB204293CEA3E007B755C /* GarageViewController.swift */; };
 		638862F62939D6B5004CD09C /* StoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638862F42939D6B5004CD09C /* StoryView.xib */; };
 		638862F72939D6B5004CD09C /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638862F52939D6B5004CD09C /* StoryView.swift */; };
 		638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D9B29292B46750024E821 /* QuestTableCell.swift */; };
@@ -54,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		6372509328FFC7F700117CF8 /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
+		637DB202293CEA2C007B755C /* Garage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Garage.storyboard; sourceTree = "<group>"; };
+		637DB204293CEA3E007B755C /* GarageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewController.swift; sourceTree = "<group>"; };
 		638862F42939D6B5004CD09C /* StoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryView.xib; sourceTree = "<group>"; };
 		638862F52939D6B5004CD09C /* StoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		638D9B29292B46750024E821 /* QuestTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTableCell.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 		637DB201293CE8BC007B755C /* Garage */ = {
 			isa = PBXGroup;
 			children = (
+				637DB202293CEA2C007B755C /* Garage.storyboard */,
+				637DB204293CEA3E007B755C /* GarageViewController.swift */,
 			);
 			path = Garage;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 				6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */,
 				6F4B8BCB291E237B000990EA /* sound3.mp3 in Resources */,
 				6F4B8BCE291E2383000990EA /* sound5.mp3 in Resources */,
+				637DB203293CEA2C007B755C /* Garage.storyboard in Resources */,
 				6F4B8BD2291E238B000990EA /* robby.mp3 in Resources */,
 				6F28EEAB28F5444600D7330F /* GameScene.sks in Resources */,
 				6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */,
@@ -375,6 +382,7 @@
 				6F2E1D9A2924BB2500CAE76E /* StageCell.swift in Sources */,
 				6F28EEA128F5444600D7330F /* AppDelegate.swift in Sources */,
 				6F965E15293919640048334B /* Custom.swift in Sources */,
+				637DB205293CEA3E007B755C /* GarageViewController.swift in Sources */,
 				639553FC2935B49300E3DECA /* Setting.swift in Sources */,
 				639554002935BC8D00E3DECA /* UserDafultData.swift in Sources */,
 				6396605429233D3E0002E6B2 /* SettingView.swift in Sources */,

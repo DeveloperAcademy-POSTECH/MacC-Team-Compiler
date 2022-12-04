@@ -55,6 +55,14 @@ class RobbyViewController: UIViewController {
         questView.isHidden = false
     }
     
+    
+    @IBAction func GaragePressed(_ sender: CustomGameButton) {
+        let garage = UIStoryboard.init(name: "Garage", bundle: nil)
+        guard let GarageViewController = garage.instantiateViewController(withIdentifier: "GarageViewController") as? GarageViewController else { return }
+        GarageViewController.modalPresentationStyle = .fullScreen
+        self.present(GarageViewController, animated: true, completion: nil)
+        
+    }
     @IBAction func goDelivery(_ sender: CustomGameButton) {
         let stage = UIStoryboard.init(name: "Stage", bundle: nil)
                 guard let StageViewController = stage.instantiateViewController(withIdentifier: "StageViewController")as? StageViewController else {return}
