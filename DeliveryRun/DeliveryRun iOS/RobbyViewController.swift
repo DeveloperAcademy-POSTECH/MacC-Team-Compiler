@@ -16,18 +16,15 @@ class RobbyViewController: UIViewController {
     
     @IBOutlet weak var settingView: SettingView!
     @IBOutlet weak var questView: QuestView!
-    @IBOutlet weak var questButton: CustomGameButton!
     @IBOutlet weak var garageButton: CustomGameButton!
     @IBOutlet weak var startButton: CustomGameButton!
     @IBOutlet weak var settingButton: UIButton!
+    @IBOutlet weak var questButton: UIButton!
     
     var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        questButton.setTitle(" 퀘스트", for: .normal)
-        questButton.setImage(UIImage(systemName: "list.bullet.circle.fill"), for: .normal)
         
         garageButton.setTitle(" 차고", for: .normal)
         garageButton.setImage(UIImage(systemName: "car.fill"), for: .normal)
@@ -39,6 +36,11 @@ class RobbyViewController: UIViewController {
         settingButton.layer.shadowRadius = 20
         settingButton.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: settingButton.frame.width, height: settingButton.frame.height)).cgPath
         
+        questButton.layer.shadowColor = UIColor.deliveryrunYellow?.cgColor
+        questButton.layer.shadowOpacity = 1
+        questButton.layer.shadowRadius = 20
+        questButton.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: questButton.frame.width, height: questButton.frame.height)).cgPath
+        
         settingView.isHidden = true
         questView.isHidden = true
         settingView.layer.opacity = 1.0
@@ -48,7 +50,7 @@ class RobbyViewController: UIViewController {
     @IBAction func SettingPressed(_ sender: UIButton) {
         settingView.isHidden = false
     }
-    @IBAction func QeustPressed(_ sender: CustomGameButton) {
+    @IBAction func QuestPressed(_ sender: UIButton) {
         questView.isHidden = false
     }
     

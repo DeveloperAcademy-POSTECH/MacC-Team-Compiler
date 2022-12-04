@@ -12,9 +12,12 @@ class StageViewController: UIViewController {
     let userDefault = UserDefaultData.shared
     
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var stageCollectionView: UICollectionView!
     @IBOutlet weak var stageDetailView: UIView!
     @IBOutlet weak var settingView: SettingView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var startButton: CustomGameButton!
     @IBOutlet weak var stageNameLabel: UILabel!
     @IBOutlet weak var recordLabel: UILabel!
@@ -27,6 +30,9 @@ class StageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let image = UIImage(named: "RobbyBack")
+        backgroundImage.image = image?.applyBlur_usingClamp(radius: 50)
+        
         stageCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         stageCollectionView.layer.cornerRadius = 10
         stageCollectionView.delegate = self
@@ -37,7 +43,18 @@ class StageViewController: UIViewController {
         setStageDetail()
         
         settingView.layer.cornerRadius = 10
+        settingView.alpha = 1.0
         settingView.isHidden = true
+        
+        backButton.layer.shadowColor = UIColor.deliveryrunYellow?.cgColor
+        backButton.layer.shadowOpacity = 1
+        backButton.layer.shadowRadius = 20
+        backButton.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: backButton.frame.width, height: backButton.frame.height)).cgPath
+        
+        settingButton.layer.shadowColor = UIColor.deliveryrunYellow?.cgColor
+        settingButton.layer.shadowOpacity = 1
+        settingButton.layer.shadowRadius = 20
+        settingButton.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: settingButton.frame.width, height: settingButton.frame.height)).cgPath
     }
     
     // Stage Detail View 설정

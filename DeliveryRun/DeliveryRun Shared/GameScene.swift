@@ -35,7 +35,6 @@ class GameScene: SKScene{
     var pauseButton: SKSpriteNode!
     
     // HUD
-    private let pauseScreen = PauseScreen()
     var HUD: SKNode!
     var locationBar: SKShapeNode!
     var startLineShort: SKSpriteNode!
@@ -66,13 +65,11 @@ class GameScene: SKScene{
     // Variables
     var timer = Timer()
     
-    var previousTimeInterval:TimeInterval = 0.0
-    let endTime = 100
-    var elapsedTime = 0
-    
     var catSign:SKNode!
     var catAnimation = [SKTexture]()
-    var score: Int = 0
+    
+    let endTime = 100
+    var elapsedTime = 0
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
@@ -129,11 +126,6 @@ class GameScene: SKScene{
         ])
         
         playerStateMachine.enter(RunningState.self)
-        
-        // Police
-//        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
-//            self.emergePolice()
-//        }
     }
     
     // Player 생성
@@ -177,7 +169,7 @@ class GameScene: SKScene{
         jumpButton = SKSpriteNode(imageNamed: "Jump Button")
         jumpButton.name = "Jump"
         jumpButton.scale(to: CGSize(width: 180, height: 125))
-        jumpButton.position = CGPoint(x: 480, y: -200)
+        jumpButton.position = CGPoint(x: 450, y: -200)
         jumpButton.zPosition = 5.0
         Button.addChild(jumpButton)
         
@@ -185,7 +177,7 @@ class GameScene: SKScene{
         itemButton = SKSpriteNode(imageNamed: "Item Button")
         itemButton.name = "Item"
         itemButton.scale(to: CGSize(width: 100, height: 100))
-        itemButton.position = CGPoint(x: 300, y: -200)
+        itemButton.position = CGPoint(x: 280, y: -200)
         itemButton.zPosition = 5.0
         Button.addChild(itemButton)
         
@@ -276,7 +268,7 @@ class GameScene: SKScene{
         speederIcon = SKSpriteNode(imageNamed: "speed")
         speederIcon.name = "Speeder Label"
         speederIcon.scale(to: CGSize(width: 50, height: 60))
-        speederIcon.position = CGPoint(x: -80, y: -200)
+        speederIcon.position = CGPoint(x: -70, y: -200)
         speederIcon.zPosition = 5.0
         HUD.addChild(speederIcon)
         
@@ -311,20 +303,13 @@ extension GameScene {
             pauseAction = pauseButton.frame.contains(location)
             
             if pauseAction {
-                pause()
+                self.viewController.pauseBackView.isHidden = false
+                self.view?.isPaused = true
             }
-            
             if jumpAction {
-                playerStateMachine.enter(JumpingState.self)
                 jumpData += 1
             }
-            
-            if accelAction {
-                acceling(deltaTime: 0)
-            }
-            
             if breakAction {
-                breaking(deltaTime: 0)
                 breakData += 1
             }
             
@@ -336,7 +321,12 @@ extension GameScene {
                     itemImage.name = "Item Image"
                 }
                 else if itemImage.name == "Wing" {
-                    print("Wing")
+                    jumpButton.texture = SKTexture(imageNamed: "Fly Button")
+                    jumpButton.name = "Fly"
+                    Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (timer) in
+                        self.jumpButton.texture = SKTexture(imageNamed: "Jump Button")
+                        self.jumpButton.name = "Jump"
+                    }
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
                     itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"
@@ -360,15 +350,12 @@ extension GameScene {
             itemAction = itemButton.frame.contains(location)
             
             if jumpAction {
-                running(deltaTime: 0)
                 jumpAction = false
             }
             if accelAction {
-                running(deltaTime: 0)
                 accelAction = false
             }
             if breakAction {
-                running(deltaTime: 0)
                 breakAction = false
             }
         }
@@ -446,29 +433,11 @@ extension GameScene {
     
     
     // Game UI Function
-    func pause() {
-        self.viewController.pauseView.isHidden = false
-        self.view?.isPaused = true
-    }
-    
-    func resume() {
-        self.viewController.pauseView.isHidden = true
-        self.view?.isPaused = false
-    }
-    
-    func restartGame() {
-        self.viewController.pauseView.isHidden = true
-        self.view?.isPaused = false
-    }
-    
-    func reTryGame() {
-        self.viewController.arrivalView.isHidden = true
-    }
-    
     func arrival(timeRecord:Double) {
-        self.viewController.arrivalView.isHidden = false
-        self.viewController.PreviousRecord.text = String(format: "당신의 이전기록은 %.2f 입니다", previousTimeRecord)
-        self.viewController.PresentRecord.text = String(format: "당신의 현재기록은 %.2f 입니다", timeRecord)
+        self.viewController.endBackView.isHidden = false
+        self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
+        Button.removeFromParent()
+        HUD.removeFromParent()
         userDefault.firstStageCompleted(timeRecord: timeRecord)
         userDefault.trackingDataSave(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
     }
@@ -484,19 +453,22 @@ extension GameScene {
 // MARK: Game Loop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
-        // Player 횡스크롤 이동
-        if currentTime > 1 {
-            previousTimeInterval = currentTime - 1
-        }
-        let deltaTime = currentTime - previousTimeInterval
-        previousTimeInterval = currentTime
+        // Player 이동
+        let deltaTime = 1.0
         let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
         let move = SKAction.move(by: diplacement, duration: 0)
         player.run(SKAction.sequence([move]))
         
+        // Player Action
         if jumpAction {
-            playerStateMachine.enter(JumpingState.self)
-        } else if accelAction {
+            if jumpButton.name == "Fly" {
+                player.physicsBody?.applyForce(CGVector(dx: 0, dy: 350))
+            }
+            else {
+                playerStateMachine.enter(JumpingState.self)
+            }
+        }
+        if accelAction {
             acceling(deltaTime: deltaTime)
         } else if breakAction {
             breaking(deltaTime: deltaTime)
@@ -548,6 +520,10 @@ extension GameScene: SKPhysicsContactDelegate {
         let collision = Collision(masks: (first: contact.bodyA.categoryBitMask, second: contact.bodyB.categoryBitMask))
         
         if collision.matches(.player, .damage) {
+            if jumpButton.name == "Fly" {
+                jumpButton.texture = SKTexture(imageNamed: "Jump Button")
+                jumpButton.name = "Jump"
+            }
             collisionData += 1
             usualDamage()
         }
@@ -575,6 +551,10 @@ extension GameScene: SKPhysicsContactDelegate {
         
         
         if collision.matches(.player, .ground) {
+            if jumpButton.name == "Fly" {
+                jumpButton.texture = SKTexture(imageNamed: "Jump Button")
+                jumpButton.name = "Jump"
+            }
             playerStateMachine.enter(LandingState.self)
         }
         
