@@ -145,25 +145,6 @@ class DamageState: PlayerState {
 }
 
 // MARK: - Item State
-// Wing State
-class WingState: PlayerState {
-    var endWing: Bool = false
-    
-    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        if endWing && stateClass is LandingState.Type { return true }
-        if endWing && stateClass is DamageState.Type { return true }
-        return false
-    }
-    
-    override func didEnter(from previousState: GKState?) {
-        playerNode.physicsBody?.applyImpulse(CGVector(dx:0, dy:100))
-        
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) {(timer) in
-            self.endWing = true
-        }
-    }
-}
-
 // Star State
 class StarState: PlayerState {
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {

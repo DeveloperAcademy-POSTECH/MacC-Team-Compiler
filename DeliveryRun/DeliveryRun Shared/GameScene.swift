@@ -35,7 +35,6 @@ class GameScene: SKScene{
     var pauseButton: SKSpriteNode!
     
     // HUD
-    private let pauseScreen = PauseScreen()
     var HUD: SKNode!
     var locationBar: SKShapeNode!
     var startLineShort: SKSpriteNode!
@@ -65,11 +64,8 @@ class GameScene: SKScene{
     // Variables
     var timer = Timer()
     
-    var previousTimeInterval:TimeInterval = 0.0
     let endTime = 100
     var elapsedTime = 0
-    
-    var score: Int = 0
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
@@ -112,7 +108,6 @@ class GameScene: SKScene{
             AccelingState(playerNode: player),
             BreakingState(playerNode: player),
             DamageState(playerNode: player),
-            WingState(playerNode: player),
             StarState(playerNode:player)
         ])
         
@@ -294,7 +289,8 @@ extension GameScene {
             pauseAction = pauseButton.frame.contains(location)
             
             if pauseAction {
-                pause()
+                self.viewController.pauseBackView.isHidden = false
+                self.view?.isPaused = true
             }
             if jumpAction {
                 jumpData += 1
@@ -311,7 +307,12 @@ extension GameScene {
                     itemImage.name = "Item Image"
                 }
                 else if itemImage.name == "Wing" {
-                    playerStateMachine.enter(WingState.self)
+                    jumpButton.texture = SKTexture(imageNamed: "Fly Button")
+                    jumpButton.name = "Fly"
+                    Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (timer) in
+                        self.jumpButton.texture = SKTexture(imageNamed: "Jump Button")
+                        self.jumpButton.name = "Jump"
+                    }
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
                     itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"
@@ -401,11 +402,6 @@ extension GameScene {
     }
     
     // Game UI Function
-    func pause() {
-        self.viewController.pauseBackView.isHidden = false
-        self.view?.isPaused = true
-    }
-    
     func arrival(timeRecord:Double) {
         self.viewController.endBackView.isHidden = false
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
@@ -426,18 +422,19 @@ extension GameScene {
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
         // Player 이동
-        if currentTime > 1 {
-            previousTimeInterval = currentTime - 1
-        }
-        let deltaTime = currentTime - previousTimeInterval
-        previousTimeInterval = currentTime
+        let deltaTime = 1.0
         let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
         let move = SKAction.move(by: diplacement, duration: 0)
         player.run(SKAction.sequence([move]))
         
         // Player Action
         if jumpAction {
-            playerStateMachine.enter(JumpingState.self)
+            if jumpButton.name == "Fly" {
+                player.physicsBody?.applyForce(CGVector(dx: 0, dy: 350))
+            }
+            else {
+                playerStateMachine.enter(JumpingState.self)
+            }
         }
         if accelAction {
             acceling(deltaTime: deltaTime)
@@ -487,6 +484,10 @@ extension GameScene: SKPhysicsContactDelegate {
         let collision = Collision(masks: (first: contact.bodyA.categoryBitMask, second: contact.bodyB.categoryBitMask))
         
         if collision.matches(.player, .damage) {
+            if jumpButton.name == "Fly" {
+                jumpButton.texture = SKTexture(imageNamed: "Jump Button")
+                jumpButton.name = "Jump"
+            }
             collisionData += 1
             damaging()
             invicible()
@@ -494,6 +495,10 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .ground) {
+            if jumpButton.name == "Fly" {
+                jumpButton.texture = SKTexture(imageNamed: "Jump Button")
+                jumpButton.name = "Jump"
+            }
             playerStateMachine.enter(LandingState.self)
         }
         
