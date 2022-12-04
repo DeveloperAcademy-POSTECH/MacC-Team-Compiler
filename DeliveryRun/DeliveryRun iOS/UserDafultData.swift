@@ -25,19 +25,30 @@ class UserDefaultData {
     init() {
         self.backgroundMusic = UserDefaults.standard.bool(forKey: "BackgroundMusic")
         self.inGameSound = UserDefaults.standard.bool(forKey: "InGameSound")
-        self.playerSkin = UserDefaults.standard.string(forKey: "PlayerSkin") ?? "default"
+        self.myPlayerSkin = UserDefaults.standard.string(forKey: "MyPlayerSkin") ?? "default"
+        if let mySkinList = UserDefaults.standard.array(forKey: "MySkinList") {
+            self.mySkinList = mySkinList as! [String]
+        } else {
+            self.mySkinList = ["default"]
+        }
         self.jumpData = UserDefaults.standard.integer(forKey: "JumpData")
         self.breakData = UserDefaults.standard.integer(forKey: "BreakData")
         self.collisionData = UserDefaults.standard.integer(forKey: "CollisionData")
         
         // Quest Setting
-        let quest1 = Quest(title: "점프킹", subTitle: "총 점프 횟수 50회를 달성하세요.", imageURl: "collection1", totalNumber: 50, nowNumber: self.jumpData, isClear: false)
+        self.firstQuestIsClear = UserDefaults.standard.bool(forKey: "FirstQuestIsClear")
+        
+        let quest1 = Quest(title: "점프킹", subTitle: "총 점프 횟수 50회를 달성하세요.", imageURl: "jump", totalNumber: 50, nowNumber: self.jumpData, isClear: self.firstQuestIsClear)
         self.firstQuest = quest1
         UserDefaults.standard.setObjectToUserDefault(quest1, forKey: "Quest1")
-        let quest2 = Quest(title: "하남자특", subTitle: "브레이크를 사용해서 최저 속도를 20회 달성하세요.", imageURl: "collection2", totalNumber: 20, nowNumber: self.breakData, isClear: false)
+        
+        self.secondQuestIsClear = UserDefaults.standard.bool(forKey: "SecondQuestIsClear")
+        let quest2 = Quest(title: "하남자특", subTitle: "브레이크를 사용해서 최저 속도를 20회 달성하세요.", imageURl: "break", totalNumber: 20, nowNumber: self.breakData, isClear: self.secondQuestIsClear)
         self.secondQuest = quest2
         UserDefaults.standard.setObjectToUserDefault(quest2, forKey: "Quest2")
-        let quest3 = Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", imageURl: "collection3", totalNumber: 50, nowNumber: self.collisionData, isClear: false)
+        
+        self.thirdQuestIsClear = UserDefaults.standard.bool(forKey: "ThirdQuestIsClear")
+        let quest3 = Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", imageURl: "collision", totalNumber: 50, nowNumber: self.collisionData, isClear: self.thirdQuestIsClear)
         self.thirdQuest = quest3
         UserDefaults.standard.setObjectToUserDefault(quest3, forKey: "Quest3")
         
@@ -87,18 +98,45 @@ class UserDefaultData {
         defaults.set(backgroundMusic, forKey: "BackgroundMusic")
         defaults.set(backgroundMusic, forKey: "InGameMusic")
     }
-    
+
     // PlayerSkin
-    var playerSkin:String = "default"
+    var SkinList:[String] = ["default", "jump", "break", "collision"]
+    var mySkinList:[String]
+    var myPlayerSkin:String = "default"
     
-    func playerSkinSave(playerSkin:String) {
-        defaults.set(playerSkin,forKey: "PlayerSkin")
+    func getSkin(skinName:String) {
+        mySkinList.append(skinName)
+        defaults.set(mySkinList, forKey: "MySkinList")
+        
+    }
+    
+    func setMySkin(skinName:String) {
+        defaults.set(myPlayerSkin, forKey: "MyPlayerSkin")
     }
     
     // Quest
     var firstQuest:Quest
     var secondQuest:Quest
     var thirdQuest:Quest
+    
+    var firstQuestIsClear:Bool = false
+    var secondQuestIsClear:Bool = false
+    var thirdQuestIsClear:Bool = false
+    
+    func firstQuestCompleted() {
+        defaults.set(true, forKey: "FirstQuestIsClear")
+        getSkin(skinName: "jump")
+    }
+    
+    func secondQuestCompleted() {
+        defaults.set(true, forKey: "SecondQuestIsClear")
+        getSkin(skinName: "break")
+    }
+    
+    func thirdQuestComplted() {
+        defaults.set(true, forKey: "ThirdQuestIsClear")
+        getSkin(skinName: "collision")
+    }
     
     // Stage
     var firstStage:Stage

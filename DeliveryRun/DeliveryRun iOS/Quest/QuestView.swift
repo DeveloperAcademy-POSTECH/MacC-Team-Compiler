@@ -15,7 +15,7 @@ class QuestView: UIView {
     let userDefault = UserDefaultData.shared
     
     
-    @IBOutlet weak var questCheckButton: CustomGameButton!
+    @IBOutlet weak var checkButton: CustomGameButton!
     @IBOutlet weak var questTableView: UITableView!
     
     @IBAction func pressCheckButton(_ sender: Any) {
@@ -42,7 +42,7 @@ class QuestView: UIView {
         questTableView.showsHorizontalScrollIndicator = false
         questTableView.register(UINib(nibName: "QuestTableCell", bundle: nil), forCellReuseIdentifier: "QuestTableCell")
         
-        questCheckButton.setTitle("확인", for: .normal)
+        checkButton.setTitle("확인", for: .normal)
     }
     
     func loadViewFromNib() -> UIView? {
@@ -68,6 +68,10 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
             cell.questCheckButton.isHidden = false
         } else {
             cell.questCheckButton.isHidden = true
+        }
+        
+        if (quests[indexPath.row].isClear) {
+            cell.questCheckButton.layer.opacity = 0.5
         }
         
         // Cell Layout

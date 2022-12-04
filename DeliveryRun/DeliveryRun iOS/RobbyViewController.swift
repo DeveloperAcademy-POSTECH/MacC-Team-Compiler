@@ -24,6 +24,7 @@ class RobbyViewController: UIViewController {
     var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
     
     override func viewDidLoad() {
+        UserDefaultData.findPath()
         super.viewDidLoad()
         
         garageButton.setTitle(" 차고", for: .normal)
