@@ -53,6 +53,7 @@ class GameScene: SKScene{
     var itemAction = false
     var startAction = false
     var pauseAction = false
+    var stealAction = false
     var gameOver = false
     
     // CameraNode
@@ -63,6 +64,9 @@ class GameScene: SKScene{
     
     // Variables
     var timer = Timer()
+    
+    var catSign:SKNode!
+    var catAnimation = [SKTexture]()
     
     let endTime = 100
     var elapsedTime = 0
@@ -81,6 +85,16 @@ class GameScene: SKScene{
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
+        
+        //Add catSign
+        catSign = childNode(withName: "CatSign")
+        stealAction = true
+        let catTexture = SKTextureAtlas(named:"CatAnimation")
+        
+        for index in 0..<catTexture.textureNames.count {
+            let textureName = "cat" + String(index)
+            catAnimation.append(catTexture.textureNamed(textureName))
+        }
         
         // UserDefaultTrackingData
         UserDefaultData.findPath()
@@ -348,9 +362,10 @@ extension GameScene {
     }
 }
 
-// MARK: Game Acion
+// MARK: Game Action
 extension GameScene {
-    // Player Function
+    
+    // Player Intercation Function
     func running(deltaTime:TimeInterval) {
         if !(startAction) {
             playerSpeed = 0.0
@@ -386,20 +401,36 @@ extension GameScene {
             playerSpeed = minSpeed
         }
         playerSpeed -= deltaTime / 5
+        
         playerStateMachine.enter(BreakingState.self)
     }
     
-    func damaging() {
+    func usualDamage() {
         playerSpeed = minSpeed
         playerStateMachine.enter(DamageState.self)
     }
     
-    func invicible() {
-        player.physicsBody?.categoryBitMask = 0
-        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (timer) in
-            self.player.physicsBody?.categoryBitMask = 2
+    func bump() {
+        playerStateMachine.enter(JumpingState.self)
+    }
+    
+    func policeCatch() {
+        self.viewController.policeView.isHidden = false
+    }
+    
+    func emrgeCat() {
+        if player.position.x >= catSign.position.x {
+            if player.position.x <= catSign.position.x + 1000 && stealAction{
+                stealAction = false
+                createCat()
+            }
         }
     }
+    
+    func stealItem() {
+        print("Steal")
+    }
+    
     
     // Game UI Function
     func arrival(timeRecord:Double) {
@@ -413,6 +444,7 @@ extension GameScene {
     
     func showStory() {
         self.viewController.storyView.isHidden = false
+        self.viewController.nextTextButton.isHidden = false
         self.view?.isPaused = true
     }
 }
@@ -459,6 +491,10 @@ extension GameScene {
         // Label Text 설정
         timerText.text = String(format: "%D", elapsedTime)
         speederText.text = String(format: "%d km/h", Int(playerSpeed * 6))
+        
+        if startAction {
+            emrgeCat()
+        }
     }
 }
 
@@ -467,7 +503,7 @@ extension GameScene {
 extension GameScene: SKPhysicsContactDelegate {
     struct Collision {
         enum Masks: Int {
-            case damage, player, reward, ground, ending
+            case damage, player, reward, ground, ending, interaction
             var bitmask: UInt32 { return 1 << self.rawValue }
         }
         
@@ -489,10 +525,30 @@ extension GameScene: SKPhysicsContactDelegate {
                 jumpButton.name = "Jump"
             }
             collisionData += 1
-            damaging()
-            invicible()
-            contact.bodyA.node?.physicsBody?.categoryBitMask = 0
+            usualDamage()
         }
+        
+        if collision.matches(.player, .interaction) {
+            if contact.bodyA.node?.name == "Bump" {
+                bump()
+            } else if contact.bodyB.node?.name == "Bump" {
+                bump()
+            } else if contact.bodyA.node?.name == "Police" {
+                policeCatch()
+            } else if contact.bodyB.node?.name == "Police" {
+                policeCatch()
+            }
+            if contact.bodyA.node?.name == "Cat" {
+                stealItem()
+                stealAction = false
+            } else if contact.bodyB.node?.name == "Cat" {
+                stealItem()
+                stealAction = false
+            }
+        }
+    
+        
+        
         
         if collision.matches(.player, .ground) {
             if jumpButton.name == "Fly" {
@@ -572,3 +628,37 @@ extension GameScene: SKPhysicsContactDelegate {
     }
 }
 
+// MARK: Police & Cat
+extension GameScene {
+
+    func createCat() {
+
+        let node = SKSpriteNode(imageNamed: "cat0")
+        node.name = "Cat"
+        node.position = CGPoint(x: player.position.x + 400.0, y:player.position.y + 100.0)
+        node.anchorPoint = CGPoint(x: 0.5, y:1)
+        node.scale(to: CGSize(width: 150, height: 150))
+        node.zPosition = 5
+        
+        node.run(SKAction.repeatForever(SKAction.animate(with: catAnimation, timePerFrame: 0.3)))
+
+        let physicalBody = SKPhysicsBody(circleOfRadius: 30)
+        node.physicsBody = physicalBody
+
+        physicalBody.categoryBitMask = Collision.Masks.interaction.bitmask
+        physicalBody.collisionBitMask = Collision.Masks.player.bitmask
+        physicalBody.fieldBitMask = Collision.Masks.ground.bitmask
+        physicalBody.contactTestBitMask = Collision.Masks.player.bitmask
+
+        physicalBody.pinned = true
+        physicalBody.allowsRotation = false
+        physicalBody.restitution = 0.2
+        physicalBody.friction = 10
+
+        addChild(node)
+
+    }
+    func removeCat() {
+        
+    }
+}

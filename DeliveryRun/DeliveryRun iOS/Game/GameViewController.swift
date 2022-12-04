@@ -73,6 +73,8 @@ class GameViewController: UIViewController {
         nowRecordLabel.textAlignment = .center
         nowRecordLabel.textColor = .white
         
+        policeView.isHidden = true
+        
         
         // Present the scene
         if let scene = GKScene(fileNamed: "GameScene") {
@@ -91,6 +93,19 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var nextTextButton: UIButton!
     @IBOutlet weak var storyView: StoryView!
+    @IBOutlet weak var policeView: UIView!
+    
+    func getTimeRap(recordTime paasedTime:Int) {
+        timeRap = paasedTime
+    }
+    
+    func showPoliceView() {
+        policeView.isHidden = false
+    }
+    
+    @IBAction func policeButtonPressed(_ sender: UIButton) {
+        policeView.isHidden = true
+    }
     
     // MARK: - Pause Screen IBAction
     @IBAction func replayPressed(_ sender: UIButton) {
