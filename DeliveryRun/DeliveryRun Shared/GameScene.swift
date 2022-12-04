@@ -116,6 +116,11 @@ class GameScene: SKScene{
         ])
         
         playerStateMachine.enter(RunningState.self)
+        
+        // Police
+//        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+//            self.emergePolice()
+//        }
     }
     
     // Player 생성
@@ -514,8 +519,6 @@ extension GameScene: SKPhysicsContactDelegate {
             collisionData += 1
             damaging()
             invicible()
-//            // MARK: 한번만 충돌이 이루어지는 코드
-//            contact.bodyA.node?.physicsBody?.categoryBitMask = 0
         }
         
         if collision.matches(.player, .bump) {
@@ -597,3 +600,34 @@ extension GameScene: SKPhysicsContactDelegate {
     }
 }
 
+// MARK: Police & Cat
+extension GameScene {
+    
+    func emergePolice() {
+        
+        let node = SKSpriteNode(imageNamed: "police0")
+        node.name = "Police"
+        let randomXPosition = Int(arc4random_uniform(UInt32(self.size.width)))
+        
+        node.position = CGPoint(x: player.position.x + 100.0, y:0)
+        node.anchorPoint = CGPoint(x: 0.5, y:1)
+        node.scale(to: CGSize(width: 150, height: 150))
+        node.zPosition = 5
+        
+        let physicalBody = SKPhysicsBody(circleOfRadius: 30)
+        node.physicsBody = physicalBody
+        
+        physicalBody.categoryBitMask = Collision.Masks.damage.bitmask
+        physicalBody.collisionBitMask = Collision.Masks.player.bitmask
+        physicalBody.fieldBitMask = Collision.Masks.ground.bitmask
+        physicalBody.contactTestBitMask = Collision.Masks.player.bitmask
+        
+        physicalBody.affectedByGravity = false
+        physicalBody.allowsRotation = false
+        physicalBody.restitution = 0.2
+        physicalBody.friction = 10
+        
+        addChild(node)
+        
+    }
+}
