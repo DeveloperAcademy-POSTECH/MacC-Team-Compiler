@@ -61,6 +61,28 @@ class GarageViewController: UIViewController {
     @IBAction func SettingPressed(_ sender: UIButton) {
         settingView.isHidden = false
     }
+    
+    
+    @IBAction func BackWardPressed(_ sender: UIButton) {
+        let visibleItems: NSArray = self.collectionView.indexPathsForVisibleItems as NSArray
+        let currentItem: IndexPath = visibleItems.object(at: 0) as! IndexPath
+        let nextItem: IndexPath = IndexPath(item: currentItem.item - 1, section: 0)
+// This part here
+        if nextItem.row < collectionSkins.count {
+            self.collectionView.scrollToItem(at: nextItem, at: .left, animated: true)
+           
+        }
+    }
+    @IBAction func ForwardPressed(_ sender: UIButton) {
+        let visibleItems: NSArray = self.collectionView.indexPathsForVisibleItems as NSArray
+        let currentItem: IndexPath = visibleItems.object(at: 0) as! IndexPath
+        let nextItem: IndexPath = IndexPath(item: currentItem.item + 1, section: 0)
+// This part here
+        if nextItem.row < collectionSkins.count {
+            self.collectionView.scrollToItem(at: nextItem, at: .left, animated: true)
+           
+        }
+    }
 }
 
 extension GarageViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -81,6 +103,7 @@ extension GarageViewController: UICollectionViewDataSource, UICollectionViewDele
         cell.JumpLabel.text = String(format: "%D", collectionJumpStat[indexPath.row])
         cell.SpeedProgress.progress = Float(Double(collectionSpeedStat[indexPath.row]) / 10.0)
         cell.JumpProgress.progress = Float(Double(collectionJumpStat[indexPath.row]) / 10.0)
+        
         return cell
         
     }

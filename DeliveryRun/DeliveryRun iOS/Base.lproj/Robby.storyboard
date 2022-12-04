@@ -94,7 +94,7 @@
                                     <action selector="GaragePressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="hDl-Mq-cOL"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player0" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-lM-3qU" userLabel="player">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-lM-3qU" userLabel="Player">
                                 <rect key="frame" x="362" y="225" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="QFs-ic-704"/>
@@ -141,6 +141,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TOA-kh-Zwp"/>
                     <connections>
+                        <outlet property="PlayerImage" destination="6Ai-lM-3qU" id="KcR-p0-F7g"/>
                         <outlet property="garageButton" destination="kOz-lf-BoN" id="Lhx-iI-y91"/>
                         <outlet property="questButton" destination="Y8B-hF-QLa" id="YUs-QN-Iv5"/>
                         <outlet property="questView" destination="Kew-i8-5gm" id="gbD-tn-Eh7"/>
@@ -157,8 +158,8 @@
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="RobbyBack" width="844" height="390"/>
+        <image name="default" width="360" height="366"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
-        <image name="player0" width="360" height="366"/>
         <image name="scroll.fill" catalog="system" width="128" height="116"/>
         <namedColor name="deliveryrunYellow">
             <color red="1" green="0.89803921568627454" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -9,6 +9,8 @@ import UIKit
 
 class PlayerCollectionCell: UICollectionViewCell {
     
+    let userDefault = UserDefaultData.shared
+    
     var collectionName:String = ""
 
     @IBOutlet weak var AllView: UIView!
@@ -35,6 +37,9 @@ class PlayerCollectionCell: UICollectionViewCell {
     }
 
     @IBAction func ChoiceButtonPressed(_ sender: CustomGameButton) {
+        
         print(collectionName)
+        userDefault.myPlayerSkin = collectionName
+        userDefault.setMySkin(skinName: self.collectionName)
     }
 }

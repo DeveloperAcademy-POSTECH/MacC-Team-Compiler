@@ -58,10 +58,6 @@
                                     <action selector="SettingPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lId-ir-ClR"/>
                                 </connections>
                             </button>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8m-fy-8z5" userLabel="SettingView" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="84" width="852" height="250"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Ug-4I-BPt">
                                 <rect key="frame" x="120" y="0.0" width="612" height="359"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Stv-eU-98C">
@@ -87,15 +83,45 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="sQ0-gt-ZAX"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHR-ht-OgD" userLabel="BackwardButton">
+                                <rect key="frame" x="70" y="77" width="100" height="62"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40"/>
+                                    <color key="baseForegroundColor" name="deliveryrunRed"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="BackWardPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YAF-Lf-j3w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aas-B0-FAK" userLabel="ForwardButton">
+                                <rect key="frame" x="682" y="77" width="100" height="62"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="forward.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="40"/>
+                                    <color key="baseForegroundColor" name="deliveryrunRed"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="ForwardPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0xo-8M-h2P"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8m-fy-8z5" userLabel="SettingView" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="84" width="852" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0Ug-4I-BPt" firstAttribute="trailing" secondItem="Aas-B0-FAK" secondAttribute="centerX" id="1C7-El-BtO"/>
+                            <constraint firstItem="0Ug-4I-BPt" firstAttribute="leading" secondItem="NHR-ht-OgD" secondAttribute="centerX" id="2hN-0C-WgO"/>
                             <constraint firstItem="EJ8-F7-ORC" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="5A2-91-vMy"/>
                             <constraint firstItem="EJ8-F7-ORC" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="62W-nQ-0t1"/>
+                            <constraint firstItem="Aas-B0-FAK" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="centerY" constant="-70" id="Iax-nT-K4N"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="S8m-fy-8z5" secondAttribute="trailing" id="O5S-ho-Vgt"/>
                             <constraint firstAttribute="bottom" secondItem="EJ8-F7-ORC" secondAttribute="bottom" id="Rkd-Ht-kpH"/>
                             <constraint firstItem="S8m-fy-8z5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="TfH-EQ-OX5"/>
+                            <constraint firstItem="NHR-ht-OgD" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="centerY" constant="-70" id="Tpg-fw-wx4"/>
                             <constraint firstItem="0Ug-4I-BPt" firstAttribute="leading" secondItem="t7S-b5-XB7" secondAttribute="trailing" constant="80" id="W8V-Qj-3Vb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XSk-4B-H2S" secondAttribute="trailing" id="X0J-gu-mOl"/>
                             <constraint firstItem="EJ8-F7-ORC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="XHJ-jX-jwQ"/>
@@ -125,9 +151,14 @@
     <resources>
         <image name="RobbyBack" width="844" height="390"/>
         <image name="arrowshape.backward.fill" catalog="system" width="128" height="104"/>
+        <image name="backward.fill" catalog="system" width="128" height="77"/>
+        <image name="forward.fill" catalog="system" width="128" height="77"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <namedColor name="deliveryrunMint">
             <color red="0.25098039215686274" green="0.8784313725490196" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="deliveryrunRed">
+            <color red="0.70196078431372544" green="0.15294117647058825" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="deliveryrunYellow">
             <color red="1" green="0.89803921568627454" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

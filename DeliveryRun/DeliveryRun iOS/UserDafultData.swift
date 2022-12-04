@@ -102,7 +102,7 @@ class UserDefaultData {
     // PlayerSkin
     var SkinList:[String] = ["default", "jump", "break", "collision"]
     var mySkinList:[String]
-    var myPlayerSkin:String = "default"
+    var myPlayerSkin:String
     
     func getSkin(skinName:String) {
         mySkinList.append(skinName)
@@ -112,6 +112,7 @@ class UserDefaultData {
     
     func setMySkin(skinName:String) {
         defaults.set(myPlayerSkin, forKey: "MyPlayerSkin")
+        print(myPlayerSkin)
     }
     
     // Quest

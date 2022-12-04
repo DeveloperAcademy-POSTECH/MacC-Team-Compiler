@@ -14,6 +14,7 @@ class RobbyViewController: UIViewController {
     
     let userDefault = UserDefaultData.shared
     
+    @IBOutlet weak var PlayerImage: UIImageView!
     @IBOutlet weak var settingView: SettingView!
     @IBOutlet weak var questView: QuestView!
     @IBOutlet weak var garageButton: CustomGameButton!
@@ -26,7 +27,7 @@ class RobbyViewController: UIViewController {
     override func viewDidLoad() {
         UserDefaultData.findPath()
         super.viewDidLoad()
-        
+        PlayerImage.image = UIImage(named: userDefault.myPlayerSkin)
         garageButton.setTitle(" 차고", for: .normal)
         garageButton.setImage(UIImage(systemName: "car.fill"), for: .normal)
         
