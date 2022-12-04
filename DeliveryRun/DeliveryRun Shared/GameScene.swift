@@ -362,9 +362,10 @@ extension GameScene {
     }
 }
 
-// MARK: Game Acion
+// MARK: Game Action
 extension GameScene {
-    // Player Function
+    
+    // Player Intercation Function
     func running(deltaTime:TimeInterval) {
         if !(startAction) {
             playerSpeed = 0.0
@@ -404,17 +405,18 @@ extension GameScene {
         playerStateMachine.enter(BreakingState.self)
     }
     
-    func damaging() {
+    func usualDamage() {
         playerSpeed = minSpeed
         playerStateMachine.enter(DamageState.self)
-        
     }
     
-    func invicible() {
-        player.physicsBody?.categoryBitMask = 0
-        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (timer) in
-            self.player.physicsBody?.categoryBitMask = 2
-        }
+    func bump() {
+        playerStateMachine.enter(JumpingState.self)
+    }
+    
+    func policeCatch() {
+        self.viewController.policeView.isHidden = false
+        
     }
     
     // Game UI Function
@@ -499,7 +501,7 @@ extension GameScene {
 extension GameScene: SKPhysicsContactDelegate {
     struct Collision {
         enum Masks: Int {
-            case damage, player, reward, ground, ending, bump
+            case damage, player, reward, ground, ending, interaction
             var bitmask: UInt32 { return 1 << self.rawValue }
         }
         
@@ -517,14 +519,23 @@ extension GameScene: SKPhysicsContactDelegate {
         
         if collision.matches(.player, .damage) {
             collisionData += 1
-            damaging()
-            invicible()
+            usualDamage()
         }
         
-        if collision.matches(.player, .bump) {
-            collisionData += 1
-            playerStateMachine.enter(JumpingState.self)
+        if collision.matches(.player, .interaction) {
+            if contact.bodyA.node?.name == "Bump" {
+                bump()
+            } else if contact.bodyB.node?.name == "Bump" {
+                bump()
+            } else if contact.bodyA.node?.name == "Police" {
+                policeCatch()
+            } else if contact.bodyB.node?.name == "Police" {
+                policeCatch()
+            }
         }
+    
+        
+        
         
         if collision.matches(.player, .ground) {
             playerStateMachine.enter(LandingState.self)

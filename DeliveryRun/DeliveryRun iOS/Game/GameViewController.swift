@@ -19,6 +19,7 @@ class GameViewController: UIViewController {
         pauseView.isHidden = true
         storyView.isHidden = true
         nextTextButton.isHidden = true
+        policeView.isHidden = true
         super.viewDidLoad()
         if let scene = GKScene(fileNamed: "GameScene") {
             // Root 노드 생성
@@ -45,11 +46,19 @@ class GameViewController: UIViewController {
     @IBOutlet weak var nextTextButton: UIButton!
     @IBOutlet weak var storyView: StoryView!
     @IBOutlet weak var PresentRecord: UILabel!
+    @IBOutlet weak var policeView: UIView!
     @IBOutlet weak var PreviousRecord: UILabel!
     func getTimeRap(recordTime paasedTime:Int) {
         timeRap = paasedTime
     }
     
+    func showPoliceView() {
+        policeView.isHidden = false
+    }
+    
+    @IBAction func policeButtonPressed(_ sender: UIButton) {
+        policeView.isHidden = true
+    }
     @IBAction func pausePlayPressed(_ sender: UIButton) {
         if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
             gameScene.resume()
