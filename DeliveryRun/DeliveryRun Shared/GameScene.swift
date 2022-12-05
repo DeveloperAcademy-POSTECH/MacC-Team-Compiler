@@ -52,14 +52,15 @@ class GameScene: SKScene{
     var storyText: SKLabelNode!
     
     // Boolean
-    var jumpAction = false
-    var accelAction = false
-    var breakAction = false
-    var itemAction = false
+    private var jumpAction = false
+    private var accelAction = false
+    private var breakAction = false
+    private var itemAction = false
+    private var storyAction = false
     var startAction = false
     var pauseAction = false
     var stealAction = false
-    var gameOver = false
+    var isGameOver = false
     
     // CameraNode
     var cameraNode: SKCameraNode?
@@ -118,8 +119,6 @@ class GameScene: SKScene{
         setupPlayer()
         setupButtonNode()
         setupHUDNode()
-        setupStoryNode()
-        Story.removeFromParent()
         
         // PlayerState 가져오기
         playerStateMachine = GKStateMachine(states: [
@@ -311,7 +310,6 @@ class GameScene: SKScene{
         
         // Story Label
         storyText = SKLabelNode(fontNamed: "BMJUAOTF")
-        storyText.text = "ASDF"
         storyText.name = "Story Label"
         storyText.fontSize = 30
         storyText.fontColor = .white
@@ -471,41 +469,41 @@ extension GameScene {
 // MARK: Game Loop
 extension GameScene {
     override func update(_ currentTime: TimeInterval) {
-        // Player 이동
-        let deltaTime = 1.0
-        let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
-        let move = SKAction.move(by: diplacement, duration: 0)
-        player.run(SKAction.sequence([move]))
-        
-        // Player Action
-        if jumpAction {
-            if jumpButton.name == "Fly" {
-                player.physicsBody?.applyForce(CGVector(dx: 0, dy: 350))
+        if !storyAction {
+            // Player 이동
+            let deltaTime = 1.0
+            let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
+            let move = SKAction.move(by: diplacement, duration: 0)
+            player.run(SKAction.sequence([move]))
+            
+            // Player Action
+            if jumpAction {
+                if jumpButton.name == "Fly" {
+                    player.physicsBody?.applyForce(CGVector(dx: 0, dy: 350))
+                }
+                else {
+                    playerStateMachine.enter(JumpingState.self)
+                }
             }
-            else {
-                playerStateMachine.enter(JumpingState.self)
+            if accelAction {
+                acceling(deltaTime: deltaTime)
+            } else if breakAction {
+                breaking(deltaTime: deltaTime)
+            } else {
+                running(deltaTime: deltaTime)
             }
-        }
-        if accelAction {
-            acceling(deltaTime: deltaTime)
-        } else if breakAction {
-            breaking(deltaTime: deltaTime)
-        } else {
-            running(deltaTime: deltaTime)
         }
             
         // 도착 시 게임 종료
-        if player.position.x >= endPoint && !(gameOver) {
+        if player.position.x >= endPoint && !(isGameOver) {
             arrival(timeRecord: Double(elapsedTime))
-            gameOver = true
+            isGameOver = true
         }
         
         // Node 위치 지정
         cameraNode?.position.x = player.position.x + 300
         Button.position = CGPoint(x: (cameraNode!.position.x), y: (cameraNode!.position.y))
         HUD.position = CGPoint(x: (cameraNode!.position.x), y: (cameraNode!.position.y))
-        Story.position = CGPoint(x: (cameraNode!.position.x), y: (cameraNode!.position.y))
-        
         playerLocation.position.x = ((player.position.x / endPoint) * locationBarLength) - locationBarLength / 2.0
         
         // Label Text 설정
@@ -535,33 +533,53 @@ extension GameScene: SKPhysicsContactDelegate {
         
         let collision = Collision(masks: (first: contact.bodyA.categoryBitMask, second: contact.bodyB.categoryBitMask))
         
+        // MARK: - 특수 장애물 속성 부여
         if collision.matches(.player, .damage) {
-            // Fly Button 비활성화
+            // Disable Fly Button
             if jumpButton.name == "Fly" {
                 jumpButton.texture = SKTexture(imageNamed: "Jump Button")
                 jumpButton.name = "Jump"
             }
             
-            // 특수 장애물 속성 부여
+            // Police
             if contact.bodyA.node?.name == "Police" {
+                storyAction = true
+                Button.removeFromParent()
                 setupStoryNode()
+                Story.position = CGPoint(x: (cameraNode!.position.x), y: (cameraNode!.position.y))
+                storyText.text = "단속 중입니다. 잠시 정차해주세요."
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
-                Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (timer) in
-                    contact.bodyA.node?.removeFromParent()
-                    self.Story.removeFromParent()
+                Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [self] _ in
+                    storyText.text = "통과하셔도 됩니다."
+                    Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { [self] _ in
+                        contact.bodyA.node?.removeFromParent()
+                        Story.removeFromParent()
+                        setupButtonNode()
+                        storyAction = false
+                    }
                 }
             }
             else if contact.bodyB.node?.name == "Police" {
+                storyAction = true
+                Button.removeFromParent()
                 setupStoryNode()
+                Story.position = CGPoint(x: (cameraNode!.position.x), y: (cameraNode!.position.y))
+                storyText.text = "단속 중입니다. 잠시 정차해주세요."
                 contact.bodyB.node?.physicsBody?.categoryBitMask = 0
-                Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (timer) in
-                    contact.bodyB.node?.removeFromParent()
-                    self.Story.removeFromParent()
+                Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [self] _ in
+                    storyText.text = "통과하셔도 됩니다."
+                    Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { [self] _ in
+                        contact.bodyB.node?.removeFromParent()
+                        Story.removeFromParent()
+                        setupButtonNode()
+                        storyAction = false
+                    }
                 }
             }
-            
+            else {
+                usualDamage()
+            }
             collisionData += 1
-            usualDamage()
         }
         
         if collision.matches(.player, .interaction) {
@@ -657,7 +675,7 @@ extension GameScene: SKPhysicsContactDelegate {
     }
 }
 
-// MARK: Police & Cat
+// MARK: Interaction
 extension GameScene {
 
     func createCat() {
