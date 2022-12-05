@@ -439,7 +439,6 @@ extension GameScene {
         Button.removeFromParent()
         HUD.removeFromParent()
         userDefault.firstStageCompleted(timeRecord: timeRecord)
-        userDefault.trackingDataSave(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
     }
     
     func showStory() {

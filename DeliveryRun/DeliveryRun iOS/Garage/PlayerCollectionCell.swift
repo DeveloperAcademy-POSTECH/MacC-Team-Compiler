@@ -33,12 +33,12 @@ class PlayerCollectionCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         checkButton.setTitle("선택", for: .normal)
-        AllView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        AllView.backgroundColor = .clear
     }
 
     @IBAction func ChoiceButtonPressed(_ sender: CustomGameButton) {
         
-        print(collectionName)
+        
         userDefault.myPlayerSkin = collectionName
         userDefault.setMySkin(skinName: self.collectionName)
     }

@@ -27,7 +27,8 @@ class RobbyViewController: UIViewController {
     override func viewDidLoad() {
         UserDefaultData.findPath()
         super.viewDidLoad()
-        PlayerImage.image = UIImage(named: userDefault.myPlayerSkin)
+        let robbyModel:String = UserDefaultData.staticDefaults.string(forKey: "MyPlayerSkin") ?? "default"
+        PlayerImage.image = UIImage(named: robbyModel)
         garageButton.setTitle(" 차고", for: .normal)
         garageButton.setImage(UIImage(systemName: "car.fill"), for: .normal)
         
@@ -47,6 +48,9 @@ class RobbyViewController: UIViewController {
         questView.isHidden = true
         settingView.layer.opacity = 1.0
         questView.layer.opacity = 1.0
+        
+        
+        
     }
     
     @IBAction func SettingPressed(_ sender: UIButton) {
@@ -72,3 +76,5 @@ class RobbyViewController: UIViewController {
     }
 }
 
+
+// mySkinPlayer String값

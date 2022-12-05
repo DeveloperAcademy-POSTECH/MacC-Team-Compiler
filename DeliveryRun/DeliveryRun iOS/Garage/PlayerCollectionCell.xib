@@ -22,6 +22,23 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iur-rs-sin">
                         <rect key="frame" x="0.0" y="0.0" width="423" height="403"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtY-Jt-0yD" userLabel="TopHalfView">
+                                <rect key="frame" x="0.0" y="0.0" width="423" height="181.66666666666666"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e0n-Du-qdR" userLabel="CollectionImage">
+                                        <rect key="frame" x="0.0" y="0.0" width="423" height="181.66666666666666"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="e0n-Du-qdR" secondAttribute="trailing" id="6Xm-Gu-dwS"/>
+                                    <constraint firstItem="e0n-Du-qdR" firstAttribute="top" secondItem="KtY-Jt-0yD" secondAttribute="top" id="Rgc-bl-VWy"/>
+                                    <constraint firstItem="e0n-Du-qdR" firstAttribute="leading" secondItem="KtY-Jt-0yD" secondAttribute="leading" id="TZJ-oq-Y2H"/>
+                                    <constraint firstAttribute="bottom" secondItem="e0n-Du-qdR" secondAttribute="bottom" id="o3S-N8-FOn"/>
+                                </constraints>
+                            </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rz1-Zo-0gS" userLabel="BottomHalfView">
                                 <rect key="frame" x="0.0" y="181.66666666666663" width="423" height="221.33333333333337"/>
                                 <subviews>
@@ -146,21 +163,9 @@
                                     <constraint firstItem="YBh-mg-VlJ" firstAttribute="leading" secondItem="rz1-Zo-0gS" secondAttribute="leading" constant="10" id="ydc-8n-59A"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtY-Jt-0yD" userLabel="TopHalfView">
-                                <rect key="frame" x="0.0" y="0.0" width="423" height="181.66666666666666"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e0n-Du-qdR" userLabel="CollectionImage">
-                                        <rect key="frame" x="0.0" y="0.0" width="423" height="181.66666666666666"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="e0n-Du-qdR" secondAttribute="trailing" id="6Xm-Gu-dwS"/>
-                                    <constraint firstItem="e0n-Du-qdR" firstAttribute="top" secondItem="KtY-Jt-0yD" secondAttribute="top" id="Rgc-bl-VWy"/>
-                                    <constraint firstItem="e0n-Du-qdR" firstAttribute="leading" secondItem="KtY-Jt-0yD" secondAttribute="leading" id="TZJ-oq-Y2H"/>
-                                    <constraint firstAttribute="bottom" secondItem="e0n-Du-qdR" secondAttribute="bottom" id="o3S-N8-FOn"/>
-                                </constraints>
-                            </view>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rz1-Zo-0gS" firstAttribute="top" secondItem="iur-rs-sin" secondAttribute="centerY" constant="-20" id="9Ta-I5-Ajo"/>
                             <constraint firstItem="KtY-Jt-0yD" firstAttribute="top" secondItem="iur-rs-sin" secondAttribute="top" id="A4r-iH-6Bb"/>

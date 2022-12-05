@@ -14,7 +14,6 @@ class SettingView: UIView {
     
     let userDefault = UserDefaultData.shared
     
-    var sound = Sound(audioPlayer: AVAudioPlayer())
 
     @IBOutlet weak var BackgroundMusicView: UIView!
     @IBOutlet weak var EffectMusicView: UIView!
@@ -51,8 +50,8 @@ class SettingView: UIView {
         byLabel.numberOfLines = 2
         
         // UserDefault Get
-        BackgroundMusic.isOn = false
-        InGameSound.isOn = false
+        BackgroundMusic.isOn = userDefault.backgroundMusic
+        InGameSound.isOn = userDefault.inGameSound
     }
     
     func loadViewFromNib() -> UIView? {
@@ -63,14 +62,13 @@ class SettingView: UIView {
     
     // Button IBActions
     @IBAction func settingCheckButtonPressed(_ sender: CustomGameButton) {
+
         self.isHidden.toggle()
+        userDefault.settingSave(backgroundMusic: BackgroundMusic.isOn, inGameSound: InGameSound.isOn)
     }
     
+    // TODO: BackgroudMusci ON OFF
     @IBAction func backgroundOnOff(_ sender: UISwitch) {
-        if BackgroundMusic.isOn {
-            sound.playSound(soundName: "robby")
-        } else {
-            sound.stopSound()
-        }
+        print("Play Background")
     }
 }

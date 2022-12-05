@@ -14,6 +14,8 @@ class QuestView: UIView {
     
     let userDefault = UserDefaultData.shared
     
+    var quests:[Quest] = []
+    
     
     @IBOutlet weak var checkButton: CustomGameButton!
     @IBOutlet weak var questTableView: UITableView!
@@ -25,6 +27,14 @@ class QuestView: UIView {
     // StoryBoard Load
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        let quests:[Quest] = [
+            UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest1")!,
+            UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest2")!,
+            UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest3")!
+        ]
+        self.quests = quests
+
         
         // 기본 View 설정
         guard let view = loadViewFromNib() else { return }
@@ -92,10 +102,3 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-
-
-let quests:[Quest] = [
-    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest1")!,
-    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest2")!,
-    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest3")!
-]

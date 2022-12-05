@@ -11,6 +11,8 @@ import Foundation
 class UserDefaultData {
     
     static let staticDefaults = UserDefaults.standard
+    
+    
     let defaults = UserDefaults.standard
     
     // Find Plist Path
@@ -31,6 +33,7 @@ class UserDefaultData {
         } else {
             self.mySkinList = ["default"]
         }
+        
         self.jumpData = UserDefaults.standard.integer(forKey: "JumpData")
         self.breakData = UserDefaults.standard.integer(forKey: "BreakData")
         self.collisionData = UserDefaults.standard.integer(forKey: "CollisionData")
@@ -38,17 +41,17 @@ class UserDefaultData {
         // Quest Setting
         self.firstQuestIsClear = UserDefaults.standard.bool(forKey: "FirstQuestIsClear")
         
-        let quest1 = Quest(title: "점프킹", subTitle: "총 점프 횟수 50회를 달성하세요.", imageURl: "jump", totalNumber: 50, nowNumber: self.jumpData, isClear: self.firstQuestIsClear)
+        let quest1 = Quest(title: "점프킹", subTitle: "총 점프 횟수 50회를 달성하세요.", imageURl: "jumpSkin", totalNumber: 50, nowNumber: self.jumpData, isClear: self.firstQuestIsClear)
         self.firstQuest = quest1
         UserDefaults.standard.setObjectToUserDefault(quest1, forKey: "Quest1")
         
         self.secondQuestIsClear = UserDefaults.standard.bool(forKey: "SecondQuestIsClear")
-        let quest2 = Quest(title: "하남자특", subTitle: "브레이크를 사용해서 최저 속도를 20회 달성하세요.", imageURl: "break", totalNumber: 20, nowNumber: self.breakData, isClear: self.secondQuestIsClear)
+        let quest2 = Quest(title: "하남자특", subTitle: "브레이크를 사용해서 최저 속도를 20회 달성하세요.", imageURl: "breakSkin", totalNumber: 20, nowNumber: self.breakData, isClear: self.secondQuestIsClear)
         self.secondQuest = quest2
         UserDefaults.standard.setObjectToUserDefault(quest2, forKey: "Quest2")
         
         self.thirdQuestIsClear = UserDefaults.standard.bool(forKey: "ThirdQuestIsClear")
-        let quest3 = Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", imageURl: "collision", totalNumber: 50, nowNumber: self.collisionData, isClear: self.thirdQuestIsClear)
+        let quest3 = Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", imageURl: "collisionSkin", totalNumber: 50, nowNumber: self.collisionData, isClear: self.thirdQuestIsClear)
         self.thirdQuest = quest3
         UserDefaults.standard.setObjectToUserDefault(quest3, forKey: "Quest3")
         
@@ -88,19 +91,21 @@ class UserDefaultData {
         let stage5 = Stage(name: "스테이지 5", image: "star0", targetRecord: 90.0, myRecord: self.fiveStageRecord, isLock: !self.fourStageClear)
         self.fiveStage = stage5
         UserDefaults.standard.setObjectToUserDefault(stage5, forKey: "Stage5")
+        
+        
     }
     
     // Setting
-    var backgroundMusic:Bool = false
-    var inGameSound:Bool = false
+    var backgroundMusic:Bool
+    var inGameSound:Bool
     
     func settingSave(backgroundMusic:Bool, inGameSound:Bool) {
         defaults.set(backgroundMusic, forKey: "BackgroundMusic")
-        defaults.set(backgroundMusic, forKey: "InGameMusic")
+        defaults.set(inGameSound, forKey: "InGameMusic")
     }
 
     // PlayerSkin
-    var SkinList:[String] = ["default", "jump", "break", "collision"]
+    var skinList:[String] = ["default", "jumpSkin", "breakSkin", "collisionSkin"]
     var mySkinList:[String]
     var myPlayerSkin:String
     
@@ -126,17 +131,17 @@ class UserDefaultData {
     
     func firstQuestCompleted() {
         defaults.set(true, forKey: "FirstQuestIsClear")
-        getSkin(skinName: "jump")
+        getSkin(skinName: "jumpSkin")
     }
     
     func secondQuestCompleted() {
         defaults.set(true, forKey: "SecondQuestIsClear")
-        getSkin(skinName: "break")
+        getSkin(skinName: "breakSkin")
     }
     
     func thirdQuestComplted() {
         defaults.set(true, forKey: "ThirdQuestIsClear")
-        getSkin(skinName: "collision")
+        getSkin(skinName: "collisionSkin")
     }
     
     // Stage
@@ -158,26 +163,33 @@ class UserDefaultData {
     var fourStageClear:Bool = false
     var fiveStageClear:Bool = false
     
+    
+    
     func firstStageCompleted(timeRecord:Double) {
         defaults.set(timeRecord, forKey: "Record1")
         defaults.set(true, forKey: "FirstStageClear")
+        self.firstStageClear = true
     }
     
     func secondStageCompleted(timeRecord:Double) {
         defaults.set(timeRecord, forKey: "Record2")
         defaults.set(true, forKey: "SecondStageClear")
+        self.secondStageClear = true
     }
     func thirdStageCompleted(timeRecord:Double) {
         defaults.set(timeRecord, forKey: "Record3")
         defaults.set(true, forKey: "ThirdStageClear")
+        self.thirdStageClear = true
     }
     func fourStageCompleted(timeRecord:Double) {
         defaults.set(timeRecord, forKey: "Record4")
         defaults.set(true, forKey: "FourStageClear")
+        self.fourStageClear = true
     }
     func fiveStageCompleted(timeRecord:Double) {
         defaults.set(timeRecord, forKey: "Record5")
         defaults.set(true, forKey: "FiveStageClear")
+        self.fiveStageClear = false
     }
     
     // Tracking Data
@@ -185,7 +197,7 @@ class UserDefaultData {
     var breakData:Int = 0
     var collisionData:Int = 0
     
-    func trackingDataSave(jumpData:Int, breakData:Int, collisionData:Int) {
+    func updateAndSetTrackingData(jumpData:Int, breakData:Int, collisionData:Int) {
         defaults.set(jumpData, forKey: "JumpData")
         defaults.set(breakData, forKey: "BreakData")
         defaults.set(collisionData, forKey: "CollisionData")
