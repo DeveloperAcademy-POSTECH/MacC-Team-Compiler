@@ -14,6 +14,7 @@ class RobbyViewController: UIViewController {
     
     let userDefault = UserDefaultData.shared
     
+    @IBOutlet weak var PlayerImage: UIImageView!
     @IBOutlet weak var settingView: SettingView!
     @IBOutlet weak var questView: QuestView!
     @IBOutlet weak var garageButton: CustomGameButton!
@@ -24,8 +25,9 @@ class RobbyViewController: UIViewController {
     var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
     
     override func viewDidLoad() {
+        UserDefaultData.findPath()
         super.viewDidLoad()
-        
+        PlayerImage.image = UIImage(named: userDefault.myPlayerSkin)
         garageButton.setTitle(" 차고", for: .normal)
         garageButton.setImage(UIImage(systemName: "car.fill"), for: .normal)
         
@@ -54,6 +56,14 @@ class RobbyViewController: UIViewController {
         questView.isHidden = false
     }
     
+    
+    @IBAction func GaragePressed(_ sender: CustomGameButton) {
+        let garage = UIStoryboard.init(name: "Garage", bundle: nil)
+        guard let GarageViewController = garage.instantiateViewController(withIdentifier: "GarageViewController") as? GarageViewController else { return }
+        GarageViewController.modalPresentationStyle = .fullScreen
+        self.present(GarageViewController, animated: true, completion: nil)
+        
+    }
     @IBAction func goDelivery(_ sender: CustomGameButton) {
         let stage = UIStoryboard.init(name: "Stage", bundle: nil)
                 guard let StageViewController = stage.instantiateViewController(withIdentifier: "StageViewController")as? StageViewController else {return}

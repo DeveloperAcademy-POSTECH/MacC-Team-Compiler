@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestView" customModule="DeliveryRun" customModuleProvider="target">
             <connections>
-                <outlet property="questCheckButton" destination="yXC-2d-0t7" id="yV0-NY-FbR"/>
+                <outlet property="checkButton" destination="yXC-2d-0t7" id="FAW-96-b3e"/>
                 <outlet property="questTableView" destination="3Bw-YU-hUn" id="yRt-rR-AmM"/>
             </connections>
         </placeholder>
@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXC-2d-0t7" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXC-2d-0t7" userLabel="CheckButton" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
                     <rect key="frame" x="346" y="294" width="160" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="NbR-Qe-9YT"/>

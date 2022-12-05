@@ -9,6 +9,8 @@ import UIKit
 
 class QuestTableCell: UITableViewCell {
     
+    let userDefault = UserDefaultData.shared
+    
     @IBOutlet weak var questTitleLabel: UILabel!
     @IBOutlet weak var questSubTitleLabel: UILabel!
     @IBOutlet weak var questProgressLabel: UILabel!
@@ -47,5 +49,13 @@ class QuestTableCell: UITableViewCell {
 
     
     @IBAction func RewardPressed(_ sender: CustomGameButton) {
+        if questTitleLabel.text == "점프킹" {
+            userDefault.firstQuestCompleted()
+        } else if questTitleLabel.text == "하남자특" {
+            userDefault.secondQuestCompleted()
+        } else if questTitleLabel.text == "상남자특" {
+            userDefault.thirdQuestComplted()
+        }
+        questCheckButton.layer.opacity = 0.5
     }
 }
