@@ -119,6 +119,7 @@ class GameScene: SKScene{
         setupButtonNode()
         setupHUDNode()
         setupStoryNode()
+        Story.removeFromParent()
         
         // PlayerState 가져오기
         playerStateMachine = GKStateMachine(states: [
@@ -446,10 +447,6 @@ extension GameScene {
         playerStateMachine.enter(DamageState.self)
     }
     
-    func policeCatch() {
-        self.viewController.policeView.isHidden = false
-    }
-    
     func emrgeCat() {
         if player.position.x >= catSign.position.x {
             if player.position.x <= catSign.position.x + 1000 && stealAction{
@@ -539,10 +536,30 @@ extension GameScene: SKPhysicsContactDelegate {
         let collision = Collision(masks: (first: contact.bodyA.categoryBitMask, second: contact.bodyB.categoryBitMask))
         
         if collision.matches(.player, .damage) {
+            // Fly Button 비활성화
             if jumpButton.name == "Fly" {
                 jumpButton.texture = SKTexture(imageNamed: "Jump Button")
                 jumpButton.name = "Jump"
             }
+            
+            // 특수 장애물 속성 부여
+            if contact.bodyA.node?.name == "Police" {
+                setupStoryNode()
+                contact.bodyA.node?.physicsBody?.categoryBitMask = 0
+                Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (timer) in
+                    contact.bodyA.node?.removeFromParent()
+                    self.Story.removeFromParent()
+                }
+            }
+            else if contact.bodyB.node?.name == "Police" {
+                setupStoryNode()
+                contact.bodyB.node?.physicsBody?.categoryBitMask = 0
+                Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (timer) in
+                    contact.bodyB.node?.removeFromParent()
+                    self.Story.removeFromParent()
+                }
+            }
+            
             collisionData += 1
             usualDamage()
         }
@@ -552,19 +569,14 @@ extension GameScene: SKPhysicsContactDelegate {
                 playerStateMachine.enter(JumpingState.self)
             } else if contact.bodyB.node?.name == "Bump" {
                 playerStateMachine.enter(JumpingState.self)
-            } else if contact.bodyA.node?.name == "Police" {
-                policeCatch()
-            } else if contact.bodyB.node?.name == "Police" {
-                policeCatch()
             }
+            
             if contact.bodyA.node?.name == "Cat" {
                 stealAction = false
             } else if contact.bodyB.node?.name == "Cat" {
                 stealAction = false
             }
         }
-    
-        
         
         
         if collision.matches(.player, .ground) {
