@@ -541,6 +541,13 @@ extension GameScene: SKPhysicsContactDelegate {
                 jumpButton.name = "Jump"
             }
             
+            // Speed Bump
+            if contact.bodyA.node?.name == "Speed Bump" {
+                playerStateMachine.enter(JumpingState.self)
+            } else if contact.bodyB.node?.name == "Speed Bump" {
+                playerStateMachine.enter(JumpingState.self)
+            }
+            
             // Police
             if contact.bodyA.node?.name == "Police" {
                 storyAction = true
@@ -583,12 +590,6 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .interaction) {
-            if contact.bodyA.node?.name == "Bump" {
-                playerStateMachine.enter(JumpingState.self)
-            } else if contact.bodyB.node?.name == "Bump" {
-                playerStateMachine.enter(JumpingState.self)
-            }
-            
             if contact.bodyA.node?.name == "Cat" {
                 stealAction = false
             } else if contact.bodyB.node?.name == "Cat" {
