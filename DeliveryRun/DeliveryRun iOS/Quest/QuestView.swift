@@ -30,15 +30,11 @@ class QuestView: UIView {
         super.init(coder: aDecoder)
         
         let quests:[Quest] = [
-            userDefault.defaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest1")!,
-            userDefault.defaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest2")!,
-            userDefault.defaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest3")!
+            userDefault.defaults.setUserDefaultToObject(dataType: Quest.self, key: "JumpQuest")!,
+            userDefault.defaults.setUserDefaultToObject(dataType: Quest.self, key: "BreakQuest")!,
+            userDefault.defaults.setUserDefaultToObject(dataType: Quest.self, key: "CollisionQuest")!
         ]
-        
         self.quests = quests
-        print(quests[0].isClear)
-        print(quests[1].isClear)
-        print(quests[2].isClear)
 
         
         // 기본 View 설정
@@ -75,20 +71,50 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = questTableView.dequeueReusableCell(withIdentifier: "QuestTableCell", for: indexPath) as! QuestTableCell
-        cell.questDone = quests[indexPath.row].isClear
-        cell.questTitleLabel.text = quests[indexPath.row].title
-        cell.questSubTitleLabel.text = quests[indexPath.row].subTitle
-        cell.questImage.image = UIImage(named: quests[indexPath.row].imageURL)
-        cell.questProgressBar.progress = Float(quests[indexPath.row].nowNumber) / Float(quests[indexPath.row].totalNumber)
-        cell.questProgressLabel.text = String(format: "%D / %D", quests[indexPath.row].nowNumber, quests[indexPath.row].totalNumber)
-        if quests[indexPath.row].totalNumber <= quests[indexPath.row].nowNumber {
-            cell.questCheckButton.isHidden = false
+        if indexPath.row == 0 {
+            print("JumpQuestDone", userDefault.jumpQuestDone)
+            cell.questTitleLabel.text = quests[0].title
+            cell.questSubTitleLabel.text = quests[0].subTitle
+            cell.questImage.image = UIImage(named: quests[0].imageURL)
+            cell.questProgressBar.progress = Float(userDefault.jumpData) / Float(quests[indexPath.row].totalNumber)
+            cell.questProgressLabel.text = String(format: "%D / %D", userDefault.jumpData, quests[0].totalNumber)
+            if quests[0].totalNumber <= userDefault.jumpData {
+                cell.questCheckButton.isHidden = false
+            } else {
+                cell.questCheckButton.isHidden = true
+            }
+            if userDefault.jumpQuestDone {
+                cell.questCheckButton.layer.opacity = 0.5
+            }
+        } else if indexPath.row == 1 {
+            print("BreakQuestDone", userDefault.breakQuestDone)
+            cell.questTitleLabel.text = quests[1].title
+            cell.questSubTitleLabel.text = quests[1].subTitle
+            cell.questImage.image = UIImage(named: quests[1].imageURL)
+            cell.questProgressBar.progress = Float(userDefault.breakData) / Float(quests[indexPath.row].totalNumber)
+            cell.questProgressLabel.text = String(format: "%D / %D", userDefault.breakData, quests[1].totalNumber)
+            if quests[1].totalNumber <= userDefault.breakData {
+                cell.questCheckButton.isHidden = false
+            } else {
+                cell.questCheckButton.isHidden = true
+            }
+            if userDefault.breakQuestDone {
+                cell.questCheckButton.layer.opacity = 0.5
+            }
         } else {
-            cell.questCheckButton.isHidden = true
-        }
-        
-        if (quests[indexPath.row].isClear) {
-            cell.questCheckButton.layer.opacity = 0.5
+            cell.questTitleLabel.text = quests[2].title
+            cell.questSubTitleLabel.text = quests[2].subTitle
+            cell.questImage.image = UIImage(named: quests[2].imageURL)
+            cell.questProgressBar.progress = Float(userDefault.collisionData) / Float(quests[2].totalNumber)
+            cell.questProgressLabel.text = String(format: "%D / %D", userDefault.collisionData, quests[2].totalNumber)
+            if quests[2].totalNumber <= userDefault.collisionData {
+                cell.questCheckButton.isHidden = false
+            } else {
+                cell.questCheckButton.isHidden = true
+            }
+            if userDefault.collisionQuestDone {
+                cell.questCheckButton.layer.opacity = 0.5
+            }
         }
         
         // Cell Layout

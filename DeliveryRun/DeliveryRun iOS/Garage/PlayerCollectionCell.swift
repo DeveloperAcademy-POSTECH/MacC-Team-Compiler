@@ -7,11 +7,22 @@
 
 import UIKit
 
+protocol YourCellDelegate: AnyObject {
+    func didCompleteOnboarding()
+}
+
 class PlayerCollectionCell: UICollectionViewCell {
     
     let userDefault = UserDefaultData.shared
     
     var collectionName:String = ""
+    
+    weak var delegate: YourCellDelegate?
+    
+    func dismissAction() {
+        delegate?.didCompleteOnboarding()
+    }
+    
 
     @IBOutlet weak var AllView: UIView!
     @IBOutlet weak var collectionImage: UIImageView!
@@ -37,8 +48,8 @@ class PlayerCollectionCell: UICollectionViewCell {
     }
 
     @IBAction func ChoiceButtonPressed(_ sender: CustomGameButton) {
-        
-        userDefault.mySkin = collectionName
-        userDefault.setMySkin(skinName: self.collectionName)
+        userDefault.setSkin(skinName: collectionName)
+        dismissAction()
     }
 }
+

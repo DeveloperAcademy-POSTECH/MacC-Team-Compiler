@@ -33,11 +33,11 @@ class StageViewController: UIViewController {
         super.viewDidLoad()
         let stages: [Stage] = [
             
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "Stage1")!,
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "Stage2")!,
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "Stage3")!,
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "Stage4")!,
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "Stage5")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageOne")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageTwo")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageThree")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageFour")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageFive")!,
             Stage(name: "스테이지 6", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
             Stage(name: "스테이지 7", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
             Stage(name: "스테이지 8", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),

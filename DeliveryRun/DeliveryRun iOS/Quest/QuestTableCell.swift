@@ -24,10 +24,6 @@ class QuestTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        if questDone {
-            self.questCheckButton.layer.opacity = 0.5
-        }
         questTitleLabel.font = UIFont(name: "BMJUAOTF", size: 20)
         questTitleLabel.textAlignment = .left
         questTitleLabel.textColor = .white
@@ -57,16 +53,13 @@ class QuestTableCell: UITableViewCell {
 
     
     @IBAction func RewardPressed(_ sender: CustomGameButton) {
+        questCheckButton.layer.opacity = 0.5
         if questTitleLabel.text == "점프킹" {
             userDefault.jumpQuestCompleted()
-            userDefault.jumpQuestDone = true
         } else if questTitleLabel.text == "하남자특" {
-            userDefault.breakQuestDone()
-            userDefault.jumpQuestDone = true
-        } else if questTitleLabel.text == "상남자특" {
+            userDefault.breakQuestCompleted()
+        } else {
             userDefault.collisionQuestCompleted()
-            userDefault.jumpQuestDone = true
         }
-        questCheckButton.layer.opacity = 0.5
     }
 }

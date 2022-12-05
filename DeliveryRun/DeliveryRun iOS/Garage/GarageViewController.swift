@@ -8,6 +8,15 @@
 import Foundation
 import UIKit
 
+extension GarageViewController: YourCellDelegate {
+    func didCompleteOnboarding() {
+        let robby = UIStoryboard.init(name: "Robby", bundle: nil)
+                guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
+        RobbyViewController.modalPresentationStyle = .fullScreen
+                self.present(RobbyViewController, animated: false, completion: nil)
+    }
+}
+
 class GarageViewController: UIViewController {
     
     let userDefault = UserDefaultData.shared
@@ -30,7 +39,8 @@ class GarageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionSkins = userDefault.mySkins
+        self.collectionSkins = userDefault.mySkins
+        print("mySkins", userDefault.mySkins)
         // Background Blur
         let image = UIImage(named: "RobbyBack")
         backgroundView.image = image?.applyBlur_usingClamps(radius: 30)
@@ -112,6 +122,7 @@ extension GarageViewController: UICollectionViewDataSource, UICollectionViewDele
         cell.JumpLabel.text = String(format: "%D", collectionJumpStat[indexPath.row])
         cell.SpeedProgress.progress = Float(Double(collectionSpeedStat[indexPath.row]) / 10.0)
         cell.JumpProgress.progress = Float(Double(collectionJumpStat[indexPath.row]) / 10.0)
+        cell.delegate = self
         
         return cell
         
@@ -149,3 +160,4 @@ extension UIImage {
         return UIImage(cgImage: cgimg)
     }
 }
+

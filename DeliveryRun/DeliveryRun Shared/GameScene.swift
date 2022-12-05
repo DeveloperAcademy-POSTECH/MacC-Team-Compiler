@@ -436,12 +436,10 @@ extension GameScene {
     // Game UI Function
     func arrival(timeRecord:Double) {
         self.viewController.endBackView.isHidden = false
-        self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
+        self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", self.elapsedTime)
         Button.removeFromParent()
         HUD.removeFromParent()
-        userDefault.stageOneCompleted(timeRecord: timeRecord)
-        userDefault.endGameSaveData(jumpData: self.jumpData, breakData: self.breakData, collisionData: self.collisionData)
-        
+        userDefault.endGameSaveData(jumpData: self.jumpData, breakData: self.breakData, collisionData: self.collisionData, timeRecord: Double(elapsedTime), playStageNumber: 1 )
     }
     
     func showStory() {
@@ -522,15 +520,17 @@ extension GameScene: SKPhysicsContactDelegate {
         let collision = Collision(masks: (first: contact.bodyA.categoryBitMask, second: contact.bodyB.categoryBitMask))
         
         if collision.matches(.player, .damage) {
+            collisionData += 1
+            usualDamage()
+            contact.bodyA.node?.physicsBody?.categoryBitMask = 0
             if jumpButton.name == "Fly" {
                 jumpButton.texture = SKTexture(imageNamed: "Jump Button")
                 jumpButton.name = "Jump"
             }
-            collisionData += 1
-            usualDamage()
         }
         
         if collision.matches(.player, .interaction) {
+            collisionData += 1
             if contact.bodyA.node?.name == "Bump" {
                 bump()
             } else if contact.bodyB.node?.name == "Bump" {
