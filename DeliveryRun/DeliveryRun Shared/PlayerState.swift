@@ -118,16 +118,6 @@ class BreakingState: PlayerState {
 // Damage State
 class DamageState: PlayerState {
     
-    // Invicible player
-//    let action2 = SKAction.repeat(.sequence([
-//        .fadeAlpha(to: 0.5, duration: 0.01),
-//        .wait(forDuration: 0.25),
-//        .fadeAlpha(to: 1.0, duration: 0.01),
-//        .wait(forDuration: 0.25),
-//        ]), count: 5)
-    
-    // Damage
-    
     var isDamaged: Bool = false
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
