@@ -22,6 +22,7 @@ class QuestView: UIView {
     
     @IBAction func pressCheckButton(_ sender: Any) {
         self.isHidden.toggle()
+        
     }
     
     // StoryBoard Load
@@ -29,11 +30,15 @@ class QuestView: UIView {
         super.init(coder: aDecoder)
         
         let quests:[Quest] = [
-            UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest1")!,
-            UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest2")!,
-            UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest3")!
+            userDefault.defaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest1")!,
+            userDefault.defaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest2")!,
+            userDefault.defaults.setUserDefaultToObject(dataType: Quest.self, key: "Quest3")!
         ]
+        
         self.quests = quests
+        print(quests[0].isClear)
+        print(quests[1].isClear)
+        print(quests[2].isClear)
 
         
         // 기본 View 설정
@@ -52,6 +57,7 @@ class QuestView: UIView {
         questTableView.showsHorizontalScrollIndicator = false
         questTableView.register(UINib(nibName: "QuestTableCell", bundle: nil), forCellReuseIdentifier: "QuestTableCell")
         
+        
         checkButton.setTitle("확인", for: .normal)
     }
     
@@ -69,6 +75,7 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = questTableView.dequeueReusableCell(withIdentifier: "QuestTableCell", for: indexPath) as! QuestTableCell
+        cell.questDone = quests[indexPath.row].isClear
         cell.questTitleLabel.text = quests[indexPath.row].title
         cell.questSubTitleLabel.text = quests[indexPath.row].subTitle
         cell.questImage.image = UIImage(named: quests[indexPath.row].imageURL)

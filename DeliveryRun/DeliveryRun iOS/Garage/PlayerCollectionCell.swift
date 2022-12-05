@@ -38,8 +38,7 @@ class PlayerCollectionCell: UICollectionViewCell {
 
     @IBAction func ChoiceButtonPressed(_ sender: CustomGameButton) {
         
-        
-        userDefault.myPlayerSkin = collectionName
+        userDefault.mySkin = collectionName
         userDefault.setMySkin(skinName: self.collectionName)
     }
 }

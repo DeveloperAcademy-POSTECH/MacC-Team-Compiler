@@ -32,11 +32,12 @@ class StageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let stages: [Stage] = [
-            UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage1")!,
-            UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage2")!,
-            UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage3")!,
-            UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage4")!,
-            UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage5")!,
+            
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "Stage1")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "Stage2")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "Stage3")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "Stage4")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "Stage5")!,
             Stage(name: "스테이지 6", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
             Stage(name: "스테이지 7", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
             Stage(name: "스테이지 8", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
@@ -50,6 +51,9 @@ class StageViewController: UIViewController {
         ]
         
         self.stages = stages
+        for stage in stages {
+            print(stage.isLock,stage.myRecord)
+        }
 
         
         let image = UIImage(named: "RobbyBack")

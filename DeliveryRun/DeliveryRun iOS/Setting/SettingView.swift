@@ -64,7 +64,7 @@ class SettingView: UIView {
     @IBAction func settingCheckButtonPressed(_ sender: CustomGameButton) {
 
         self.isHidden.toggle()
-        userDefault.settingSave(backgroundMusic: BackgroundMusic.isOn, inGameSound: InGameSound.isOn)
+        userDefault.setSetting(backgroundMusic: BackgroundMusic.isOn, inGameSound: InGameSound.isOn)
     }
     
     // TODO: BackgroudMusci ON OFF

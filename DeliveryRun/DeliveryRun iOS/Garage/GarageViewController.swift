@@ -30,7 +30,7 @@ class GarageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionSkins = userDefault.mySkinList
+        collectionSkins = userDefault.mySkins
         // Background Blur
         let image = UIImage(named: "RobbyBack")
         backgroundView.image = image?.applyBlur_usingClamps(radius: 30)

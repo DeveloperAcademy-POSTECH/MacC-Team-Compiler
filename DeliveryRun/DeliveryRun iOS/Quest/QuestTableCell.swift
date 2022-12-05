@@ -11,6 +11,10 @@ class QuestTableCell: UITableViewCell {
     
     let userDefault = UserDefaultData.shared
     
+    var questDone:Bool = false
+    
+    
+    
     @IBOutlet weak var questTitleLabel: UILabel!
     @IBOutlet weak var questSubTitleLabel: UILabel!
     @IBOutlet weak var questProgressLabel: UILabel!
@@ -21,6 +25,9 @@ class QuestTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        if questDone {
+            self.questCheckButton.layer.opacity = 0.5
+        }
         questTitleLabel.font = UIFont(name: "BMJUAOTF", size: 20)
         questTitleLabel.textAlignment = .left
         questTitleLabel.textColor = .white
@@ -41,6 +48,7 @@ class QuestTableCell: UITableViewCell {
         questCheckButton.backgroundColor = .deliveryrunRed
         questCheckButton.titleLabel!.font = UIFont(name: "BMJUAOTF", size: 25)
         questCheckButton.setTitle("보상 받기", for: .normal)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -50,11 +58,14 @@ class QuestTableCell: UITableViewCell {
     
     @IBAction func RewardPressed(_ sender: CustomGameButton) {
         if questTitleLabel.text == "점프킹" {
-            userDefault.firstQuestCompleted()
+            userDefault.jumpQuestCompleted()
+            userDefault.jumpQuestDone = true
         } else if questTitleLabel.text == "하남자특" {
-            userDefault.secondQuestCompleted()
+            userDefault.breakQuestDone()
+            userDefault.jumpQuestDone = true
         } else if questTitleLabel.text == "상남자특" {
-            userDefault.thirdQuestComplted()
+            userDefault.collisionQuestCompleted()
+            userDefault.jumpQuestDone = true
         }
         questCheckButton.layer.opacity = 0.5
     }

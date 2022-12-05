@@ -25,10 +25,12 @@ class RobbyViewController: UIViewController {
     var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
     
     override func viewDidLoad() {
+        // MARK: UserDefault
         UserDefaultData.findPath()
         super.viewDidLoad()
-        let robbyModel:String = UserDefaultData.staticDefaults.string(forKey: "MyPlayerSkin") ?? "default"
-        PlayerImage.image = UIImage(named: robbyModel)
+        
+        PlayerImage.image = UIImage(named: userDefault.mySkin)
+        
         garageButton.setTitle(" 차고", for: .normal)
         garageButton.setImage(UIImage(systemName: "car.fill"), for: .normal)
         
