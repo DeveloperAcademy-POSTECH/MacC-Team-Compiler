@@ -54,11 +54,7 @@ class StageViewController: UIViewController {
         ]
         
         self.stages = stages
-        for stage in stages {
-            print(stage.isLock,stage.myRecord)
-        }
 
-        
         let image = UIImage(named: "RobbyBack")
         backgroundImage.image = image?.applyBlur_usingClamp(radius: 50)
         
