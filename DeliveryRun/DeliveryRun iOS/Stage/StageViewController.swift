@@ -28,9 +28,12 @@ class StageViewController: UIViewController {
     }
     
     var stages:[Stage] = []
+    var stageNumber:Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userDefault.setStageNumber(stageNumber:1)
+        print(stageNumber)
         let stages: [Stage] = [
             
             UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageOne")!,
@@ -38,16 +41,16 @@ class StageViewController: UIViewController {
             UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageThree")!,
             UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageFour")!,
             UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageFive")!,
-            Stage(name: "스테이지 6", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 7", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 8", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 9", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 10", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 11", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 12", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 13", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 14", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 15", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true)
+            Stage(name: "스테이지 6", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 7", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 8", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 9", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 10", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 11", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 12", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 13", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 14", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 15", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true)
         ]
         
         self.stages = stages
@@ -198,6 +201,8 @@ extension StageViewController {
         // Label 수정
         stageNameLabel.text = stages[indexPath.row].name
         recordLabel.text = "목표기록 : \(stages[indexPath.row].targetRecord)\n현재기록 : \(stages[indexPath.row].myRecord)"
+        
+        userDefault.setStageNumber(stageNumber: Int(indexPath.row + 1))
         
         // 별 개수에 따라 색 변경
         switch stages[indexPath.row].star {

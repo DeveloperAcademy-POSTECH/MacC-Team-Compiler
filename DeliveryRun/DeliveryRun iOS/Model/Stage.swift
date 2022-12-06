@@ -15,6 +15,7 @@ class Stage: Codable{
     var myRecord: Double
     var star: Int {
         get {
+            if myRecord == 0.0 { return 0 }
             if targetRecord - 15 >= myRecord { return 3 }
             else if targetRecord >= myRecord { return 2 }
             else if targetRecord + 15 >= myRecord { return 1 }
