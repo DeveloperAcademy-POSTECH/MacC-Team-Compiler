@@ -10,7 +10,8 @@ import GameplayKit
 import AVFoundation
 
 class GameScene: SKScene{
-    let soundSetting = Sound.shared
+    let backgroundSetting = BackgroundSound.shared
+    let gameSoundSetting = GameSound(gameSound: AVAudioPlayer())
     
     
     var stageNumber:Int = 1
@@ -94,18 +95,18 @@ class GameScene: SKScene{
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
         
-        print("111",userDefault.backgroundMusic)
-        print("222", userDefault.gameSound)
+        gameSoundSetting.playgameSound(gameSoundName: "robby2")
         
         if userDefault.backgroundMusic {
-            soundSetting.stopBackground()
-            soundSetting.playBackground(backgroundName: "ingame")
+            backgroundSetting.stopBackground()
+            backgroundSetting.playBackground(backgroundName: "ingame")
         }
         
         if userDefault.gameSound {
-            soundSetting.playgameSound(gameSoundName: "start")
+            print("GameSoundOn")
         } else {
-            soundSetting.stopGameSound()
+            print("GameSoundOff")
+            gameSoundSetting.offGameSound()
         }
         
         
