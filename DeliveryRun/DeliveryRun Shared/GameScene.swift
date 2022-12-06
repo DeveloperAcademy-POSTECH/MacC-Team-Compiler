@@ -71,15 +71,12 @@ class GameScene: SKScene{
     // Variables
     var timer = Timer()
     
-    var catSign:SKNode!
-    var catAnimation = [SKTexture]()
-    
-    let endTime = 100
+    let endTime = 999
     var elapsedTime = 0
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
-    var endPoint = 20000.0
+    var endPoint: Double { return 20000.0 }
     
     @objc func updateTimer() {
         if endTime > elapsedTime {
@@ -91,16 +88,6 @@ class GameScene: SKScene{
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
-        
-        //Add catSign
-        catSign = childNode(withName: "CatSign")
-        stealAction = true
-        let catTexture = SKTextureAtlas(named:"CatAnimation")
-        
-        for index in 0..<catTexture.textureNames.count {
-            let textureName = "cat" + String(index)
-            catAnimation.append(catTexture.textureNamed(textureName))
-        }
         
         // UserDefault Tracking Data
         UserDefaultData.findPath()
@@ -446,15 +433,6 @@ extension GameScene {
         playerStateMachine.enter(DamageState.self)
     }
     
-    func emrgeCat() {
-        if player.position.x >= catSign.position.x {
-            if player.position.x <= catSign.position.x + 1000 && stealAction{
-                stealAction = false
-                createCat()
-            }
-        }
-    }
-    
     // Game UI Function
     func arrival(timeRecord:Double) {
         self.viewController.endBackView.isHidden = false
@@ -675,40 +653,5 @@ extension GameScene: SKPhysicsContactDelegate {
                 }
             }
         }
-    }
-}
-
-// MARK: Interaction
-extension GameScene {
-
-    func createCat() {
-
-        let node = SKSpriteNode(imageNamed: "cat0")
-        node.name = "Cat"
-        node.position = CGPoint(x: player.position.x + 400.0, y:player.position.y + 100.0)
-        node.anchorPoint = CGPoint(x: 0.5, y:1)
-        node.scale(to: CGSize(width: 150, height: 150))
-        node.zPosition = 5
-        
-        node.run(SKAction.repeatForever(SKAction.animate(with: catAnimation, timePerFrame: 0.3)))
-
-        let physicalBody = SKPhysicsBody(circleOfRadius: 30)
-        node.physicsBody = physicalBody
-
-        physicalBody.categoryBitMask = Collision.Masks.interaction.bitmask
-        physicalBody.collisionBitMask = Collision.Masks.player.bitmask
-        physicalBody.fieldBitMask = Collision.Masks.ground.bitmask
-        physicalBody.contactTestBitMask = Collision.Masks.player.bitmask
-
-        physicalBody.pinned = true
-        physicalBody.allowsRotation = false
-        physicalBody.restitution = 0.2
-        physicalBody.friction = 10
-
-        addChild(node)
-
-    }
-    func removeCat() {
-        
     }
 }

@@ -30,7 +30,7 @@
 		6F28EEA628F5444600D7330F /* Robby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EEA428F5444600D7330F /* Robby.storyboard */; };
 		6F28EEA928F5444600D7330F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EEA728F5444600D7330F /* LaunchScreen.storyboard */; };
 		6F28EEAA28F5444600D7330F /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9528F5444500D7330F /* Actions.sks */; };
-		6F28EEAB28F5444600D7330F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9628F5444500D7330F /* GameScene.sks */; };
+		6F28EEAB28F5444600D7330F /* Stage1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9628F5444500D7330F /* Stage1.sks */; };
 		6F28EEAC28F5444600D7330F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28EE9728F5444500D7330F /* GameScene.swift */; };
 		6F28EEAD28F5444600D7330F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9828F5444600D7330F /* Assets.xcassets */; };
 		6F2E1D9A2924BB2500CAE76E /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E1D992924BB2500CAE76E /* StageCell.swift */; };
@@ -47,9 +47,12 @@
 		6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4B8BD7291E2E99000990EA /* Game.storyboard */; };
 		6F5D4AB4292CA69C00572DC0 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4AB3292CA69C00572DC0 /* Stage.swift */; };
 		6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */; };
+		6F725D00293F21FE00971BCC /* Stage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F725CFF293F21FE00971BCC /* Stage1.swift */; };
 		6F965E15293919640048334B /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F965E14293919640048334B /* Custom.swift */; };
 		6FA60FAF28F69431003846EF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA60FAE28F69431003846EF /* Color.swift */; };
 		6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */; };
+		6FB79CB9293F322A00823407 /* Stage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79CB8293F322A00823407 /* Stage2.swift */; };
+		6FB79CBB293F326600823407 /* Stage2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB79CBA293F326600823407 /* Stage2.sks */; };
 		6FBFE15329390D9200A1927D /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFE15229390D9200A1927D /* Sound.swift */; };
 		6FE9943D29123850004753BA /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE9943C29123850004753BA /* HUD.swift */; };
 		6FF3371B29309CC700D04BDB /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF3371A29309CC700D04BDB /* QuestView.swift */; };
@@ -85,7 +88,7 @@
 		63EFFF72291A42BA005FF169 /* sound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound1.mp3; sourceTree = "<group>"; };
 		6F110C7A28F697F500F75C13 /* DeliveryRun-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DeliveryRun-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		6F28EE9528F5444500D7330F /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		6F28EE9628F5444500D7330F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		6F28EE9628F5444500D7330F /* Stage1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stage1.sks; sourceTree = "<group>"; };
 		6F28EE9728F5444500D7330F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6F28EE9828F5444600D7330F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F28EE9D28F5444600D7330F /* DeliveryRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,9 +102,12 @@
 		6F4B8BD7291E2E99000990EA /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		6F5D4AB3292CA69C00572DC0 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileSet.sks; sourceTree = "<group>"; };
+		6F725CFF293F21FE00971BCC /* Stage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1.swift; sourceTree = "<group>"; };
 		6F965E14293919640048334B /* Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
 		6FA60FAE28F69431003846EF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
+		6FB79CB8293F322A00823407 /* Stage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage2.swift; sourceTree = "<group>"; };
+		6FB79CBA293F326600823407 /* Stage2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stage2.sks; sourceTree = "<group>"; };
 		6FBFE15229390D9200A1927D /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		6FE9943C29123850004753BA /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		6FF3371A29309CC700D04BDB /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
@@ -199,7 +205,7 @@
 				63D689E42906E4BF001748CE /* SpriteDocument */,
 				6F28EE9528F5444500D7330F /* Actions.sks */,
 				6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */,
-				6F28EE9628F5444500D7330F /* GameScene.sks */,
+				6F725CFE293F21D900971BCC /* Stages */,
 				6F28EE9728F5444500D7330F /* GameScene.swift */,
 				6372509328FFC7F700117CF8 /* PlayerState.swift */,
 				6FE9943C29123850004753BA /* HUD.swift */,
@@ -247,6 +253,17 @@
 				6F4B8BD3291E26D5000990EA /* Stage.storyboard */,
 			);
 			path = Stage;
+			sourceTree = "<group>";
+		};
+		6F725CFE293F21D900971BCC /* Stages */ = {
+			isa = PBXGroup;
+			children = (
+				6F28EE9628F5444500D7330F /* Stage1.sks */,
+				6F725CFF293F21FE00971BCC /* Stage1.swift */,
+				6FB79CBA293F326600823407 /* Stage2.sks */,
+				6FB79CB8293F322A00823407 /* Stage2.swift */,
+			);
+			path = Stages;
 			sourceTree = "<group>";
 		};
 		6F965E13293919420048334B /* Game */ = {
@@ -344,9 +361,10 @@
 				6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */,
 				6F4B8BCB291E237B000990EA /* sound3.mp3 in Resources */,
 				6F4B8BCE291E2383000990EA /* sound5.mp3 in Resources */,
+				6FB79CBB293F326600823407 /* Stage2.sks in Resources */,
 				637DB203293CEA2C007B755C /* Garage.storyboard in Resources */,
 				6F4B8BD2291E238B000990EA /* robby.mp3 in Resources */,
-				6F28EEAB28F5444600D7330F /* GameScene.sks in Resources */,
+				6F28EEAB28F5444600D7330F /* Stage1.sks in Resources */,
 				6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */,
 				6F28EEA628F5444600D7330F /* Robby.storyboard in Resources */,
 				6F4B8BCC291E237E000990EA /* sound2.mp3 in Resources */,
@@ -385,6 +403,8 @@
 				638862F72939D6B5004CD09C /* StoryView.swift in Sources */,
 				6FE9943D29123850004753BA /* HUD.swift in Sources */,
 				6F5D4AB4292CA69C00572DC0 /* Stage.swift in Sources */,
+				6FB79CB9293F322A00823407 /* Stage2.swift in Sources */,
+				6F725D00293F21FE00971BCC /* Stage1.swift in Sources */,
 				6FBFE15329390D9200A1927D /* Sound.swift in Sources */,
 				6F2E1D9A2924BB2500CAE76E /* StageCell.swift in Sources */,
 				6F28EEA128F5444600D7330F /* AppDelegate.swift in Sources */,
@@ -539,7 +559,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S5VGQ6HPYR;
+				DEVELOPMENT_TEAM = 2K43262B89;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DeliveryRun-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -14,8 +14,6 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     let userDefaultData = UserDefaultData()
-    var timeRap = 0
-    var storyNumber:Int = 0
     
     // Pause Screen IBOutlet
     @IBOutlet weak var pauseBackView: UIView!
@@ -75,7 +73,7 @@ class GameViewController: UIViewController {
         
         
         // Present the scene
-        if let scene = GKScene(fileNamed: "GameScene") {
+        if let scene = GKScene(fileNamed: "Stage1") {
             // Root 노드 생성
             if let sceneNode = scene.rootNode as! GameScene? {
                 sceneNode.viewController = self
