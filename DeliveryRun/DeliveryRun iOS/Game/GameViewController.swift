@@ -137,5 +137,3 @@ class GameViewController: UIViewController {
         }
     }
 }
-
-let storyTexts = ["시작", "텍스트2", "텍스트3","끝"]

@@ -24,10 +24,11 @@ class UserDefaultData {
     
     
     init() {
-        self.playStageNumber = UserDefaults.standard.integer(forKey: "PlayStageNumber")
+        self.stageNumber = UserDefaults.standard.integer(forKey: "StageNumber")
         self.backgroundMusic = UserDefaults.standard.bool(forKey: "BackgroundMusic")
         self.gameSound = UserDefaults.standard.bool(forKey: "GameSound")
         self.mySkin = UserDefaults.standard.string(forKey: "MyPlayerSkin") ?? "default"
+        
         
 
         if let mySkinList = UserDefaults.standard.array(forKey: "MySkins") {
@@ -70,20 +71,22 @@ class UserDefaultData {
         self.stageFiveRecord = UserDefaults.standard.double(forKey: "StageFiveRecord")
         self.stageFiveDone = UserDefaults.standard.bool(forKey: "StageFiveDone")
         
+        print(stageOneRecord)
+        
 
-        let stage1 = Stage(name: "스테이지 1", image: "star0", targetRecord: 50.0, myRecord: self.stageOneRecord, isLock: false)
+        let stage1 = Stage(name: "스테이지 1", image: "stage1", targetRecord: 60.00, myRecord: self.stageOneRecord , isLock: false)
         UserDefaults.standard.setObjectToUserDefault(stage1, forKey: "StageOne")
 
-        let stage2 = Stage(name: "스테이지 2", image: "star0", targetRecord: 60.0, myRecord: self.stageTwoRecord, isLock: !self.stageOneDone)
+        let stage2 = Stage(name: "스테이지 2", image: "stage2", targetRecord: 60.00, myRecord: self.stageTwoRecord, isLock: !self.stageOneDone)
         UserDefaults.standard.setObjectToUserDefault(stage2, forKey: "StageTwo")
 
-        let stage3 = Stage(name: "스테이지 3", image: "star0", targetRecord: 70.0, myRecord: self.stageThreeRecord, isLock: !self.stageTwoDone)
+        let stage3 = Stage(name: "스테이지 3", image: "stage3", targetRecord: 60.00, myRecord: self.stageThreeRecord, isLock: !self.stageTwoDone)
         UserDefaults.standard.setObjectToUserDefault(stage3, forKey: "StageThree")
 
-        let stage4 = Stage(name: "스테이지 4", image: "star0", targetRecord: 80.0, myRecord: self.stageFourRecord, isLock: !self.stageThreeDone)
+        let stage4 = Stage(name: "스테이지 4", image: "stage4", targetRecord: 60.00, myRecord: self.stageFourRecord, isLock: !self.stageThreeDone)
         UserDefaults.standard.setObjectToUserDefault(stage4, forKey: "StageFour")
 
-        let stage5 = Stage(name: "스테이지 5", image: "star0", targetRecord: 90.0, myRecord: self.stageFiveRecord, isLock: !self.stageFourDone)
+        let stage5 = Stage(name: "스테이지 5", image: "stage5", targetRecord: 60.00, myRecord: self.stageFiveRecord, isLock: !self.stageFourDone)
         UserDefaults.standard.setObjectToUserDefault(stage5, forKey: "StageFive")
         
         
@@ -144,11 +147,11 @@ class UserDefaultData {
     
     
     // Stage
-    var stageOneRecord:Double = 99.00
-    var stageTwoRecord:Double = 99.00
-    var stageThreeRecord:Double = 99.00
-    var stageFourRecord:Double = 99.00
-    var stageFiveRecord:Double = 99.00
+    var stageOneRecord:Double = 100.00
+    var stageTwoRecord:Double = 100.00
+    var stageThreeRecord:Double
+    var stageFourRecord:Double
+    var stageFiveRecord:Double
     
     var stageOneDone:Bool
     var stageTwoDone:Bool
@@ -157,54 +160,100 @@ class UserDefaultData {
     var stageFiveDone:Bool
     
     // StageNumber
-    var playStageNumber:Int
+    var stageNumber:Int
     
     func setStageNumber(stageNumber:Int) {
-        
+        defaults.set(stageNumber, forKey: "StageNumber")
+        self.stageNumber = stageNumber
     }
     
     
-    func stageOneCompleted(timeRecord:Double) {
-        
-        if timeRecord < self.stageOneRecord && self.stageOneRecord != 0.00  {
-            self.stageOneRecord = timeRecord
-            defaults.set(timeRecord, forKey: "StageOneRecord")
-        }
-        self.stageOneDone = true
-        defaults.set(self.stageOneDone, forKey: "StageOneDone")
-    }
     
-    func secondStageCompleted(timeRecord:Double) {
-        if timeRecord < self.stageTwoRecord && self.stageTwoRecord != 0.00  {
-            self.stageTwoRecord = timeRecord
-            defaults.set(self.stageTwoRecord, forKey: "StageTwoRecord")
+    func stageCompleted(timeRecord:Double, stageNumber:Int) {
+        if stageNumber == 1 {
+            if self.stageOneRecord == 0.0 {
+                self.stageOneRecord = timeRecord
+                defaults.set(timeRecord, forKey: "StageOneRecord")
+                let stage1 = Stage(name: "스테이지 1", image: "stage1", targetRecord: 60.00, myRecord: self.stageOneRecord , isLock: false)
+                UserDefaults.standard.setObjectToUserDefault(stage1, forKey: "StageOne")
+            } else {
+                if timeRecord < self.stageOneRecord {
+                    self.stageOneRecord = timeRecord
+                    defaults.set(timeRecord, forKey: "StageOneRecord")
+                }
+            }
+            self.stageOneDone = true
+            defaults.set(self.stageOneDone, forKey: "StageOneDone")
+            let stage2 = Stage(name: "스테이지 1", image: "stage2", targetRecord: 60.00, myRecord: self.stageTwoRecord , isLock: false)
+            UserDefaults.standard.setObjectToUserDefault(stage2, forKey: "StageTwo")
+        } else if stageNumber == 2 {
+            if self.stageTwoRecord == 0.0 {
+                self.stageTwoRecord = timeRecord
+                defaults.set(timeRecord, forKey: "StageTwoRecord")
+                let stage2 = Stage(name: "스테이지 2", image: "stage2", targetRecord: 60.00, myRecord: self.stageTwoRecord , isLock: false)
+                UserDefaults.standard.setObjectToUserDefault(stage2, forKey: "StageTwo")
+            } else {
+                if timeRecord < self.stageTwoRecord {
+                    self.stageTwoRecord = timeRecord
+                    defaults.set(timeRecord, forKey: "StageTwoRecord")
+                }
+            }
+            self.stageTwoDone = true
+            defaults.set(self.stageTwoDone, forKey: "StageTwoDone")
+            let stage3 = Stage(name: "스테이지 3", image: "stage3", targetRecord: 60.00, myRecord: self.stageThreeRecord , isLock: false)
+            UserDefaults.standard.setObjectToUserDefault(stage3, forKey: "StageThree")
+            
+        } else if stageNumber == 3 {
+            if self.stageThreeRecord == 0.0 {
+                self.stageThreeRecord = timeRecord
+                defaults.set(timeRecord, forKey: "StageThreeRecord")
+                let stage3 = Stage(name: "스테이지 3", image: "stage3", targetRecord: 60.00, myRecord: self.stageThreeRecord , isLock: false)
+                UserDefaults.standard.setObjectToUserDefault(stage3, forKey: "StageThree")
+            } else {
+                if timeRecord < self.stageThreeRecord {
+                    self.stageThreeRecord = timeRecord
+                    defaults.set(timeRecord, forKey: "StageThreeRecord")
+                }
+            }
+            self.stageThreeDone = true
+            defaults.set(self.stageThreeDone, forKey: "StageThreeDone")
+            let stage4 = Stage(name: "스테이지 4", image: "stage4", targetRecord: 60.00, myRecord: self.stageFourRecord , isLock: false)
+            UserDefaults.standard.setObjectToUserDefault(stage4, forKey: "StageFour")
+        } else if stageNumber == 4 {
+            if self.stageFourRecord == 0.0 {
+                self.stageFourRecord = timeRecord
+                defaults.set(timeRecord, forKey: "StageFourRecord")
+                let stage4 = Stage(name: "스테이지 4", image: "stage4", targetRecord: 60.00, myRecord: self.stageFourRecord , isLock: false)
+                UserDefaults.standard.setObjectToUserDefault(stage4, forKey: "StaeFour")
+            } else {
+                if timeRecord < self.stageFourRecord {
+                    self.stageThreeRecord = timeRecord
+                    defaults.set(timeRecord, forKey: "StageFourRecord")
+                }
+            }
+            self.stageFourDone = true
+            defaults.set(self.stageFourDone, forKey: "StageFourDone")
+            let stage5 = Stage(name: "스테이지 5", image: "stage5", targetRecord: 60.00, myRecord: self.stageFiveRecord , isLock: false)
+            UserDefaults.standard.setObjectToUserDefault(stage5, forKey: "StageFive")
+        } else if stageNumber == 5 {
+            if self.stageFiveRecord == 0.0 {
+                self.stageFiveRecord = timeRecord
+                defaults.set(timeRecord, forKey: "StageFiveRecord")
+                let stage4 = Stage(name: "스테이지 5", image: "stage5", targetRecord: 60.00, myRecord: self.stageFiveRecord , isLock: false)
+                UserDefaults.standard.setObjectToUserDefault(stage4, forKey: "StageFive")
+            } else {
+                if timeRecord < self.stageFourRecord {
+                    self.stageThreeRecord = timeRecord
+                    defaults.set(timeRecord, forKey: "StageFiveRecord")
+                }
+            }
+            self.stageFiveDone = true
+            defaults.set(self.stageFiveDone, forKey: "StageFiveDone")
+            print("All Stage Clear")
+            
+        } else {
+            print("Out Stage")
         }
-        self.stageTwoDone = true
-        defaults.set(self.stageTwoDone = true, forKey: "StageTwoDone")
-    }
-    func thirdStageCompleted(timeRecord:Double) {
-        if timeRecord < self.stageThreeRecord && self.stageThreeRecord != 0.00  {
-            self.stageThreeRecord = timeRecord
-            defaults.set(self.stageThreeRecord, forKey: "StageThreeRecord")
-        }
-        self.stageThreeDone = true
-        defaults.set(self.stageThreeDone, forKey: "StageThreeDone")
-    }
-    func fourStageCompleted(timeRecord:Double) {
-        if timeRecord < self.stageFourRecord && self.stageFourRecord != 0.00  {
-            self.stageFourRecord = timeRecord
-            defaults.set(timeRecord, forKey: "StageFourRecord")
-        }
-        self.stageFourDone = true
-        defaults.set(self.stageFourDone, forKey: "StageFourDone")
-    }
-    func fiveStageCompleted(timeRecord:Double) {
-        if timeRecord < self.stageFiveRecord && self.stageFiveRecord != 0.00  {
-            self.stageFiveRecord = timeRecord
-            defaults.set(timeRecord, forKey: "StageFiveRecord")
-        }
-        self.stageFiveDone = false
-        defaults.set(self.stageFiveDone, forKey: "StageFiveDone")
     }
     
     // Tracking Data
@@ -213,7 +262,7 @@ class UserDefaultData {
     var collisionData:Int = 0
     
     
-    func endGameSaveData(jumpData:Int, breakData:Int, collisionData:Int, timeRecord:Double, playStageNumber:Int) {
+    func endGameSaveData(jumpData:Int, breakData:Int, collisionData:Int, timeRecord:Double, stageNumber:Int) {
         self.jumpData = jumpData
         defaults.set(self.jumpData, forKey: "JumpData")
         self.breakData = breakData
@@ -221,32 +270,15 @@ class UserDefaultData {
         self.collisionData = collisionData
         defaults.set(self.collisionData, forKey: "CollisionData")
         
-        
         let quest1 = Quest(title: "점프킹", subTitle: "총 점프 횟수 50회를 달성하세요.", imageURl: "jumpSkin", totalNumber: 50, nowNumber: jumpData,isClear: self.jumpQuestDone)
         UserDefaults.standard.setObjectToUserDefault(quest1, forKey: "Quest1")
         let quest2 = Quest(title: "하남자특", subTitle: "브레이크를 사용해서 최저 속도를 20회 달성하세요.", imageURl: "breakSkin", totalNumber: 20, nowNumber: breakData, isClear: self.breakQuestDone)
         UserDefaults.standard.setObjectToUserDefault(quest2, forKey: "Quest2")
-        
         self.collisionQuestDone = UserDefaults.standard.bool(forKey: "ThirdQuestIsClear")
         let quest3 = Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", imageURl: "collisionSkin", totalNumber: 50, nowNumber: collisionData, isClear: self.collisionQuestDone)
         UserDefaults.standard.setObjectToUserDefault(quest3, forKey: "Quest3")
         
-        
-        if playStageNumber == 1 {
-            stageOneCompleted(timeRecord: timeRecord)
-            let stage = Stage(name: "스테이지 1", image: "stage1", targetRecord: 60, myRecord: timeRecord, isLock: false)
-            let nextStage = Stage(name: "스테이지 2", image: "stage2", targetRecord: 70, myRecord: 0.00, isLock: false)
-            UserDefaults.standard.setObjectToUserDefault(stage, forKey: "StageOne")
-            UserDefaults.standard.setObjectToUserDefault(nextStage, forKey: "StageTwo")
-        } else if playStageNumber == 2 {
-            
-        } else if playStageNumber == 3 {
-            
-        } else if playStageNumber == 4 {
-            
-        } else if playStageNumber == 5 {
-            
-        }
+        stageCompleted(timeRecord: timeRecord, stageNumber: stageNumber)
         
         
     }
