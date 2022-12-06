@@ -73,8 +73,6 @@ class GameViewController: UIViewController {
         nowRecordLabel.textAlignment = .center
         nowRecordLabel.textColor = .white
         
-        policeView.isHidden = true
-        
         
         // Present the scene
         if let scene = GKScene(fileNamed: "GameScene") {
@@ -89,23 +87,6 @@ class GameViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    @IBOutlet weak var nextTextButton: UIButton!
-    @IBOutlet weak var storyView: StoryView!
-    @IBOutlet weak var policeView: UIView!
-    
-    func getTimeRap(recordTime paasedTime:Int) {
-        timeRap = paasedTime
-        
-    }
-    
-    func showPoliceView() {
-        policeView.isHidden = false
-    }
-    
-    @IBAction func policeButtonPressed(_ sender: UIButton) {
-        policeView.isHidden = true
     }
     
     // MARK: - Pause Screen IBAction
@@ -154,24 +135,6 @@ class GameViewController: UIViewController {
                     view.presentScene(sceneNode)
                     view.ignoresSiblingOrder = false
                 }
-            }
-        }
-    }
-    
-    
-    @IBAction func nextTextPressed(_ sender: UIButton) {
-        if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
-            gameScene.isPaused = true
-            if storyNumber <= 2{
-                storyNumber += 1
-            } else {
-                storyNumber = 3
-            }
-            storyView.storyTextLabel.text = storyTexts[storyNumber]
-            if storyNumber == 3 {
-                storyView.isHidden = true
-                gameScene.isPaused = false
-                nextTextButton.isHidden = true
             }
         }
     }
