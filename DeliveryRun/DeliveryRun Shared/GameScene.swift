@@ -10,6 +10,8 @@ import GameplayKit
 import AVFoundation
 
 class GameScene: SKScene{
+    let soundSetting = Sound.shared
+    
     
     var stageNumber:Int = 1
     var viewController: GameViewController!
@@ -91,6 +93,21 @@ class GameScene: SKScene{
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
+        
+        print("111",userDefault.backgroundMusic)
+        print("222", userDefault.gameSound)
+        
+        if userDefault.backgroundMusic {
+            soundSetting.stopBackground()
+            soundSetting.playBackground(backgroundName: "ingame")
+        }
+        
+        if userDefault.gameSound {
+            soundSetting.playgameSound(gameSoundName: "start")
+        } else {
+            soundSetting.stopGameSound()
+        }
+        
         
         // StageNumber
         self.stageNumber = userDefault.stageNumber

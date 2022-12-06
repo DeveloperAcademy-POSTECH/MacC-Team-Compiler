@@ -8,47 +8,54 @@
 import Foundation
 import AVFoundation
 
-struct Sound {
-    var audioPlayer: AVAudioPlayer
+class Sound {
+    var backgroundPlayer: AVAudioPlayer
+    var gameSoundPlayer: AVAudioPlayer
     
-    init(audioPlayer: AVAudioPlayer) {
-        self.audioPlayer = audioPlayer
+    
+    static let shared:Sound = {
+        let instance = Sound(backgroundPlayer: AVAudioPlayer(), gameSoundPlayer: AVAudioPlayer())
+        return instance
+    }()
+    
+    
+    init(backgroundPlayer: AVAudioPlayer, gameSoundPlayer: AVAudioPlayer ) {
+        self.backgroundPlayer = backgroundPlayer
+        self.gameSoundPlayer = gameSoundPlayer
     }
     
-    mutating func playSound(soundName:String) {
-        let url = Bundle.main.url(forResource: soundName, withExtension: "mp3")
+    func playBackground(backgroundName:String) {
+        let url = Bundle.main.url(forResource: backgroundName, withExtension: "wav")
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url!)
-            audioPlayer.play()
+            backgroundPlayer = try AVAudioPlayer(contentsOf: url!)
+            backgroundPlayer.setVolume(0.7, fadeDuration: 1)
+            backgroundPlayer.numberOfLoops = -1
+            backgroundPlayer.play()
         } catch {
             print("SoundError \(error)")
         }
     }
     
-    mutating func stopSound() {
-        audioPlayer.stop()
+    func playgameSound(gameSoundName: String) {
+        let url = Bundle.main.url(forResource:  gameSoundName, withExtension: "wav")
+        do {
+            gameSoundPlayer = try AVAudioPlayer(contentsOf: url!)
+            gameSoundPlayer.setVolume(1.0, fadeDuration: 1)
+            gameSoundPlayer.play()
+        } catch {
+            print("GameSound Error \(error)")
+        }
+    }
+    
+    func stopBackground() {
+        backgroundPlayer.setVolume(0.0, fadeDuration: 1)
+        backgroundPlayer.numberOfLoops = 1
+        backgroundPlayer.stop()
+    }
+    func stopGameSound() {
+        gameSoundPlayer.setVolume(0.0, fadeDuration: 1)
+        gameSoundPlayer.stop()
     }
 }
 
 // MARK: Sounds 0... 게임내 사운드를 담당
-let sounds:[Sound] = [
-Sound(
-    audioPlayer: AVAudioPlayer()),
-Sound(
-    audioPlayer: AVAudioPlayer()),
-Sound(
-    audioPlayer: AVAudioPlayer()),
-Sound(
-    audioPlayer: AVAudioPlayer()),
-Sound(
-    audioPlayer: AVAudioPlayer()),
-Sound(
-    audioPlayer: AVAudioPlayer()),
-Sound(
-    audioPlayer: AVAudioPlayer()),
-Sound(
-    audioPlayer: AVAudioPlayer()),
-Sound(
-    audioPlayer: AVAudioPlayer()),
-Sound(
-    audioPlayer: AVAudioPlayer())]
