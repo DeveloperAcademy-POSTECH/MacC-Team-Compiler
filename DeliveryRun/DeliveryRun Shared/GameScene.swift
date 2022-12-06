@@ -115,8 +115,7 @@ class GameScene: SKScene{
             LandingState(playerNode: player),
             AccelingState(playerNode: player),
             BreakingState(playerNode: player),
-            DamageState(playerNode: player),
-            StarState(playerNode:player)
+            DamageState(playerNode: player)
         ])
         
         playerStateMachine.enter(RunningState.self)
@@ -340,6 +339,7 @@ extension GameScene {
             if itemAction {
                 if itemImage.name == "Drink" {
                     playerSpeed += 10
+                    
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
                     itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"
@@ -351,12 +351,21 @@ extension GameScene {
                         self.jumpButton.texture = SKTexture(imageNamed: "Jump Button")
                         self.jumpButton.name = "Jump"
                     }
+                    
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
                     itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"
                 }
                 else if itemImage.name == "Star" {
-                    playerStateMachine.enter(StarState.self)
+                    let action = SKAction.scale(by: 2, duration:0.3)
+                    let action3 = SKAction.scale(by: 1, duration: 2.4)
+                    let action2 = SKAction.scale(by: 1/2, duration: 0.3)
+                    player.run(SKAction.sequence([action, action3, action2]))
+                    player.physicsBody?.categoryBitMask = 0
+                    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (timer) in
+                        self.player.physicsBody?.categoryBitMask = 2
+                    }
+                    
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
                     itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"
