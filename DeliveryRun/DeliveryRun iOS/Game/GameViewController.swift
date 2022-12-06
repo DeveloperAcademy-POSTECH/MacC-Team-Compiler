@@ -124,7 +124,7 @@ class GameViewController: UIViewController {
     // MARK: - End Screen IBAction
     @IBAction func retryPressed(_ sender: UIButton) {
         endBackView.isHidden = true
-        if let scene = GKScene(fileNamed: "GameScene") {
+        if let scene = GKScene(fileNamed: "Stage1") {
             if let sceneNode = scene.rootNode as! GameScene? {
                 sceneNode.viewController = self
                 sceneNode.scaleMode = .aspectFill
