@@ -436,10 +436,11 @@ extension GameScene {
     // Game UI Function
     func arrival(timeRecord:Double) {
         self.viewController.endBackView.isHidden = false
-        self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", self.elapsedTime)
+        self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
         Button.removeFromParent()
         HUD.removeFromParent()
         userDefault.endGameSaveData(jumpData: self.jumpData, breakData: self.breakData, collisionData: self.collisionData, timeRecord: Double(elapsedTime), playStageNumber: 1 )
+        userDefault.stageOneCompleted(timeRecord: timeRecord)
     }
     
     func showStory() {

@@ -144,11 +144,11 @@ class UserDefaultData {
     
     
     // Stage
-    var stageOneRecord:Double = 0.00
-    var stageTwoRecord:Double = 0.00
-    var stageThreeRecord:Double = 0.00
-    var stageFourRecord:Double = 0.00
-    var stageFiveRecord:Double = 0.00
+    var stageOneRecord:Double = 99.00
+    var stageTwoRecord:Double = 99.00
+    var stageThreeRecord:Double = 99.00
+    var stageFourRecord:Double = 99.00
+    var stageFiveRecord:Double = 99.00
     
     var stageOneDone:Bool
     var stageTwoDone:Bool
@@ -224,14 +224,29 @@ class UserDefaultData {
         
         let quest1 = Quest(title: "점프킹", subTitle: "총 점프 횟수 50회를 달성하세요.", imageURl: "jumpSkin", totalNumber: 50, nowNumber: jumpData,isClear: self.jumpQuestDone)
         UserDefaults.standard.setObjectToUserDefault(quest1, forKey: "Quest1")
-        
-        self.breakQuestDone = UserDefaults.standard.bool(forKey: "SecondQuestIsClear")
         let quest2 = Quest(title: "하남자특", subTitle: "브레이크를 사용해서 최저 속도를 20회 달성하세요.", imageURl: "breakSkin", totalNumber: 20, nowNumber: breakData, isClear: self.breakQuestDone)
         UserDefaults.standard.setObjectToUserDefault(quest2, forKey: "Quest2")
         
         self.collisionQuestDone = UserDefaults.standard.bool(forKey: "ThirdQuestIsClear")
         let quest3 = Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", imageURl: "collisionSkin", totalNumber: 50, nowNumber: collisionData, isClear: self.collisionQuestDone)
         UserDefaults.standard.setObjectToUserDefault(quest3, forKey: "Quest3")
+        
+        
+        if playStageNumber == 1 {
+            stageOneCompleted(timeRecord: timeRecord)
+            let stage = Stage(name: "스테이지 1", image: "stage1", targetRecord: 60, myRecord: timeRecord, isLock: false)
+            let nextStage = Stage(name: "스테이지 2", image: "stage2", targetRecord: 70, myRecord: 0.00, isLock: false)
+            UserDefaults.standard.setObjectToUserDefault(stage, forKey: "StageOne")
+            UserDefaults.standard.setObjectToUserDefault(nextStage, forKey: "StageTwo")
+        } else if playStageNumber == 2 {
+            
+        } else if playStageNumber == 3 {
+            
+        } else if playStageNumber == 4 {
+            
+        } else if playStageNumber == 5 {
+            
+        }
         
         
     }

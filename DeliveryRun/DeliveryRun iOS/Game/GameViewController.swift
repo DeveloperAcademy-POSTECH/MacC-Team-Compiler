@@ -97,6 +97,7 @@ class GameViewController: UIViewController {
     
     func getTimeRap(recordTime paasedTime:Int) {
         timeRap = paasedTime
+        
     }
     
     func showPoliceView() {
