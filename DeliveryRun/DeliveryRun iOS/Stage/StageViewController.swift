@@ -27,8 +27,34 @@ class StageViewController: UIViewController {
         settingView.isHidden = false
     }
     
+    var stages:[Stage] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let stages: [Stage] = [
+            
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageOne")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageTwo")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageThree")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageFour")!,
+            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageFive")!,
+            Stage(name: "스테이지 6", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 7", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 8", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 9", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 10", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 11", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 12", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 13", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 14", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
+            Stage(name: "스테이지 15", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true)
+        ]
+        
+        self.stages = stages
+        for stage in stages {
+            print(stage.isLock,stage.myRecord)
+        }
+
         
         let image = UIImage(named: "RobbyBack")
         backgroundImage.image = image?.applyBlur_usingClamp(radius: 50)
@@ -191,21 +217,3 @@ extension StageViewController {
     }
 }
 
-
-let stages: [Stage] = [
-    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage1")!,
-    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage2")!,
-    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage3")!,
-    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage4")!,
-    UserDefaultData.staticDefaults.setUserDefaultToObject(dataType: Stage.self, key: "Stage5")!,
-    Stage(name: "스테이지 6", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-    Stage(name: "스테이지 7", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-    Stage(name: "스테이지 8", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-    Stage(name: "스테이지 9", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-    Stage(name: "스테이지 10", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-    Stage(name: "스테이지 11", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-    Stage(name: "스테이지 12", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-    Stage(name: "스테이지 13", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-    Stage(name: "스테이지 14", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-    Stage(name: "스테이지 15", image: "", targetRecord: 90.0, myRecord: 0.0, isLock: true)
-]

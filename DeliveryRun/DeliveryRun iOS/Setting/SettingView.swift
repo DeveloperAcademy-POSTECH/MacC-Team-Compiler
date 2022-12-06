@@ -14,17 +14,17 @@ class SettingView: UIView {
     
     let userDefault = UserDefaultData.shared
     
-    var sound = Sound(audioPlayer: AVAudioPlayer())
 
     @IBOutlet weak var BackgroundMusicView: UIView!
     @IBOutlet weak var EffectMusicView: UIView!
-    @IBOutlet weak var BackgroundMusic: UISwitch!
-    @IBOutlet weak var InGameSound: UISwitch!
+    
+    @IBOutlet weak var BackgroundSwitch: UISwitch!
+    
+    @IBOutlet weak var GameSoundSwitch: UISwitch!
     @IBOutlet weak var byLabel: UILabel!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         // 기본 View 설정
         guard let view = loadViewFromNib() else { return }
         self.addSubview(view)
@@ -51,8 +51,8 @@ class SettingView: UIView {
         byLabel.numberOfLines = 2
         
         // UserDefault Get
-        BackgroundMusic.isOn = false
-        InGameSound.isOn = false
+        BackgroundSwitch.isOn = userDefault.backgroundMusic
+        GameSoundSwitch.isOn = userDefault.gameSound
     }
     
     func loadViewFromNib() -> UIView? {
@@ -64,13 +64,12 @@ class SettingView: UIView {
     // Button IBActions
     @IBAction func settingCheckButtonPressed(_ sender: CustomGameButton) {
         self.isHidden.toggle()
+        // UserDefault Set
+        userDefault.setSetting(backgroundMusic: BackgroundSwitch.isOn, gameSound: GameSoundSwitch.isOn)
     }
     
+    // TODO: BackgroudMusci ON OFF
     @IBAction func backgroundOnOff(_ sender: UISwitch) {
-        if BackgroundMusic.isOn {
-            sound.playSound(soundName: "robby")
-        } else {
-            sound.stopSound()
-        }
+        print("Play Background")
     }
 }

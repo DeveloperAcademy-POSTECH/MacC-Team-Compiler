@@ -11,6 +11,7 @@ import AVFoundation
 
 class GameScene: SKScene{
     
+    var stageNumber:Int = 0
     var viewController: GameViewController!
     let userDefault = UserDefaultData.shared
     
@@ -20,7 +21,6 @@ class GameScene: SKScene{
     var collisionData:Int = 0
     var previousTimeRecord:Double = 0.00
     var isClear:Bool = false
-    
     
     // Player
     let player = SKSpriteNode(imageNamed: "player0")
@@ -104,11 +104,12 @@ class GameScene: SKScene{
         
         // UserDefault Tracking Data
         UserDefaultData.findPath()
-        self.jumpData = UserDefaultData.staticDefaults.integer(forKey:"JumpData")
-        self.breakData = UserDefaultData.staticDefaults.integer(forKey:"BreakData")
-        self.collisionData = UserDefaultData.staticDefaults.integer(forKey:"CollisionData")
-        self.previousTimeRecord = UserDefaultData.staticDefaults.double(forKey: "Record1")
-        self.isClear = UserDefaultData.staticDefaults.bool(forKey: "FirstStageClear")
+        self.stageNumber = userDefault.defaults.integer(forKey: "StageNumber")
+        self.jumpData = userDefault.defaults.integer(forKey:"JumpData")
+        self.breakData = userDefault.defaults.integer(forKey:"BreakData")
+        self.collisionData = userDefault.defaults.integer(forKey:"CollisionData")
+        self.previousTimeRecord = userDefault.defaults.double(forKey: "Record1")
+        self.isClear = userDefault.defaults.bool(forKey: "FirstStageClear")
         
         // Physical Delegate
         physicsWorld.contactDelegate = self
@@ -460,8 +461,8 @@ extension GameScene {
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
         Button.removeFromParent()
         HUD.removeFromParent()
-        userDefault.firstStageCompleted(timeRecord: timeRecord)
-        userDefault.trackingDataSave(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
+        userDefault.endGameSaveData(jumpData: self.jumpData, breakData: self.breakData, collisionData: self.collisionData, timeRecord: Double(elapsedTime), playStageNumber: 1 )
+        userDefault.stageOneCompleted(timeRecord: timeRecord)
     }
 }
 
@@ -584,6 +585,7 @@ extension GameScene: SKPhysicsContactDelegate {
                 }
             }
             else {
+                contact.bodyA.node?.physicsBody?.categoryBitMask = 0
                 usualDamage()
             }
             collisionData += 1

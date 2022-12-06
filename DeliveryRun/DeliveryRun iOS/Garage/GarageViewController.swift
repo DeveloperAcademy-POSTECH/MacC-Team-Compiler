@@ -8,7 +8,23 @@
 import Foundation
 import UIKit
 
+extension GarageViewController: YourCellDelegate {
+    func didCompleteOnboarding() {
+        let robby = UIStoryboard.init(name: "Robby", bundle: nil)
+                guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
+        RobbyViewController.modalPresentationStyle = .fullScreen
+                self.present(RobbyViewController, animated: false, completion: nil)
+    }
+}
+
 class GarageViewController: UIViewController {
+    
+    let userDefault = UserDefaultData.shared
+    
+    var collectionSkins:[String] = []
+
+    let collectionSpeedStat = [7, 7, 7, 7]
+    let collectionJumpStat = [7, 7, 7, 7]
     
     @IBOutlet weak var backgroundView: UIImageView!
     
@@ -23,6 +39,8 @@ class GarageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.collectionSkins = userDefault.mySkins
+        print("mySkins", userDefault.mySkins)
         // Background Blur
         let image = UIImage(named: "RobbyBack")
         backgroundView.image = image?.applyBlur_usingClamps(radius: 30)
@@ -47,6 +65,7 @@ class GarageViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "PlayerCollectionCell", bundle: nil), forCellWithReuseIdentifier: "PlayerCollectionCell")
+        collectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         
     }
     
@@ -89,7 +108,7 @@ extension GarageViewController: UICollectionViewDataSource, UICollectionViewDele
     
     // CollectionNumbers
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        playerSkins.count
+        collectionSkins.count
     }
     
     // Collection Cell
@@ -103,6 +122,7 @@ extension GarageViewController: UICollectionViewDataSource, UICollectionViewDele
         cell.JumpLabel.text = String(format: "%D", collectionJumpStat[indexPath.row])
         cell.SpeedProgress.progress = Float(Double(collectionSpeedStat[indexPath.row]) / 10.0)
         cell.JumpProgress.progress = Float(Double(collectionJumpStat[indexPath.row]) / 10.0)
+        cell.delegate = self
         
         return cell
         
@@ -117,10 +137,6 @@ extension GarageViewController: UICollectionViewDataSource, UICollectionViewDele
         }
     
 }
-
-let collectionSkins = ["default", "jump", "break", "collision"]
-let collectionSpeedStat = [1, 2, 3, 4]
-let collectionJumpStat = [10, 9, 8, 7]
 
 
 // UIImage Blur
@@ -144,3 +160,4 @@ extension UIImage {
         return UIImage(cgImage: cgimg)
     }
 }
+

@@ -12,10 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
             <connections>
-                <outlet property="BackgroundMusic" destination="hyu-LM-BUK" id="GiL-7E-nQd"/>
                 <outlet property="BackgroundMusicView" destination="KPx-jT-cuk" id="jqG-2y-SPr"/>
+                <outlet property="BackgroundSwitch" destination="hyu-LM-BUK" id="0jh-IE-WGS"/>
                 <outlet property="EffectMusicView" destination="AcK-Wp-2pj" id="Xrn-ra-ZjG"/>
-                <outlet property="InGameSound" destination="pcE-hj-Ncb" id="Q1K-29-Gox"/>
+                <outlet property="GameSoundSwitch" destination="pcE-hj-Ncb" id="ehu-A6-D01"/>
                 <outlet property="byLabel" destination="UDT-Xz-jJa" id="pQM-g5-oyz"/>
             </connections>
         </placeholder>
@@ -45,10 +45,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPx-jT-cuk" userLabel="Background Music View">
-                    <rect key="frame" x="307.66666666666669" y="50" width="237.00000000000006" height="60"/>
+                    <rect key="frame" x="310.33333333333331" y="50" width="231.66666666666669" height="60"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="olC-kd-r9k">
-                            <rect key="frame" x="15" y="10" width="207" height="40"/>
+                            <rect key="frame" x="15" y="10" width="201.66666666666666" height="40"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qIs-Cz-Mbd">
                                     <rect key="frame" x="0.0" y="-9.6666666666666643" width="40" height="55.333333333333329"/>
@@ -61,7 +61,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="default" weight="medium"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8K-zs-kbi">
-                                    <rect key="frame" x="60" y="2" width="78" height="36"/>
+                                    <rect key="frame" x="60.000000000000007" y="4.6666666666666714" width="72.666666666666686" height="31"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <attributedString key="attributedText">
@@ -77,8 +77,8 @@
                                     <nil key="highlightedColor"/>
                                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </label>
-                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hyu-LM-BUK" userLabel="BackgroundSwitch">
-                                    <rect key="frame" x="158" y="4.6666666666666714" width="51" height="31"/>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hyu-LM-BUK" userLabel="BackgroundSwitch">
+                                    <rect key="frame" x="152.66666666666669" y="4.6666666666666714" width="51" height="31"/>
                                     <color key="onTintColor" name="deliveryrunRed"/>
                                     <color key="thumbTintColor" name="deliveryrunYellow"/>
                                     <connections>
@@ -98,10 +98,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcK-Wp-2pj" userLabel="Effect Music View">
-                    <rect key="frame" x="307.66666666666669" y="130" width="237.00000000000006" height="60"/>
+                    <rect key="frame" x="309.66666666666669" y="130" width="233.00000000000006" height="60"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lBL-ti-AUf">
-                            <rect key="frame" x="15" y="10" width="207" height="40"/>
+                            <rect key="frame" x="15" y="10" width="203" height="40"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OmG-Oc-AV2">
                                     <rect key="frame" x="0.0" y="-2.9999999999999929" width="40" height="46.333333333333329"/>
@@ -129,8 +129,8 @@
                                     <nil key="highlightedColor"/>
                                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </label>
-                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pcE-hj-Ncb" userLabel="GameSoundSwitch">
-                                    <rect key="frame" x="158" y="4.6666666666666572" width="51" height="31"/>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pcE-hj-Ncb" userLabel="GameSoundSwitch">
+                                    <rect key="frame" x="154" y="4.6666666666666572" width="51" height="31"/>
                                     <color key="onTintColor" name="deliveryrunRed"/>
                                     <color key="thumbTintColor" name="deliveryrunYellow"/>
                                 </switch>
