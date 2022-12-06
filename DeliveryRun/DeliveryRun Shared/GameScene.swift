@@ -11,7 +11,7 @@ import AVFoundation
 
 class GameScene: SKScene{
     
-    var stageNumber:Int = 0
+    var stageNumber:Int = 1
     var viewController: GameViewController!
     let userDefault = UserDefaultData.shared
     
@@ -92,7 +92,11 @@ class GameScene: SKScene{
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
         
+        // StageNumber
+        self.stageNumber = userDefault.stageNumber
+        print("StageNumber",stageNumber)
         //Add catSign
+        
         catSign = childNode(withName: "CatSign")
         stealAction = true
         let catTexture = SKTextureAtlas(named:"CatAnimation")
@@ -104,12 +108,10 @@ class GameScene: SKScene{
         
         // UserDefault Tracking Data
         UserDefaultData.findPath()
-        self.stageNumber = userDefault.defaults.integer(forKey: "StageNumber")
         self.jumpData = userDefault.defaults.integer(forKey:"JumpData")
         self.breakData = userDefault.defaults.integer(forKey:"BreakData")
         self.collisionData = userDefault.defaults.integer(forKey:"CollisionData")
-        self.previousTimeRecord = userDefault.defaults.double(forKey: "Record1")
-        self.isClear = userDefault.defaults.bool(forKey: "FirstStageClear")
+        
         
         // Physical Delegate
         physicsWorld.contactDelegate = self
@@ -461,8 +463,7 @@ extension GameScene {
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
         Button.removeFromParent()
         HUD.removeFromParent()
-        userDefault.endGameSaveData(jumpData: self.jumpData, breakData: self.breakData, collisionData: self.collisionData, timeRecord: Double(elapsedTime), playStageNumber: 1 )
-        userDefault.stageOneCompleted(timeRecord: timeRecord)
+        userDefault.endGameSaveData(jumpData: self.jumpData, breakData: self.breakData, collisionData: self.collisionData, timeRecord: Double(elapsedTime), stageNumber: stageNumber)
     }
 }
 

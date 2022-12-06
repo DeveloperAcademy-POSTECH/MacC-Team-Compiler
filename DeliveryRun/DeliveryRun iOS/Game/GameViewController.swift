@@ -13,7 +13,6 @@ import GameplayKit
 import AVFoundation
 
 class GameViewController: UIViewController {
-    let userDefaultData = UserDefaultData()
     var timeRap = 0
     var storyNumber:Int = 0
     
@@ -139,5 +138,3 @@ class GameViewController: UIViewController {
         }
     }
 }
-
-let storyTexts = ["시작", "텍스트2", "텍스트3","끝"]
