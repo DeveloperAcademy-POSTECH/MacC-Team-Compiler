@@ -22,8 +22,6 @@ class RobbyViewController: UIViewController {
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var questButton: UIButton!
     
-    var sound:Sound = Sound(audioPlayer: AVAudioPlayer())
-    
     override func viewDidLoad() {
         // MARK: UserDefault
         UserDefaultData.findPath()

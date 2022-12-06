@@ -114,7 +114,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="default" weight="medium"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiR-63-2ak" userLabel="효과음">
-                                    <rect key="frame" x="60" y="2" width="78" height="36"/>
+                                    <rect key="frame" x="60" y="4.6666666666666572" width="74" height="31"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <attributedString key="attributedText">
@@ -133,6 +133,9 @@
                                     <rect key="frame" x="154" y="4.6666666666666572" width="51" height="31"/>
                                     <color key="onTintColor" name="deliveryrunRed"/>
                                     <color key="thumbTintColor" name="deliveryrunYellow"/>
+                                    <connections>
+                                        <action selector="ingameSoundOnOff:" destination="-1" eventType="valueChanged" id="c1z-sk-owW"/>
+                                    </connections>
                                 </switch>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

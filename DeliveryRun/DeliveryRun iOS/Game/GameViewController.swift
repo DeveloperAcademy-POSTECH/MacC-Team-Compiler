@@ -16,6 +16,8 @@ class GameViewController: UIViewController {
     var timeRap = 0
     var storyNumber:Int = 0
     
+    let backgroundSetting = BackgroundSound.shared
+    
     // Pause Screen IBOutlet
     @IBOutlet weak var pauseBackView: UIView!
     @IBOutlet weak var pauseView: UIView!
@@ -115,6 +117,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func homePressed(_ sender: UIButton) {
+        backgroundSetting.stopBackground()
+        backgroundSetting.playBackground(backgroundName: "robby")
         let stage = UIStoryboard.init(name: "Stage", bundle: nil)
         guard let StageViewController = stage.instantiateViewController(identifier: "StageViewController") as? StageViewController else { return }
         StageViewController.modalPresentationStyle = .fullScreen
