@@ -125,14 +125,14 @@ class StageViewController: UIViewController {
     
     @IBAction func goRobby(_ sender: UIButton) {
         let robby = UIStoryboard.init(name: "Robby", bundle: nil)
-                guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
+        guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
         RobbyViewController.modalPresentationStyle = .fullScreen
                 self.present(RobbyViewController, animated: false, completion: nil)
     }
     
     @IBAction func goDelivery(_ sender: CustomGameButton) {
         let game = UIStoryboard.init(name: "Game", bundle: nil)
-                guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController")as? GameViewController else {return}
+        guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController")as? GameViewController else {return}
         GameViewController.modalPresentationStyle = .fullScreen
                 self.present(GameViewController, animated: false, completion: nil)
     }

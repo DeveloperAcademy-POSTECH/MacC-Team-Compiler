@@ -90,7 +90,6 @@ class GameScene: SKScene{
     override func didMove(to view: SKView) {
         // StageNumber
         self.stageNumber = userDefault.stageNumber
-        print("StageNumber",stageNumber)
         
         // UserDefault Tracking Data
         UserDefaultData.findPath()
@@ -588,10 +587,6 @@ extension GameScene: SKPhysicsContactDelegate {
         
         
         if collision.matches(.player, .ground) {
-            if jumpButton.name == "Fly" {
-                jumpButton.texture = SKTexture(imageNamed: "Jump Button")
-                jumpButton.name = "Jump"
-            }
             playerStateMachine.enter(LandingState.self)
         }
         
