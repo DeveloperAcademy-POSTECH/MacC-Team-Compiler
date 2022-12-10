@@ -536,7 +536,7 @@ extension GameScene: SKPhysicsContactDelegate {
             }
             
             // Police
-            if contact.bodyA.node?.name == "Police" {
+            else if contact.bodyA.node?.name == "Police" {
                 storyAction = true
                 Button.removeFromParent()
                 setupStoryNode()
