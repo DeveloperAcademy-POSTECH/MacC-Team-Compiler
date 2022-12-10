@@ -13,7 +13,10 @@ import GameplayKit
 import AVFoundation
 
 class GameViewController: UIViewController {
+    
     let userDefaultData = UserDefaultData()
+    
+    var stageNumber: Int = 1
     
     // Pause Screen IBOutlet
     @IBOutlet weak var pauseBackView: UIView!
@@ -73,9 +76,10 @@ class GameViewController: UIViewController {
         
         
         // Present the scene
-        if let scene = GKScene(fileNamed: "Stage1") {
+        if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
             // Root 노드 생성
             if let sceneNode = scene.rootNode as! GameScene? {
+                sceneNode.stageNumber = stageNumber
                 sceneNode.viewController = self
                 sceneNode.scaleMode = .aspectFill
 
@@ -100,8 +104,9 @@ class GameViewController: UIViewController {
             pauseBackView.isHidden = true
             gameScene.view?.isPaused = false
         }
-        if let scene = GKScene(fileNamed: "Stage1") {
+        if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
             if let sceneNode = scene.rootNode as! GameScene? {
+                sceneNode.stageNumber = stageNumber
                 sceneNode.viewController = self
                 sceneNode.scaleMode = .aspectFill
 
@@ -124,8 +129,9 @@ class GameViewController: UIViewController {
     // MARK: - End Screen IBAction
     @IBAction func retryPressed(_ sender: UIButton) {
         endBackView.isHidden = true
-        if let scene = GKScene(fileNamed: "Stage1") {
+        if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
             if let sceneNode = scene.rootNode as! GameScene? {
+                sceneNode.stageNumber = stageNumber
                 sceneNode.viewController = self
                 sceneNode.scaleMode = .aspectFill
 

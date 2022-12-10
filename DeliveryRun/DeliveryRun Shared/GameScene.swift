@@ -11,11 +11,11 @@ import AVFoundation
 
 class GameScene: SKScene{
     
-    var stageNumber:Int = 1
     var viewController: GameViewController!
     let userDefault = UserDefaultData.shared
     
-    //Tracking Data
+    // Tracking Data
+    var stageNumber:Int = 1
     var jumpData:Int = 0
     var breakData:Int = 0
     var collisionData:Int = 0
