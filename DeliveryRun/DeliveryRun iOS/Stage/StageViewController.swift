@@ -23,18 +23,6 @@ class StageViewController: UIViewController {
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var starImage: UIImageView!
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var chapterTitleLabel: UILabel!
-    @IBOutlet weak var chapterTitleLabel2: UILabel!
-    
-    @IBOutlet weak var chapterTitleLabel3: UILabel!
-    
-    
-    @IBOutlet weak var chapterTitleLabel4: UILabel!
-    
-    @IBOutlet weak var chapterTitleLabel5: UILabel!
-    
-    @IBOutlet weak var chapterTitleLabel6: UILabel!
     @IBAction func pressSettingButton(_ sender: Any) {
         settingView.isHidden = false
     }
@@ -44,26 +32,6 @@ class StageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Scroll Chpater
-        
-        scrollView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        scrollView.layer.cornerRadius = 10
-        
-        chapterTitleLabel.textColor = .white
-        chapterTitleLabel.font = UIFont(name:"BMJUAOTF", size: 35)
-        chapterTitleLabel2.textColor = .white
-        chapterTitleLabel2.font = UIFont(name:"BMJUAOTF", size: 35)
-        chapterTitleLabel3.textColor = .white
-        chapterTitleLabel3.font = UIFont(name:"BMJUAOTF", size: 35)
-        chapterTitleLabel4.textColor = .white
-        chapterTitleLabel4.font = UIFont(name:"BMJUAOTF", size: 35)
-        chapterTitleLabel5.textColor = .white
-        chapterTitleLabel5.font = UIFont(name:"BMJUAOTF", size: 35)
-        chapterTitleLabel6.textColor = .white
-        chapterTitleLabel6.font = UIFont(name:"BMJUAOTF", size: 35)
-        
-        
         userDefault.setStageNumber(stageNumber:1)
         print(stageNumber)
         let stages: [Stage] = [
@@ -90,8 +58,8 @@ class StageViewController: UIViewController {
         let image = UIImage(named: "RobbyBack")
         backgroundImage.image = image?.applyBlur_usingClamp(radius: 50)
         
-//        stageCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-//        stageCollectionView.layer.cornerRadius = 10
+        stageCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        stageCollectionView.layer.cornerRadius = 10
         stageCollectionView.delegate = self
         stageCollectionView.dataSource = self
         stageCollectionView.allowsMultipleSelection = false
