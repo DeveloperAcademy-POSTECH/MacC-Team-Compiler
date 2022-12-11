@@ -12,8 +12,6 @@
 		637DB205293CEA3E007B755C /* GarageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DB204293CEA3E007B755C /* GarageViewController.swift */; };
 		637DB208293CF5D1007B755C /* PlayerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DB206293CF5D1007B755C /* PlayerCollectionCell.swift */; };
 		637DB209293CF5D1007B755C /* PlayerCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637DB207293CF5D1007B755C /* PlayerCollectionCell.xib */; };
-		638862F62939D6B5004CD09C /* StoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638862F42939D6B5004CD09C /* StoryView.xib */; };
-		638862F72939D6B5004CD09C /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638862F52939D6B5004CD09C /* StoryView.swift */; };
 		638C3F74293F5FE9002F33CB /* robby.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F6B293F5FE9002F33CB /* robby.wav */; };
 		638C3F75293F5FE9002F33CB /* robby2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F6C293F5FE9002F33CB /* robby2.wav */; };
 		638C3F76293F5FE9002F33CB /* sound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F6D293F5FE9002F33CB /* sound3.wav */; };
@@ -72,8 +70,6 @@
 		637DB204293CEA3E007B755C /* GarageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewController.swift; sourceTree = "<group>"; };
 		637DB206293CF5D1007B755C /* PlayerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCollectionCell.swift; sourceTree = "<group>"; };
 		637DB207293CF5D1007B755C /* PlayerCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCollectionCell.xib; sourceTree = "<group>"; };
-		638862F42939D6B5004CD09C /* StoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryView.xib; sourceTree = "<group>"; };
-		638862F52939D6B5004CD09C /* StoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		638C3F6B293F5FE9002F33CB /* robby.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = robby.wav; sourceTree = "<group>"; };
 		638C3F6C293F5FE9002F33CB /* robby2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = robby2.wav; sourceTree = "<group>"; };
 		638C3F6D293F5FE9002F33CB /* sound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound3.wav; sourceTree = "<group>"; };
