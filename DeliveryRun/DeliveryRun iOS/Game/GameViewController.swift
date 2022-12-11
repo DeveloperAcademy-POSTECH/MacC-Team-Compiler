@@ -13,8 +13,10 @@ import GameplayKit
 import AVFoundation
 
 class GameViewController: UIViewController {
-    var timeRap = 0
-    var storyNumber:Int = 0
+    
+    let userDefaultData = UserDefaultData()
+    
+    var stageNumber: Int = 1
     
     let backgroundSetting = BackgroundSound.shared
     
@@ -76,9 +78,10 @@ class GameViewController: UIViewController {
         
         
         // Present the scene
-        if let scene = GKScene(fileNamed: "GameScene") {
+        if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
             // Root 노드 생성
             if let sceneNode = scene.rootNode as! GameScene? {
+                sceneNode.stageNumber = stageNumber
                 sceneNode.viewController = self
                 sceneNode.scaleMode = .aspectFill
 
@@ -103,8 +106,9 @@ class GameViewController: UIViewController {
             pauseBackView.isHidden = true
             gameScene.view?.isPaused = false
         }
-        if let scene = GKScene(fileNamed: "GameScene") {
+        if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
             if let sceneNode = scene.rootNode as! GameScene? {
+                sceneNode.stageNumber = stageNumber
                 sceneNode.viewController = self
                 sceneNode.scaleMode = .aspectFill
 
@@ -129,8 +133,9 @@ class GameViewController: UIViewController {
     // MARK: - End Screen IBAction
     @IBAction func retryPressed(_ sender: UIButton) {
         endBackView.isHidden = true
-        if let scene = GKScene(fileNamed: "GameScene") {
+        if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
             if let sceneNode = scene.rootNode as! GameScene? {
+                sceneNode.stageNumber = stageNumber
                 sceneNode.viewController = self
                 sceneNode.scaleMode = .aspectFill
 

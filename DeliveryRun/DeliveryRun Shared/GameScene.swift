@@ -14,11 +14,11 @@ class GameScene: SKScene{
     let gameSoundSetting = GameSound(gameSound: AVAudioPlayer())
     
     
-    var stageNumber:Int = 1
     var viewController: GameViewController!
     let userDefault = UserDefaultData.shared
     
-    //Tracking Data
+    // Tracking Data
+    var stageNumber:Int = 1
     var jumpData:Int = 0
     var breakData:Int = 0
     var collisionData:Int = 0
@@ -74,15 +74,12 @@ class GameScene: SKScene{
     // Variables
     var timer = Timer()
     
-    var catSign:SKNode!
-    var catAnimation = [SKTexture]()
-    
-    let endTime = 100
+    let endTime = 999
     var elapsedTime = 0
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
-    var endPoint = 20000.0
+    var endPoint: Double { return 20000.0 }
     
     @objc func updateTimer() {
         if endTime > elapsedTime {
@@ -94,7 +91,6 @@ class GameScene: SKScene{
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
-        
         gameSoundSetting.playgameSound(gameSoundName: "robby2")
         
         if userDefault.backgroundMusic {
@@ -109,20 +105,8 @@ class GameScene: SKScene{
             gameSoundSetting.offGameSound()
         }
         
-        
         // StageNumber
         self.stageNumber = userDefault.stageNumber
-        print("StageNumber",stageNumber)
-        //Add catSign
-        
-        catSign = childNode(withName: "CatSign")
-        stealAction = true
-        let catTexture = SKTextureAtlas(named:"CatAnimation")
-        
-        for index in 0..<catTexture.textureNames.count {
-            let textureName = "cat" + String(index)
-            catAnimation.append(catTexture.textureNamed(textureName))
-        }
         
         // UserDefault Tracking Data
         UserDefaultData.findPath()
@@ -148,8 +132,7 @@ class GameScene: SKScene{
             LandingState(playerNode: player),
             AccelingState(playerNode: player),
             BreakingState(playerNode: player),
-            DamageState(playerNode: player),
-            StarState(playerNode:player)
+            DamageState(playerNode: player)
         ])
         
         playerStateMachine.enter(RunningState.self)
@@ -373,6 +356,7 @@ extension GameScene {
             if itemAction {
                 if itemImage.name == "Drink" {
                     playerSpeed += 10
+                    
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
                     itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"
@@ -384,12 +368,21 @@ extension GameScene {
                         self.jumpButton.texture = SKTexture(imageNamed: "Jump Button")
                         self.jumpButton.name = "Jump"
                     }
+                    
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
                     itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"
                 }
                 else if itemImage.name == "Star" {
-                    playerStateMachine.enter(StarState.self)
+                    let action = SKAction.scale(by: 2, duration:0.3)
+                    let action3 = SKAction.scale(by: 1, duration: 2.4)
+                    let action2 = SKAction.scale(by: 1/2, duration: 0.3)
+                    player.run(SKAction.sequence([action, action3, action2]))
+                    player.physicsBody?.categoryBitMask = 0
+                    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (timer) in
+                        self.player.physicsBody?.categoryBitMask = 2
+                    }
+                    
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
                     itemImage.scale(to: CGSize(width: 100, height: 100))
                     itemImage.name = "Item Image"
@@ -464,15 +457,6 @@ extension GameScene {
     func usualDamage() {
         playerSpeed = minSpeed
         playerStateMachine.enter(DamageState.self)
-    }
-    
-    func emrgeCat() {
-        if player.position.x >= catSign.position.x {
-            if player.position.x <= catSign.position.x + 1000 && stealAction{
-                stealAction = false
-                createCat()
-            }
-        }
     }
     
     // Game UI Function
@@ -569,7 +553,7 @@ extension GameScene: SKPhysicsContactDelegate {
             }
             
             // Police
-            if contact.bodyA.node?.name == "Police" {
+            else if contact.bodyA.node?.name == "Police" {
                 storyAction = true
                 Button.removeFromParent()
                 setupStoryNode()
@@ -620,10 +604,6 @@ extension GameScene: SKPhysicsContactDelegate {
         
         
         if collision.matches(.player, .ground) {
-            if jumpButton.name == "Fly" {
-                jumpButton.texture = SKTexture(imageNamed: "Jump Button")
-                jumpButton.name = "Jump"
-            }
             playerStateMachine.enter(LandingState.self)
         }
         
@@ -694,40 +674,5 @@ extension GameScene: SKPhysicsContactDelegate {
                 }
             }
         }
-    }
-}
-
-// MARK: Interaction
-extension GameScene {
-
-    func createCat() {
-
-        let node = SKSpriteNode(imageNamed: "cat0")
-        node.name = "Cat"
-        node.position = CGPoint(x: player.position.x + 400.0, y:player.position.y + 100.0)
-        node.anchorPoint = CGPoint(x: 0.5, y:1)
-        node.scale(to: CGSize(width: 150, height: 150))
-        node.zPosition = 5
-        
-        node.run(SKAction.repeatForever(SKAction.animate(with: catAnimation, timePerFrame: 0.3)))
-
-        let physicalBody = SKPhysicsBody(circleOfRadius: 30)
-        node.physicsBody = physicalBody
-
-        physicalBody.categoryBitMask = Collision.Masks.interaction.bitmask
-        physicalBody.collisionBitMask = Collision.Masks.player.bitmask
-        physicalBody.fieldBitMask = Collision.Masks.ground.bitmask
-        physicalBody.contactTestBitMask = Collision.Masks.player.bitmask
-
-        physicalBody.pinned = true
-        physicalBody.allowsRotation = false
-        physicalBody.restitution = 0.2
-        physicalBody.friction = 10
-
-        addChild(node)
-
-    }
-    func removeCat() {
-        
     }
 }

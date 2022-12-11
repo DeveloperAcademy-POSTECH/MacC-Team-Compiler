@@ -11,7 +11,6 @@ class StageViewController: UIViewController {
     
     let userDefault = UserDefaultData.shared
     
-    
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var stageCollectionView: UICollectionView!
     @IBOutlet weak var stageDetailView: UIView!
@@ -33,9 +32,8 @@ class StageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userDefault.setStageNumber(stageNumber:1)
-        print(stageNumber)
+        
         let stages: [Stage] = [
-            
             UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageOne")!,
             UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageTwo")!,
             UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageThree")!,
@@ -121,16 +119,17 @@ class StageViewController: UIViewController {
     
     @IBAction func goRobby(_ sender: UIButton) {
         let robby = UIStoryboard.init(name: "Robby", bundle: nil)
-                guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
+        guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
         RobbyViewController.modalPresentationStyle = .fullScreen
-                self.present(RobbyViewController, animated: false, completion: nil)
+        self.present(RobbyViewController, animated: false, completion: nil)
     }
     
     @IBAction func goDelivery(_ sender: CustomGameButton) {
         let game = UIStoryboard.init(name: "Game", bundle: nil)
-                guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController")as? GameViewController else {return}
+        guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController")as? GameViewController else {return}
         GameViewController.modalPresentationStyle = .fullScreen
-                self.present(GameViewController, animated: false, completion: nil)
+        GameViewController.stageNumber = stageNumber
+        self.present(GameViewController, animated: false, completion: nil)
     }
 }
 
@@ -198,6 +197,7 @@ extension StageViewController {
         stageNameLabel.text = stages[indexPath.row].name
         recordLabel.text = "목표기록 : \(stages[indexPath.row].targetRecord)\n현재기록 : \(stages[indexPath.row].myRecord)"
         
+        stageNumber = Int(indexPath.row + 1)
         userDefault.setStageNumber(stageNumber: Int(indexPath.row + 1))
         
         // 별 개수에 따라 색 변경
