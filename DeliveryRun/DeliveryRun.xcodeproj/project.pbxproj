@@ -12,15 +12,10 @@
 		637DB205293CEA3E007B755C /* GarageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DB204293CEA3E007B755C /* GarageViewController.swift */; };
 		637DB208293CF5D1007B755C /* PlayerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637DB206293CF5D1007B755C /* PlayerCollectionCell.swift */; };
 		637DB209293CF5D1007B755C /* PlayerCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637DB207293CF5D1007B755C /* PlayerCollectionCell.xib */; };
-		638C3F74293F5FE9002F33CB /* robby.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F6B293F5FE9002F33CB /* robby.wav */; };
-		638C3F75293F5FE9002F33CB /* robby2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F6C293F5FE9002F33CB /* robby2.wav */; };
 		638C3F76293F5FE9002F33CB /* sound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F6D293F5FE9002F33CB /* sound3.wav */; };
 		638C3F77293F5FE9002F33CB /* sound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F6E293F5FE9002F33CB /* sound1.wav */; };
 		638C3F78293F5FE9002F33CB /* start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F6F293F5FE9002F33CB /* start.wav */; };
-		638C3F79293F5FE9002F33CB /* sound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F70293F5FE9002F33CB /* sound2.wav */; };
-		638C3F7A293F5FE9002F33CB /* sound4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F71293F5FE9002F33CB /* sound4.wav */; };
 		638C3F7B293F5FE9002F33CB /* sound5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F72293F5FE9002F33CB /* sound5.wav */; };
-		638C3F7C293F5FE9002F33CB /* ingame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F73293F5FE9002F33CB /* ingame.wav */; };
 		638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D9B29292B46750024E821 /* QuestTableCell.swift */; };
 		638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638D9B2A292B46750024E821 /* QuestTableCell.xib */; };
 		638D9B2F292B93260024E821 /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D9B2E292B93260024E821 /* Quest.swift */; };
@@ -40,6 +35,11 @@
 		6F28EEAB28F5444600D7330F /* Stage1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9628F5444500D7330F /* Stage1.sks */; };
 		6F28EEAC28F5444600D7330F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28EE9728F5444500D7330F /* GameScene.swift */; };
 		6F28EEAD28F5444600D7330F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9828F5444600D7330F /* Assets.xcassets */; };
+		6F2D332329469A2B0091EEDA /* ingame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F73293F5FE9002F33CB /* ingame.wav */; };
+		6F2D332429469A2F0091EEDA /* robby.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F6B293F5FE9002F33CB /* robby.wav */; };
+		6F2D332529469A310091EEDA /* robby2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F6C293F5FE9002F33CB /* robby2.wav */; };
+		6F2D332629469A370091EEDA /* sound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F70293F5FE9002F33CB /* sound2.wav */; };
+		6F2D332729469A3C0091EEDA /* sound4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 638C3F71293F5FE9002F33CB /* sound4.wav */; };
 		6F2E1D9A2924BB2500CAE76E /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E1D992924BB2500CAE76E /* StageCell.swift */; };
 		6F2F6C2028FB3A9B000B9507 /* StageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F6C1F28FB3A9B000B9507 /* StageViewController.swift */; };
 		6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4B8BD3291E26D5000990EA /* Stage.storyboard */; };
@@ -362,33 +362,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				6396605B2923633E0002E6B2 /* UIkitDocument in Resources */,
-				6F4B8BD1291E2389000990EA /* ingame.mp3 in Resources */,
 				6FB116822945E19600D1E604 /* Stage4.sks in Resources */,
 				6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */,
+				6F2D332529469A310091EEDA /* robby2.wav in Resources */,
 				6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */,
-				6F4B8BCB291E237B000990EA /* sound3.mp3 in Resources */,
-				6F4B8BCE291E2383000990EA /* sound5.mp3 in Resources */,
 				6FB79CBB293F326600823407 /* Stage2.sks in Resources */,
 				637DB203293CEA2C007B755C /* Garage.storyboard in Resources */,
 				6FB116842945E1A200D1E604 /* Stage5.sks in Resources */,
-				6F4B8BD2291E238B000990EA /* robby.mp3 in Resources */,
 				6F28EEAB28F5444600D7330F /* Stage1.sks in Resources */,
+				6F2D332729469A3C0091EEDA /* sound4.wav in Resources */,
 				6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */,
 				638C3F78293F5FE9002F33CB /* start.wav in Resources */,
+				6F2D332329469A2B0091EEDA /* ingame.wav in Resources */,
 				6F28EEA628F5444600D7330F /* Robby.storyboard in Resources */,
-				6F4B8BCC291E237E000990EA /* sound2.mp3 in Resources */,
 				6FB116802945E18700D1E604 /* Stage3.sks in Resources */,
-				6F4B8BCD291E2380000990EA /* sound1.mp3 in Resources */,
 				6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */,
 				638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */,
 				638C3F76293F5FE9002F33CB /* sound3.wav in Resources */,
 				63D689E52906E4BF001748CE /* SpriteDocument in Resources */,
+				6F2D332429469A2F0091EEDA /* robby.wav in Resources */,
 				637DB209293CF5D1007B755C /* PlayerCollectionCell.xib in Resources */,
 				638C3F7B293F5FE9002F33CB /* sound5.wav in Resources */,
 				6396605229233CD30002E6B2 /* SettingView.xib in Resources */,
 				6F28EEAA28F5444600D7330F /* Actions.sks in Resources */,
 				6FF3371D29309CD700D04BDB /* QuestView.xib in Resources */,
 				6F28EEA928F5444600D7330F /* LaunchScreen.storyboard in Resources */,
+				6F2D332629469A370091EEDA /* sound2.wav in Resources */,
 				638C3F77293F5FE9002F33CB /* sound1.wav in Resources */,
 				6F28EEAD28F5444600D7330F /* Assets.xcassets in Resources */,
 			);
