@@ -10,6 +10,9 @@ import GameplayKit
 import AVFoundation
 
 class GameScene: SKScene{
+    let backgroundSetting = BackgroundSound.shared
+    let gameSoundSetting = GameSound(gameSound: AVAudioPlayer())
+    
     
     var viewController: GameViewController!
     let userDefault = UserDefaultData.shared
@@ -88,6 +91,20 @@ class GameScene: SKScene{
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
+        gameSoundSetting.playgameSound(gameSoundName: "robby2")
+        
+        if userDefault.backgroundMusic {
+            backgroundSetting.stopBackground()
+            backgroundSetting.playBackground(backgroundName: "ingame")
+        }
+        
+        if userDefault.gameSound {
+            print("GameSoundOn")
+        } else {
+            print("GameSoundOff")
+            gameSoundSetting.offGameSound()
+        }
+        
         // StageNumber
         self.stageNumber = userDefault.stageNumber
         
