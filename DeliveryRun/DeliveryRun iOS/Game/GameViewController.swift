@@ -15,10 +15,10 @@ import AVFoundation
 class GameViewController: UIViewController {
     
     let userDefault = UserDefaultData.shared
-    
-    var stageNumber: Int = 1
-    
     let backgroundSetting = BackgroundSound.shared
+    
+    var chapterNumber:Int = 0
+    var stageNumber:Int = 0
     
     // Pause Screen IBOutlet
     @IBOutlet weak var pauseBackView: UIView!
@@ -31,10 +31,11 @@ class GameViewController: UIViewController {
     @IBOutlet weak var endTitleLabel: UILabel!
     @IBOutlet weak var targetRecordLabel: UILabel!
     @IBOutlet weak var nowRecordLabel: UILabel!
-    
+    @IBOutlet weak var endResultStar: UIImageView!
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(chapterNumber,stageNumber)
         
         // Pause Screen
         pauseView.backgroundColor = .deliveryrunPurple
@@ -77,11 +78,12 @@ class GameViewController: UIViewController {
         nowRecordLabel.textColor = .white
         
         
+        
+        
         // Present the scene
         if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
             // Root 노드 생성
             if let sceneNode = scene.rootNode as! GameScene? {
-                sceneNode.stageNumber = stageNumber
                 sceneNode.viewController = self
                 sceneNode.scaleMode = .aspectFill
 
@@ -108,7 +110,6 @@ class GameViewController: UIViewController {
         }
         if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
             if let sceneNode = scene.rootNode as! GameScene? {
-                sceneNode.stageNumber = stageNumber
                 sceneNode.viewController = self
                 sceneNode.scaleMode = .aspectFill
 
@@ -137,7 +138,6 @@ class GameViewController: UIViewController {
         endBackView.isHidden = true
         if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
             if let sceneNode = scene.rootNode as! GameScene? {
-                sceneNode.stageNumber = stageNumber
                 sceneNode.viewController = self
                 sceneNode.scaleMode = .aspectFill
 
@@ -148,4 +148,5 @@ class GameViewController: UIViewController {
             }
         }
     }
+    
 }

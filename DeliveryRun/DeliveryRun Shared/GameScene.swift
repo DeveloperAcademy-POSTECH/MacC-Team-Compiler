@@ -18,8 +18,10 @@ class GameScene: SKScene{
     var viewController: GameViewController!
     let userDefault = UserDefaultData.shared
     
+    var chapterNumber:Int = 0
+    var stageNumber:Int = 0
+    
     // Tracking Data
-    var stageNumber:Int = 1
     var jumpData:Int = 0
     var breakData:Int = 0
     var collisionData:Int = 0
@@ -75,8 +77,8 @@ class GameScene: SKScene{
     // Variables
     var timer = Timer()
     
-    let endTime = 999
-    var elapsedTime = 0
+    let endTime = 999.00
+    var elapsedTime = 0.00
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
@@ -92,18 +94,18 @@ class GameScene: SKScene{
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
-        print(userDefault.backgroundMusic, userDefault.gameSound)
+        print(userDefault.backgroundMusic, userDefault.soundEffect)
         
         if userDefault.backgroundMusic {
             backgroundMusic.changeBackgroundMusic()
         }
         
         
-        // StageNumber
-        self.stageNumber = userDefault.stageNumber
+        // Chapter & Stage
+        self.chapterNumber = 0
+        self.stageNumber = 0
         
         // UserDefault Tracking Data
-        UserDefaultData.findPath()
         self.jumpData = userDefault.defaults.integer(forKey:"JumpData")
         self.breakData = userDefault.defaults.integer(forKey:"BreakData")
         self.collisionData = userDefault.defaults.integer(forKey:"CollisionData")
@@ -455,14 +457,19 @@ extension GameScene {
     
     // Game UI Function
     func arrival(timeRecord:Double) {
-        if userDefault.gameSound {
+        if userDefault.soundEffect {
             gameEffectSound.playSound(soundName: "ArrivalSound")
         }
+        
         self.viewController.endBackView.isHidden = false
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
+//        self.viewController.targetRecordLabel =
+//        self.viewController.endResultStar =
         Button.removeFromParent()
         HUD.removeFromParent()
-        userDefault.endGameSaveData(jumpData: self.jumpData, breakData: self.breakData, collisionData: self.collisionData, timeRecord: Double(elapsedTime), stageNumber: stageNumber)
+        
+        
+        userDefault.endGameSaveData(jumpData: self.jumpData, breakData: self.breakData, collisionData: self.collisionData, timeRecord: Float(elapsedTime), stageNumber: stageNumber)
     }
 }
 
@@ -605,7 +612,7 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .reward) {
-            if userDefault.gameSound {
+            if userDefault.soundEffect {
                 gameEffectSound.playSound(soundName: "GetItemSound")
             }
             // Drink 획득

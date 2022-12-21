@@ -11,8 +11,8 @@ import Foundation
 class Stage: Codable{
     let name: String
     let image: String
-    let targetRecord: Double
-    var myRecord: Double
+    let targetRecord: Float
+    var myRecord: Float
     var star: Int {
         get {
             if myRecord == 0.0 { return 0 }
@@ -24,7 +24,7 @@ class Stage: Codable{
     }
     var isLock: Bool
     
-    init(name: String, image: String, targetRecord: Double, myRecord:Double,isLock: Bool) {
+    init(name: String, image: String, targetRecord: Float, myRecord:Float,isLock: Bool) {
         self.name = name
         self.image = image
         self.targetRecord = targetRecord

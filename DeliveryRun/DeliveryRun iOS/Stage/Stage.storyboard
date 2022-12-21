@@ -22,6 +22,18 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="RobbyBack" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aG4-b2-XBe">
                                 <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                             </imageView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="8md-Bs-gPs">
+                                <rect key="frame" x="700" y="20" width="94" height="32"/>
+                                <connections>
+                                    <action selector="chpaterNumberStepper:" destination="GYM-j8-IpM" eventType="valueChanged" id="nbM-44-roy"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ChapterNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgG-Hd-Dmk">
+                                <rect key="frame" x="679.33333333333337" y="59.000000000000007" width="122.66666666666663" height="20.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLB-6b-RlG" userLabel="Setting Button">
                                 <rect key="frame" x="812" y="25" width="40" height="40"/>
                                 <constraints>
@@ -137,9 +149,11 @@
                             <constraint firstAttribute="trailing" secondItem="aG4-b2-XBe" secondAttribute="trailing" id="9Ui-5w-qTq"/>
                             <constraint firstItem="zeZ-pv-DNR" firstAttribute="leading" secondItem="Ljm-JV-vWF" secondAttribute="trailing" constant="24" id="Bvd-Wb-Pch"/>
                             <constraint firstItem="G3X-ba-mCW" firstAttribute="leading" secondItem="5vu-bH-eqb" secondAttribute="leading" id="ICE-LZ-eqp"/>
+                            <constraint firstItem="8md-Bs-gPs" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="20" symbolic="YES" id="Ipt-bK-5la"/>
                             <constraint firstAttribute="bottom" secondItem="Ljm-JV-vWF" secondAttribute="bottom" constant="30" id="KPl-2p-5JI"/>
                             <constraint firstAttribute="bottom" secondItem="zeZ-pv-DNR" secondAttribute="bottom" constant="30" id="L5Q-MK-LRn"/>
                             <constraint firstItem="Ndm-P1-jfg" firstAttribute="leading" secondItem="5vu-bH-eqb" secondAttribute="leading" id="QyR-Ho-bd5"/>
+                            <constraint firstItem="CLB-6b-RlG" firstAttribute="leading" secondItem="8md-Bs-gPs" secondAttribute="trailing" constant="18" id="Ua7-2o-Vao"/>
                             <constraint firstItem="5vu-bH-eqb" firstAttribute="trailing" secondItem="CLB-6b-RlG" secondAttribute="trailing" id="Vlw-XJ-PUO"/>
                             <constraint firstItem="Ljm-JV-vWF" firstAttribute="leading" secondItem="5vu-bH-eqb" secondAttribute="leading" id="Xkh-x5-RCe"/>
                             <constraint firstItem="G3X-ba-mCW" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="25" id="Ypd-yb-TCq"/>
@@ -147,6 +161,8 @@
                             <constraint firstItem="5vu-bH-eqb" firstAttribute="trailing" secondItem="zeZ-pv-DNR" secondAttribute="trailing" id="dMz-Qm-joE"/>
                             <constraint firstAttribute="bottom" secondItem="aG4-b2-XBe" secondAttribute="bottom" id="enW-sQ-MNo"/>
                             <constraint firstAttribute="bottom" secondItem="Ndm-P1-jfg" secondAttribute="bottom" constant="25" id="hWg-n7-me1"/>
+                            <constraint firstItem="vgG-Hd-Dmk" firstAttribute="top" secondItem="5vu-bH-eqb" secondAttribute="top" id="kaj-cj-nHh"/>
+                            <constraint firstItem="CLB-6b-RlG" firstAttribute="leading" secondItem="vgG-Hd-Dmk" secondAttribute="trailing" constant="10" id="lCq-b5-TvC"/>
                             <constraint firstItem="aG4-b2-XBe" firstAttribute="leading" secondItem="L80-eE-Jld" secondAttribute="leading" id="mBM-0B-iru"/>
                             <constraint firstItem="Ljm-JV-vWF" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="90" id="oDM-d0-1f3"/>
                             <constraint firstItem="Ndm-P1-jfg" firstAttribute="top" secondItem="L80-eE-Jld" secondAttribute="top" constant="25" id="p3F-wX-acf"/>
@@ -159,6 +175,8 @@
                         <outlet property="StageCollectionView" destination="Ljm-JV-vWF" id="fkl-1n-KmA"/>
                         <outlet property="backButton" destination="G3X-ba-mCW" id="bof-9k-TjF"/>
                         <outlet property="backgroundImage" destination="aG4-b2-XBe" id="r4O-kl-xjP"/>
+                        <outlet property="chapterNumberLabel" destination="vgG-Hd-Dmk" id="cSR-1d-f90"/>
+                        <outlet property="chapterStepper" destination="8md-Bs-gPs" id="phR-5K-N5a"/>
                         <outlet property="recordLabel" destination="zbi-qO-WUR" id="SQy-Dk-paw"/>
                         <outlet property="settingButton" destination="CLB-6b-RlG" id="jgn-8v-Jkt"/>
                         <outlet property="stageDetailView" destination="zeZ-pv-DNR" id="c9d-uP-Cbc"/>

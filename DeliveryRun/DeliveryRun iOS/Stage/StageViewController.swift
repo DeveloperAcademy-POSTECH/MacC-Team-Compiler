@@ -23,36 +23,42 @@ class StageViewController: UIViewController {
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var starImage: UIImageView!
     
+    @IBOutlet weak var chapterNumberLabel: UILabel!
+    @IBOutlet weak var chapterStepper: UIStepper!
     @IBAction func pressSettingButton(_ sender: Any) {
         settingView.isHidden = false
     }
     
+    var chapterNumber:Int = 0
+    var stageNumber:Int = 0
+    
     var stages:[Stage] = []
-    var stageNumber:Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userDefault.setStageNumber(stageNumber:1)
+        self.chapterNumber = userDefault.chapterNumber
+        self.stageNumber = userDefault.stageNumber
+        chapterStepper.value = Double(chapterNumber)
+        chapterNumberLabel.text = String(format: "챕터번호:%D", chapterNumber)
         
-        let stages: [Stage] = [
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageOne")!,
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageTwo")!,
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageThree")!,
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageFour")!,
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageFive")!,
-            Stage(name: "스테이지 6", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 7", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 8", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 9", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 10", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 11", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 12", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 13", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 14", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 15", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true)
+        
+        self.stages = [
+            Stage(name: "스테이지 1", image: "stage1", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 2", image: "stage2", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 3", image: "stage3", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 4", image: "stage4", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 5", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 6", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 7", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 8", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 9", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 10", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 11", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 12", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 13", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 14", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 15", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false)
         ]
-        
-        self.stages = stages
 
         let image = UIImage(named: "RobbyBack")
         backgroundImage.image = image?.applyBlur_usingClamp(radius: 50)
@@ -118,6 +124,11 @@ class StageViewController: UIViewController {
         }
     }
     
+    @IBAction func chpaterNumberStepper(_ sender: UIStepper) {
+        print(chapterStepper.value)
+        chapterNumber = Int(chapterStepper.value)
+        chapterNumberLabel.text = String(format: "챕터번호:%D", chapterNumber)
+    }
     @IBAction func goRobby(_ sender: UIButton) {
         let robby = UIStoryboard.init(name: "Robby", bundle: nil)
         guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
@@ -126,14 +137,19 @@ class StageViewController: UIViewController {
     }
     
     @IBAction func goDelivery(_ sender: CustomGameButton) {
-        if userDefault.gameSound {
+        if userDefault.soundEffect {
             gameEffectSound.playSound(soundName: "GoDeliverySound")
         }
+        userDefault.setChapterAndStage(chapterNumber: chapterNumber, stageNumber: stageNumber)
+        print(chapterNumber,stageNumber)
         let game = UIStoryboard.init(name: "Game", bundle: nil)
         guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController")as? GameViewController else {return}
         GameViewController.modalPresentationStyle = .fullScreen
         GameViewController.stageNumber = stageNumber
+        GameViewController.chapterNumber = chapterNumber
         self.present(GameViewController, animated: false, completion: nil)
+        
+        
     }
 }
 
@@ -202,7 +218,7 @@ extension StageViewController {
         recordLabel.text = "목표기록 : \(stages[indexPath.row].targetRecord)\n현재기록 : \(stages[indexPath.row].myRecord)"
         
         stageNumber = Int(indexPath.row + 1)
-        userDefault.setStageNumber(stageNumber: Int(indexPath.row + 1))
+        userDefault.setChapterAndStage(chapterNumber: 1, stageNumber: Int(indexPath.row + 1))
         
         // 별 개수에 따라 색 변경
         switch stages[indexPath.row].star {
