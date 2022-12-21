@@ -70,25 +70,30 @@ class SettingView: UIView {
         self.isHidden.toggle()
         // UserDefault Set
         userDefault.setSetting(backgroundMusic: BackgroundSwitch.isOn, gameSound: GameSoundSwitch.isOn)
-        gameEffectSound.playGameSound(soundName: "ButtonSound")
+        if userDefault.gameSound {
+            gameEffectSound.playSound(soundName: "ButtonSound")
+        }
+        
     }
     
     // TODO: BackgroudMusci ON OFF
     @IBAction func backgroundOnOff(_ sender: UISwitch) {
         if BackgroundSwitch.isOn {
-            backgroundMusic.playBackground(soundName: "BackgroundMusic")
+            backgroundMusic.backgroundSoundOn()
+            backgroundMusic.playSound(soundName: "BackgroundMusic")
+            print("MusicOn")
         } else {
-            backgroundMusic.stopBackground()
+            backgroundMusic.backgroundSoundOff()
         }
+        
     }
     
     @IBAction func ingameSoundOnOff(_ sender: UISwitch) {
         if GameSoundSwitch.isOn {
-            gameEffectSound.playGameSound(soundName: "SoundEffectOnSound")
+            gameEffectSound.gameSoundOn()
+            gameEffectSound.playSound(soundName: "SoundEffectOnSound")
         } else {
-            gameEffectSound.offGameSound()
+            gameEffectSound.gameSoundOff()
         }
     }
-    
-    
 }

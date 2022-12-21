@@ -19,11 +19,10 @@
 		63831BD02952E2FF00CB358E /* BackgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63831BC82952E2FF00CB358E /* BackgroundMusic.wav */; };
 		63831BD12952E2FF00CB358E /* SoundEffectOnSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63831BC92952E2FF00CB358E /* SoundEffectOnSound.wav */; };
 		63831BD22952E2FF00CB358E /* GetItemSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63831BCA2952E2FF00CB358E /* GetItemSound.wav */; };
-		63831BD32952E2FF00CB358E /* GameOnSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63831BCB2952E2FF00CB358E /* GameOnSound.wav */; };
+		63831BD32952E2FF00CB358E /* GoDeliverySound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63831BCB2952E2FF00CB358E /* GoDeliverySound.wav */; };
 		638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D9B29292B46750024E821 /* QuestTableCell.swift */; };
 		638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638D9B2A292B46750024E821 /* QuestTableCell.xib */; };
 		638D9B2F292B93260024E821 /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D9B2E292B93260024E821 /* Quest.swift */; };
-		639553FC2935B49300E3DECA /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639553FB2935B49300E3DECA /* Setting.swift */; };
 		639553FE2935B50200E3DECA /* PlayerSkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639553FD2935B50200E3DECA /* PlayerSkin.swift */; };
 		639554002935BC8D00E3DECA /* UserDafultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639553FF2935BC8D00E3DECA /* UserDafultData.swift */; };
 		6396605229233CD30002E6B2 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6396605129233CD30002E6B2 /* SettingView.xib */; };
@@ -76,11 +75,10 @@
 		63831BC82952E2FF00CB358E /* BackgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BackgroundMusic.wav; sourceTree = "<group>"; };
 		63831BC92952E2FF00CB358E /* SoundEffectOnSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SoundEffectOnSound.wav; sourceTree = "<group>"; };
 		63831BCA2952E2FF00CB358E /* GetItemSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GetItemSound.wav; sourceTree = "<group>"; };
-		63831BCB2952E2FF00CB358E /* GameOnSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameOnSound.wav; sourceTree = "<group>"; };
+		63831BCB2952E2FF00CB358E /* GoDeliverySound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GoDeliverySound.wav; sourceTree = "<group>"; };
 		638D9B29292B46750024E821 /* QuestTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTableCell.swift; sourceTree = "<group>"; };
 		638D9B2A292B46750024E821 /* QuestTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestTableCell.xib; sourceTree = "<group>"; };
 		638D9B2E292B93260024E821 /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
-		639553FB2935B49300E3DECA /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		639553FD2935B50200E3DECA /* PlayerSkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSkin.swift; sourceTree = "<group>"; };
 		639553FF2935BC8D00E3DECA /* UserDafultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDafultData.swift; sourceTree = "<group>"; };
 		6396605129233CD30002E6B2 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
@@ -154,7 +152,7 @@
 				63831BC82952E2FF00CB358E /* BackgroundMusic.wav */,
 				63831BC92952E2FF00CB358E /* SoundEffectOnSound.wav */,
 				63831BCA2952E2FF00CB358E /* GetItemSound.wav */,
-				63831BCB2952E2FF00CB358E /* GameOnSound.wav */,
+				63831BCB2952E2FF00CB358E /* GoDeliverySound.wav */,
 			);
 			name = Sounds;
 			path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/Complier/Sound/Sounds";
@@ -166,7 +164,6 @@
 				6FBFE15229390D9200A1927D /* Sound.swift */,
 				638D9B2E292B93260024E821 /* Quest.swift */,
 				6F5D4AB3292CA69C00572DC0 /* Stage.swift */,
-				639553FB2935B49300E3DECA /* Setting.swift */,
 				639553FD2935B50200E3DECA /* PlayerSkin.swift */,
 			);
 			path = Model;
@@ -373,7 +370,7 @@
 				6FB116802945E18700D1E604 /* Stage3.sks in Resources */,
 				6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */,
 				63831BCD2952E2FF00CB358E /* ButtonSound.wav in Resources */,
-				63831BD32952E2FF00CB358E /* GameOnSound.wav in Resources */,
+				63831BD32952E2FF00CB358E /* GoDeliverySound.wav in Resources */,
 				638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */,
 				63D689E52906E4BF001748CE /* SpriteDocument in Resources */,
 				637DB209293CF5D1007B755C /* PlayerCollectionCell.xib in Resources */,
@@ -417,7 +414,6 @@
 				637DB208293CF5D1007B755C /* PlayerCollectionCell.swift in Sources */,
 				6F965E15293919640048334B /* Custom.swift in Sources */,
 				637DB205293CEA3E007B755C /* GarageViewController.swift in Sources */,
-				639553FC2935B49300E3DECA /* Setting.swift in Sources */,
 				639554002935BC8D00E3DECA /* UserDafultData.swift in Sources */,
 				6FB1167A2945E14A00D1E604 /* Stage3.swift in Sources */,
 				6FB1167C2945E15100D1E604 /* Stage4.swift in Sources */,

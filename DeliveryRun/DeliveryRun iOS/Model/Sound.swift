@@ -20,24 +20,26 @@ class GameSound {
         self.gameSound = AVAudioPlayer()
     }
     
-    func playGameSound(soundName: String) {
+    func playSound(soundName: String) {
         let url = Bundle.main.url(forResource:  soundName, withExtension: "wav")
         do {
             gameSound = try AVAudioPlayer(contentsOf: url!)
-            gameSound.setVolume(1.0, fadeDuration: 1.0)
             gameSound.play()
         } catch {
             print("GameSound Error \(error)")
         }
     }
-    func offGameSound() {
-        gameSound.setVolume(0.0, fadeDuration: 0)
+    func gameSoundOn() {
+        gameSound.setVolume(1.0, fadeDuration: 1.0)
+    }
+    
+    func gameSoundOff() {
+        gameSound.setVolume(0.0, fadeDuration: 1.0)
     }
 }
 class BackgroundSound {
     
     var backgroundSound:AVAudioPlayer
-    
     
     static let shared:BackgroundSound = {
         let instance = BackgroundSound(backgroundPlayer: AVAudioPlayer())
@@ -49,19 +51,27 @@ class BackgroundSound {
         self.backgroundSound = AVAudioPlayer()
     }
     
-    func playBackground(soundName:String) {
+    func playSound(soundName:String) {
         let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
         do {
             backgroundSound = try AVAudioPlayer(contentsOf: url!)
-            backgroundSound.setVolume(0.7, fadeDuration: 1)
-            backgroundSound.numberOfLoops = -1
             backgroundSound.play()
         } catch {
             print("SoundError \(error)")
         }
     }
     
-    func stopBackground() {
+    func changeBackgroundMusic() {
+        backgroundSound.stop()
+        playSound(soundName: "InGameMusic")
+    }
+    
+    func backgroundSoundOn() {
+        backgroundSound.setVolume(1.0, fadeDuration: 1)
+        backgroundSound.numberOfLoops = -1
+    }
+    
+    func backgroundSoundOff() {
         backgroundSound.setVolume(0.0, fadeDuration: 1)
         backgroundSound.numberOfLoops = 1
         backgroundSound.stop()

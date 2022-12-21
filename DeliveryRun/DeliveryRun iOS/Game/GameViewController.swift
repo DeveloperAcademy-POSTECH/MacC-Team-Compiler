@@ -121,9 +121,9 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func homePressed(_ sender: UIButton) {
-        backgroundSetting.stopBackground()
+        backgroundSetting.backgroundSoundOff()
         if userDefault.backgroundMusic {
-            backgroundSetting.playBackground(soundName: "BackgroundMusic")
+            backgroundSetting.playSound(soundName: "BackgroundMusic")
         }
         let stage = UIStoryboard.init(name: "Stage", bundle: nil)
         guard let StageViewController = stage.instantiateViewController(identifier: "StageViewController") as? StageViewController else { return }

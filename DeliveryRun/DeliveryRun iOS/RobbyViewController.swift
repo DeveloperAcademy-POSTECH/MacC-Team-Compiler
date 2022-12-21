@@ -30,12 +30,11 @@ class RobbyViewController: UIViewController {
         super.viewDidLoad()
         
         if userDefault.backgroundMusic {
-            backgroundMusic.playBackground(soundName: "BackgroundMusic")
+            backgroundMusic.playSound(soundName: "BackgroundMusic")
         }
         
         
-        // MARK: 런치스크린에 게임배경및 설명 넣고 ON Sound 집어넣기
-        gameEffectSound.playGameSound(soundName: "GameOnSound")
+        // MARK: 런치스크린에 게임배경및 설명 넣고 Sound 집어넣기
         
         PlayerImage.image = UIImage(named: userDefault.mySkin)
         

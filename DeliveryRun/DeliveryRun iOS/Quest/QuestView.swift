@@ -23,7 +23,9 @@ class QuestView: UIView {
     
     @IBAction func pressCheckButton(_ sender: Any) {
         self.isHidden.toggle()
-        gameEffectSound.playGameSound(soundName: "ButtonSound")
+        if userDefault.gameSound {
+            gameEffectSound.playSound(soundName: "ButtonSound")
+        }
         
     }
     

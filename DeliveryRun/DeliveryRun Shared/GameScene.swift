@@ -95,16 +95,9 @@ class GameScene: SKScene{
         print(userDefault.backgroundMusic, userDefault.gameSound)
         
         if userDefault.backgroundMusic {
-            backgroundMusic.stopBackground()
-            backgroundMusic.playBackground(soundName: "InGameMusic")
+            backgroundMusic.changeBackgroundMusic()
         }
         
-        if userDefault.gameSound {
-            print("GameSoundOn")
-        } else {
-            print("GameSoundOff")
-            gameEffectSound.offGameSound()
-        }
         
         // StageNumber
         self.stageNumber = userDefault.stageNumber
@@ -462,7 +455,9 @@ extension GameScene {
     
     // Game UI Function
     func arrival(timeRecord:Double) {
-        gameEffectSound.playGameSound(soundName: "ArrivalSound")
+        if userDefault.gameSound {
+            gameEffectSound.playSound(soundName: "ArrivalSound")
+        }
         self.viewController.endBackView.isHidden = false
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
         Button.removeFromParent()
@@ -610,7 +605,9 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .reward) {
-            gameEffectSound.playGameSound(soundName: "GetItemSound")
+            if userDefault.gameSound {
+                gameEffectSound.playSound(soundName: "GetItemSound")
+            }
             // Drink 획득
             if contact.bodyA.node?.name == "Drink Bubble" {
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
