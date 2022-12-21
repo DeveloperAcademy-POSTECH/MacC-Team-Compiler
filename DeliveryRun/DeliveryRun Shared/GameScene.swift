@@ -10,8 +10,9 @@ import GameplayKit
 import AVFoundation
 
 class GameScene: SKScene{
+    
     let backgroundSetting = BackgroundSound.shared
-    let gameSoundSetting = GameSound(gameSound: AVAudioPlayer())
+    let gameSoundSetting = GameSound.shared
     
     
     var viewController: GameViewController!
@@ -91,11 +92,11 @@ class GameScene: SKScene{
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
-        gameSoundSetting.playgameSound(gameSoundName: "robby2")
+        print(userDefault.backgroundMusic, userDefault.gameSound)
         
         if userDefault.backgroundMusic {
             backgroundSetting.stopBackground()
-            backgroundSetting.playBackground(backgroundName: "ingame")
+            backgroundSetting.playBackground(soundName: "InGameMusic")
         }
         
         if userDefault.gameSound {
@@ -461,6 +462,7 @@ extension GameScene {
     
     // Game UI Function
     func arrival(timeRecord:Double) {
+        gameSoundSetting.playGameSound(soundName: "ArrivalSound")
         self.viewController.endBackView.isHidden = false
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
         Button.removeFromParent()
@@ -608,6 +610,7 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .reward) {
+            gameSoundSetting.playGameSound(soundName: "GetItemSound")
             // Drink 획득
             if contact.bodyA.node?.name == "Drink Bubble" {
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0

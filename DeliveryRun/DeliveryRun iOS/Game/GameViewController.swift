@@ -14,7 +14,7 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     
-    let userDefaultData = UserDefaultData()
+    let userDefault = UserDefaultData.shared
     
     var stageNumber: Int = 1
     
@@ -122,7 +122,9 @@ class GameViewController: UIViewController {
     
     @IBAction func homePressed(_ sender: UIButton) {
         backgroundSetting.stopBackground()
-        backgroundSetting.playBackground(backgroundName: "robby")
+        if userDefault.backgroundMusic {
+            backgroundSetting.playBackground(soundName: "BackgroundMusic")
+        }
         let stage = UIStoryboard.init(name: "Stage", bundle: nil)
         guard let StageViewController = stage.instantiateViewController(identifier: "StageViewController") as? StageViewController else { return }
         StageViewController.modalPresentationStyle = .fullScreen

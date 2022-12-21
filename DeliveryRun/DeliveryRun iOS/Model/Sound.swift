@@ -11,12 +11,17 @@ import AVFoundation
 class GameSound {
     var gameSound:AVAudioPlayer
     
-    init(gameSound: AVAudioPlayer) {
+    static let shared:GameSound = {
+        let instance = GameSound(gameSoundPlayer: AVAudioPlayer())
+        return instance
+    }()
+    
+    init(gameSoundPlayer: AVAudioPlayer) {
         self.gameSound = AVAudioPlayer()
     }
     
-    func playgameSound(gameSoundName: String) {
-        let url = Bundle.main.url(forResource:  gameSoundName, withExtension: "wav")
+    func playGameSound(soundName: String) {
+        let url = Bundle.main.url(forResource:  soundName, withExtension: "wav")
         do {
             gameSound = try AVAudioPlayer(contentsOf: url!)
             gameSound.setVolume(1.0, fadeDuration: 1.0)
@@ -44,8 +49,8 @@ class BackgroundSound {
         self.backgroundSound = AVAudioPlayer()
     }
     
-    func playBackground(backgroundName:String) {
-        let url = Bundle.main.url(forResource: backgroundName, withExtension: "wav")
+    func playBackground(soundName:String) {
+        let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
         do {
             backgroundSound = try AVAudioPlayer(contentsOf: url!)
             backgroundSound.setVolume(0.7, fadeDuration: 1)
