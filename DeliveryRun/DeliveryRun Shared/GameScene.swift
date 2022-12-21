@@ -468,8 +468,6 @@ extension GameScene {
         Button.removeFromParent()
         HUD.removeFromParent()
         
-        
-        userDefault.endGameSaveData(jumpData: self.jumpData, breakData: self.breakData, collisionData: self.collisionData, timeRecord: Float(elapsedTime), stageNumber: stageNumber)
     }
 }
 
