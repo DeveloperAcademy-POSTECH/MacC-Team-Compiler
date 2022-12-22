@@ -44,11 +44,7 @@
 		639497152953EB4500BCD444 /* Chapter4-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 639496E12953EB4400BCD444 /* Chapter4-1.sks */; };
 		639497162953EB4500BCD444 /* Chapter4-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 639496E22953EB4400BCD444 /* Chapter4-3.sks */; };
 		639497172953EB4500BCD444 /* Chapter4-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 639496E32953EB4400BCD444 /* Chapter4-2.sks */; };
-		639497182953EB4500BCD444 /* Chapter2-2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639496E52953EB4400BCD444 /* Chapter2-2.swift */; };
-		639497192953EB4500BCD444 /* Chapter2-4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639496E62953EB4400BCD444 /* Chapter2-4.swift */; };
-		6394971A2953EB4500BCD444 /* Chapter2-3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639496E72953EB4400BCD444 /* Chapter2-3.swift */; };
-		6394971B2953EB4500BCD444 /* Chapter2-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639496E82953EB4400BCD444 /* Chapter2-1.swift */; };
-		6394971C2953EB4500BCD444 /* Chapter2-5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639496E92953EB4400BCD444 /* Chapter2-5.swift */; };
+		6394971B2953EB4500BCD444 /* Chapter2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639496E82953EB4400BCD444 /* Chapter2.swift */; };
 		6394971D2953EB4500BCD444 /* Chapter2-5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 639496EA2953EB4400BCD444 /* Chapter2-5.sks */; };
 		6394971E2953EB4500BCD444 /* Chapter2-4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 639496EB2953EB4400BCD444 /* Chapter2-4.sks */; };
 		6394971F2953EB4500BCD444 /* Chapter2-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 639496EC2953EB4400BCD444 /* Chapter2-1.sks */; };
@@ -79,6 +75,7 @@
 		6394975B2953F75100BCD444 /* SoundEffectOnSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 639497532953F75100BCD444 /* SoundEffectOnSound.wav */; };
 		6394975C2953F75100BCD444 /* GetItemSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 639497542953F75100BCD444 /* GetItemSound.wav */; };
 		6394975D2953F75100BCD444 /* GameOnSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 639497552953F75100BCD444 /* GameOnSound.wav */; };
+		6394975F295417BA00BCD444 /* Chapter1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6394975E295417BA00BCD444 /* Chapter1.swift */; };
 		6396605229233CD30002E6B2 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6396605129233CD30002E6B2 /* SettingView.xib */; };
 		6396605429233D3E0002E6B2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396605329233D3E0002E6B2 /* SettingView.swift */; };
 		6396605B2923633E0002E6B2 /* UIkitDocument in Resources */ = {isa = PBXBuildFile; fileRef = 6396605A2923633E0002E6B2 /* UIkitDocument */; };
@@ -88,7 +85,7 @@
 		6F28EEA328F5444600D7330F /* RobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28EEA228F5444600D7330F /* RobbyViewController.swift */; };
 		6F28EEA628F5444600D7330F /* Robby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EEA428F5444600D7330F /* Robby.storyboard */; };
 		6F28EEA928F5444600D7330F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EEA728F5444600D7330F /* LaunchScreen.storyboard */; };
-		6F28EEAB28F5444600D7330F /* Chapter1-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9628F5444500D7330F /* Chapter1-1.sks */; };
+		6F28EEAB28F5444600D7330F /* Stage1-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9628F5444500D7330F /* Stage1-1.sks */; };
 		6F28EEAC28F5444600D7330F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28EE9728F5444500D7330F /* GameScene.swift */; };
 		6F28EEAD28F5444600D7330F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9828F5444600D7330F /* Assets.xcassets */; };
 		6F2E1D9A2924BB2500CAE76E /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E1D992924BB2500CAE76E /* StageCell.swift */; };
@@ -96,16 +93,11 @@
 		6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4B8BD3291E26D5000990EA /* Stage.storyboard */; };
 		6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4B8BD7291E2E99000990EA /* Game.storyboard */; };
 		6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */; };
-		6F725D00293F21FE00971BCC /* Chapter1-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F725CFF293F21FE00971BCC /* Chapter1-1.swift */; };
 		6F965E15293919640048334B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F965E14293919640048334B /* Extension.swift */; };
-		6FB1167A2945E14A00D1E604 /* Chapter1-3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB116792945E14A00D1E604 /* Chapter1-3.swift */; };
-		6FB1167C2945E15100D1E604 /* Chapter1-4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB1167B2945E15100D1E604 /* Chapter1-4.swift */; };
-		6FB1167E2945E15A00D1E604 /* Chapter1-5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB1167D2945E15A00D1E604 /* Chapter1-5.swift */; };
-		6FB116802945E18700D1E604 /* Chapter1-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB1167F2945E18700D1E604 /* Chapter1-3.sks */; };
-		6FB116822945E19600D1E604 /* Chapter1-4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB116812945E19600D1E604 /* Chapter1-4.sks */; };
-		6FB116842945E1A200D1E604 /* Chapter1-5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB116832945E1A200D1E604 /* Chapter1-5.sks */; };
-		6FB79CB9293F322A00823407 /* Chapter1-2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79CB8293F322A00823407 /* Chapter1-2.swift */; };
-		6FB79CBB293F326600823407 /* Chapter1-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB79CBA293F326600823407 /* Chapter1-2.sks */; };
+		6FB116802945E18700D1E604 /* Stage1-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB1167F2945E18700D1E604 /* Stage1-3.sks */; };
+		6FB116822945E19600D1E604 /* Stage1-4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB116812945E19600D1E604 /* Stage1-4.sks */; };
+		6FB116842945E1A200D1E604 /* Stage1-5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB116832945E1A200D1E604 /* Stage1-5.sks */; };
+		6FB79CBB293F326600823407 /* Stage1-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB79CBA293F326600823407 /* Stage1-2.sks */; };
 		6FE9943D29123850004753BA /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE9943C29123850004753BA /* HUD.swift */; };
 		6FF3371B29309CC700D04BDB /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF3371A29309CC700D04BDB /* QuestView.swift */; };
 		6FF3371D29309CD700D04BDB /* QuestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF3371C29309CD700D04BDB /* QuestView.xib */; };
@@ -149,11 +141,7 @@
 		639496E12953EB4400BCD444 /* Chapter4-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Chapter4-1.sks"; sourceTree = "<group>"; };
 		639496E22953EB4400BCD444 /* Chapter4-3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Chapter4-3.sks"; sourceTree = "<group>"; };
 		639496E32953EB4400BCD444 /* Chapter4-2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Chapter4-2.sks"; sourceTree = "<group>"; };
-		639496E52953EB4400BCD444 /* Chapter2-2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chapter2-2.swift"; sourceTree = "<group>"; };
-		639496E62953EB4400BCD444 /* Chapter2-4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chapter2-4.swift"; sourceTree = "<group>"; };
-		639496E72953EB4400BCD444 /* Chapter2-3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chapter2-3.swift"; sourceTree = "<group>"; };
-		639496E82953EB4400BCD444 /* Chapter2-1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chapter2-1.swift"; sourceTree = "<group>"; };
-		639496E92953EB4400BCD444 /* Chapter2-5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chapter2-5.swift"; sourceTree = "<group>"; };
+		639496E82953EB4400BCD444 /* Chapter2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter2.swift; sourceTree = "<group>"; };
 		639496EA2953EB4400BCD444 /* Chapter2-5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Chapter2-5.sks"; sourceTree = "<group>"; };
 		639496EB2953EB4400BCD444 /* Chapter2-4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Chapter2-4.sks"; sourceTree = "<group>"; };
 		639496EC2953EB4400BCD444 /* Chapter2-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Chapter2-1.sks"; sourceTree = "<group>"; };
@@ -184,13 +172,14 @@
 		639497532953F75100BCD444 /* SoundEffectOnSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SoundEffectOnSound.wav; sourceTree = "<group>"; };
 		639497542953F75100BCD444 /* GetItemSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GetItemSound.wav; sourceTree = "<group>"; };
 		639497552953F75100BCD444 /* GameOnSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameOnSound.wav; sourceTree = "<group>"; };
+		6394975E295417BA00BCD444 /* Chapter1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1.swift; sourceTree = "<group>"; };
 		6396605129233CD30002E6B2 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
 		6396605329233D3E0002E6B2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		6396605A2923633E0002E6B2 /* UIkitDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = UIkitDocument; sourceTree = "<group>"; };
 		63D689E42906E4BF001748CE /* SpriteDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpriteDocument; sourceTree = "<group>"; };
 		63DC0EAA28F5863100B145B9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		6F110C7A28F697F500F75C13 /* DeliveryRun-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DeliveryRun-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
-		6F28EE9628F5444500D7330F /* Chapter1-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Chapter1-1.sks"; sourceTree = "<group>"; };
+		6F28EE9628F5444500D7330F /* Stage1-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage1-1.sks"; sourceTree = "<group>"; };
 		6F28EE9728F5444500D7330F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6F28EE9828F5444600D7330F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F28EE9D28F5444600D7330F /* DeliveryRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,16 +192,11 @@
 		6F4B8BD3291E26D5000990EA /* Stage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stage.storyboard; sourceTree = "<group>"; };
 		6F4B8BD7291E2E99000990EA /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileSet.sks; sourceTree = "<group>"; };
-		6F725CFF293F21FE00971BCC /* Chapter1-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chapter1-1.swift"; sourceTree = "<group>"; };
 		6F965E14293919640048334B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		6FB116792945E14A00D1E604 /* Chapter1-3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chapter1-3.swift"; sourceTree = "<group>"; };
-		6FB1167B2945E15100D1E604 /* Chapter1-4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chapter1-4.swift"; sourceTree = "<group>"; };
-		6FB1167D2945E15A00D1E604 /* Chapter1-5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chapter1-5.swift"; sourceTree = "<group>"; };
-		6FB1167F2945E18700D1E604 /* Chapter1-3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Chapter1-3.sks"; sourceTree = "<group>"; };
-		6FB116812945E19600D1E604 /* Chapter1-4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Chapter1-4.sks"; sourceTree = "<group>"; };
-		6FB116832945E1A200D1E604 /* Chapter1-5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Chapter1-5.sks"; sourceTree = "<group>"; };
-		6FB79CB8293F322A00823407 /* Chapter1-2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chapter1-2.swift"; sourceTree = "<group>"; };
-		6FB79CBA293F326600823407 /* Chapter1-2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Chapter1-2.sks"; sourceTree = "<group>"; };
+		6FB1167F2945E18700D1E604 /* Stage1-3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage1-3.sks"; sourceTree = "<group>"; };
+		6FB116812945E19600D1E604 /* Stage1-4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage1-4.sks"; sourceTree = "<group>"; };
+		6FB116832945E1A200D1E604 /* Stage1-5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage1-5.sks"; sourceTree = "<group>"; };
+		6FB79CBA293F326600823407 /* Stage1-2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage1-2.sks"; sourceTree = "<group>"; };
 		6FE9943C29123850004753BA /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		6FF3371A29309CC700D04BDB /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
 		6FF3371C29309CD700D04BDB /* QuestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestView.xib; sourceTree = "<group>"; };
@@ -308,15 +292,11 @@
 			isa = PBXGroup;
 			children = (
 				639496EC2953EB4400BCD444 /* Chapter2-1.sks */,
-				639496E82953EB4400BCD444 /* Chapter2-1.swift */,
+				639496E82953EB4400BCD444 /* Chapter2.swift */,
 				639496EE2953EB4400BCD444 /* Chapter2-2.sks */,
-				639496E52953EB4400BCD444 /* Chapter2-2.swift */,
 				639496ED2953EB4400BCD444 /* Chapter2-3.sks */,
-				639496E72953EB4400BCD444 /* Chapter2-3.swift */,
 				639496EB2953EB4400BCD444 /* Chapter2-4.sks */,
-				639496E62953EB4400BCD444 /* Chapter2-4.swift */,
 				639496EA2953EB4400BCD444 /* Chapter2-5.sks */,
-				639496E92953EB4400BCD444 /* Chapter2-5.swift */,
 			);
 			path = Chapter2;
 			sourceTree = "<group>";
@@ -465,16 +445,12 @@
 		6F725CFE293F21D900971BCC /* Chapter1 */ = {
 			isa = PBXGroup;
 			children = (
-				6F28EE9628F5444500D7330F /* Chapter1-1.sks */,
-				6F725CFF293F21FE00971BCC /* Chapter1-1.swift */,
-				6FB79CBA293F326600823407 /* Chapter1-2.sks */,
-				6FB79CB8293F322A00823407 /* Chapter1-2.swift */,
-				6FB1167F2945E18700D1E604 /* Chapter1-3.sks */,
-				6FB116792945E14A00D1E604 /* Chapter1-3.swift */,
-				6FB116812945E19600D1E604 /* Chapter1-4.sks */,
-				6FB1167B2945E15100D1E604 /* Chapter1-4.swift */,
-				6FB116832945E1A200D1E604 /* Chapter1-5.sks */,
-				6FB1167D2945E15A00D1E604 /* Chapter1-5.swift */,
+				6F28EE9628F5444500D7330F /* Stage1-1.sks */,
+				6FB79CBA293F326600823407 /* Stage1-2.sks */,
+				6FB1167F2945E18700D1E604 /* Stage1-3.sks */,
+				6FB116812945E19600D1E604 /* Stage1-4.sks */,
+				6FB116832945E1A200D1E604 /* Stage1-5.sks */,
+				6394975E295417BA00BCD444 /* Chapter1.swift */,
 			);
 			path = Chapter1;
 			sourceTree = "<group>";
@@ -559,7 +535,7 @@
 			files = (
 				639497562953F75100BCD444 /* RewardSound.wav in Resources */,
 				6396605B2923633E0002E6B2 /* UIkitDocument in Resources */,
-				6FB116822945E19600D1E604 /* Chapter1-4.sks in Resources */,
+				6FB116822945E19600D1E604 /* Stage1-4.sks in Resources */,
 				639497292953EB4500BCD444 /* Chapter6-1.sks in Resources */,
 				6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */,
 				6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */,
@@ -575,15 +551,15 @@
 				639497132953EB4500BCD444 /* Chapter4-5.sks in Resources */,
 				6394971E2953EB4500BCD444 /* Chapter2-4.sks in Resources */,
 				639497172953EB4500BCD444 /* Chapter4-2.sks in Resources */,
-				6FB79CBB293F326600823407 /* Chapter1-2.sks in Resources */,
+				6FB79CBB293F326600823407 /* Stage1-2.sks in Resources */,
 				637DB203293CEA2C007B755C /* Garage.storyboard in Resources */,
-				6FB116842945E1A200D1E604 /* Chapter1-5.sks in Resources */,
+				6FB116842945E1A200D1E604 /* Stage1-5.sks in Resources */,
 				639497582953F75100BCD444 /* InGameMusic.wav in Resources */,
-				6F28EEAB28F5444600D7330F /* Chapter1-1.sks in Resources */,
+				6F28EEAB28F5444600D7330F /* Stage1-1.sks in Resources */,
 				639497592953F75100BCD444 /* ArrivalSound.wav in Resources */,
 				6F28EEA628F5444600D7330F /* Robby.storyboard in Resources */,
 				6394971D2953EB4500BCD444 /* Chapter2-5.sks in Resources */,
-				6FB116802945E18700D1E604 /* Chapter1-3.sks in Resources */,
+				6FB116802945E18700D1E604 /* Stage1-3.sks in Resources */,
 				6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */,
 				639497162953EB4500BCD444 /* Chapter4-3.sks in Resources */,
 				6394971F2953EB4500BCD444 /* Chapter2-1.sks in Resources */,
@@ -622,35 +598,29 @@
 				639497102953EB4500BCD444 /* Chapter4-3.swift in Sources */,
 				639496FD2953EB4500BCD444 /* Chapter3-1.swift in Sources */,
 				639497242953EB4500BCD444 /* Chapter6-3.swift in Sources */,
-				6394971A2953EB4500BCD444 /* Chapter2-3.swift in Sources */,
 				63DC0EAB28F5863100B145B9 /* GameViewController.swift in Sources */,
 				639497122953EB4500BCD444 /* Chapter4-5.swift in Sources */,
 				639497052953EB4500BCD444 /* Chapter5-4.swift in Sources */,
 				6F28EEAC28F5444600D7330F /* GameScene.swift in Sources */,
 				6394970E2953EB4500BCD444 /* Chapter4-2.swift in Sources */,
+				6394975F295417BA00BCD444 /* Chapter1.swift in Sources */,
 				6372509428FFC7F700117CF8 /* PlayerState.swift in Sources */,
 				6394970F2953EB4500BCD444 /* Chapter4-4.swift in Sources */,
 				6F28EEA328F5444600D7330F /* RobbyViewController.swift in Sources */,
-				6394971B2953EB4500BCD444 /* Chapter2-1.swift in Sources */,
-				639497192953EB4500BCD444 /* Chapter2-4.swift in Sources */,
-				6394971C2953EB4500BCD444 /* Chapter2-5.swift in Sources */,
+				6394971B2953EB4500BCD444 /* Chapter2.swift in Sources */,
 				6F2F6C2028FB3A9B000B9507 /* StageViewController.swift in Sources */,
 				639497402953F12800BCD444 /* UserDafultData.swift in Sources */,
 				6FF3371B29309CC700D04BDB /* QuestView.swift in Sources */,
-				639497182953EB4500BCD444 /* Chapter2-2.swift in Sources */,
 				639497252953EB4500BCD444 /* Chapter6-1.swift in Sources */,
 				638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */,
 				639497112953EB4500BCD444 /* Chapter4-1.swift in Sources */,
 				639497062953EB4500BCD444 /* Chapter5-3.swift in Sources */,
 				639497492953F12800BCD444 /* PlayerSkin.swift in Sources */,
 				6FE9943D29123850004753BA /* HUD.swift in Sources */,
-				6FB1167E2945E15A00D1E604 /* Chapter1-5.swift in Sources */,
 				639497482953F12800BCD444 /* Color.swift in Sources */,
-				6FB79CB9293F322A00823407 /* Chapter1-2.swift in Sources */,
 				639497232953EB4500BCD444 /* Chapter6-4.swift in Sources */,
 				639496FE2953EB4500BCD444 /* Chapter3-5.swift in Sources */,
 				639497042953EB4500BCD444 /* Chapter5-2.swift in Sources */,
-				6F725D00293F21FE00971BCC /* Chapter1-1.swift in Sources */,
 				639496FC2953EB4500BCD444 /* Chapter3-3.swift in Sources */,
 				639496FB2953EB4500BCD444 /* Chapter3-4.swift in Sources */,
 				639497262953EB4500BCD444 /* Chapter6-5.swift in Sources */,
@@ -664,9 +634,7 @@
 				639497222953EB4500BCD444 /* Chapter6-2.swift in Sources */,
 				637DB205293CEA3E007B755C /* GarageViewController.swift in Sources */,
 				639497082953EB4500BCD444 /* Chapter5-5.swift in Sources */,
-				6FB1167A2945E14A00D1E604 /* Chapter1-3.swift in Sources */,
 				6394974B2953F12800BCD444 /* Stage.swift in Sources */,
-				6FB1167C2945E15100D1E604 /* Chapter1-4.swift in Sources */,
 				6396605429233D3E0002E6B2 /* SettingView.swift in Sources */,
 				639497072953EB4500BCD444 /* Chapter5-1.swift in Sources */,
 			);

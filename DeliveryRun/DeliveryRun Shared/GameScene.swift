@@ -94,8 +94,6 @@ class GameScene: SKScene{
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
-        print(userDefault.backgroundMusic, userDefault.soundEffect)
-        
         if userDefault.backgroundMusic {
             backgroundMusic.changeBackgroundMusic()
         }
@@ -460,11 +458,9 @@ extension GameScene {
         if userDefault.soundEffect {
             gameEffectSound.playSound(soundName: "ArrivalSound")
         }
-        
         self.viewController.endBackView.isHidden = false
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
-//        self.viewController.targetRecordLabel =
-//        self.viewController.endResultStar =
+        
         Button.removeFromParent()
         HUD.removeFromParent()
         

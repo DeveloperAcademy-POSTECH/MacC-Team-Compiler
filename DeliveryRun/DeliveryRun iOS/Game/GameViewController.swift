@@ -19,6 +19,7 @@ class GameViewController: UIViewController {
     
     var chapterNumber:Int = 0
     var stageNumber:Int = 0
+    var targetRecord:Float = 0.00
     
     // Pause Screen IBOutlet
     @IBOutlet weak var pauseBackView: UIView!
@@ -67,7 +68,7 @@ class GameViewController: UIViewController {
         endTitleLabel.textAlignment = .center
         endTitleLabel.textColor = .white
         
-        targetRecordLabel.text = "목표 기록 : 00:00:00"
+        targetRecordLabel.text = String(format: "목표 기록 : %2.0f", targetRecord)
         targetRecordLabel.font = UIFont(name: "BMJUAOTF", size: 20)
         targetRecordLabel.textAlignment = .center
         targetRecordLabel.textColor = .white
@@ -77,11 +78,20 @@ class GameViewController: UIViewController {
         nowRecordLabel.textColor = .white
         
         
-        
-        
+//        if let view = self.view as! SKView? {
+//            // Load the SKScene from 'GameScene.sks'
+//            if let scene = SKScene(fileNamed: "Level1") {
+//                // Set the scale mode to scale to fit the window
+//                scene.scaleMode = .aspectFill
+//
+//
+//                // Present the scene
+//                view.presentScene(scene)
+//            }
+//        }
         // Present the scene
-        if let scene = GameScene(fileNamed: String(format: "Chapter%d-%d", chapterNumber,stageNumber)) {
-            print(String(format: "Chapter%d-%d", chapterNumber,stageNumber))
+        print(String(format: "Chapter%D%D", chapterNumber,stageNumber))
+        if let scene = GameScene(fileNamed: String(format: "Chapter%D%D", chapterNumber,stageNumber)) {
             scene.scaleMode = .aspectFill
             scene.viewController = self
             if let view = self.view as! SKView? {
@@ -105,7 +115,6 @@ class GameViewController: UIViewController {
             gameScene.view?.isPaused = false
         }
         if let scene = GameScene(fileNamed: String(format: "Chapter%d-%d", chapterNumber,stageNumber)) {
-            print(String(format: "Chapter%d-%d", chapterNumber,stageNumber))
             scene.scaleMode = .aspectFill
             scene.viewController = self
             if let view = self.view as! SKView? {
@@ -131,7 +140,6 @@ class GameViewController: UIViewController {
     @IBAction func retryPressed(_ sender: UIButton) {
         endBackView.isHidden = true
         if let scene = GameScene(fileNamed: String(format: "Chapter%d-%d", chapterNumber,stageNumber)) {
-            print(String(format: "Chapter%d-%d", chapterNumber,stageNumber))
             scene.scaleMode = .aspectFill
             scene.viewController = self
             if let view = self.view as! SKView? {
@@ -142,3 +150,4 @@ class GameViewController: UIViewController {
     }
     
 }
+

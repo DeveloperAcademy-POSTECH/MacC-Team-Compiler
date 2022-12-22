@@ -43,21 +43,21 @@ class StageViewController: UIViewController {
         
         
         self.stages = [
-            Stage(name: "스테이지 1", image: "stage1", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 2", image: "stage2", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 3", image: "stage3", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 4", image: "stage4", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 5", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 6", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 7", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 8", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 9", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 10", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 11", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 12", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 13", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 14", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 15", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: false)
+            Stage(name: "스테이지 1", image: "stage1", targetRecord: 10.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 2", image: "stage2", targetRecord: 20.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 3", image: "stage3", targetRecord: 30.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 4", image: "stage4", targetRecord: 30.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 5", image: "stage5", targetRecord: 40.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 6", image: "stage6", targetRecord: 50.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 7", image: "stage7", targetRecord: 60.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 8", image: "stage8", targetRecord: 70.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 9", image: "stage9", targetRecord: 80.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 10", image: "stage10", targetRecord: 90.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 11", image: "stage11", targetRecord: 100.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 12", image: "stage12", targetRecord: 110.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 13", image: "stage13", targetRecord: 120.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 14", image: "stage14", targetRecord: 130.00, myRecord: 0.0, isLock: false),
+        Stage(name: "스테이지 15", image: "stage15", targetRecord: 140.00, myRecord: 0.0, isLock: false)
         ]
 
         let image = UIImage(named: "RobbyBack")
@@ -125,7 +125,6 @@ class StageViewController: UIViewController {
     }
     
     @IBAction func chpaterNumberStepper(_ sender: UIStepper) {
-        print(chapterStepper.value)
         chapterNumber = Int(chapterStepper.value)
         chapterNumberLabel.text = String(format: "챕터번호:%D", chapterNumber)
     }
@@ -147,6 +146,7 @@ class StageViewController: UIViewController {
         GameViewController.modalPresentationStyle = .fullScreen
         GameViewController.stageNumber = stageNumber
         GameViewController.chapterNumber = chapterNumber
+        GameViewController.targetRecord = stages[stageNumber].targetRecord
         self.present(GameViewController, animated: false, completion: nil)
         
         

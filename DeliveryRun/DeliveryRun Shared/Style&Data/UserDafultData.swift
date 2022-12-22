@@ -96,6 +96,7 @@ class UserDefaultData {
         
     }
     
+    
     // Sound Value
     var backgroundMusic:Bool
     var soundEffect:Bool
@@ -115,6 +116,11 @@ class UserDefaultData {
         self.mySkin = skinName
         defaults.set(mySkin, forKey: "MySkin")
     }
+    
+    // Tracking Data
+    var jumpData:Int = 0
+    var breakData:Int = 0
+    var collisionData:Int = 0
     
     var jumpQuestDone:Bool
     var breakQuestDone:Bool
@@ -269,10 +275,6 @@ class UserDefaultData {
 //        }
     }
     
-    // Tracking Data
-    var jumpData:Int = 0
-    var breakData:Int = 0
-    var collisionData:Int = 0
     
     
     func endGameSaveData(jumpData:Int, breakData:Int, collisionData:Int, timeRecord:Float, stageNumber:Int) {
