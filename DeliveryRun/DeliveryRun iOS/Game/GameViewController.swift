@@ -35,7 +35,6 @@ class GameViewController: UIViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(chapterNumber,stageNumber)
         
         // Pause Screen
         pauseView.backgroundColor = .deliveryrunPurple
@@ -81,16 +80,13 @@ class GameViewController: UIViewController {
         
         
         // Present the scene
-        if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
-            // Root 노드 생성
-            if let sceneNode = scene.rootNode as! GameScene? {
-                sceneNode.viewController = self
-                sceneNode.scaleMode = .aspectFill
-
-                if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-                    view.ignoresSiblingOrder = false
-                }
+        if let scene = GameScene(fileNamed: String(format: "Chapter%d-%d", chapterNumber,stageNumber)) {
+            print(String(format: "Chapter%d-%d", chapterNumber,stageNumber))
+            scene.scaleMode = .aspectFill
+            scene.viewController = self
+            if let view = self.view as! SKView? {
+                view.presentScene(scene)
+                view.ignoresSiblingOrder = false
             }
         }
     }
@@ -108,15 +104,13 @@ class GameViewController: UIViewController {
             pauseBackView.isHidden = true
             gameScene.view?.isPaused = false
         }
-        if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
-            if let sceneNode = scene.rootNode as! GameScene? {
-                sceneNode.viewController = self
-                sceneNode.scaleMode = .aspectFill
-
-                if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-                    view.ignoresSiblingOrder = false
-                }
+        if let scene = GameScene(fileNamed: String(format: "Chapter%d-%d", chapterNumber,stageNumber)) {
+            print(String(format: "Chapter%d-%d", chapterNumber,stageNumber))
+            scene.scaleMode = .aspectFill
+            scene.viewController = self
+            if let view = self.view as! SKView? {
+                view.presentScene(scene)
+                view.ignoresSiblingOrder = false
             }
         }
     }
@@ -136,15 +130,13 @@ class GameViewController: UIViewController {
     // MARK: - End Screen IBAction
     @IBAction func retryPressed(_ sender: UIButton) {
         endBackView.isHidden = true
-        if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
-            if let sceneNode = scene.rootNode as! GameScene? {
-                sceneNode.viewController = self
-                sceneNode.scaleMode = .aspectFill
-
-                if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-                    view.ignoresSiblingOrder = false
-                }
+        if let scene = GameScene(fileNamed: String(format: "Chapter%d-%d", chapterNumber,stageNumber)) {
+            print(String(format: "Chapter%d-%d", chapterNumber,stageNumber))
+            scene.scaleMode = .aspectFill
+            scene.viewController = self
+            if let view = self.view as! SKView? {
+                view.presentScene(scene)
+                view.ignoresSiblingOrder = false
             }
         }
     }

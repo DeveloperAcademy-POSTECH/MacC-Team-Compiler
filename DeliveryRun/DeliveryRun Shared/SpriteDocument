@@ -32,3 +32,18 @@ This property is used to apply a frictional force to physics bodies in contact w
             
         }
     }
+
+
+// 사운드재생 SKAction사용
+
+enum Sound : String {
+    case hit, jump, levelUp, meteorFalling, reward
+    
+    var action : SKAction {
+        return SKAction.playSoundFileNamed(rawValue + "Sound.wav", waitForCompletion: false)
+    }
+}
+
+extension SKAction {
+    static let playGameMusic : SKAction = repeatForever(playSoundFileNamed("music.wav", waitForCompletion: false))
+}
