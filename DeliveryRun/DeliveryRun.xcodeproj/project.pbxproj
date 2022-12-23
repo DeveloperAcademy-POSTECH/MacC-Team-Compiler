@@ -20,6 +20,14 @@
 		6396605229233CD30002E6B2 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6396605129233CD30002E6B2 /* SettingView.xib */; };
 		6396605429233D3E0002E6B2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396605329233D3E0002E6B2 /* SettingView.swift */; };
 		6396605B2923633E0002E6B2 /* UIkitDocument in Resources */ = {isa = PBXBuildFile; fileRef = 6396605A2923633E0002E6B2 /* UIkitDocument */; };
+		63BBCAD72955C9C00024603F /* BackgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCACF2955C9C00024603F /* BackgroundMusic.wav */; };
+		63BBCAD82955C9C00024603F /* SoundEffectOnSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAD02955C9C00024603F /* SoundEffectOnSound.wav */; };
+		63BBCAD92955C9C00024603F /* RewardSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAD12955C9C00024603F /* RewardSound.wav */; };
+		63BBCADA2955C9C00024603F /* GetItemSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAD22955C9C00024603F /* GetItemSound.wav */; };
+		63BBCADB2955C9C00024603F /* ButtonSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAD32955C9C00024603F /* ButtonSound.wav */; };
+		63BBCADC2955C9C00024603F /* InGameMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAD42955C9C00024603F /* InGameMusic.wav */; };
+		63BBCADD2955C9C00024603F /* GameOnSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAD52955C9C00024603F /* GameOnSound.wav */; };
+		63BBCADE2955C9C00024603F /* ArrivalSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAD62955C9C00024603F /* ArrivalSound.wav */; };
 		63D689E52906E4BF001748CE /* SpriteDocument in Resources */ = {isa = PBXBuildFile; fileRef = 63D689E42906E4BF001748CE /* SpriteDocument */; };
 		63DC0EAB28F5863100B145B9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC0EAA28F5863100B145B9 /* GameViewController.swift */; };
 		6F28EEA128F5444600D7330F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28EEA028F5444600D7330F /* AppDelegate.swift */; };
@@ -46,14 +54,6 @@
 		6FB116822945E19600D1E604 /* Stage4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB116812945E19600D1E604 /* Stage4.sks */; };
 		6FB116842945E1A200D1E604 /* Stage5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB116832945E1A200D1E604 /* Stage5.sks */; };
 		6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */; };
-		6FB559F52955C86C003F2CAA /* RewardSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FB559ED2955C86C003F2CAA /* RewardSound.wav */; };
-		6FB559F62955C86C003F2CAA /* ButtonSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FB559EE2955C86C003F2CAA /* ButtonSound.wav */; };
-		6FB559F72955C86C003F2CAA /* InGameMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FB559EF2955C86C003F2CAA /* InGameMusic.wav */; };
-		6FB559F82955C86C003F2CAA /* ArrivalSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FB559F02955C86C003F2CAA /* ArrivalSound.wav */; };
-		6FB559F92955C86C003F2CAA /* BackgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FB559F12955C86C003F2CAA /* BackgroundMusic.wav */; };
-		6FB559FA2955C86C003F2CAA /* SoundEffectOnSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FB559F22955C86C003F2CAA /* SoundEffectOnSound.wav */; };
-		6FB559FB2955C86C003F2CAA /* GetItemSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FB559F32955C86C003F2CAA /* GetItemSound.wav */; };
-		6FB559FC2955C86C003F2CAA /* GameOnSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6FB559F42955C86C003F2CAA /* GameOnSound.wav */; };
 		6FB79CB9293F322A00823407 /* Stage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79CB8293F322A00823407 /* Stage2.swift */; };
 		6FB79CBB293F326600823407 /* Stage2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB79CBA293F326600823407 /* Stage2.sks */; };
 		6FBFE15329390D9200A1927D /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFE15229390D9200A1927D /* Sound.swift */; };
@@ -76,6 +76,14 @@
 		6396605129233CD30002E6B2 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
 		6396605329233D3E0002E6B2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		6396605A2923633E0002E6B2 /* UIkitDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = UIkitDocument; sourceTree = "<group>"; };
+		63BBCACF2955C9C00024603F /* BackgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = BackgroundMusic.wav; path = ../../../../../Sounds/BackgroundMusic.wav; sourceTree = "<group>"; };
+		63BBCAD02955C9C00024603F /* SoundEffectOnSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = SoundEffectOnSound.wav; path = ../../../../../Sounds/SoundEffectOnSound.wav; sourceTree = "<group>"; };
+		63BBCAD12955C9C00024603F /* RewardSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = RewardSound.wav; path = ../../../../../Sounds/RewardSound.wav; sourceTree = "<group>"; };
+		63BBCAD22955C9C00024603F /* GetItemSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = GetItemSound.wav; path = ../../../../../Sounds/GetItemSound.wav; sourceTree = "<group>"; };
+		63BBCAD32955C9C00024603F /* ButtonSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ButtonSound.wav; path = ../../../../../Sounds/ButtonSound.wav; sourceTree = "<group>"; };
+		63BBCAD42955C9C00024603F /* InGameMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = InGameMusic.wav; path = ../../../../../Sounds/InGameMusic.wav; sourceTree = "<group>"; };
+		63BBCAD52955C9C00024603F /* GameOnSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = GameOnSound.wav; path = ../../../../../Sounds/GameOnSound.wav; sourceTree = "<group>"; };
+		63BBCAD62955C9C00024603F /* ArrivalSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ArrivalSound.wav; path = ../../../../../Sounds/ArrivalSound.wav; sourceTree = "<group>"; };
 		63D689E42906E4BF001748CE /* SpriteDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpriteDocument; sourceTree = "<group>"; };
 		63DC0EAA28F5863100B145B9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		6F110C7A28F697F500F75C13 /* DeliveryRun-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DeliveryRun-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -104,14 +112,6 @@
 		6FB116812945E19600D1E604 /* Stage4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stage4.sks; sourceTree = "<group>"; };
 		6FB116832945E1A200D1E604 /* Stage5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stage5.sks; sourceTree = "<group>"; };
 		6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
-		6FB559ED2955C86C003F2CAA /* RewardSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = RewardSound.wav; sourceTree = "<group>"; };
-		6FB559EE2955C86C003F2CAA /* ButtonSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ButtonSound.wav; sourceTree = "<group>"; };
-		6FB559EF2955C86C003F2CAA /* InGameMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = InGameMusic.wav; sourceTree = "<group>"; };
-		6FB559F02955C86C003F2CAA /* ArrivalSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ArrivalSound.wav; sourceTree = "<group>"; };
-		6FB559F12955C86C003F2CAA /* BackgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BackgroundMusic.wav; sourceTree = "<group>"; };
-		6FB559F22955C86C003F2CAA /* SoundEffectOnSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SoundEffectOnSound.wav; sourceTree = "<group>"; };
-		6FB559F32955C86C003F2CAA /* GetItemSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GetItemSound.wav; sourceTree = "<group>"; };
-		6FB559F42955C86C003F2CAA /* GameOnSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameOnSound.wav; sourceTree = "<group>"; };
 		6FB79CB8293F322A00823407 /* Stage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage2.swift; sourceTree = "<group>"; };
 		6FB79CBA293F326600823407 /* Stage2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stage2.sks; sourceTree = "<group>"; };
 		6FBFE15229390D9200A1927D /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
@@ -162,6 +162,21 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		63BBCACE2955C9950024603F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				63BBCAD62955C9C00024603F /* ArrivalSound.wav */,
+				63BBCACF2955C9C00024603F /* BackgroundMusic.wav */,
+				63BBCAD32955C9C00024603F /* ButtonSound.wav */,
+				63BBCAD52955C9C00024603F /* GameOnSound.wav */,
+				63BBCAD22955C9C00024603F /* GetItemSound.wav */,
+				63BBCAD42955C9C00024603F /* InGameMusic.wav */,
+				63BBCAD12955C9C00024603F /* RewardSound.wav */,
+				63BBCAD02955C9C00024603F /* SoundEffectOnSound.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		6F110C7728F6971900F75C13 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +204,7 @@
 				6F28EE9728F5444500D7330F /* GameScene.swift */,
 				6372509328FFC7F700117CF8 /* PlayerState.swift */,
 				6FE9943C29123850004753BA /* HUD.swift */,
+				63BBCACE2955C9950024603F /* Sounds */,
 				6FA60FAD28F69423003846EF /* Style */,
 				6F28EE9828F5444600D7330F /* Assets.xcassets */,
 			);
@@ -263,27 +279,10 @@
 		6FA60FAD28F69423003846EF /* Style */ = {
 			isa = PBXGroup;
 			children = (
-				6FB559EC2955C86C003F2CAA /* Sounds */,
 				6F110C7728F6971900F75C13 /* Fonts */,
 				6FA60FAE28F69431003846EF /* Color.swift */,
 			);
 			path = Style;
-			sourceTree = "<group>";
-		};
-		6FB559EC2955C86C003F2CAA /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				6FB559ED2955C86C003F2CAA /* RewardSound.wav */,
-				6FB559EE2955C86C003F2CAA /* ButtonSound.wav */,
-				6FB559EF2955C86C003F2CAA /* InGameMusic.wav */,
-				6FB559F02955C86C003F2CAA /* ArrivalSound.wav */,
-				6FB559F12955C86C003F2CAA /* BackgroundMusic.wav */,
-				6FB559F22955C86C003F2CAA /* SoundEffectOnSound.wav */,
-				6FB559F32955C86C003F2CAA /* GetItemSound.wav */,
-				6FB559F42955C86C003F2CAA /* GameOnSound.wav */,
-			);
-			name = Sounds;
-			path = ../../../../../../Desktop/Sounds;
 			sourceTree = "<group>";
 		};
 		6FF3371929309A3600D04BDB /* Quest */ = {
@@ -357,31 +356,31 @@
 			files = (
 				6396605B2923633E0002E6B2 /* UIkitDocument in Resources */,
 				6FB116822945E19600D1E604 /* Stage4.sks in Resources */,
+				63BBCAD92955C9C00024603F /* RewardSound.wav in Resources */,
 				6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */,
+				63BBCADA2955C9C00024603F /* GetItemSound.wav in Resources */,
+				63BBCADC2955C9C00024603F /* InGameMusic.wav in Resources */,
 				6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */,
-				6FB559FA2955C86C003F2CAA /* SoundEffectOnSound.wav in Resources */,
 				6FB79CBB293F326600823407 /* Stage2.sks in Resources */,
-				6FB559F92955C86C003F2CAA /* BackgroundMusic.wav in Resources */,
-				6FB559FB2955C86C003F2CAA /* GetItemSound.wav in Resources */,
 				637DB203293CEA2C007B755C /* Garage.storyboard in Resources */,
+				63BBCAD72955C9C00024603F /* BackgroundMusic.wav in Resources */,
 				6FB116842945E1A200D1E604 /* Stage5.sks in Resources */,
 				6F28EEAB28F5444600D7330F /* Stage1.sks in Resources */,
 				6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */,
 				6F28EEA628F5444600D7330F /* Robby.storyboard in Resources */,
+				63BBCADE2955C9C00024603F /* ArrivalSound.wav in Resources */,
 				6FB116802945E18700D1E604 /* Stage3.sks in Resources */,
 				6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */,
-				6FB559FC2955C86C003F2CAA /* GameOnSound.wav in Resources */,
-				6FB559F62955C86C003F2CAA /* ButtonSound.wav in Resources */,
 				638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */,
 				63D689E52906E4BF001748CE /* SpriteDocument in Resources */,
 				637DB209293CF5D1007B755C /* PlayerCollectionCell.xib in Resources */,
-				6FB559F52955C86C003F2CAA /* RewardSound.wav in Resources */,
 				6396605229233CD30002E6B2 /* SettingView.xib in Resources */,
+				63BBCADD2955C9C00024603F /* GameOnSound.wav in Resources */,
 				6F28EEAA28F5444600D7330F /* Actions.sks in Resources */,
-				6FB559F72955C86C003F2CAA /* InGameMusic.wav in Resources */,
+				63BBCAD82955C9C00024603F /* SoundEffectOnSound.wav in Resources */,
 				6FF3371D29309CD700D04BDB /* QuestView.xib in Resources */,
 				6F28EEA928F5444600D7330F /* LaunchScreen.storyboard in Resources */,
-				6FB559F82955C86C003F2CAA /* ArrivalSound.wav in Resources */,
+				63BBCADB2955C9C00024603F /* ButtonSound.wav in Resources */,
 				6F28EEAD28F5444600D7330F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
