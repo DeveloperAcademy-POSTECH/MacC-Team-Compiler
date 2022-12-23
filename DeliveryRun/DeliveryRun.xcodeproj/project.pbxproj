@@ -197,7 +197,6 @@
 		6F28EE9428F5444500D7330F /* DeliveryRun Shared */ = {
 			isa = PBXGroup;
 			children = (
-				63BBCAF02955CBC30024603F /* SoundTrack */,
 				63D689E42906E4BF001748CE /* SpriteDocument */,
 				6F28EE9528F5444500D7330F /* Actions.sks */,
 				6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */,
@@ -279,6 +278,7 @@
 		6FA60FAD28F69423003846EF /* Style */ = {
 			isa = PBXGroup;
 			children = (
+				63BBCAF02955CBC30024603F /* SoundTrack */,
 				6F110C7728F6971900F75C13 /* Fonts */,
 				6FA60FAE28F69431003846EF /* Color.swift */,
 			);
