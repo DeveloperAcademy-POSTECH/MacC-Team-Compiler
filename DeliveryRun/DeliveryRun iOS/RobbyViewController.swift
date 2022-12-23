@@ -13,6 +13,8 @@ import AVFoundation
 class RobbyViewController: UIViewController {
     
     let userDefault = UserDefaultData.shared
+    let gameEffectSound = GameSound.shared
+    let backgroundMusic = BackgroundSound.shared
     
     @IBOutlet weak var PlayerImage: UIImageView!
     @IBOutlet weak var settingView: SettingView!
@@ -26,6 +28,13 @@ class RobbyViewController: UIViewController {
         // MARK: UserDefault
         UserDefaultData.findPath()
         super.viewDidLoad()
+        
+        if userDefault.backgroundMusic {
+            backgroundMusic.playSound(soundName: "BackgroundMusic")
+        }
+        
+        
+        // MARK: 런치스크린에 게임배경및 설명 넣고 Sound 집어넣기
         
         PlayerImage.image = UIImage(named: userDefault.mySkin)
         
