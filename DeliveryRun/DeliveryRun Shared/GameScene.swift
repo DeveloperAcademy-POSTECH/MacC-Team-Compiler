@@ -54,6 +54,8 @@ class GameScene: SKScene{
     var storyBackground: SKShapeNode!
     var storyText: SKLabelNode!
     
+    var cat: SKSpriteNode!
+    
     // Boolean
     private var jumpAction = false
     private var accelAction = false
@@ -323,6 +325,26 @@ class GameScene: SKScene{
         storyText.zPosition = 6.0
         Story.addChild(storyText)
     }
+    
+    // Cat Node 설정
+    private func setupCatNode() {
+        cat = SKSpriteNode(imageNamed: "cat")
+        cat.name = "Cat"
+        cat.scale(to: CGSize(width: 150, height: 150))
+        cat.position = CGPoint(x: player.position.x + 1000, y: -40)
+        cat.zPosition = 0
+        cat.physicsBody = SKPhysicsBody(texture: cat.texture!,
+                                           size: cat.texture!.size())
+        cat.physicsBody?.isDynamic = false
+        cat.physicsBody?.affectedByGravity = false
+        cat.physicsBody?.allowsRotation = false
+        cat.physicsBody?.pinned = true
+        cat.physicsBody?.categoryBitMask = 1
+        cat.physicsBody?.collisionBitMask = 2
+        cat.physicsBody?.fieldBitMask = 0
+        cat.physicsBody?.contactTestBitMask = 2
+        addChild(cat)
+    }
 }
 
 // MARK: Touches
@@ -548,7 +570,8 @@ extension GameScene: SKPhysicsContactDelegate {
             // Speed Bump
             if contact.bodyA.node?.name == "Speed Bump" {
                 playerStateMachine.enter(JumpingState.self)
-            } else if contact.bodyB.node?.name == "Speed Bump" {
+            }
+            else if contact.bodyB.node?.name == "Speed Bump" {
                 playerStateMachine.enter(JumpingState.self)
             }
             
@@ -587,6 +610,29 @@ extension GameScene: SKPhysicsContactDelegate {
                     }
                 }
             }
+            
+            // Cat Sign
+            else if contact.bodyA.node?.name == "Cat Sign" {
+                setupCatNode()
+            }
+            else if contact.bodyB.node?.name == "Cat Sign" {
+                setupCatNode()
+            }
+            
+            // Cat
+            else if contact.bodyA.node?.name == "Cat" {
+                itemImage.texture = SKTexture(imageNamed:"Item Button")
+                itemImage.scale(to: CGSize(width: 100, height: 100))
+                itemImage.name = "Item Image"
+                contact.bodyA.node?.removeFromParent()
+            }
+            else if contact.bodyB.node?.name == "Cat" {
+                itemImage.texture = SKTexture(imageNamed:"Item Button")
+                itemImage.scale(to: CGSize(width: 100, height: 100))
+                itemImage.name = "Item Image"
+                contact.bodyB.node?.removeFromParent()
+            }
+            
             else {
                 contact.bodyA.node?.physicsBody?.categoryBitMask = 0
                 usualDamage()
