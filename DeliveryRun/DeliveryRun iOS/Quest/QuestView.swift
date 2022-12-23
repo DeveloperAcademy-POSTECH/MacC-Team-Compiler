@@ -13,6 +13,7 @@ class QuestView: UIView {
     let nibName = "QuestView"
     
     let userDefault = UserDefaultData.shared
+    let gameEffectSound = GameSound.shared
     
     var quests:[Quest] = []
     
@@ -22,6 +23,9 @@ class QuestView: UIView {
     
     @IBAction func pressCheckButton(_ sender: Any) {
         self.isHidden.toggle()
+        if userDefault.gameSound {
+            gameEffectSound.playSound(soundName: "ButtonSound")
+        }
         
     }
     

@@ -14,7 +14,9 @@ class SettingView: UIView {
     
     let userDefault = UserDefaultData.shared
     
-    let backgroundSound = BackgroundSound.shared
+    let backgroundMusic = BackgroundSound.shared
+    let gameEffectSound = GameSound.shared
+    
     
 
     @IBOutlet weak var BackgroundMusicView: UIView!
@@ -68,19 +70,30 @@ class SettingView: UIView {
         self.isHidden.toggle()
         // UserDefault Set
         userDefault.setSetting(backgroundMusic: BackgroundSwitch.isOn, gameSound: GameSoundSwitch.isOn)
+        if userDefault.gameSound {
+            gameEffectSound.playSound(soundName: "ButtonSound")
+        }
+        
     }
     
     // TODO: BackgroudMusci ON OFF
     @IBAction func backgroundOnOff(_ sender: UISwitch) {
         if BackgroundSwitch.isOn {
-            backgroundSound.playBackground(backgroundName: "robby")
+            backgroundMusic.backgroundSoundOn()
+            backgroundMusic.playSound(soundName: "BackgroundMusic")
+            print("MusicOn")
         } else {
-            backgroundSound.stopBackground()
+            backgroundMusic.backgroundSoundOff()
         }
+        
     }
     
     @IBAction func ingameSoundOnOff(_ sender: UISwitch) {
+        if GameSoundSwitch.isOn {
+            gameEffectSound.gameSoundOn()
+            gameEffectSound.playSound(soundName: "SoundEffectOnSound")
+        } else {
+            gameEffectSound.gameSoundOff()
+        }
     }
-    
-    
 }
