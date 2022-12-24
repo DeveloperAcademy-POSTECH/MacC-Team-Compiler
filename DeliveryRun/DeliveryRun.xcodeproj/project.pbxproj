@@ -47,6 +47,7 @@
 		6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */; };
 		6F725D00293F21FE00971BCC /* Stage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F725CFF293F21FE00971BCC /* Stage1.swift */; };
 		6F965E15293919640048334B /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F965E14293919640048334B /* Custom.swift */; };
+		6F97263F2957674A00783D0C /* Chapter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F97263E2957674A00783D0C /* Chapter.storyboard */; };
 		6FA60FAF28F69431003846EF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA60FAE28F69431003846EF /* Color.swift */; };
 		6FB1167A2945E14A00D1E604 /* Stage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB116792945E14A00D1E604 /* Stage3.swift */; };
 		6FB1167C2945E15100D1E604 /* Stage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB1167B2945E15100D1E604 /* Stage4.swift */; };
@@ -59,7 +60,6 @@
 		6FB79CBB293F326600823407 /* Stage2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB79CBA293F326600823407 /* Stage2.sks */; };
 		6FBFE15329390D9200A1927D /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFE15229390D9200A1927D /* Sound.swift */; };
 		6FEFE463295323B7007572E9 /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEFE461295323B7007572E9 /* ChapterViewController.swift */; };
-		6FEFE464295323B7007572E9 /* Chapter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEFE462295323B7007572E9 /* Chapter.xib */; };
 		6FF3371B29309CC700D04BDB /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF3371A29309CC700D04BDB /* QuestView.swift */; };
 		6FF3371D29309CD700D04BDB /* QuestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF3371C29309CD700D04BDB /* QuestView.xib */; };
 /* End PBXBuildFile section */
@@ -107,6 +107,7 @@
 		6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileSet.sks; sourceTree = "<group>"; };
 		6F725CFF293F21FE00971BCC /* Stage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1.swift; sourceTree = "<group>"; };
 		6F965E14293919640048334B /* Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
+		6F97263E2957674A00783D0C /* Chapter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chapter.storyboard; sourceTree = "<group>"; };
 		6FA60FAE28F69431003846EF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6FB116792945E14A00D1E604 /* Stage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage3.swift; sourceTree = "<group>"; };
 		6FB1167B2945E15100D1E604 /* Stage4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage4.swift; sourceTree = "<group>"; };
@@ -119,7 +120,6 @@
 		6FB79CBA293F326600823407 /* Stage2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stage2.sks; sourceTree = "<group>"; };
 		6FBFE15229390D9200A1927D /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		6FEFE461295323B7007572E9 /* ChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
-		6FEFE462295323B7007572E9 /* Chapter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Chapter.xib; sourceTree = "<group>"; };
 		6FF3371A29309CC700D04BDB /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
 		6FF3371C29309CD700D04BDB /* QuestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -250,7 +250,7 @@
 				6F4B8BD3291E26D5000990EA /* Stage.storyboard */,
 				6FEFE461295323B7007572E9 /* ChapterViewController.swift */,
 				6F0F6C91295617EC006D5647 /* ChapterCell.swift */,
-				6FEFE462295323B7007572E9 /* Chapter.xib */,
+				6F97263E2957674A00783D0C /* Chapter.storyboard */,
 			);
 			path = Stage;
 			sourceTree = "<group>";
@@ -378,11 +378,11 @@
 				638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */,
 				63D689E52906E4BF001748CE /* SpriteDocument in Resources */,
 				637DB209293CF5D1007B755C /* PlayerCollectionCell.xib in Resources */,
+				6F97263F2957674A00783D0C /* Chapter.storyboard in Resources */,
 				63BBCB002955CC020024603F /* SoundEffectOnSound.wav in Resources */,
 				6396605229233CD30002E6B2 /* SettingView.xib in Resources */,
 				63BBCAF92955CC020024603F /* GetItemSound.wav in Resources */,
 				6F28EEAA28F5444600D7330F /* Actions.sks in Resources */,
-				6FEFE464295323B7007572E9 /* Chapter.xib in Resources */,
 				63BBCAFB2955CC020024603F /* InGameMusic.wav in Resources */,
 				63BBCAFE2955CC020024603F /* GameOnSound.wav in Resources */,
 				6FF3371D29309CD700D04BDB /* QuestView.xib in Resources */,
