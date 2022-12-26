@@ -90,8 +90,8 @@ class GameViewController: UIViewController {
 //            }
 //        }
         // Present the scene
-        print(String(format: "Chapter%D%D", chapterNumber,stageNumber))
-        if let scene = GameScene(fileNamed: String(format: "Chapter%D%D", chapterNumber,stageNumber)) {
+        print(String(format: "GameScene%D_%D", chapterNumber,stageNumber))
+        if let scene = GameScene(fileNamed: String(format: "GameScene%D_%D", chapterNumber,stageNumber)) {
             scene.scaleMode = .aspectFill
             scene.viewController = self
             if let view = self.view as! SKView? {
@@ -114,7 +114,7 @@ class GameViewController: UIViewController {
             pauseBackView.isHidden = true
             gameScene.view?.isPaused = false
         }
-        if let scene = GameScene(fileNamed: String(format: "Chapter%d-%d", chapterNumber,stageNumber)) {
+        if let scene = GameScene(fileNamed: String(format: "GameScene%D_%D", chapterNumber,stageNumber)) {
             scene.scaleMode = .aspectFill
             scene.viewController = self
             if let view = self.view as! SKView? {
@@ -139,7 +139,7 @@ class GameViewController: UIViewController {
     // MARK: - End Screen IBAction
     @IBAction func retryPressed(_ sender: UIButton) {
         endBackView.isHidden = true
-        if let scene = GameScene(fileNamed: String(format: "Chapter%d-%d", chapterNumber,stageNumber)) {
+        if let scene = GameScene(fileNamed: String(format: "GameScene%D_%D", chapterNumber,stageNumber)) {
             scene.scaleMode = .aspectFill
             scene.viewController = self
             if let view = self.view as! SKView? {
