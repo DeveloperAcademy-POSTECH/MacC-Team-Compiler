@@ -99,6 +99,7 @@ extension ChapterViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let stage = UIStoryboard.init(name: "Stage", bundle: nil)
         guard let StageViewController = stage.instantiateViewController(withIdentifier: "StageViewController") as? StageViewController else {return}
+        StageViewController.chapterNumber = indexPath.row + 1
         StageViewController.modalPresentationStyle = .fullScreen
         self.present(StageViewController, animated: false, completion: nil)
     }

@@ -24,13 +24,15 @@ class StageViewController: UIViewController {
     @IBOutlet weak var starImage: UIImageView!
     
     var stages:[Stage] = []
-    var stageNumber:Int = 1
+    var chapterNumber: Int = 0
+    var stageNumber: Int = 1
     
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         userDefault.setStageNumber(stageNumber:1)
+        print(chapterNumber)
         
         let stages: [Stage] = [
             UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageOne")!,
@@ -134,8 +136,9 @@ class StageViewController: UIViewController {
         }
         let game = UIStoryboard.init(name: "Game", bundle: nil)
         guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {return}
-        GameViewController.modalPresentationStyle = .fullScreen
+        GameViewController.chapterNumber = chapterNumber
         GameViewController.stageNumber = stageNumber
+        GameViewController.modalPresentationStyle = .fullScreen
         self.present(GameViewController, animated: false, completion: nil)
     }
 }
