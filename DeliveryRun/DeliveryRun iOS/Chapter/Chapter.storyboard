@@ -34,6 +34,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
+                                <connections>
+                                    <action selector="goSetting:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Mcm-g4-gdT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwD-mY-yPb" userLabel="Back Button">
                                 <rect key="frame" x="0.0" y="25" width="40" height="40"/>
@@ -47,6 +50,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
+                                <connections>
+                                    <action selector="goRobby:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Q0F-Rk-TQ2"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bBR-6x-9Wc">
                                 <rect key="frame" x="0.0" y="85" width="852" height="288"/>
@@ -68,6 +74,10 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPy-6H-rRu" userLabel="SettingView" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="25" width="852" height="343"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -75,20 +85,27 @@
                             <constraint firstItem="YwD-mY-yPb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="53k-bL-RM0"/>
                             <constraint firstItem="bBR-6x-9Wc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5T4-f3-Twb"/>
                             <constraint firstItem="TGX-92-WoY" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="25" id="78O-5X-gUg"/>
+                            <constraint firstAttribute="bottom" secondItem="oPy-6H-rRu" secondAttribute="bottom" constant="25" id="8bm-xC-v21"/>
                             <constraint firstItem="YwD-mY-yPb" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="25" id="AI0-ct-NDA"/>
                             <constraint firstItem="KKY-7w-THn" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="BIW-rG-ftf"/>
                             <constraint firstItem="KKY-7w-THn" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="XmM-xc-feW"/>
+                            <constraint firstItem="oPy-6H-rRu" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="25" id="asK-B2-zeT"/>
                             <constraint firstItem="bBR-6x-9Wc" firstAttribute="top" secondItem="YwD-mY-yPb" secondAttribute="bottom" constant="20" id="ddd-MN-3Zu"/>
                             <constraint firstItem="KKY-7w-THn" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="dxq-fF-3FY"/>
                             <constraint firstAttribute="trailing" secondItem="KKY-7w-THn" secondAttribute="trailing" id="e2g-9t-rvO"/>
+                            <constraint firstItem="oPy-6H-rRu" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="hUA-cS-gUF"/>
+                            <constraint firstItem="oPy-6H-rRu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rc2-aq-uhz"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bBR-6x-9Wc" secondAttribute="trailing" id="xcv-Qf-nVJ"/>
                             <constraint firstAttribute="bottom" secondItem="bBR-6x-9Wc" secondAttribute="bottom" constant="20" id="y4m-AI-HB1"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TGX-92-WoY" secondAttribute="trailing" id="zIL-09-Gjv"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="YwD-mY-yPb" id="z2W-nG-w02"/>
                         <outlet property="backgroundImage" destination="KKY-7w-THn" id="j6n-UQ-G7s"/>
                         <outlet property="chapterCollectionView" destination="bBR-6x-9Wc" id="7Y9-14-fci"/>
+                        <outlet property="settingButton" destination="TGX-92-WoY" id="AdM-KG-q3m"/>
+                        <outlet property="settingView" destination="oPy-6H-rRu" id="cFB-mi-P4a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

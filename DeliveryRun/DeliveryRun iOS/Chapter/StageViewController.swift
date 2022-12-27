@@ -23,13 +23,11 @@ class StageViewController: UIViewController {
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var starImage: UIImageView!
     
-    @IBAction func pressSettingButton(_ sender: Any) {
-        settingView.isHidden = false
-    }
-    
     var stages:[Stage] = []
     var stageNumber:Int = 1
     
+    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         userDefault.setStageNumber(stageNumber:1)
@@ -118,11 +116,16 @@ class StageViewController: UIViewController {
         }
     }
     
-    @IBAction func goRobby(_ sender: UIButton) {
-        let robby = UIStoryboard.init(name: "Robby", bundle: nil)
-        guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
-        RobbyViewController.modalPresentationStyle = .fullScreen
-        self.present(RobbyViewController, animated: false, completion: nil)
+    // MARK: - IBAction
+    @IBAction func goSetting(_ sender: UIButton) {
+        settingView.isHidden = false
+    }
+    
+    @IBAction func goChapter(_ sender: UIButton) {
+        let chapter = UIStoryboard.init(name: "Chapter", bundle: nil)
+        guard let ChapterViewController = chapter.instantiateViewController(withIdentifier: "ChapterViewController") as? ChapterViewController else {return}
+        ChapterViewController.modalPresentationStyle = .fullScreen
+        self.present(ChapterViewController, animated: false, completion: nil)
     }
     
     @IBAction func goDelivery(_ sender: CustomGameButton) {
@@ -130,7 +133,7 @@ class StageViewController: UIViewController {
             gameEffectSound.playSound(soundName: "GameOnSound")
         }
         let game = UIStoryboard.init(name: "Game", bundle: nil)
-        guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController")as? GameViewController else {return}
+        guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {return}
         GameViewController.modalPresentationStyle = .fullScreen
         GameViewController.stageNumber = stageNumber
         self.present(GameViewController, animated: false, completion: nil)
@@ -168,7 +171,6 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         // Cell 텍스트 및 이미지 구성
         cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
-        cell.foodImageView.image = UIImage(named:stages[indexPath.row].image)?.resized(to:CGSize(width:40, height:40))
         return cell
     }
 }

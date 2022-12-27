@@ -46,7 +46,7 @@
 		6F5D4AB4292CA69C00572DC0 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4AB3292CA69C00572DC0 /* Stage.swift */; };
 		6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */; };
 		6F725D00293F21FE00971BCC /* Stage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F725CFF293F21FE00971BCC /* Stage1.swift */; };
-		6F965E15293919640048334B /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F965E14293919640048334B /* Custom.swift */; };
+		6F965E15293919640048334B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F965E14293919640048334B /* Extensions.swift */; };
 		6F97263F2957674A00783D0C /* Chapter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F97263E2957674A00783D0C /* Chapter.storyboard */; };
 		6FA60FAF28F69431003846EF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA60FAE28F69431003846EF /* Color.swift */; };
 		6FB1167A2945E14A00D1E604 /* Stage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB116792945E14A00D1E604 /* Stage3.swift */; };
@@ -106,7 +106,7 @@
 		6F5D4AB3292CA69C00572DC0 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileSet.sks; sourceTree = "<group>"; };
 		6F725CFF293F21FE00971BCC /* Stage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1.swift; sourceTree = "<group>"; };
-		6F965E14293919640048334B /* Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
+		6F965E14293919640048334B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6F97263E2957674A00783D0C /* Chapter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chapter.storyboard; sourceTree = "<group>"; };
 		6FA60FAE28F69431003846EF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6FB116792945E14A00D1E604 /* Stage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage3.swift; sourceTree = "<group>"; };
@@ -229,11 +229,11 @@
 				638D9B2D292B93070024E821 /* Model */,
 				637DB201293CE8BC007B755C /* Garage */,
 				6FF3371929309A3600D04BDB /* Quest */,
-				6F5089A3292B602300B26623 /* Stage */,
+				6F5089A3292B602300B26623 /* Chapter */,
 				63966059292344B00002E6B2 /* Setting */,
 				6F965E13293919420048334B /* Game */,
 				6F28EEA028F5444600D7330F /* AppDelegate.swift */,
-				6F965E14293919640048334B /* Custom.swift */,
+				6F965E14293919640048334B /* Extensions.swift */,
 				6F28EEA228F5444600D7330F /* RobbyViewController.swift */,
 				6F28EEA428F5444600D7330F /* Robby.storyboard */,
 				6F28EEA728F5444600D7330F /* LaunchScreen.storyboard */,
@@ -242,7 +242,7 @@
 			path = "DeliveryRun iOS";
 			sourceTree = "<group>";
 		};
-		6F5089A3292B602300B26623 /* Stage */ = {
+		6F5089A3292B602300B26623 /* Chapter */ = {
 			isa = PBXGroup;
 			children = (
 				6F2F6C1F28FB3A9B000B9507 /* StageViewController.swift */,
@@ -252,7 +252,7 @@
 				6F0F6C91295617EC006D5647 /* ChapterCell.swift */,
 				6F97263E2957674A00783D0C /* Chapter.storyboard */,
 			);
-			path = Stage;
+			path = Chapter;
 			sourceTree = "<group>";
 		};
 		6F725CFE293F21D900971BCC /* Stages */ = {
@@ -418,7 +418,7 @@
 				6FEFE463295323B7007572E9 /* ChapterViewController.swift in Sources */,
 				6F28EEA128F5444600D7330F /* AppDelegate.swift in Sources */,
 				637DB208293CF5D1007B755C /* PlayerCollectionCell.swift in Sources */,
-				6F965E15293919640048334B /* Custom.swift in Sources */,
+				6F965E15293919640048334B /* Extensions.swift in Sources */,
 				637DB205293CEA3E007B755C /* GarageViewController.swift in Sources */,
 				6F0F6C92295617EC006D5647 /* ChapterCell.swift in Sources */,
 				639554002935BC8D00E3DECA /* UserDafultData.swift in Sources */,

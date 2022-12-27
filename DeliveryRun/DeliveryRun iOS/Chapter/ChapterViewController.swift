@@ -11,7 +11,23 @@ class ChapterViewController: UIViewController {
 
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var chapterCollectionView: UICollectionView!
+    @IBOutlet weak var settingView: SettingView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var settingButton: UIButton!
     
+    @IBAction func goRobby(_ sender: UIButton) {
+        let robby = UIStoryboard.init(name: "Robby", bundle: nil)
+        guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
+        RobbyViewController.modalPresentationStyle = .fullScreen
+        self.present(RobbyViewController, animated: false, completion: nil)
+    }
+    
+    @IBAction func goSetting(_ sender: UIButton) {
+        settingView.isHidden = false
+    }
+    
+    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +41,24 @@ class ChapterViewController: UIViewController {
         chapterCollectionView.showsVerticalScrollIndicator = false
         chapterCollectionView.showsHorizontalScrollIndicator = false
         chapterCollectionView.allowsMultipleSelection = false
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        chapterCollectionView.collectionViewLayout = flowLayout
+        
+        settingView.layer.cornerRadius = 10
+        settingView.alpha = 1.0
+        settingView.isHidden = true
+        
+        backButton.layer.shadowColor = UIColor.deliveryrunYellow?.cgColor
+        backButton.layer.shadowOpacity = 1
+        backButton.layer.shadowRadius = 20
+        backButton.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: backButton.frame.width, height: backButton.frame.height)).cgPath
+        
+        settingButton.layer.shadowColor = UIColor.deliveryrunYellow?.cgColor
+        settingButton.layer.shadowOpacity = 1
+        settingButton.layer.shadowRadius = 20
+        settingButton.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: settingButton.frame.width, height: settingButton.frame.height)).cgPath
     }
 
 }
@@ -38,7 +72,7 @@ extension ChapterViewController: UICollectionViewDataSource, UICollectionViewDel
     // Cell 초기화
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chaptercell", for: indexPath) as! ChapterCell
-        
+        cell.chapterLabel.text = String(format: "Chapter %d", indexPath.row + 1)
         return cell
     }
 }
@@ -52,18 +86,21 @@ extension ChapterViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 40
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
     }
 }
 
-// Cell 선택 시 정보 변경
+// Cell 선택 시 StageView로 연결
 extension ChapterViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let stage = UIStoryboard.init(name: "Stage", bundle: nil)
+        guard let StageViewController = stage.instantiateViewController(withIdentifier: "StageViewController") as? StageViewController else {return}
+        StageViewController.modalPresentationStyle = .fullScreen
+        self.present(StageViewController, animated: false, completion: nil)
     }
 }
 

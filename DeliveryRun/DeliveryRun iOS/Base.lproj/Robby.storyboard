@@ -49,7 +49,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
-                                    <action selector="SettingPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="YIq-wq-axy"/>
+                                    <action selector="goSetting:" destination="BV1-FR-VrT" eventType="touchUpInside" id="5Uh-q5-J30"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8B-hF-QLa" userLabel="Quest Button">
@@ -66,7 +66,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
-                                    <action selector="QuestPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="fHC-8o-7K5"/>
+                                    <action selector="goQuest:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Kye-4F-pxr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFX-aL-qVa" userLabel="Start Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
@@ -79,7 +79,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="배달준비"/>
                                 <connections>
-                                    <action selector="goDelivery:" destination="BV1-FR-VrT" eventType="touchUpInside" id="LL0-u1-J2h"/>
+                                    <action selector="goChapter:" destination="BV1-FR-VrT" eventType="touchUpInside" id="pkp-dX-hH1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOz-lf-BoN" userLabel="GarageButton" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
@@ -91,7 +91,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="차고"/>
                                 <connections>
-                                    <action selector="GaragePressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="hDl-Mq-cOL"/>
+                                    <action selector="goGarage:" destination="BV1-FR-VrT" eventType="touchUpInside" id="fcA-hq-tmZ"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-lM-3qU" userLabel="Player">
@@ -158,7 +158,7 @@
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="RobbyBack" width="844" height="390"/>
-        <image name="default" width="360" height="366"/>
+        <image name="default" width="348" height="348"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="scroll.fill" catalog="system" width="128" height="116"/>
         <namedColor name="deliveryrunYellow">

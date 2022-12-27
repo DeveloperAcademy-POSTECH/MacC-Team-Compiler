@@ -24,6 +24,8 @@ class RobbyViewController: UIViewController {
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var questButton: UIButton!
     
+    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,25 +58,28 @@ class RobbyViewController: UIViewController {
         questView.layer.opacity = 1.0
     }
     
-    @IBAction func SettingPressed(_ sender: UIButton) {
+    
+    // MARK: - IBAction
+    @IBAction func goSetting(_ sender: UIButton) {
         settingView.isHidden = false
     }
-    @IBAction func QuestPressed(_ sender: UIButton) {
+    
+    @IBAction func goQuest(_ sender: UIButton) {
         questView.isHidden = false
     }
     
-    
-    @IBAction func GaragePressed(_ sender: CustomGameButton) {
+    @IBAction func goGarage(_ sender: CustomGameButton) {
         let garage = UIStoryboard.init(name: "Garage", bundle: nil)
         guard let GarageViewController = garage.instantiateViewController(withIdentifier: "GarageViewController") as? GarageViewController else { return }
         GarageViewController.modalPresentationStyle = .fullScreen
         self.present(GarageViewController, animated: true, completion: nil)
         
     }
-    @IBAction func goDelivery(_ sender: CustomGameButton) {
+    
+    @IBAction func goChapter(_ sender: CustomGameButton) {
         let chapter = UIStoryboard.init(name: "Chapter", bundle: nil)
-                guard let ChapterViewController = chapter.instantiateViewController(withIdentifier: "ChapterViewController")as? ChapterViewController else {return}
+        guard let ChapterViewController = chapter.instantiateViewController(withIdentifier: "ChapterViewController") as? ChapterViewController else {return}
         ChapterViewController.modalPresentationStyle = .fullScreen
-                self.present(ChapterViewController, animated: false, completion: nil)
+        self.present(ChapterViewController, animated: false, completion: nil)
     }
 }
