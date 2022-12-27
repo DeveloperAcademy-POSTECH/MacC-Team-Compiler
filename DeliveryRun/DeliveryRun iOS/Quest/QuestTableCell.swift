@@ -10,6 +10,7 @@ import UIKit
 class QuestTableCell: UITableViewCell {
     
     let userDefault = UserDefaultData.shared
+    let gameEffectSound = GameSound.shared
     
     var questDone:Bool = false
     
@@ -53,6 +54,9 @@ class QuestTableCell: UITableViewCell {
 
     
     @IBAction func RewardPressed(_ sender: CustomGameButton) {
+        if userDefault.gameSound {
+            gameEffectSound.playSound(soundName: "RewardSound")
+        }
         questCheckButton.layer.opacity = 0.5
         if questTitleLabel.text == "점프킹" {
             userDefault.jumpQuestCompleted()
