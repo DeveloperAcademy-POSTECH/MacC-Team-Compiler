@@ -28,6 +28,10 @@ class GameScene: SKScene{
     // Player
     let player = SKSpriteNode(imageNamed: "player0")
     
+    // Cat
+    var cat: SKSpriteNode!
+    var isCatSpawn: Bool = false
+    
     // Buttons
     var Button: SKNode!
     var jumpButton: SKSpriteNode!
@@ -53,8 +57,6 @@ class GameScene: SKScene{
     var Story: SKNode!
     var storyBackground: SKShapeNode!
     var storyText: SKLabelNode!
-    
-    var cat: SKSpriteNode!
     
     // Boolean
     private var jumpAction = false
@@ -344,6 +346,10 @@ class GameScene: SKScene{
         cat.physicsBody?.fieldBitMask = 0
         cat.physicsBody?.contactTestBitMask = 2
         addChild(cat)
+        
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (timer) in
+            self.cat.removeFromParent()
+        }
     }
 }
 
@@ -353,7 +359,6 @@ extension GameScene {
         if !startAction {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         }
-        
         startAction = true
         
         for touch in touches {
