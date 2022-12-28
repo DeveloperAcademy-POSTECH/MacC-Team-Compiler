@@ -78,17 +78,9 @@ class GameViewController: UIViewController {
         nowRecordLabel.textColor = .white
         
         
-//        if let view = self.view as! SKView? {
-//            // Load the SKScene from 'GameScene.sks'
-//            if let scene = SKScene(fileNamed: "Level1") {
-//                // Set the scale mode to scale to fit the window
-//                scene.scaleMode = .aspectFill
-//
-//
-//                // Present the scene
-//                view.presentScene(scene)
-//            }
-//        }
+        chapterNumber = userDefault.getChapterNumber()
+        stageNumber = userDefault.getStageNumber()
+        targetRecord = userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: stageNumber)
         // Present the scene
         print(String(format: "GameScene%D_%D", chapterNumber,stageNumber))
         if let scene = GameScene(fileNamed: String(format: "GameScene%D_%D", chapterNumber,stageNumber)) {

@@ -34,30 +34,31 @@ class StageViewController: UIViewController {
     
     var stages:[Stage] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.chapterNumber = userDefault.chapterNumber
-        self.stageNumber = userDefault.stageNumber
+        self.chapterNumber = userDefault.getChapterNumber()
+        self.stageNumber = userDefault.getStageNumber()
         chapterStepper.value = Double(chapterNumber)
         chapterNumberLabel.text = String(format: "챕터번호:%D", chapterNumber)
         
         
         self.stages = [
-            Stage(name: "스테이지 1", image: "stage1", targetRecord: 10.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 2", image: "stage2", targetRecord: 20.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 3", image: "stage3", targetRecord: 30.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 4", image: "stage4", targetRecord: 30.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 5", image: "stage5", targetRecord: 40.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 6", image: "stage6", targetRecord: 50.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 7", image: "stage7", targetRecord: 60.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 8", image: "stage8", targetRecord: 70.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 9", image: "stage9", targetRecord: 80.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 10", image: "stage10", targetRecord: 90.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 11", image: "stage11", targetRecord: 100.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 12", image: "stage12", targetRecord: 110.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 13", image: "stage13", targetRecord: 120.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 14", image: "stage14", targetRecord: 130.00, myRecord: 0.0, isLock: false),
-        Stage(name: "스테이지 15", image: "stage15", targetRecord: 140.00, myRecord: 0.0, isLock: false)
+            Stage(name: "스테이지 1", image: "stage1", targetRecord: userDefault.targetRecord[0][0], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 1)),
+            Stage(name: "스테이지 2", image: "stage2", targetRecord: userDefault.targetRecord[0][1], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 2)),
+            Stage(name: "스테이지 3", image: "stage3", targetRecord: userDefault.targetRecord[0][2], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 3)),
+            Stage(name: "스테이지 4", image: "stage4", targetRecord: userDefault.targetRecord[0][3], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 4)),
+            Stage(name: "스테이지 5", image: "stage5", targetRecord: userDefault.targetRecord[0][4], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 5)),
+            Stage(name: "스테이지 6", image: "stage6", targetRecord: userDefault.targetRecord[0][5], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 6)),
+            Stage(name: "스테이지 7", image: "stage7", targetRecord: userDefault.targetRecord[0][6], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 7)),
+            Stage(name: "스테이지 8", image: "stage8", targetRecord: userDefault.targetRecord[0][7], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 8)),
+            Stage(name: "스테이지 9", image: "stage9", targetRecord: userDefault.targetRecord[0][8], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 9)),
+            Stage(name: "스테이지 10", image: "stage10", targetRecord: userDefault.targetRecord[0][9], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 10)),
+            Stage(name: "스테이지 11", image: "stage11", targetRecord: userDefault.targetRecord[0][10], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 11)),
+            Stage(name: "스테이지 12", image: "stage12", targetRecord: userDefault.targetRecord[0][11], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 12)),
+            Stage(name: "스테이지 13", image: "stage13", targetRecord: userDefault.targetRecord[0][12], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 13)),
+            Stage(name: "스테이지 14", image: "stage14", targetRecord: userDefault.targetRecord[0][13], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 14)),
+            Stage(name: "스테이지 15", image: "stage15", targetRecord: userDefault.targetRecord[0][14], myRecord: userDefault.getRecordStage(chpaterNumber: 1, stageNumber: 1), unLock: userDefault.getClearStage(chapterNumber: 1, stageNumber: 15)),
         ]
 
         let image = UIImage(named: "RobbyBack")
@@ -165,8 +166,8 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stagecell", for: indexPath) as! StageCell
         
         // Cell이 Lock인 경우
-        cell.isLock = stages[indexPath.row].isLock
-        if cell.isLock {
+        cell.unLock = stages[indexPath.row].unLock
+        if !cell.unLock {
             cell.addSubview(cell.lockView)
             cell.addSubview(cell.lockImageView)
             cell.isUserInteractionEnabled = false

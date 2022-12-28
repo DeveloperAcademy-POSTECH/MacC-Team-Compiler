@@ -25,7 +25,7 @@ class GameScene: SKScene{
     var jumpData:Int = 0
     var breakData:Int = 0
     var collisionData:Int = 0
-    var previousTimeRecord:Double = 0.00
+    var previousTimeRecord:Float = 0.00
     var isClear:Bool = false
     
     // Player
@@ -100,8 +100,8 @@ class GameScene: SKScene{
         
         
         // Chapter & Stage
-        self.chapterNumber = 0
-        self.stageNumber = 0
+        self.chapterNumber = userDefault.getChapterNumber()
+        self.stageNumber = userDefault.getChapterNumber()
         
         // UserDefault Tracking Data
         self.jumpData = userDefault.defaults.integer(forKey:"JumpData")
@@ -454,16 +454,18 @@ extension GameScene {
     }
     
     // Game UI Function
-    func arrival(timeRecord:Double) {
+    func arrival(timeRecord:Float) {
+        Button.removeFromParent()
+        HUD.removeFromParent()
+        
         if userDefault.soundEffect {
             gameEffectSound.playSound(soundName: "ArrivalSound")
         }
         self.viewController.endBackView.isHidden = false
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
-        
-        Button.removeFromParent()
-        HUD.removeFromParent()
-        
+        self.viewController.targetRecordLabel.text = String(format: "목표기록 : %.2f", userDefault.targetRecord[stageNumber - 1])
+        userDefault.saveStageData(chpaterNumber: chapterNumber, stageNumber: stageNumber, timeRecord: timeRecord)
+        userDefault.saveUserData(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
     }
 }
 
@@ -498,7 +500,7 @@ extension GameScene {
             
         // 도착 시 게임 종료
         if player.position.x >= endPoint && !(isGameOver) {
-            arrival(timeRecord: Double(elapsedTime))
+            arrival(timeRecord: Float(elapsedTime))
             isGameOver = true
         }
         
