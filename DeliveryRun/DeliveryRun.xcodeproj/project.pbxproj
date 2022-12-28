@@ -45,18 +45,24 @@
 		6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4B8BD7291E2E99000990EA /* Game.storyboard */; };
 		6F5D4AB4292CA69C00572DC0 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4AB3292CA69C00572DC0 /* Stage.swift */; };
 		6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */; };
-		6F725D00293F21FE00971BCC /* Stage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F725CFF293F21FE00971BCC /* Stage1.swift */; };
+		6F725D00293F21FE00971BCC /* Chapter1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F725CFF293F21FE00971BCC /* Chapter1.swift */; };
 		6F965E15293919640048334B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F965E14293919640048334B /* Extensions.swift */; };
 		6F97263F2957674A00783D0C /* Chapter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F97263E2957674A00783D0C /* Chapter.storyboard */; };
 		6FA60FAF28F69431003846EF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA60FAE28F69431003846EF /* Color.swift */; };
-		6FB1167A2945E14A00D1E604 /* Stage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB116792945E14A00D1E604 /* Stage3.swift */; };
-		6FB1167C2945E15100D1E604 /* Stage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB1167B2945E15100D1E604 /* Stage4.swift */; };
-		6FB1167E2945E15A00D1E604 /* Stage5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB1167D2945E15A00D1E604 /* Stage5.swift */; };
 		6FB116802945E18700D1E604 /* Stage 1-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB1167F2945E18700D1E604 /* Stage 1-3.sks */; };
 		6FB116822945E19600D1E604 /* Stage 1-4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB116812945E19600D1E604 /* Stage 1-4.sks */; };
 		6FB116842945E1A200D1E604 /* Stage 1-5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB116832945E1A200D1E604 /* Stage 1-5.sks */; };
+		6FB220C7295C580700A950AD /* Stage 1-6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220C6295C580700A950AD /* Stage 1-6.sks */; };
+		6FB220C9295C582000A950AD /* Stage 1-7.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220C8295C582000A950AD /* Stage 1-7.sks */; };
+		6FB220CB295C582C00A950AD /* Stage 1-8.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220CA295C582C00A950AD /* Stage 1-8.sks */; };
+		6FB220CD295C583900A950AD /* Stage 1-9.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220CC295C583900A950AD /* Stage 1-9.sks */; };
+		6FB220CF295C584400A950AD /* Stage 1-10.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220CE295C584400A950AD /* Stage 1-10.sks */; };
+		6FB220D1295C584F00A950AD /* Stage 1-11.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220D0295C584F00A950AD /* Stage 1-11.sks */; };
+		6FB220D3295C585800A950AD /* Stage 1-12.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220D2295C585800A950AD /* Stage 1-12.sks */; };
+		6FB220D5295C586200A950AD /* Stage 1-13.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220D4295C586200A950AD /* Stage 1-13.sks */; };
+		6FB220D7295C586B00A950AD /* Stage 1-14.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220D6295C586B00A950AD /* Stage 1-14.sks */; };
+		6FB220D9295C587400A950AD /* Stage 1-15.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220D8295C587400A950AD /* Stage 1-15.sks */; };
 		6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */; };
-		6FB79CB9293F322A00823407 /* Stage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB79CB8293F322A00823407 /* Stage2.swift */; };
 		6FB79CBB293F326600823407 /* Stage 1-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB79CBA293F326600823407 /* Stage 1-2.sks */; };
 		6FBFE15329390D9200A1927D /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFE15229390D9200A1927D /* Sound.swift */; };
 		6FEFE463295323B7007572E9 /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEFE461295323B7007572E9 /* ChapterViewController.swift */; };
@@ -105,18 +111,24 @@
 		6F4B8BD7291E2E99000990EA /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		6F5D4AB3292CA69C00572DC0 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileSet.sks; sourceTree = "<group>"; };
-		6F725CFF293F21FE00971BCC /* Stage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1.swift; sourceTree = "<group>"; };
+		6F725CFF293F21FE00971BCC /* Chapter1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1.swift; sourceTree = "<group>"; };
 		6F965E14293919640048334B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6F97263E2957674A00783D0C /* Chapter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chapter.storyboard; sourceTree = "<group>"; };
 		6FA60FAE28F69431003846EF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		6FB116792945E14A00D1E604 /* Stage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage3.swift; sourceTree = "<group>"; };
-		6FB1167B2945E15100D1E604 /* Stage4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage4.swift; sourceTree = "<group>"; };
-		6FB1167D2945E15A00D1E604 /* Stage5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage5.swift; sourceTree = "<group>"; };
 		6FB1167F2945E18700D1E604 /* Stage 1-3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-3.sks"; sourceTree = "<group>"; };
 		6FB116812945E19600D1E604 /* Stage 1-4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-4.sks"; sourceTree = "<group>"; };
 		6FB116832945E1A200D1E604 /* Stage 1-5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-5.sks"; sourceTree = "<group>"; };
+		6FB220C6295C580700A950AD /* Stage 1-6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-6.sks"; sourceTree = "<group>"; };
+		6FB220C8295C582000A950AD /* Stage 1-7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-7.sks"; sourceTree = "<group>"; };
+		6FB220CA295C582C00A950AD /* Stage 1-8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-8.sks"; sourceTree = "<group>"; };
+		6FB220CC295C583900A950AD /* Stage 1-9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-9.sks"; sourceTree = "<group>"; };
+		6FB220CE295C584400A950AD /* Stage 1-10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-10.sks"; sourceTree = "<group>"; };
+		6FB220D0295C584F00A950AD /* Stage 1-11.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-11.sks"; sourceTree = "<group>"; };
+		6FB220D2295C585800A950AD /* Stage 1-12.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-12.sks"; sourceTree = "<group>"; };
+		6FB220D4295C586200A950AD /* Stage 1-13.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-13.sks"; sourceTree = "<group>"; };
+		6FB220D6295C586B00A950AD /* Stage 1-14.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-14.sks"; sourceTree = "<group>"; };
+		6FB220D8295C587400A950AD /* Stage 1-15.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-15.sks"; sourceTree = "<group>"; };
 		6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
-		6FB79CB8293F322A00823407 /* Stage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage2.swift; sourceTree = "<group>"; };
 		6FB79CBA293F326600823407 /* Stage 1-2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-2.sks"; sourceTree = "<group>"; };
 		6FBFE15229390D9200A1927D /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		6FEFE461295323B7007572E9 /* ChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
@@ -262,16 +274,22 @@
 		6F8D7A4F295B8C700078CC89 /* Chapter 1 */ = {
 			isa = PBXGroup;
 			children = (
+				6F725CFF293F21FE00971BCC /* Chapter1.swift */,
 				6F28EE9628F5444500D7330F /* Stage 1-1.sks */,
-				6F725CFF293F21FE00971BCC /* Stage1.swift */,
 				6FB79CBA293F326600823407 /* Stage 1-2.sks */,
-				6FB79CB8293F322A00823407 /* Stage2.swift */,
 				6FB1167F2945E18700D1E604 /* Stage 1-3.sks */,
-				6FB116792945E14A00D1E604 /* Stage3.swift */,
 				6FB116812945E19600D1E604 /* Stage 1-4.sks */,
-				6FB1167B2945E15100D1E604 /* Stage4.swift */,
 				6FB116832945E1A200D1E604 /* Stage 1-5.sks */,
-				6FB1167D2945E15A00D1E604 /* Stage5.swift */,
+				6FB220C6295C580700A950AD /* Stage 1-6.sks */,
+				6FB220C8295C582000A950AD /* Stage 1-7.sks */,
+				6FB220CA295C582C00A950AD /* Stage 1-8.sks */,
+				6FB220CC295C583900A950AD /* Stage 1-9.sks */,
+				6FB220CE295C584400A950AD /* Stage 1-10.sks */,
+				6FB220D0295C584F00A950AD /* Stage 1-11.sks */,
+				6FB220D2295C585800A950AD /* Stage 1-12.sks */,
+				6FB220D4295C586200A950AD /* Stage 1-13.sks */,
+				6FB220D6295C586B00A950AD /* Stage 1-14.sks */,
+				6FB220D8295C587400A950AD /* Stage 1-15.sks */,
 			);
 			path = "Chapter 1";
 			sourceTree = "<group>";
@@ -376,7 +394,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FB220D7295C586B00A950AD /* Stage 1-14.sks in Resources */,
 				6396605B2923633E0002E6B2 /* UIkitDocument in Resources */,
+				6FB220D9295C587400A950AD /* Stage 1-15.sks in Resources */,
+				6FB220D5295C586200A950AD /* Stage 1-13.sks in Resources */,
 				6FB116822945E19600D1E604 /* Stage 1-4.sks in Resources */,
 				6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */,
 				6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */,
@@ -391,11 +412,18 @@
 				63BBCAFF2955CC020024603F /* BackgroundMusic.wav in Resources */,
 				6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */,
 				63BBCAFA2955CC020024603F /* ButtonSound.wav in Resources */,
+				6FB220C9295C582000A950AD /* Stage 1-7.sks in Resources */,
+				6FB220D1295C584F00A950AD /* Stage 1-11.sks in Resources */,
 				638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */,
 				63D689E52906E4BF001748CE /* SpriteDocument in Resources */,
+				6FB220CD295C583900A950AD /* Stage 1-9.sks in Resources */,
 				637DB209293CF5D1007B755C /* PlayerCollectionCell.xib in Resources */,
+				6FB220CF295C584400A950AD /* Stage 1-10.sks in Resources */,
+				6FB220C7295C580700A950AD /* Stage 1-6.sks in Resources */,
 				6F97263F2957674A00783D0C /* Chapter.storyboard in Resources */,
 				63BBCB002955CC020024603F /* SoundEffectOnSound.wav in Resources */,
+				6FB220CB295C582C00A950AD /* Stage 1-8.sks in Resources */,
+				6FB220D3295C585800A950AD /* Stage 1-12.sks in Resources */,
 				6396605229233CD30002E6B2 /* SettingView.xib in Resources */,
 				63BBCAF92955CC020024603F /* GetItemSound.wav in Resources */,
 				6F28EEAA28F5444600D7330F /* Actions.sks in Resources */,
@@ -426,9 +454,7 @@
 				6FA60FAF28F69431003846EF /* Color.swift in Sources */,
 				638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */,
 				6F5D4AB4292CA69C00572DC0 /* Stage.swift in Sources */,
-				6FB1167E2945E15A00D1E604 /* Stage5.swift in Sources */,
-				6FB79CB9293F322A00823407 /* Stage2.swift in Sources */,
-				6F725D00293F21FE00971BCC /* Stage1.swift in Sources */,
+				6F725D00293F21FE00971BCC /* Chapter1.swift in Sources */,
 				6FBFE15329390D9200A1927D /* Sound.swift in Sources */,
 				6F2E1D9A2924BB2500CAE76E /* StageCell.swift in Sources */,
 				6FEFE463295323B7007572E9 /* ChapterViewController.swift in Sources */,
@@ -438,8 +464,6 @@
 				637DB205293CEA3E007B755C /* GarageViewController.swift in Sources */,
 				6F0F6C92295617EC006D5647 /* ChapterCell.swift in Sources */,
 				639554002935BC8D00E3DECA /* UserDafultData.swift in Sources */,
-				6FB1167A2945E14A00D1E604 /* Stage3.swift in Sources */,
-				6FB1167C2945E15100D1E604 /* Stage4.swift in Sources */,
 				6396605429233D3E0002E6B2 /* SettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
