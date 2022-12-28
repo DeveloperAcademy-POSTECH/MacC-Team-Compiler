@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestTableCell" customModule="DeliveryRun"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell alpha="0.5" contentMode="scaleToFill" restorationIdentifier="QuestTableCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestTableCell" rowHeight="136" id="KGk-i7-Jjw" customClass="QuestTableCell" customModule="DeliveryRun" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="136"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="768" height="136"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlH-Ln-bz6">
+                        <rect key="frame" x="20" y="14.999999999999998" width="33" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SubTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHV-Kl-X2X">
+                        <rect key="frame" x="68" y="14.999999999999998" width="61.333333333333343" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ProgressLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8C-b3-Kmc">
+                        <rect key="frame" x="192" y="103.33333333333333" width="109" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="CQV-my-Pdr" customClass="CustomUIProgressView" customModule="DeliveryRun" customModuleProvider="target">
+                        <rect key="frame" x="20" y="106" width="453" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="lUg-Rc-rYk"/>
+                        </constraints>
+                    </progressView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cAJ-47-4Sy">
+                        <rect key="frame" x="533" y="38" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="EFY-yy-1ho"/>
+                            <constraint firstAttribute="height" constant="60" id="fSw-t9-kRA"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MH3-C0-fnK" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
+                        <rect key="frame" x="613" y="48" width="135" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="BXV-CA-4O7"/>
+                            <constraint firstAttribute="width" constant="135" id="lVf-q9-1PS"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="보상 받기"/>
+                        <connections>
+                            <action selector="RewardPressed:" destination="-1" eventType="touchUpInside" id="aUj-dt-QvN"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <viewLayoutGuide key="safeArea" id="50y-6l-T6H"/>
+                <constraints>
+                    <constraint firstItem="MH3-C0-fnK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="24E-JY-ItH"/>
+                    <constraint firstItem="cAJ-47-4Sy" firstAttribute="leading" secondItem="CQV-my-Pdr" secondAttribute="trailing" constant="60" id="J8F-O0-in4"/>
+                    <constraint firstItem="MHV-Kl-X2X" firstAttribute="leading" secondItem="AlH-Ln-bz6" secondAttribute="trailing" constant="15" id="JWH-ki-W9l"/>
+                    <constraint firstItem="CQV-my-Pdr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AlH-Ln-bz6" secondAttribute="bottom" constant="15" id="Mcn-ns-M7u"/>
+                    <constraint firstItem="cAJ-47-4Sy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MHV-Kl-X2X" secondAttribute="trailing" constant="60" id="TDi-cz-1Sv"/>
+                    <constraint firstItem="MH3-C0-fnK" firstAttribute="leading" secondItem="cAJ-47-4Sy" secondAttribute="trailing" constant="20" id="b2U-MN-V7U"/>
+                    <constraint firstItem="AlH-Ln-bz6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="jJv-fe-gQz"/>
+                    <constraint firstAttribute="bottom" secondItem="CQV-my-Pdr" secondAttribute="bottom" constant="15" id="jmj-aF-qC2"/>
+                    <constraint firstItem="CQV-my-Pdr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="k9a-XY-kkE"/>
+                    <constraint firstItem="MHV-Kl-X2X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="mjZ-Kc-EwN"/>
+                    <constraint firstItem="j8C-b3-Kmc" firstAttribute="centerX" secondItem="CQV-my-Pdr" secondAttribute="centerX" id="ogo-Kg-Oeh"/>
+                    <constraint firstItem="CQV-my-Pdr" firstAttribute="centerY" secondItem="j8C-b3-Kmc" secondAttribute="centerY" id="rNL-wP-M6L"/>
+                    <constraint firstItem="50y-6l-T6H" firstAttribute="trailing" secondItem="MH3-C0-fnK" secondAttribute="trailing" constant="20" id="u1G-a9-fZx"/>
+                    <constraint firstItem="cAJ-47-4Sy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xz6-8I-KGu"/>
+                    <constraint firstItem="AlH-Ln-bz6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="y8f-nI-MAO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <accessibility key="accessibilityConfiguration">
+                <accessibilityTraits key="traits" button="YES"/>
+            </accessibility>
+            <connections>
+                <outlet property="questCheckButton" destination="MH3-C0-fnK" id="iX1-Ro-g5R"/>
+                <outlet property="questImage" destination="cAJ-47-4Sy" id="z5F-vb-8O9"/>
+                <outlet property="questProgressBar" destination="CQV-my-Pdr" id="pMj-U5-Ye1"/>
+                <outlet property="questProgressLabel" destination="j8C-b3-Kmc" id="uz9-Sv-Kdk"/>
+                <outlet property="questSubTitleLabel" destination="MHV-Kl-X2X" id="uxx-nW-enY"/>
+                <outlet property="questTitleLabel" destination="AlH-Ln-bz6" id="AuO-ga-izj"/>
+            </connections>
+            <point key="canvasLocation" x="-403.05343511450383" y="-151.40845070422537"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

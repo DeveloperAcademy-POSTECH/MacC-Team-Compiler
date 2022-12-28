@@ -1,0 +1,34 @@
+
+Friction
+This property is used to apply a frictional force to physics bodies in contact with this physics body. The property must be a value between 0.0 and 1.0. The default value is 0.2.
+
+
+    var timer = Timer()
+    
+    var totalTime = 0
+    var passedTime = 0
+    
+    
+    @IBAction func PressedButton(_ sender: UIButton){
+        
+        timer.invalidate()
+        
+        let hardness = sender.currentTitle!
+        
+        totalTime = eggTimes[hardness]!
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+        }
+        
+    @objc func updateTimer() {
+        if totalTime < passedTime {
+            passedTime += 1
+        } else {
+            timer.invalidate()
+            EggStateLabel.text = "Done!"
+            var percentage = passedTime / totalTime
+            ProgressBar.progress = Float(percentage)
+            
+        }
+    }
