@@ -16,7 +16,8 @@ class GameViewController: UIViewController {
     
     let userDefault = UserDefaultData.shared
     
-    var stageNumber: Int = 1
+    var chapterNumber: Int = 0
+    var stageNumber: Int = 0
     
     let backgroundSetting = BackgroundSound.shared
     
@@ -78,7 +79,7 @@ class GameViewController: UIViewController {
         
         
         // Present the scene
-        if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
+        if let scene = GKScene(fileNamed: String(format: "Stage %d-%d", chapterNumber, stageNumber)) {
             // Root 노드 생성
             if let sceneNode = scene.rootNode as! GameScene? {
                 sceneNode.stageNumber = stageNumber
@@ -106,7 +107,7 @@ class GameViewController: UIViewController {
             pauseBackView.isHidden = true
             gameScene.view?.isPaused = false
         }
-        if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
+        if let scene = GKScene(fileNamed: String(format: "Stage %d-%d", chapterNumber, stageNumber)) {
             if let sceneNode = scene.rootNode as! GameScene? {
                 sceneNode.stageNumber = stageNumber
                 sceneNode.viewController = self
@@ -135,7 +136,7 @@ class GameViewController: UIViewController {
     // MARK: - End Screen IBAction
     @IBAction func retryPressed(_ sender: UIButton) {
         endBackView.isHidden = true
-        if let scene = GKScene(fileNamed: String(format: "Stage%d", stageNumber)) {
+        if let scene = GKScene(fileNamed: String(format: "Stage %d-%d", chapterNumber, stageNumber)) {
             if let sceneNode = scene.rootNode as! GameScene? {
                 sceneNode.stageNumber = stageNumber
                 sceneNode.viewController = self

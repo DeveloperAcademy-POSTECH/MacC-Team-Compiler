@@ -24,17 +24,16 @@ class RobbyViewController: UIViewController {
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var questButton: UIButton!
     
+    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
-        // MARK: UserDefault
-        UserDefaultData.findPath()
         super.viewDidLoad()
+        
+        UserDefaultData.findPath()
         
         if userDefault.backgroundMusic {
             backgroundMusic.playSound(soundName: "BackgroundMusic")
         }
-        
-        
-        // MARK: 런치스크린에 게임배경및 설명 넣고 Sound 집어넣기
         
         PlayerImage.image = UIImage(named: userDefault.mySkin)
         
@@ -57,33 +56,30 @@ class RobbyViewController: UIViewController {
         questView.isHidden = true
         settingView.layer.opacity = 1.0
         questView.layer.opacity = 1.0
-        
-        
-        
     }
     
-    @IBAction func SettingPressed(_ sender: UIButton) {
+    
+    // MARK: - IBAction
+    @IBAction func goSetting(_ sender: UIButton) {
         settingView.isHidden = false
     }
-    @IBAction func QuestPressed(_ sender: UIButton) {
+    
+    @IBAction func goQuest(_ sender: UIButton) {
         questView.isHidden = false
     }
     
-    
-    @IBAction func GaragePressed(_ sender: CustomGameButton) {
+    @IBAction func goGarage(_ sender: CustomGameButton) {
         let garage = UIStoryboard.init(name: "Garage", bundle: nil)
         guard let GarageViewController = garage.instantiateViewController(withIdentifier: "GarageViewController") as? GarageViewController else { return }
         GarageViewController.modalPresentationStyle = .fullScreen
         self.present(GarageViewController, animated: true, completion: nil)
         
     }
-    @IBAction func goDelivery(_ sender: CustomGameButton) {
-        let stage = UIStoryboard.init(name: "Stage", bundle: nil)
-                guard let StageViewController = stage.instantiateViewController(withIdentifier: "StageViewController")as? StageViewController else {return}
-        StageViewController.modalPresentationStyle = .fullScreen
-                self.present(StageViewController, animated: false, completion: nil)
+    
+    @IBAction func goChapter(_ sender: CustomGameButton) {
+        let chapter = UIStoryboard.init(name: "Chapter", bundle: nil)
+        guard let ChapterViewController = chapter.instantiateViewController(withIdentifier: "ChapterViewController") as? ChapterViewController else {return}
+        ChapterViewController.modalPresentationStyle = .fullScreen
+        self.present(ChapterViewController, animated: false, completion: nil)
     }
 }
-
-
-// mySkinPlayer String값

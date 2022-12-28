@@ -35,7 +35,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressSettingButton:" destination="GYM-j8-IpM" eventType="touchUpInside" id="IpK-3O-fox"/>
+                                    <action selector="goSetting:" destination="GYM-j8-IpM" eventType="touchUpInside" id="2ve-Ha-agl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-ba-mCW" userLabel="Back Button">
@@ -51,7 +51,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
-                                    <action selector="goRobby:" destination="GYM-j8-IpM" eventType="touchUpInside" id="jnm-dX-QsU"/>
+                                    <action selector="goChapter:" destination="GYM-j8-IpM" eventType="touchUpInside" id="dFG-4z-2zE"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeZ-pv-DNR">
@@ -110,7 +110,7 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="stagecell" id="DRz-7f-Ck3" customClass="StageCell" customModule="DeliveryRun" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" restorationIdentifier="stagecell" insetsLayoutMarginsFromSafeArea="NO" id="TgN-Xd-mzF">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TgN-Xd-mzF">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </collectionViewCellContentView>
