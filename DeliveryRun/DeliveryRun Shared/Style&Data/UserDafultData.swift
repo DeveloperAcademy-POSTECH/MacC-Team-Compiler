@@ -40,10 +40,10 @@ class UserDefaultData {
         }
         
         // Chapter & Stage Value
-        self.chapterNumber = UserDefaults.standard.integer(forKey: "ChapterNumber") as? Int ?? 1
-        self.stageNumber = UserDefaults.standard.integer(forKey: "StageNumber") as? Int ?? 1
+        self.chapterNumber = UserDefaults.standard.integer(forKey: "ChapterNumber")
+        self.stageNumber = UserDefaults.standard.integer(forKey: "StageNumber")
         
-        self.clearStage = UserDefaults.standard.array(forKey: "ClearStage") as? [[Bool]] ?? [[true,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+        self.clearStage = UserDefaults.standard.array(forKey: "ClearStage") as? [[Bool]] ?? [[true,true,true,true,true,false,false,false,false,false,false,false,false,false,false],
                                                                                              [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
                                                                                              [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
                                                                                              [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
@@ -140,10 +140,13 @@ class UserDefaultData {
         self.stageNumber
     }
     
-    func setChapterAndStage(chapterNumber:Int, stageNumber:Int) {
+    func setChapterNumber(chapterNumber:Int) {
         self.chapterNumber = chapterNumber
-        self.stageNumber = stageNumber
         defaults.set(self.chapterNumber, forKey: "ChapterNumber")
+    }
+    
+    func setStageNumber(stageNumber:Int) {
+        self.stageNumber = stageNumber
         defaults.set(self.stageNumber, forKey: "StageNumber")
     }
     
@@ -170,7 +173,7 @@ class UserDefaultData {
         self.clearStage[chapterNumber - 1][stageNumber - 1]
     }
     
-    func getRecordStage(chpaterNumber:Int, stageNumber: Int) -> Float {
+    func getRecordStage(chapterNumber:Int, stageNumber: Int) -> Float {
         self.recordStage[chapterNumber - 1][stageNumber - 1]
     }
     

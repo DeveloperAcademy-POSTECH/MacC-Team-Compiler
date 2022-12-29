@@ -77,11 +77,11 @@ class RobbyViewController: UIViewController {
         self.present(GarageViewController, animated: true, completion: nil)
         
     }
-    @IBAction func goDelivery(_ sender: CustomGameButton) {
-        let stage = UIStoryboard.init(name: "Stage", bundle: nil)
-                guard let StageViewController = stage.instantiateViewController(withIdentifier: "StageViewController")as? StageViewController else {return}
-        StageViewController.modalPresentationStyle = .fullScreen
-                self.present(StageViewController, animated: false, completion: nil)
+    @IBAction func goChapter(_ sender: CustomGameButton) {
+        let chapter = UIStoryboard.init(name: "Chapter", bundle: nil)
+        guard let ChapterViewController = chapter.instantiateViewController(withIdentifier: "ChapterViewController") as? ChapterViewController else {return}
+        ChapterViewController.modalPresentationStyle = .fullScreen
+        self.present(ChapterViewController, animated: false, completion: nil)
     }
 }
 

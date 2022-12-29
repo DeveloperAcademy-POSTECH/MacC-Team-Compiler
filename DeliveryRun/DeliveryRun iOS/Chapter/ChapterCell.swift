@@ -1,16 +1,14 @@
 //
-//  StageCell.swift
+//  ChapterCell.swift
 //  DeliveryRun iOS
 //
-//  Created by HWANG-C-K on 2022/10/27.
+//  Created by HWANG-C-K on 2022/12/24.
 //
 
 import UIKit
 
-class StageCell: UICollectionViewCell {
-    static let id = "stagecell"
-    
-    var unLock: Bool = false
+class ChapterCell: UICollectionViewCell {
+    static let id = "chaptercell"
     
     // Cell 배경 View
     let backView: UIView = {
@@ -26,8 +24,8 @@ class StageCell: UICollectionViewCell {
         return view
     }()
     
-    // Stage Index Label
-    let stageLabel: UILabel = {
+    // Chapter Index Label
+    let chapterLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name:"BMJUAOTF", size:20)
         label.textColor = .white
@@ -36,40 +34,10 @@ class StageCell: UICollectionViewCell {
         return label
     }()
     
-    // Food Image
-    let foodImageView: UIImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        view.clipsToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    let lockView: UIView = {
-       let view = UIView()
-        view.backgroundColor = .deliveryrunBlack!.withAlphaComponent(0.6)
-        view.layer.cornerRadius = 10
-        view.contentMode = .scaleAspectFit
-        view.clipsToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.isUserInteractionEnabled = false
-        return view
-    }()
-    
-    let lockImageView: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(systemName: "lock.fill")!.resized(to:CGSize(width:40, height:40)).withTintColor(.deliveryrunRed!)
-        view.contentMode = .scaleAspectFit
-        view.clipsToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.contentView.addSubview(self.backView)
-        self.contentView.addSubview(self.stageLabel)
-        self.contentView.addSubview(self.foodImageView)
+        self.contentView.addSubview(self.chapterLabel)
         
         NSLayoutConstraint.activate([
               self.backView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
@@ -77,11 +45,8 @@ class StageCell: UICollectionViewCell {
               self.backView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
               self.backView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
               
-              self.stageLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 10),
-              self.stageLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
-              
-              self.foodImageView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-              self.foodImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
+              self.chapterLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+              self.chapterLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
     }
     

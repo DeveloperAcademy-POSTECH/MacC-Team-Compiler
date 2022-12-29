@@ -78,6 +78,12 @@
 		6396605229233CD30002E6B2 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6396605129233CD30002E6B2 /* SettingView.xib */; };
 		6396605429233D3E0002E6B2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396605329233D3E0002E6B2 /* SettingView.swift */; };
 		6396605B2923633E0002E6B2 /* UIkitDocument in Resources */ = {isa = PBXBuildFile; fileRef = 6396605A2923633E0002E6B2 /* UIkitDocument */; };
+		63A6B99A295D69CA000A46C0 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6B994295D69CA000A46C0 /* StageCell.swift */; };
+		63A6B99B295D69CA000A46C0 /* Stage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A6B995295D69CA000A46C0 /* Stage.storyboard */; };
+		63A6B99C295D69CA000A46C0 /* ChapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6B996295D69CA000A46C0 /* ChapterCell.swift */; };
+		63A6B99D295D69CA000A46C0 /* Chapter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A6B997295D69CA000A46C0 /* Chapter.storyboard */; };
+		63A6B99E295D69CA000A46C0 /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6B998295D69CA000A46C0 /* ChapterViewController.swift */; };
+		63A6B99F295D69CA000A46C0 /* StageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6B999295D69CA000A46C0 /* StageViewController.swift */; };
 		63D689E52906E4BF001748CE /* SpriteDocument in Resources */ = {isa = PBXBuildFile; fileRef = 63D689E42906E4BF001748CE /* SpriteDocument */; };
 		63DA61A7295984F200EECF08 /* GameScene1_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DA61A6295984F200EECF08 /* GameScene1_1.swift */; };
 		63DA61A9295986B700EECF08 /* GameScene1_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DA61A8295986B700EECF08 /* GameScene1_2.swift */; };
@@ -96,9 +102,6 @@
 		6F28EEAB28F5444600D7330F /* GameScene1_1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9628F5444500D7330F /* GameScene1_1.sks */; };
 		6F28EEAC28F5444600D7330F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28EE9728F5444500D7330F /* GameScene.swift */; };
 		6F28EEAD28F5444600D7330F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9828F5444600D7330F /* Assets.xcassets */; };
-		6F2E1D9A2924BB2500CAE76E /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E1D992924BB2500CAE76E /* StageCell.swift */; };
-		6F2F6C2028FB3A9B000B9507 /* StageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F6C1F28FB3A9B000B9507 /* StageViewController.swift */; };
-		6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4B8BD3291E26D5000990EA /* Stage.storyboard */; };
 		6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4B8BD7291E2E99000990EA /* Game.storyboard */; };
 		6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */; };
 		6F965E15293919640048334B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F965E14293919640048334B /* Extension.swift */; };
@@ -183,6 +186,12 @@
 		6396605129233CD30002E6B2 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
 		6396605329233D3E0002E6B2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		6396605A2923633E0002E6B2 /* UIkitDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = UIkitDocument; sourceTree = "<group>"; };
+		63A6B994295D69CA000A46C0 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
+		63A6B995295D69CA000A46C0 /* Stage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stage.storyboard; sourceTree = "<group>"; };
+		63A6B996295D69CA000A46C0 /* ChapterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterCell.swift; sourceTree = "<group>"; };
+		63A6B997295D69CA000A46C0 /* Chapter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chapter.storyboard; sourceTree = "<group>"; };
+		63A6B998295D69CA000A46C0 /* ChapterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
+		63A6B999295D69CA000A46C0 /* StageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageViewController.swift; sourceTree = "<group>"; };
 		63D689E42906E4BF001748CE /* SpriteDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpriteDocument; sourceTree = "<group>"; };
 		63DA61A6295984F200EECF08 /* GameScene1_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene1_1.swift; sourceTree = "<group>"; };
 		63DA61A8295986B700EECF08 /* GameScene1_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene1_2.swift; sourceTree = "<group>"; };
@@ -203,9 +212,6 @@
 		6F28EEA228F5444600D7330F /* RobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobbyViewController.swift; sourceTree = "<group>"; };
 		6F28EEA528F5444600D7330F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Robby.storyboard; sourceTree = "<group>"; };
 		6F28EEA828F5444600D7330F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6F2E1D992924BB2500CAE76E /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
-		6F2F6C1F28FB3A9B000B9507 /* StageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewController.swift; sourceTree = "<group>"; };
-		6F4B8BD3291E26D5000990EA /* Stage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stage.storyboard; sourceTree = "<group>"; };
 		6F4B8BD7291E2E99000990EA /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileSet.sks; sourceTree = "<group>"; };
 		6F965E14293919640048334B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -403,6 +409,19 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		63A6B993295D69CA000A46C0 /* Chapter */ = {
+			isa = PBXGroup;
+			children = (
+				63A6B994295D69CA000A46C0 /* StageCell.swift */,
+				63A6B995295D69CA000A46C0 /* Stage.storyboard */,
+				63A6B996295D69CA000A46C0 /* ChapterCell.swift */,
+				63A6B997295D69CA000A46C0 /* Chapter.storyboard */,
+				63A6B998295D69CA000A46C0 /* ChapterViewController.swift */,
+				63A6B999295D69CA000A46C0 /* StageViewController.swift */,
+			);
+			path = Chapter;
+			sourceTree = "<group>";
+		};
 		6F28EE8F28F5444500D7330F = {
 			isa = PBXGroup;
 			children = (
@@ -440,8 +459,8 @@
 		6F28EE9F28F5444600D7330F /* DeliveryRun iOS */ = {
 			isa = PBXGroup;
 			children = (
+				63A6B993295D69CA000A46C0 /* Chapter */,
 				6394972D2953EFBF00BCD444 /* Robby */,
-				6F5089A3292B602300B26623 /* Stage */,
 				6F965E13293919420048334B /* Game */,
 				63966059292344B00002E6B2 /* Setting */,
 				6F28EEA028F5444600D7330F /* AppDelegate.swift */,
@@ -450,16 +469,6 @@
 				6396605A2923633E0002E6B2 /* UIkitDocument */,
 			);
 			path = "DeliveryRun iOS";
-			sourceTree = "<group>";
-		};
-		6F5089A3292B602300B26623 /* Stage */ = {
-			isa = PBXGroup;
-			children = (
-				6F2F6C1F28FB3A9B000B9507 /* StageViewController.swift */,
-				6F2E1D992924BB2500CAE76E /* StageCell.swift */,
-				6F4B8BD3291E26D5000990EA /* Stage.storyboard */,
-			);
-			path = Stage;
 			sourceTree = "<group>";
 		};
 		6F725CFE293F21D900971BCC /* Chapter1 */ = {
@@ -561,7 +570,6 @@
 				6396605B2923633E0002E6B2 /* UIkitDocument in Resources */,
 				6FB116822945E19600D1E604 /* GameScene1_4.sks in Resources */,
 				639497292953EB4500BCD444 /* GameScene6_1.sks in Resources */,
-				6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */,
 				6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */,
 				6394975A2953F75100BCD444 /* BackgroundMusic.wav in Resources */,
 				6394972B2953EB4500BCD444 /* GameScene6_2.sks in Resources */,
@@ -573,6 +581,7 @@
 				639497142953EB4500BCD444 /* GameScene4_4.sks in Resources */,
 				6394970D2953EB4500BCD444 /* GameScene5_2.sks in Resources */,
 				639497132953EB4500BCD444 /* GameScene4_5.sks in Resources */,
+				63A6B99B295D69CA000A46C0 /* Stage.storyboard in Resources */,
 				6394971E2953EB4500BCD444 /* GameScene2_4.sks in Resources */,
 				639497172953EB4500BCD444 /* GameScene4_2.sks in Resources */,
 				6FB79CBB293F326600823407 /* GameScene1_2.sks in Resources */,
@@ -581,6 +590,7 @@
 				639497582953F75100BCD444 /* InGameMusic.wav in Resources */,
 				6F28EEAB28F5444600D7330F /* GameScene1_1.sks in Resources */,
 				639497592953F75100BCD444 /* ArrivalSound.wav in Resources */,
+				63A6B99D295D69CA000A46C0 /* Chapter.storyboard in Resources */,
 				6F28EEA628F5444600D7330F /* Robby.storyboard in Resources */,
 				6394971D2953EB4500BCD444 /* GameScene2_5.sks in Resources */,
 				6FB116802945E18700D1E604 /* GameScene1_3.sks in Resources */,
@@ -627,13 +637,15 @@
 				639497122953EB4500BCD444 /* GameScene4_5.swift in Sources */,
 				639497052953EB4500BCD444 /* GameScene5_4.swift in Sources */,
 				6F28EEAC28F5444600D7330F /* GameScene.swift in Sources */,
+				63A6B99E295D69CA000A46C0 /* ChapterViewController.swift in Sources */,
 				6394970E2953EB4500BCD444 /* GameScene4_2.swift in Sources */,
 				6372509428FFC7F700117CF8 /* PlayerState.swift in Sources */,
+				63A6B99F295D69CA000A46C0 /* StageViewController.swift in Sources */,
 				6394970F2953EB4500BCD444 /* GameScene4_4.swift in Sources */,
 				6F28EEA328F5444600D7330F /* RobbyViewController.swift in Sources */,
 				6394971B2953EB4500BCD444 /* GameScene2_1.swift in Sources */,
+				63A6B99A295D69CA000A46C0 /* StageCell.swift in Sources */,
 				63DA61AB295986BE00EECF08 /* GameScene1_3.swift in Sources */,
-				6F2F6C2028FB3A9B000B9507 /* StageViewController.swift in Sources */,
 				639497402953F12800BCD444 /* UserDafultData.swift in Sources */,
 				6FF3371B29309CC700D04BDB /* QuestView.swift in Sources */,
 				639497252953EB4500BCD444 /* GameScene6_1.swift in Sources */,
@@ -644,6 +656,7 @@
 				639497492953F12800BCD444 /* PlayerSkin.swift in Sources */,
 				63DA61AF295986CC00EECF08 /* GameScene1_5.swift in Sources */,
 				6FE9943D29123850004753BA /* HUD.swift in Sources */,
+				63A6B99C295D69CA000A46C0 /* ChapterCell.swift in Sources */,
 				639497482953F12800BCD444 /* Color.swift in Sources */,
 				63DA61B32959879C00EECF08 /* GameScene2_3.swift in Sources */,
 				639497232953EB4500BCD444 /* GameScene6_4.swift in Sources */,
@@ -655,7 +668,6 @@
 				639496FB2953EB4500BCD444 /* GameScene3_4.swift in Sources */,
 				639497262953EB4500BCD444 /* GameScene6_5.swift in Sources */,
 				6394974C2953F12800BCD444 /* Sound.swift in Sources */,
-				6F2E1D9A2924BB2500CAE76E /* StageCell.swift in Sources */,
 				6F28EEA128F5444600D7330F /* AppDelegate.swift in Sources */,
 				637DB208293CF5D1007B755C /* PlayerCollectionCell.swift in Sources */,
 				6F965E15293919640048334B /* Extension.swift in Sources */,

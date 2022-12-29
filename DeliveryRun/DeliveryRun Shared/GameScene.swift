@@ -101,7 +101,9 @@ class GameScene: SKScene{
         
         // Chapter & Stage
         self.chapterNumber = userDefault.getChapterNumber()
-        self.stageNumber = userDefault.getChapterNumber()
+        self.stageNumber = userDefault.getStageNumber()
+        
+        print(String(format: "챕터-%D,스테이지-%D", chapterNumber,stageNumber))
         
         // UserDefault Tracking Data
         self.jumpData = userDefault.defaults.integer(forKey:"JumpData")
