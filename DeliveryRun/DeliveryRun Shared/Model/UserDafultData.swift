@@ -47,11 +47,9 @@ class UserDefaultData {
                                                                                              [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
                                                                                              [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
                                                                                              [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
-                                                                                             [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
                                                                                              [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]]
         
         self.recordStage = UserDefaults.standard.array(forKey:"RecordStage") as? [[Float]] ?? [[0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],
-            [0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],
             [0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],
             [0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],
             [0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],
@@ -156,7 +154,6 @@ class UserDefaultData {
         [10.00, 20.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00],
         [10.00, 20.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00],
         [10.00, 20.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00],
-        [10.00, 20.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00],
         [10.00, 20.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00]
     ]
     private var clearStage:[[Bool]]
@@ -185,6 +182,7 @@ class UserDefaultData {
             print("This Stage Already Done")
         }
     }
+    
     func setRecordStage(timeRecord:Float) {
         if self.recordStage[self.chapterNumber - 1][self.stageNumber - 1] == 0.0 {
             self.recordStage[self.chapterNumber - 1][self.stageNumber - 1] = timeRecord
@@ -203,8 +201,6 @@ class UserDefaultData {
         setRecordStage(timeRecord:timeRecord)
     }
     
-    
-    
     func saveUserData(jumpData:Int, breakData:Int, collisionData:Int) {
         self.jumpData = jumpData
         defaults.set(self.jumpData, forKey: "JumpData")
@@ -220,9 +216,6 @@ class UserDefaultData {
         self.collisionQuestDone = UserDefaults.standard.bool(forKey: "ThirdQuestIsClear")
         let quest3 = Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", imageURl: "collisionSkin", totalNumber: 50, nowNumber: collisionData, isClear: self.collisionQuestDone)
         defaults.setObjectToUserDefault(quest3, forKey: "Quest3")
-        
-        
-        
     }
     
 }

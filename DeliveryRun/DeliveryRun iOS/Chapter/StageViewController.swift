@@ -33,7 +33,6 @@ class StageViewController: UIViewController {
         super.viewDidLoad()
         self.chapterNumber = userDefault.getChapterNumber()
         
-        
         self.stages = [
             Stage(name: "스테이지 1", image: "stage1", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 1), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 1), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 1)),
             Stage(name: "스테이지 2", image: "stage2", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 2), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 2), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 2)),

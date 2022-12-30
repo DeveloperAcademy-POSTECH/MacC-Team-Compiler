@@ -70,7 +70,7 @@ class ChapterViewController: UIViewController {
 extension ChapterViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     // Cell 수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 5
     }
     
     // Cell 초기화
