@@ -177,14 +177,13 @@
                     <navigationItem key="navigationItem" id="IhL-sx-zuV"/>
                     <connections>
                         <outlet property="endBackView" destination="Y67-0T-vHj" id="7ho-RP-mm2"/>
-                        <outlet property="endResultStar" destination="I8p-Th-1PG" id="W7w-Ji-UIq"/>
+                        <outlet property="endResultStar" destination="I8p-Th-1PG" id="Vza-aw-WrD"/>
                         <outlet property="endTitleLabel" destination="gcW-Lf-xIw" id="iHj-h5-SUM"/>
                         <outlet property="endView" destination="pT7-38-du8" id="9dl-4H-1Fl"/>
                         <outlet property="nowRecordLabel" destination="ixr-Ec-8fc" id="g54-Go-bq5"/>
                         <outlet property="pauseBackView" destination="WIL-d1-OzK" id="hcN-Tr-r1u"/>
                         <outlet property="pauseLabel" destination="lW4-FU-5Jp" id="KiG-ul-hI9"/>
                         <outlet property="pauseView" destination="lmJ-eZ-I1U" id="ayg-ab-rG5"/>
-                        <outlet property="resultStarImage" destination="I8p-Th-1PG" id="dje-go-mhF"/>
                         <outlet property="targetRecordLabel" destination="QAQ-V8-pJM" id="62v-xy-D6O"/>
                     </connections>
                 </viewController>

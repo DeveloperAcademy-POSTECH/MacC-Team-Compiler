@@ -30,10 +30,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var endBackView: UIView!
     @IBOutlet weak var endView: UIView!
     @IBOutlet weak var endTitleLabel: UILabel!
+    @IBOutlet weak var endResultStar: UIImageView!
     @IBOutlet weak var targetRecordLabel: UILabel!
     @IBOutlet weak var nowRecordLabel: UILabel!
-    @IBOutlet weak var endResultStar: UIImageView!
-    @IBOutlet weak var resultStarImage: UIImageView!
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -42,7 +41,7 @@ class GameViewController: UIViewController {
         chapterNumber = userDefault.getChapterNumber()
         stageNumber = userDefault.getStageNumber()
         self.targetRecord = userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: stageNumber)
-        resultStarImage.image = UIImage(named: "Result Star 0")
+        endResultStar.image = UIImage(named: "Result Star 0")
         
         // Pause Screen
         pauseView.backgroundColor = .deliveryrunPurple
@@ -83,7 +82,6 @@ class GameViewController: UIViewController {
         nowRecordLabel.font = UIFont(name: "BMJUAOTF", size: 20)
         nowRecordLabel.textAlignment = .center
         nowRecordLabel.textColor = .white
-        
         
         // Present the scene
         print(String(format: "Stage %D-%D", chapterNumber,stageNumber))
