@@ -35,7 +35,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
-                                    <action selector="goSetting:" destination="GYM-j8-IpM" eventType="touchUpInside" id="2ve-Ha-agl"/>
+                                    <action selector="pressSettingButton:" destination="GYM-j8-IpM" eventType="touchUpInside" id="9BG-Ut-jbf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-ba-mCW" userLabel="Back Button">
@@ -51,7 +51,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
-                                    <action selector="goChapter:" destination="GYM-j8-IpM" eventType="touchUpInside" id="dFG-4z-2zE"/>
+                                    <action selector="goRobby:" destination="GYM-j8-IpM" eventType="touchUpInside" id="IPz-cN-bqS"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeZ-pv-DNR">
@@ -60,14 +60,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="d8V-ce-7VJ">
                                         <rect key="frame" x="0.0" y="15" width="300" height="243"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMJ-vd-DkL">
-                                                <rect key="frame" x="129.33333333333337" y="0.0" width="41.333333333333343" height="20.333333333333332"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StageName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMJ-vd-DkL">
+                                                <rect key="frame" x="105.33333333333337" y="0.0" width="89.333333333333314" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbi-qO-WUR">
-                                                <rect key="frame" x="129.33333333333337" y="46" width="41.333333333333343" height="20.333333333333329"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TargetRecord" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbi-qO-WUR">
+                                                <rect key="frame" x="98.666666666666629" y="46" width="102.66666666666669" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -155,12 +155,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="HBe-ev-GK8"/>
                     <connections>
-                        <outlet property="SettingView" destination="Ndm-P1-jfg" id="TJx-UP-6Wp"/>
-                        <outlet property="StageCollectionView" destination="Ljm-JV-vWF" id="fkl-1n-KmA"/>
                         <outlet property="backButton" destination="G3X-ba-mCW" id="bof-9k-TjF"/>
                         <outlet property="backgroundImage" destination="aG4-b2-XBe" id="r4O-kl-xjP"/>
                         <outlet property="recordLabel" destination="zbi-qO-WUR" id="SQy-Dk-paw"/>
                         <outlet property="settingButton" destination="CLB-6b-RlG" id="jgn-8v-Jkt"/>
+                        <outlet property="settingView" destination="Ndm-P1-jfg" id="sfF-i5-Ofd"/>
+                        <outlet property="stageCollectionView" destination="Ljm-JV-vWF" id="2Ok-WQ-vaJ"/>
                         <outlet property="stageDetailView" destination="zeZ-pv-DNR" id="c9d-uP-Cbc"/>
                         <outlet property="stageNameLabel" destination="xMJ-vd-DkL" id="Htn-Ki-iae"/>
                         <outlet property="starImage" destination="01L-yn-Som" id="Aw9-Tu-Iop"/>

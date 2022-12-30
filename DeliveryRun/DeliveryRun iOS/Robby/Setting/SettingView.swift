@@ -56,7 +56,7 @@ class SettingView: UIView {
         
         // UserDefault Get
         BackgroundSwitch.isOn = userDefault.backgroundMusic
-        GameSoundSwitch.isOn = userDefault.gameSound
+        GameSoundSwitch.isOn = userDefault.soundEffect
     }
     
     func loadViewFromNib() -> UIView? {
@@ -70,7 +70,7 @@ class SettingView: UIView {
         self.isHidden.toggle()
         // UserDefault Set
         userDefault.setSetting(backgroundMusic: BackgroundSwitch.isOn, gameSound: GameSoundSwitch.isOn)
-        if userDefault.gameSound {
+        if userDefault.soundEffect {
             gameEffectSound.playSound(soundName: "ButtonSound")
         }
         

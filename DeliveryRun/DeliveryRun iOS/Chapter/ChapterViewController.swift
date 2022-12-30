@@ -8,6 +8,10 @@
 import UIKit
 
 class ChapterViewController: UIViewController {
+    
+    let userDefault = UserDefaultData.shared
+    
+    
 
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var chapterCollectionView: UICollectionView!
@@ -66,7 +70,7 @@ class ChapterViewController: UIViewController {
 extension ChapterViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     // Cell 수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     // Cell 초기화
@@ -99,7 +103,8 @@ extension ChapterViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let stage = UIStoryboard.init(name: "Stage", bundle: nil)
         guard let StageViewController = stage.instantiateViewController(withIdentifier: "StageViewController") as? StageViewController else {return}
-        StageViewController.chapterNumber = indexPath.row + 1
+        userDefault.setChapterNumber(chapterNumber: indexPath.row + 1)
+        
         StageViewController.modalPresentationStyle = .fullScreen
         self.present(StageViewController, animated: false, completion: nil)
     }

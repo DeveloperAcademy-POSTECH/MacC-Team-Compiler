@@ -54,7 +54,7 @@ class QuestTableCell: UITableViewCell {
 
     
     @IBAction func RewardPressed(_ sender: CustomGameButton) {
-        if userDefault.gameSound {
+        if userDefault.soundEffect {
             gameEffectSound.playSound(soundName: "RewardSound")
         }
         questCheckButton.layer.opacity = 0.5

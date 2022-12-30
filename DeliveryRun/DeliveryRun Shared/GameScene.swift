@@ -18,12 +18,14 @@ class GameScene: SKScene{
     var viewController: GameViewController!
     let userDefault = UserDefaultData.shared
     
+    var chapterNumber:Int = 0
+    var stageNumber:Int = 0
+    
     // Tracking Data
-    var stageNumber:Int = 1
     var jumpData:Int = 0
     var breakData:Int = 0
     var collisionData:Int = 0
-    var previousTimeRecord:Double = 0.00
+    var previousTimeRecord:Float = 0.00
     var isClear:Bool = false
     
     // Player
@@ -79,8 +81,8 @@ class GameScene: SKScene{
     // Variables
     var timer = Timer()
     
-    let endTime = 999
-    var elapsedTime = 0
+    let endTime = 999.00
+    var elapsedTime = 0.00
     var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
@@ -96,18 +98,18 @@ class GameScene: SKScene{
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
-        print(userDefault.backgroundMusic, userDefault.gameSound)
-        
         if userDefault.backgroundMusic {
             backgroundMusic.changeBackgroundMusic()
         }
         
         
-        // StageNumber
-        self.stageNumber = userDefault.stageNumber
+        // Chapter & Stage
+        self.chapterNumber = userDefault.getChapterNumber()
+        self.stageNumber = userDefault.getStageNumber()
+        
+        print(String(format: "챕터-%D,스테이지-%D", chapterNumber,stageNumber))
         
         // UserDefault Tracking Data
-        UserDefaultData.findPath()
         self.jumpData = userDefault.defaults.integer(forKey:"JumpData")
         self.breakData = userDefault.defaults.integer(forKey:"BreakData")
         self.collisionData = userDefault.defaults.integer(forKey:"CollisionData")
@@ -481,15 +483,24 @@ extension GameScene {
     }
     
     // Game UI Function
-    func arrival(timeRecord:Double) {
-        if userDefault.gameSound {
+    func arrival(timeRecord:Float) {
+        Button.removeFromParent()
+        HUD.removeFromParent()
+        
+        if userDefault.soundEffect {
             gameEffectSound.playSound(soundName: "ArrivalSound")
         }
         self.viewController.endBackView.isHidden = false
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
-        Button.removeFromParent()
-        HUD.removeFromParent()
-        userDefault.endGameSaveData(jumpData: self.jumpData, breakData: self.breakData, collisionData: self.collisionData, timeRecord: Double(elapsedTime), stageNumber: stageNumber)
+        if viewController.targetRecord - 15 >= timeRecord {
+            self.viewController.resultStarImage.image = UIImage(named: "Result Star 3")
+        } else if viewController.targetRecord <= timeRecord {
+            self.viewController.resultStarImage.image = UIImage(named: "Result Star 2")
+        } else if viewController.targetRecord + 15 <= timeRecord {
+            self.viewController.resultStarImage.image = UIImage(named: "Result Star 1")
+        }
+        userDefault.saveStageData(chpaterNumber: chapterNumber, stageNumber: stageNumber, timeRecord: timeRecord)
+        userDefault.saveUserData(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
     }
 }
 
@@ -524,7 +535,7 @@ extension GameScene {
             
         // 도착 시 게임 종료
         if player.position.x >= endPoint && !(isGameOver) {
-            arrival(timeRecord: Double(elapsedTime))
+            arrival(timeRecord: Float(elapsedTime))
             isGameOver = true
         }
         
@@ -656,7 +667,7 @@ extension GameScene: SKPhysicsContactDelegate {
         }
         
         if collision.matches(.player, .reward) {
-            if userDefault.gameSound {
+            if userDefault.soundEffect {
                 gameEffectSound.playSound(soundName: "GetItemSound")
             }
             // Drink 획득
