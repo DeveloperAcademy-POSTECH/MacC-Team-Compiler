@@ -33,8 +33,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var targetRecordLabel: UILabel!
     @IBOutlet weak var nowRecordLabel: UILabel!
     @IBOutlet weak var endResultStar: UIImageView!
-    // MARK: - viewDidLoad
     @IBOutlet weak var resultStarImage: UIImageView!
+    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,8 +86,8 @@ class GameViewController: UIViewController {
         
         
         // Present the scene
-        print(String(format: "GameScene%D_%D", chapterNumber,stageNumber))
-        if let scene = GameScene(fileNamed: String(format: "GameScene%D_%D", chapterNumber,stageNumber)) {
+        print(String(format: "Stage %D-%D", chapterNumber,stageNumber))
+        if let scene = GameScene(fileNamed: String(format: "Stage %D-%D", chapterNumber,stageNumber)) {
             scene.scaleMode = .aspectFill
             scene.viewController = self
             if let view = self.view as! SKView? {
@@ -109,7 +110,7 @@ class GameViewController: UIViewController {
             pauseBackView.isHidden = true
             gameScene.view?.isPaused = false
         }
-        if let scene = GameScene(fileNamed: String(format: "GameScene%D_%D", chapterNumber,stageNumber)) {
+        if let scene = GameScene(fileNamed: String(format: "Stage %D-%D", chapterNumber,stageNumber)) {
             scene.scaleMode = .aspectFill
             scene.viewController = self
             if let view = self.view as! SKView? {
@@ -134,7 +135,7 @@ class GameViewController: UIViewController {
     // MARK: - End Screen IBAction
     @IBAction func retryPressed(_ sender: UIButton) {
         endBackView.isHidden = true
-        if let scene = GameScene(fileNamed: String(format: "GameScene%D_%D", chapterNumber,stageNumber)) {
+        if let scene = GameScene(fileNamed: String(format: "Stage %D-%D", chapterNumber,stageNumber)) {
             scene.scaleMode = .aspectFill
             scene.viewController = self
             if let view = self.view as! SKView? {
