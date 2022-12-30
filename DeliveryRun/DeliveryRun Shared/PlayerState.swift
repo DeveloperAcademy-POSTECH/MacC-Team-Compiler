@@ -12,9 +12,11 @@ fileprivate let characterAnimationKey = "SpriteKitAnimation"
 
 class PlayerState: GKState {
     unowned var playerNode: SKNode
+    let skinName: String
     
-    init(playerNode: SKNode) {
+    init(playerNode: SKNode, skinName: String) {
         self.playerNode = playerNode
+        self.skinName = skinName
         super.init()
     }
 }
@@ -29,7 +31,9 @@ class RunningState: PlayerState {
         }
     }
     
-    let textures: Array<SKTexture> = (0..<2).map({ return "player\($0)"}).map(SKTexture.init)
+    var textures: Array<SKTexture> {
+        (0..<2).map({ return "\(skinName)\($0)"}).map(SKTexture.init)
+    }
     lazy var action = { SKAction.repeatForever(.animate(with:textures, timePerFrame: 0.1))} ()
     
     override func didEnter(from previousState: GKState?) {
@@ -47,8 +51,9 @@ class JumpingState: PlayerState {
         if hasFinishedJumping && stateClass is DamageState.Type { return true }
         return false
     }
-    
-    let textures: Array<SKTexture> = (3..<5).map({ return "player\($0)"}).map(SKTexture.init)
+    var textures: Array<SKTexture> {
+        (3..<5).map({ return "\(skinName)\($0)"}).map(SKTexture.init)
+    }
     lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
     
     override func didEnter(from previousState: GKState?) {
@@ -84,8 +89,9 @@ class AccelingState: PlayerState {
         default: return false
         }
     }
-    
-    let textures: Array<SKTexture> = (6..<8).map({ return "player\($0)"}).map(SKTexture.init)
+    var textures: Array<SKTexture> {
+        (6..<8).map({ return "\(skinName)\($0)"}).map(SKTexture.init)
+    }
     lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
     override func didEnter(from previousState: GKState?) {
         playerNode.removeAction(forKey: characterAnimationKey)
@@ -102,7 +108,9 @@ class BreakingState: PlayerState {
         }
     }
     
-    let textures: Array<SKTexture> = (9..<11).map({ return "player\($0)"}).map(SKTexture.init)
+    var textures: Array<SKTexture> {
+        (9..<11).map({ return "\(skinName)\($0)"}).map(SKTexture.init)
+    }
     lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
     
     override func didEnter(from previousState: GKState?) {
@@ -127,7 +135,9 @@ class DamageState: PlayerState {
         }
     }
     
-    let textures: Array<SKTexture> = (12..<14).map({ return "player\($0)"}).map(SKTexture.init)
+    var textures: Array<SKTexture> {
+        (12..<14).map({ return "\(skinName)\($0)"}).map(SKTexture.init)
+    }
     lazy var action = { SKAction.repeatForever(.animate(with: textures, timePerFrame: 0.5))} ()
     
     override func didEnter(from previousState: GKState?) {

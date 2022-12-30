@@ -32,11 +32,11 @@ class UserDefaultData {
         self.soundEffect = UserDefaults.standard.bool(forKey: "SoundEffect")
         
         // Collection & Skin Value
-        self.nowSkin = UserDefaults.standard.string(forKey: "NowSkin") ?? "defaultSkin"
+        self.nowSkin = UserDefaults.standard.string(forKey: "NowSkin") ?? "default"
         if let mySkinList = UserDefaults.standard.array(forKey: "SkinList") {
             self.skinList = mySkinList as! [String]
         } else {
-            self.skinList = ["defaultSkin"]
+            self.skinList = ["default"]
         }
         
         // Chapter & Stage Value
@@ -67,11 +67,11 @@ class UserDefaultData {
         self.breakQuestDone = UserDefaults.standard.bool(forKey: "BreakQuestDone")
         self.collisionQuestDone = UserDefaults.standard.bool(forKey: "CollisionQuestDone")
         let quest1 = Quest(title: "점프킹", subTitle: "총 점프 횟수 50회를 달성하세요.", imageURl: "jumpSkin", totalNumber: 2, nowNumber: self.jumpData, isClear: self.jumpQuestDone)
-        UserDefaults.standard.setObjectToUserDefault(quest1, forKey: "JumpQuest")
+        defaults.setObjectToUserDefault(quest1, forKey: "JumpQuest")
         let quest2 = Quest(title: "하남자특", subTitle: "브레이크를 사용해서 최저 속도를 20회 달성하세요.", imageURl: "breakSkin", totalNumber: 2, nowNumber: self.breakData, isClear: self.breakQuestDone)
-        UserDefaults.standard.setObjectToUserDefault(quest2, forKey: "BreakQuest")
+        defaults.setObjectToUserDefault(quest2, forKey: "BreakQuest")
         let quest3 = Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", imageURl: "collisionSkin", totalNumber: 2, nowNumber: self.collisionData, isClear: self.collisionQuestDone)
-        UserDefaults.standard.setObjectToUserDefault(quest3, forKey: "CollisionQuest")
+        defaults.setObjectToUserDefault(quest3, forKey: "CollisionQuest")
         
     }
     
@@ -113,19 +113,19 @@ class UserDefaultData {
     func jumpQuestCompleted() {
         self.jumpQuestDone = true
         defaults.set(jumpQuestDone, forKey: "JumpQuestDone")
-        getSkin(skinName: "jumpSkin")
+        getSkin(skinName: "jump")
     }
     
     func breakQuestCompleted() {
         self.breakQuestDone = true
         defaults.set(self.breakQuestDone, forKey: "BreakQuestDone")
-        getSkin(skinName: "breakSkin")
+        getSkin(skinName: "break")
     }
     
     func collisionQuestCompleted() {
         self.collisionQuestDone = true
         defaults.set(self.collisionQuestDone, forKey: "CollisionQuestDone")
-        getSkin(skinName: "collisionSkin")
+        getSkin(skinName: "collision")
     }
     
     // Chapter & Stage
@@ -222,7 +222,6 @@ class UserDefaultData {
         self.collisionQuestDone = UserDefaults.standard.bool(forKey: "ThirdQuestIsClear")
         let quest3 = Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", imageURl: "collisionSkin", totalNumber: 50, nowNumber: collisionData, isClear: self.collisionQuestDone)
         defaults.setObjectToUserDefault(quest3, forKey: "Quest3")
-        
         
         
     }
