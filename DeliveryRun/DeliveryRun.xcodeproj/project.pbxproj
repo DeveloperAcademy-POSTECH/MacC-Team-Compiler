@@ -552,12 +552,12 @@
 		63A6B993295D69CA000A46C0 /* Chapter */ = {
 			isa = PBXGroup;
 			children = (
+				63A6B999295D69CA000A46C0 /* StageViewController.swift */,
 				63A6B994295D69CA000A46C0 /* StageCell.swift */,
 				63A6B995295D69CA000A46C0 /* Stage.storyboard */,
+				63A6B998295D69CA000A46C0 /* ChapterViewController.swift */,
 				63A6B996295D69CA000A46C0 /* ChapterCell.swift */,
 				63A6B997295D69CA000A46C0 /* Chapter.storyboard */,
-				63A6B998295D69CA000A46C0 /* ChapterViewController.swift */,
-				63A6B999295D69CA000A46C0 /* StageViewController.swift */,
 			);
 			path = Chapter;
 			sourceTree = "<group>";
