@@ -71,7 +71,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="lmJ-eZ-I1U" secondAttribute="trailing" constant="280" id="8cu-he-yDP"/>
                                     <constraint firstAttribute="bottom" secondItem="lmJ-eZ-I1U" secondAttribute="bottom" constant="115" id="9o1-lp-eAz"/>
@@ -147,7 +146,6 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="QNK-cD-BPn" secondAttribute="bottom" constant="20" id="Jsq-8p-vIT"/>
                                             <constraint firstAttribute="trailing" secondItem="QNK-cD-BPn" secondAttribute="trailing" id="n4Z-mh-FUM"/>
@@ -156,7 +154,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="pT7-38-du8" firstAttribute="leading" secondItem="Y67-0T-vHj" secondAttribute="leading" constant="100" id="EgA-9e-jID"/>
                                     <constraint firstItem="pT7-38-du8" firstAttribute="centerX" secondItem="Y67-0T-vHj" secondAttribute="centerX" id="OFP-7y-C1b"/>
@@ -166,7 +163,6 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4O3-Ak-n06"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WIL-d1-OzK" firstAttribute="top" secondItem="sF4-LD-e1S" secondAttribute="top" id="2Fq-m8-RjI"/>
                             <constraint firstItem="Y67-0T-vHj" firstAttribute="leading" secondItem="sF4-LD-e1S" secondAttribute="leading" id="7hN-YN-HLQ"/>
@@ -181,13 +177,14 @@
                     <navigationItem key="navigationItem" id="IhL-sx-zuV"/>
                     <connections>
                         <outlet property="endBackView" destination="Y67-0T-vHj" id="7ho-RP-mm2"/>
+                        <outlet property="endResultStar" destination="I8p-Th-1PG" id="Vza-aw-WrD"/>
                         <outlet property="endTitleLabel" destination="gcW-Lf-xIw" id="iHj-h5-SUM"/>
                         <outlet property="endView" destination="pT7-38-du8" id="9dl-4H-1Fl"/>
                         <outlet property="nowRecordLabel" destination="ixr-Ec-8fc" id="g54-Go-bq5"/>
                         <outlet property="pauseBackView" destination="WIL-d1-OzK" id="hcN-Tr-r1u"/>
                         <outlet property="pauseLabel" destination="lW4-FU-5Jp" id="KiG-ul-hI9"/>
                         <outlet property="pauseView" destination="lmJ-eZ-I1U" id="ayg-ab-rG5"/>
-                        <outlet property="targetRecordLabel" destination="QAQ-V8-pJM" id="dMo-6T-ipT"/>
+                        <outlet property="targetRecordLabel" destination="QAQ-V8-pJM" id="62v-xy-D6O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3W-Uz-dZX" sceneMemberID="firstResponder"/>

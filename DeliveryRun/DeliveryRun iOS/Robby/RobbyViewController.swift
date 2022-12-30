@@ -24,11 +24,9 @@ class RobbyViewController: UIViewController {
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var questButton: UIButton!
     
-    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         UserDefaultData.findPath()
         
         if userDefault.backgroundMusic {
@@ -53,8 +51,8 @@ class RobbyViewController: UIViewController {
         questButton.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: questButton.frame.width, height: questButton.frame.height)).cgPath
         
         settingView.isHidden = true
-        questView.isHidden = true
         settingView.layer.opacity = 1.0
+        questView.isHidden = true
         questView.layer.opacity = 1.0
     }
     
@@ -72,7 +70,7 @@ class RobbyViewController: UIViewController {
         let garage = UIStoryboard.init(name: "Garage", bundle: nil)
         guard let GarageViewController = garage.instantiateViewController(withIdentifier: "GarageViewController") as? GarageViewController else { return }
         GarageViewController.modalPresentationStyle = .fullScreen
-        self.present(GarageViewController, animated: true, completion: nil)
+        self.present(GarageViewController, animated: false, completion: nil)
         
     }
     
