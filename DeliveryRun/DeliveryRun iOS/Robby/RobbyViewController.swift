@@ -36,7 +36,7 @@ class RobbyViewController: UIViewController {
         
         // MARK: 런치스크린에 게임배경및 설명 넣고 Sound 집어넣기
         
-        PlayerImage.image = UIImage(named: userDefault.mySkin)
+        PlayerImage.image = UIImage(named: userDefault.nowSkin)
         
         garageButton.setTitle(" 차고", for: .normal)
         garageButton.setImage(UIImage(systemName: "car.fill"), for: .normal)
