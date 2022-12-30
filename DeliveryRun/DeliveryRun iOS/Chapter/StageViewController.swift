@@ -115,11 +115,11 @@ class StageViewController: UIViewController {
     }
     
     // MARK: - IBAction
-    @IBAction func goRobby(_ sender: UIButton) {
-        let robby = UIStoryboard.init(name: "Robby", bundle: nil)
-        guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
-        RobbyViewController.modalPresentationStyle = .fullScreen
-        self.present(RobbyViewController, animated: false, completion: nil)
+    @IBAction func goChapter(_ sender: UIButton) {
+        let chapter = UIStoryboard.init(name: "Chapter", bundle: nil)
+        guard let ChapterViewController = chapter.instantiateViewController(withIdentifier: "ChapterViewController")as? ChapterViewController else {return}
+        ChapterViewController.modalPresentationStyle = .fullScreen
+        self.present(ChapterViewController, animated: false, completion: nil)
     }
     
     @IBAction func goDelivery(_ sender: CustomGameButton) {
@@ -151,7 +151,7 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         // Cell이 Lock인 경우
 //        cell.isLock = stages[indexPath.row].isLock
-//        if !cell.isLock {
+//        if cell.isLock {
 //            cell.addSubview(cell.lockView)
 //            cell.addSubview(cell.lockImageView)
 //            cell.isUserInteractionEnabled = false
