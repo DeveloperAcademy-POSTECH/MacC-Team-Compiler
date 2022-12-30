@@ -43,7 +43,7 @@ class UserDefaultData {
         self.chapterNumber = UserDefaults.standard.integer(forKey: "ChapterNumber")
         self.stageNumber = UserDefaults.standard.integer(forKey: "StageNumber")
         
-        self.clearStage = UserDefaults.standard.array(forKey: "ClearStage") as? [[Bool]] ?? [[true,true,true,true,true,false,false,false,false,false,false,false,false,false,false],
+        self.clearStage = UserDefaults.standard.array(forKey: "ClearStage") as? [[Bool]] ?? [[true,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
                                                                                              [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
                                                                                              [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
                                                                                              [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
@@ -178,7 +178,7 @@ class UserDefaultData {
     }
     
     func setClearStage() {
-        if !self.clearStage[self.chapterNumber - 1][self.stageNumber - 1] {
+        if self.clearStage[self.chapterNumber - 1][self.stageNumber - 1] {
             self.clearStage[self.chapterNumber - 1][self.stageNumber] = true
             defaults.set(self.clearStage, forKey:"ClearStage")
         } else {
@@ -186,7 +186,10 @@ class UserDefaultData {
         }
     }
     func setRecordStage(timeRecord:Float) {
-        if self.recordStage[self.chapterNumber - 1][self.stageNumber - 1] != 0.00 && self.recordStage[self.chapterNumber - 1][self.stageNumber] < timeRecord {
+        if self.recordStage[self.chapterNumber - 1][self.stageNumber - 1] == 0.0 {
+            self.recordStage[self.chapterNumber - 1][self.stageNumber - 1] = timeRecord
+            defaults.set(self.recordStage, forKey: "RecordStage")
+        } else if self.recordStage[self.chapterNumber - 1][self.stageNumber - 1] > timeRecord {
             self.recordStage[self.chapterNumber - 1][self.stageNumber - 1] = timeRecord
             defaults.set(self.recordStage, forKey: "RecordStage")
         } else {
@@ -211,12 +214,12 @@ class UserDefaultData {
         defaults.set(self.collisionData, forKey: "CollisionData")
         
         let quest1 = Quest(title: "점프킹", subTitle: "총 점프 횟수 50회를 달성하세요.", imageURl: "jumpSkin", totalNumber: 50, nowNumber: jumpData,isClear: self.jumpQuestDone)
-        UserDefaults.standard.setObjectToUserDefault(quest1, forKey: "Quest1")
+        defaults.setObjectToUserDefault(quest1, forKey: "Quest1")
         let quest2 = Quest(title: "하남자특", subTitle: "브레이크를 사용해서 최저 속도를 20회 달성하세요.", imageURl: "breakSkin", totalNumber: 20, nowNumber: breakData, isClear: self.breakQuestDone)
-        UserDefaults.standard.setObjectToUserDefault(quest2, forKey: "Quest2")
+        defaults.setObjectToUserDefault(quest2, forKey: "Quest2")
         self.collisionQuestDone = UserDefaults.standard.bool(forKey: "ThirdQuestIsClear")
         let quest3 = Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", imageURl: "collisionSkin", totalNumber: 50, nowNumber: collisionData, isClear: self.collisionQuestDone)
-        UserDefaults.standard.setObjectToUserDefault(quest3, forKey: "Quest3")
+        defaults.setObjectToUserDefault(quest3, forKey: "Quest3")
         
         
         

@@ -1,5 +1,5 @@
 //
-//  GameScene_14.swift
+//  GameScene1_2.swift
 //  DeliveryRun iOS
 //
 //  Created by David_ADA on 2022/12/26.
@@ -10,7 +10,7 @@ import SpriteKit
 class GameScene1_4: GameScene {
     
     override var endPoint: Double {
-        12000.0
+        1000.0
     }
     
     override func didMove(to view: SKView) {

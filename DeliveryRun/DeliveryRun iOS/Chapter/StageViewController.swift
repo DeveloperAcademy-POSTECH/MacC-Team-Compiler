@@ -27,6 +27,7 @@ class StageViewController: UIViewController {
         settingView.isHidden = false
     }
     var chapterNumber:Int = 0
+    var playStageNumber:Int = 1
     var stages:[Stage] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,6 +121,9 @@ class StageViewController: UIViewController {
         let robby = UIStoryboard.init(name: "Robby", bundle: nil)
         guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
         RobbyViewController.modalPresentationStyle = .fullScreen
+        if playStageNumber == 1 {
+            
+        }
         self.present(RobbyViewController, animated: false, completion: nil)
     }
     
@@ -127,11 +131,12 @@ class StageViewController: UIViewController {
         if userDefault.soundEffect {
             gameEffectSound.playSound(soundName: "GoDeliverySound")
         }
+        userDefault.setStageNumber(stageNumber: playStageNumber)
         let game = UIStoryboard.init(name: "Game", bundle: nil)
         guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController")as? GameViewController else {return}
         GameViewController.modalPresentationStyle = .fullScreen
-        GameViewController.targetRecord = stages[userDefault.getStageNumber()].targetRecord
         self.present(GameViewController, animated: false, completion: nil)
+
         
         
     }
@@ -200,7 +205,7 @@ extension StageViewController {
         // Label 수정
         stageNameLabel.text = stages[indexPath.row].name
         recordLabel.text = "목표기록 : \(stages[indexPath.row].targetRecord)\n현재기록 : \(stages[indexPath.row].myRecord)"
-        userDefault.setStageNumber(stageNumber: indexPath.row + 1)
+        playStageNumber = indexPath.row + 1
         
         // 별 개수에 따라 색 변경
         switch stages[indexPath.row].star {

@@ -10,7 +10,7 @@ import SpriteKit
 class GameScene1_1: GameScene {
     
     override var endPoint: Double {
-        12000.0
+        1000.0
     }
     
     override func didMove(to view: SKView) {

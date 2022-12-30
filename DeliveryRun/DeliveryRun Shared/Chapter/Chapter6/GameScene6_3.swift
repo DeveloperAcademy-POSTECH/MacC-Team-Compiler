@@ -1,16 +1,16 @@
 //
-//  Stage3.swift
+//  GameScene1_1.swift
 //  DeliveryRun iOS
 //
-//  Created by HWANG-C-K on 2022/12/11.
-//
+//  Created by David_ADA on 2022/12/26.
+
+
 import Foundation
 import SpriteKit
-
 class GameScene6_3: GameScene {
     
     override var endPoint: Double {
-        120000.0
+        1000.0
     }
     
     override func didMove(to view: SKView) {

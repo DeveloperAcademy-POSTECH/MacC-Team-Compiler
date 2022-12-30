@@ -465,7 +465,13 @@ extension GameScene {
         }
         self.viewController.endBackView.isHidden = false
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
-        self.viewController.targetRecordLabel.text = String(format: "목표기록 : %.2f", userDefault.targetRecord[stageNumber - 1])
+        if viewController.targetRecord - 15 >= timeRecord {
+            self.viewController.resultStarImage.image = UIImage(named: "Result Star 3")
+        } else if viewController.targetRecord <= timeRecord {
+            self.viewController.resultStarImage.image = UIImage(named: "Result Star 2")
+        } else if viewController.targetRecord + 15 <= timeRecord {
+            self.viewController.resultStarImage.image = UIImage(named: "Result Star 1")
+        }
         userDefault.saveStageData(chpaterNumber: chapterNumber, stageNumber: stageNumber, timeRecord: timeRecord)
         userDefault.saveUserData(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
     }

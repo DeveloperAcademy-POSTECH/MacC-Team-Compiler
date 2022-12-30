@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
     
     var chapterNumber:Int = 0
     var stageNumber:Int = 0
-    var targetRecord:Float = 0.00
+    var targetRecord:Float = 0.0
     
     // Pause Screen IBOutlet
     @IBOutlet weak var pauseBackView: UIView!
@@ -34,8 +34,14 @@ class GameViewController: UIViewController {
     @IBOutlet weak var nowRecordLabel: UILabel!
     @IBOutlet weak var endResultStar: UIImageView!
     // MARK: - viewDidLoad
+    @IBOutlet weak var resultStarImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        chapterNumber = userDefault.getChapterNumber()
+        stageNumber = userDefault.getStageNumber()
+        self.targetRecord = userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: stageNumber)
+        resultStarImage.image = UIImage(named: "Result Star 0")
         
         // Pause Screen
         pauseView.backgroundColor = .deliveryrunPurple
@@ -68,7 +74,7 @@ class GameViewController: UIViewController {
         endTitleLabel.textAlignment = .center
         endTitleLabel.textColor = .white
         
-        targetRecordLabel.text = String(format: "목표 기록 : %2.0f", targetRecord)
+        targetRecordLabel.text = String(format: "목표 기록 :  : %.2f", self.targetRecord)
         targetRecordLabel.font = UIFont(name: "BMJUAOTF", size: 20)
         targetRecordLabel.textAlignment = .center
         targetRecordLabel.textColor = .white
@@ -78,9 +84,6 @@ class GameViewController: UIViewController {
         nowRecordLabel.textColor = .white
         
         
-        chapterNumber = userDefault.getChapterNumber()
-        stageNumber = userDefault.getStageNumber()
-        targetRecord = userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: stageNumber)
         // Present the scene
         print(String(format: "GameScene%D_%D", chapterNumber,stageNumber))
         if let scene = GameScene(fileNamed: String(format: "GameScene%D_%D", chapterNumber,stageNumber)) {
