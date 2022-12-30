@@ -23,12 +23,11 @@ class StageViewController: UIViewController {
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var starImage: UIImageView!
     
-    @IBAction func pressSettingButton(_ sender: Any) {
-        settingView.isHidden = false
-    }
     var chapterNumber:Int = 0
     var playStageNumber:Int = 1
     var stages:[Stage] = []
+    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.chapterNumber = userDefault.getChapterNumber()
@@ -115,13 +114,11 @@ class StageViewController: UIViewController {
         }
     }
     
+    // MARK: - IBAction
     @IBAction func goRobby(_ sender: UIButton) {
         let robby = UIStoryboard.init(name: "Robby", bundle: nil)
         guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
         RobbyViewController.modalPresentationStyle = .fullScreen
-        if playStageNumber == 1 {
-            
-        }
         self.present(RobbyViewController, animated: false, completion: nil)
     }
     
@@ -134,9 +131,10 @@ class StageViewController: UIViewController {
         guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController")as? GameViewController else {return}
         GameViewController.modalPresentationStyle = .fullScreen
         self.present(GameViewController, animated: false, completion: nil)
-
-        
-        
+    }
+    
+    @IBAction func goSetting(_ sender: Any) {
+        settingView.isHidden = false
     }
 }
 

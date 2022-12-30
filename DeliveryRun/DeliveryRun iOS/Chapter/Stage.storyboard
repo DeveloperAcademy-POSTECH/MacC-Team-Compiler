@@ -35,7 +35,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressSettingButton:" destination="GYM-j8-IpM" eventType="touchUpInside" id="9BG-Ut-jbf"/>
+                                    <action selector="goSetting:" destination="GYM-j8-IpM" eventType="touchUpInside" id="zyZ-xp-M3p"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3X-ba-mCW" userLabel="Back Button">
