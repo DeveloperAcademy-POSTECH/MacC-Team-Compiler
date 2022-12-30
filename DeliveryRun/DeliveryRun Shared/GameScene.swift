@@ -107,8 +107,6 @@ class GameScene: SKScene{
         self.chapterNumber = userDefault.getChapterNumber()
         self.stageNumber = userDefault.getStageNumber()
         
-        print(String(format: "챕터-%D,스테이지-%D", chapterNumber,stageNumber))
-        
         // UserDefault Tracking Data
         self.jumpData = userDefault.defaults.integer(forKey:"JumpData")
         self.breakData = userDefault.defaults.integer(forKey:"BreakData")
@@ -493,11 +491,11 @@ extension GameScene {
         self.viewController.endBackView.isHidden = false
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
         if viewController.targetRecord - 15 >= timeRecord {
-            self.viewController.resultStarImage.image = UIImage(named: "Result Star 3")
+            self.viewController.endResultStar.image = UIImage(named: "Result Star 3")
         } else if viewController.targetRecord <= timeRecord {
-            self.viewController.resultStarImage.image = UIImage(named: "Result Star 2")
+            self.viewController.endResultStar.image = UIImage(named: "Result Star 2")
         } else if viewController.targetRecord + 15 <= timeRecord {
-            self.viewController.resultStarImage.image = UIImage(named: "Result Star 1")
+            self.viewController.endResultStar.image = UIImage(named: "Result Star 1")
         }
         userDefault.saveStageData(chpaterNumber: chapterNumber, stageNumber: stageNumber, timeRecord: timeRecord)
         userDefault.saveUserData(jumpData: jumpData, breakData: breakData, collisionData: collisionData)

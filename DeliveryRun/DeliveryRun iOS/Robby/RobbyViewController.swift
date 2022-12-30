@@ -33,9 +33,6 @@ class RobbyViewController: UIViewController {
             backgroundMusic.playSound(soundName: "BackgroundMusic")
         }
         
-        
-        // MARK: 런치스크린에 게임배경및 설명 넣고 Sound 집어넣기
-        
         PlayerImage.image = UIImage(named: userDefault.mySkin)
         
         garageButton.setTitle(" 차고", for: .normal)
@@ -73,7 +70,7 @@ class RobbyViewController: UIViewController {
         let garage = UIStoryboard.init(name: "Garage", bundle: nil)
         guard let GarageViewController = garage.instantiateViewController(withIdentifier: "GarageViewController") as? GarageViewController else { return }
         GarageViewController.modalPresentationStyle = .fullScreen
-        self.present(GarageViewController, animated: true, completion: nil)
+        self.present(GarageViewController, animated: false, completion: nil)
         
     }
     
