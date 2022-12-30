@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
+            <connections>
+                <outlet property="BackgroundMusicView" destination="KPx-jT-cuk" id="jqG-2y-SPr"/>
+                <outlet property="BackgroundSwitch" destination="hyu-LM-BUK" id="0jh-IE-WGS"/>
+                <outlet property="EffectMusicView" destination="AcK-Wp-2pj" id="Xrn-ra-ZjG"/>
+                <outlet property="GameSoundSwitch" destination="pcE-hj-Ncb" id="ehu-A6-D01"/>
+                <outlet property="byLabel" destination="UDT-Xz-jJa" id="pQM-g5-oyz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="SettingView" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxn-Qc-O8I" userLabel="Check Button" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
+                    <rect key="frame" x="346" y="323" width="160" height="50"/>
+                    <color key="backgroundColor" name="deliveryrunBlack"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="B1N-Sj-4Tb"/>
+                        <constraint firstAttribute="width" constant="160" id="HaY-fU-awd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="확인"/>
+                    <connections>
+                        <action selector="settingCheckButtonPressed:" destination="-1" eventType="touchUpInside" id="pBe-st-yGD"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dev By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDT-Xz-jJa" userLabel="DevLabel">
+                    <rect key="frame" x="399" y="282.66666666666669" width="54" height="20.333333333333314"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPx-jT-cuk" userLabel="Background Music View">
+                    <rect key="frame" x="310.33333333333331" y="50" width="231.66666666666669" height="60"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="olC-kd-r9k">
+                            <rect key="frame" x="15" y="10" width="201.66666666666666" height="40"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qIs-Cz-Mbd">
+                                    <rect key="frame" x="0.0" y="-9.6666666666666643" width="40" height="55.333333333333329"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="Tz5-97-Xpd"/>
+                                        <constraint firstAttribute="height" constant="40" id="e6B-8k-flU"/>
+                                    </constraints>
+                                    <imageReference key="image" image="music.note.house" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="default" weight="medium"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8K-zs-kbi">
+                                    <rect key="frame" x="60.000000000000007" y="4.6666666666666714" width="72.666666666666686" height="31"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="배경음">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="30" name="BMJUAOTF"/>
+                                                <font key="NSOriginalFont" size="25" name="BMJUAOTF"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                    <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </label>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hyu-LM-BUK" userLabel="BackgroundSwitch">
+                                    <rect key="frame" x="152.66666666666669" y="4.6666666666666714" width="51" height="31"/>
+                                    <color key="onTintColor" name="deliveryrunRed"/>
+                                    <color key="thumbTintColor" name="deliveryrunYellow"/>
+                                    <connections>
+                                        <action selector="backgroundOnOff:" destination="-1" eventType="valueChanged" id="JJ6-mE-HqL"/>
+                                    </connections>
+                                </switch>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" name="deliveryrunBlack"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="olC-kd-r9k" secondAttribute="trailing" constant="15" id="P5b-Kb-kHj"/>
+                        <constraint firstItem="olC-kd-r9k" firstAttribute="top" secondItem="KPx-jT-cuk" secondAttribute="top" constant="10" id="S35-QZ-Qca"/>
+                        <constraint firstItem="olC-kd-r9k" firstAttribute="leading" secondItem="KPx-jT-cuk" secondAttribute="leading" constant="15" id="WHY-nf-upt"/>
+                        <constraint firstAttribute="bottom" secondItem="olC-kd-r9k" secondAttribute="bottom" constant="10" id="ikT-GU-1rG"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcK-Wp-2pj" userLabel="Effect Music View">
+                    <rect key="frame" x="309.66666666666669" y="130" width="233.00000000000006" height="60"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lBL-ti-AUf">
+                            <rect key="frame" x="15" y="10" width="203" height="40"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OmG-Oc-AV2">
+                                    <rect key="frame" x="0.0" y="-2.9999999999999929" width="40" height="46.333333333333329"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="98k-6U-y8B"/>
+                                        <constraint firstAttribute="width" constant="40" id="AZ4-Aj-M2k"/>
+                                    </constraints>
+                                    <imageReference key="image" image="speaker" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40" scale="default" weight="medium"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiR-63-2ak" userLabel="효과음">
+                                    <rect key="frame" x="60" y="4.6666666666666572" width="74" height="31"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="효과음">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="30" name="BMJUAOTF"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                    <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </label>
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pcE-hj-Ncb" userLabel="GameSoundSwitch">
+                                    <rect key="frame" x="154" y="4.6666666666666572" width="51" height="31"/>
+                                    <color key="onTintColor" name="deliveryrunRed"/>
+                                    <color key="thumbTintColor" name="deliveryrunYellow"/>
+                                    <connections>
+                                        <action selector="ingameSoundOnOff:" destination="-1" eventType="valueChanged" id="c1z-sk-owW"/>
+                                    </connections>
+                                </switch>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" name="deliveryrunBlack"/>
+                    <constraints>
+                        <constraint firstItem="lBL-ti-AUf" firstAttribute="leading" secondItem="AcK-Wp-2pj" secondAttribute="leading" constant="15" id="CQi-iX-DhZ"/>
+                        <constraint firstItem="lBL-ti-AUf" firstAttribute="top" secondItem="AcK-Wp-2pj" secondAttribute="top" constant="10" id="ILR-ss-oCd"/>
+                        <constraint firstAttribute="trailing" secondItem="lBL-ti-AUf" secondAttribute="trailing" constant="15" id="sya-bE-yCk"/>
+                        <constraint firstAttribute="bottom" secondItem="lBL-ti-AUf" secondAttribute="bottom" constant="10" id="yUX-FI-XxA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Oxn-Qc-O8I" secondAttribute="bottom" constant="20" id="8q6-Br-upv"/>
+                <constraint firstItem="Oxn-Qc-O8I" firstAttribute="top" secondItem="UDT-Xz-jJa" secondAttribute="bottom" constant="20" id="Jws-VI-8vR"/>
+                <constraint firstItem="Oxn-Qc-O8I" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Tsr-nT-rqo"/>
+                <constraint firstItem="AcK-Wp-2pj" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="kvp-8T-BLB"/>
+                <constraint firstItem="KPx-jT-cuk" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="l03-cF-ZZT"/>
+                <constraint firstItem="KPx-jT-cuk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="nJf-Vj-Htv"/>
+                <constraint firstItem="AcK-Wp-2pj" firstAttribute="top" secondItem="KPx-jT-cuk" secondAttribute="bottom" constant="20" id="nqc-Tj-UGR"/>
+                <constraint firstItem="UDT-Xz-jJa" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="qVm-8L-e76"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="centerX" secondItem="Oxn-Qc-O8I" secondAttribute="centerX" id="xcK-2x-B7h"/>
+            </constraints>
+            <point key="canvasLocation" x="51.408450704225352" y="0.76335877862595414"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="music.note.house" catalog="system" width="128" height="104"/>
+        <image name="speaker" catalog="system" width="128" height="123"/>
+        <namedColor name="deliveryrunBlack">
+            <color red="0.14509803921568629" green="0.14901960784313725" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="deliveryrunRed">
+            <color red="0.70196078431372544" green="0.15294117647058825" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="deliveryrunYellow">
+            <color red="1" green="0.89803921568627454" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
