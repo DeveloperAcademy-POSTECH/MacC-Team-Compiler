@@ -280,7 +280,7 @@
 			path = Garage;
 			sourceTree = "<group>";
 		};
-		639496C22953EAB700BCD444 /* Chapter */ = {
+		639496C22953EAB700BCD444 /* Stages */ = {
 			isa = PBXGroup;
 			children = (
 				63F53373295ECE1D004B2BA2 /* Chapter1 */,
@@ -289,7 +289,7 @@
 				63F5325B295EBD17004B2BA2 /* Chapter4 */,
 				63F5323C295EBD17004B2BA2 /* Chapter5 */,
 			);
-			path = Chapter;
+			path = Stages;
 			sourceTree = "<group>";
 		};
 		6394972D2953EFBF00BCD444 /* Robby */ = {
@@ -501,7 +501,7 @@
 				6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */,
 				6F28EE9728F5444500D7330F /* GameScene.swift */,
 				6372509328FFC7F700117CF8 /* PlayerState.swift */,
-				639496C22953EAB700BCD444 /* Chapter */,
+				639496C22953EAB700BCD444 /* Stages */,
 				6394973B2953F12800BCD444 /* Model */,
 				6394972E2953F12800BCD444 /* Style */,
 				6F28EE9828F5444600D7330F /* Assets.xcassets */,
