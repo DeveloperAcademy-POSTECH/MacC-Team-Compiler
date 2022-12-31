@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
     
     var chapterNumber:Int = 0
     var stageNumber:Int = 0
-    var targetRecord:Float = 0.0
+    var targetRecord: Double = 0.00
     
     // Pause Screen IBOutlet
     @IBOutlet weak var pauseBackView: UIView!

@@ -480,7 +480,7 @@ extension GameScene {
     }
     
     // Game UI Function
-    func arrival(timeRecord:Float) {
+    func arrival(timeRecord: Double) {
         Button.removeFromParent()
         HUD.removeFromParent()
         
@@ -532,7 +532,7 @@ extension GameScene {
             
         // 도착 시 게임 종료
         if player.position.x >= endPoint && !(isGameOver) {
-            arrival(timeRecord: Float(elapsedTime))
+            arrival(timeRecord: elapsedTime)
             isGameOver = true
         }
         
@@ -543,7 +543,7 @@ extension GameScene {
         playerLocation.position.x = ((player.position.x / endPoint) * locationBarLength) - locationBarLength / 2.0
         
         // Label Text 설정
-        timerText.text = String(format: "%D", elapsedTime)
+        timerText.text = String(format: "%d", Int(elapsedTime))
         speederText.text = String(format: "%d km/h", Int(playerSpeed * 6))
     }
 }

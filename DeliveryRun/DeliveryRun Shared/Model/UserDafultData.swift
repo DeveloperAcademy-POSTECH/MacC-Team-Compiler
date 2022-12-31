@@ -49,7 +49,7 @@ class UserDefaultData {
                                                                                              [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
                                                                                              [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]]
         
-        self.recordStage = UserDefaults.standard.array(forKey:"RecordStage") as? [[Float]] ?? [[0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],
+        self.recordStage = UserDefaults.standard.array(forKey:"RecordStage") as? [[Double]] ?? [[0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],
             [0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],
             [0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],
             [0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],
@@ -149,7 +149,7 @@ class UserDefaultData {
     }
     
     
-    let targetRecord: [[Float]] = [
+    let targetRecord: [[Double]] = [
         [10.00, 20.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00],
         [10.00, 20.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00],
         [10.00, 20.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00],
@@ -158,11 +158,11 @@ class UserDefaultData {
     ]
     private var clearStage:[[Bool]]
     
-    private var recordStage:[[Float]]
+    private var recordStage:[[Double]]
     
     
 
-    func getTargetRecord(chapterNumber:Int, stageNumber:Int) -> Float {
+    func getTargetRecord(chapterNumber:Int, stageNumber:Int) -> Double {
         self.targetRecord[chapterNumber - 1][stageNumber - 1]
     }
     
@@ -170,7 +170,7 @@ class UserDefaultData {
         self.clearStage[chapterNumber - 1][stageNumber - 1]
     }
     
-    func getRecordStage(chapterNumber:Int, stageNumber: Int) -> Float {
+    func getRecordStage(chapterNumber:Int, stageNumber: Int) -> Double {
         self.recordStage[chapterNumber - 1][stageNumber - 1]
     }
     
@@ -183,7 +183,7 @@ class UserDefaultData {
         }
     }
     
-    func setRecordStage(timeRecord:Float) {
+    func setRecordStage(timeRecord: Double) {
         if self.recordStage[self.chapterNumber - 1][self.stageNumber - 1] == 0.0 {
             self.recordStage[self.chapterNumber - 1][self.stageNumber - 1] = timeRecord
             defaults.set(self.recordStage, forKey: "RecordStage")
@@ -196,7 +196,7 @@ class UserDefaultData {
         
     }
     
-    func saveStageData(chpaterNumber:Int, stageNumber:Int, timeRecord:Float) {
+    func saveStageData(chpaterNumber:Int, stageNumber:Int, timeRecord:Double) {
         setClearStage()
         setRecordStage(timeRecord:timeRecord)
     }
