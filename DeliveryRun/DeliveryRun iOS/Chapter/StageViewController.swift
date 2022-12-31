@@ -124,7 +124,7 @@ class StageViewController: UIViewController {
     
     @IBAction func goDelivery(_ sender: CustomGameButton) {
         if userDefault.soundEffect {
-            gameEffectSound.playSound(soundName: "GoDeliverySound")
+            gameEffectSound.playSound(soundName: "GameOnSound")
         }
         userDefault.setStageNumber(stageNumber: playStageNumber)
         let game = UIStoryboard.init(name: "Game", bundle: nil)

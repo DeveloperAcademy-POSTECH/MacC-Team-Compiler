@@ -74,7 +74,7 @@ class GameViewController: UIViewController {
         endTitleLabel.textAlignment = .center
         endTitleLabel.textColor = .white
         
-        targetRecordLabel.text = String(format: "목표 기록 :  : %.2f", self.targetRecord)
+        targetRecordLabel.text = String(format: "목표 기록 : %.2f", self.targetRecord)
         targetRecordLabel.font = UIFont(name: "BMJUAOTF", size: 20)
         targetRecordLabel.textAlignment = .center
         targetRecordLabel.textColor = .white

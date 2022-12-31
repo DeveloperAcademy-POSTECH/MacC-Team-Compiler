@@ -102,7 +102,6 @@ class GameScene: SKScene{
             backgroundMusic.changeBackgroundMusic()
         }
         
-        
         // Chapter & Stage
         self.chapterNumber = userDefault.getChapterNumber()
         self.stageNumber = userDefault.getStageNumber()
