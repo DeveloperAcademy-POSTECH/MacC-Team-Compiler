@@ -10,8 +10,6 @@ import UIKit
 class ChapterViewController: UIViewController {
     
     let userDefault = UserDefaultData.shared
-    
-    
 
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var chapterCollectionView: UICollectionView!
@@ -64,13 +62,12 @@ class ChapterViewController: UIViewController {
         settingButton.layer.shadowRadius = 20
         settingButton.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: settingButton.frame.width, height: settingButton.frame.height)).cgPath
     }
-
 }
 
 extension ChapterViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     // Cell 수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 5
     }
     
     // Cell 초기화
@@ -104,7 +101,6 @@ extension ChapterViewController {
         let stage = UIStoryboard.init(name: "Stage", bundle: nil)
         guard let StageViewController = stage.instantiateViewController(withIdentifier: "StageViewController") as? StageViewController else {return}
         userDefault.setChapterNumber(chapterNumber: indexPath.row + 1)
-        
         StageViewController.modalPresentationStyle = .fullScreen
         self.present(StageViewController, animated: false, completion: nil)
     }

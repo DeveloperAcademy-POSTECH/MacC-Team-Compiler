@@ -24,17 +24,14 @@ class RobbyViewController: UIViewController {
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var questButton: UIButton!
     
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
-        // MARK: UserDefault
-        UserDefaultData.findPath()
         super.viewDidLoad()
+        UserDefaultData.findPath()
         
         if userDefault.backgroundMusic {
             backgroundMusic.playSound(soundName: "BackgroundMusic")
         }
-        
-        
-        // MARK: 런치스크린에 게임배경및 설명 넣고 Sound 집어넣기
         
         PlayerImage.image = UIImage(named: userDefault.nowSkin)
         
@@ -54,29 +51,29 @@ class RobbyViewController: UIViewController {
         questButton.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: questButton.frame.width, height: questButton.frame.height)).cgPath
         
         settingView.isHidden = true
-        questView.isHidden = true
         settingView.layer.opacity = 1.0
+        questView.isHidden = true
         questView.layer.opacity = 1.0
-        
-        
-        
     }
     
-    @IBAction func SettingPressed(_ sender: UIButton) {
+    
+    // MARK: - IBAction
+    @IBAction func goSetting(_ sender: UIButton) {
         settingView.isHidden = false
     }
-    @IBAction func QuestPressed(_ sender: UIButton) {
+    
+    @IBAction func goQuest(_ sender: UIButton) {
         questView.isHidden = false
     }
     
-    
-    @IBAction func GaragePressed(_ sender: CustomGameButton) {
+    @IBAction func goGarage(_ sender: CustomGameButton) {
         let garage = UIStoryboard.init(name: "Garage", bundle: nil)
         guard let GarageViewController = garage.instantiateViewController(withIdentifier: "GarageViewController") as? GarageViewController else { return }
         GarageViewController.modalPresentationStyle = .fullScreen
-        self.present(GarageViewController, animated: true, completion: nil)
+        self.present(GarageViewController, animated: false, completion: nil)
         
     }
+    
     @IBAction func goChapter(_ sender: CustomGameButton) {
         let chapter = UIStoryboard.init(name: "Chapter", bundle: nil)
         guard let ChapterViewController = chapter.instantiateViewController(withIdentifier: "ChapterViewController") as? ChapterViewController else {return}
@@ -84,6 +81,3 @@ class RobbyViewController: UIViewController {
         self.present(ChapterViewController, animated: false, completion: nil)
     }
 }
-
-
-// mySkinPlayer String값
