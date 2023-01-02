@@ -14,11 +14,8 @@ class GameScene: SKScene{
     let backgroundMusic = BackgroundSound.shared
     let gameEffectSound = GameSound.shared
     
-    
     var viewController: GameViewController!
     let userDefault = UserDefaultData.shared
-    
-    
     
     var chapterNumber:Int = 0
     var stageNumber:Int = 0
@@ -538,7 +535,7 @@ extension GameScene {
         }
             
         // 도착 시 게임 종료
-        if player.position.x >= endPoint && !(isGameOver) {
+        if playerNode.position.x >= endPoint && !(isGameOver) {
             arrival(timeRecord: elapsedTime)
             isGameOver = true
         }
