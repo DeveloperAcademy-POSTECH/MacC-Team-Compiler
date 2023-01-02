@@ -28,8 +28,9 @@ class GameScene: SKScene{
     var isClear:Bool = false
     
     // Player
-    var playerNode:SKSpriteNode = SKSpriteNode(imageNamed: "defaultSkin")
+    var playerNode:SKSpriteNode = SKSpriteNode(imageNamed: "default")
     var player:Player = Player(name: "defualt", velocity: 7.0, jump: 7.0, special: false)
+    
     
     // Cat
     var cat: SKSpriteNode!

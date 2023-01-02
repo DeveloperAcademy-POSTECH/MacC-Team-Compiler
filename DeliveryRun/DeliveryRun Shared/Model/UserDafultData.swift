@@ -31,13 +31,6 @@ class UserDefaultData {
         self.backgroundMusic = UserDefaults.standard.bool(forKey: "BackgroundMusic")
         self.soundEffect = UserDefaults.standard.bool(forKey: "SoundEffect")
         
-        // Collection & Skin Value
-        self.nowSkin = UserDefaults.standard.string(forKey: "NowSkin") ?? "default"
-        if let mySkinList = UserDefaults.standard.array(forKey: "SkinList") {
-            self.skinList = mySkinList as! [String]
-        } else {
-            self.skinList = ["default"]
-        }
         
         // Chapter & Stage Value
         self.chapterNumber = UserDefaults.standard.integer(forKey: "ChapterNumber")
@@ -59,6 +52,19 @@ class UserDefaultData {
         self.jumpData = UserDefaults.standard.integer(forKey: "JumpData")
         self.breakData = UserDefaults.standard.integer(forKey: "BreakData")
         self.collisionData = UserDefaults.standard.integer(forKey: "CollisionData")
+        
+        
+        // Collection & Skin Value
+        self.nowSkin = UserDefaults.standard.string(forKey: "NowSkin") ?? "default"
+        if let mySkinList = UserDefaults.standard.array(forKey: "SkinList") {
+            self.skinList = mySkinList as! [String]
+        } else {
+            self.skinList = ["default"]
+        }
+        
+        
+        
+        
         
         // Quest Value
         self.jumpQuestDone = UserDefaults.standard.bool(forKey: "JumpQuestDone")
@@ -98,6 +104,8 @@ class UserDefaultData {
         self.skinList.append(skinName)
         defaults.set(skinList, forKey: "SkinList")
     }
+    
+    
     
     // Tracking Data
     var jumpData:Int = 0
