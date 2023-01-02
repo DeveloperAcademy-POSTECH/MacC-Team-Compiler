@@ -94,7 +94,7 @@
                                     <action selector="goGarage:" destination="BV1-FR-VrT" eventType="touchUpInside" id="qeo-rg-PpV"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="de" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-lM-3qU" userLabel="Player">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="6Ai-lM-3qU" userLabel="Player">
                                 <rect key="frame" x="362" y="225" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="QFs-ic-704"/>
@@ -158,7 +158,7 @@
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="RobbyBack" width="844" height="390"/>
-        <image name="de" width="128" height="128"/>
+        <image name="default" width="348" height="348"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="scroll.fill" catalog="system" width="128" height="116"/>
         <namedColor name="deliveryrunYellow">
