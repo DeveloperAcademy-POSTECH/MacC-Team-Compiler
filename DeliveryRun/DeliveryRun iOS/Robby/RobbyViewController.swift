@@ -33,7 +33,7 @@ class RobbyViewController: UIViewController {
             backgroundMusic.playSound(soundName: "BackgroundMusic")
         }
         
-        PlayerImage.image = UIImage(named: userDefault.mySkin)
+        PlayerImage.image = UIImage(named: userDefault.nowSkin)
         
         garageButton.setTitle(" 차고", for: .normal)
         garageButton.setImage(UIImage(systemName: "car.fill"), for: .normal)

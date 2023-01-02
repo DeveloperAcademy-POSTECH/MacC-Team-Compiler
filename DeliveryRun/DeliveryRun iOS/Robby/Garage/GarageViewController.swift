@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension GarageViewController: YourCellDelegate {
+    
     func didCompleteOnboarding() {
         let robby = UIStoryboard.init(name: "Robby", bundle: nil)
                 guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
@@ -39,8 +40,7 @@ class GarageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionSkins = userDefault.mySkins
-        print("mySkins", userDefault.mySkins)
+        self.collectionSkins = userDefault.skinList
         // Background Blur
         let image = UIImage(named: "RobbyBack")
         backgroundView.image = image?.applyBlur_usingClamps(radius: 30)
