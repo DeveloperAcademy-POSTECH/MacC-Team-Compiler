@@ -63,15 +63,6 @@ class UserDefaultData {
         }
         
         
-        let defaultPlayer = Player(name: "default", velocity: 7, jump: 7, special: false)
-        defaults.setObjectToUserDefault(defaultPlayer, forKey: "DefaultPlayer")
-        let velocityPlayer = Player(name: "velocity", velocity: 9, jump: 7, special: false)
-        defaults.setObjectToUserDefault(velocityPlayer, forKey: "VelocityPlayer")
-        let jumpPlayer = Player(name: "break", velocity: 7, jump: 9, special: false)
-        defaults.setObjectToUserDefault(jumpPlayer, forKey: "JumpPlayer")
-        let collisionPlayer = Player(name: "collision", velocity: 7, jump: 7, special: true)
-        defaults.setObjectToUserDefault(collisionPlayer, forKey: "CollisionPlayer")
-        
         
 
         // Quest Value
@@ -123,6 +114,14 @@ class UserDefaultData {
         self.skinList.append(skinName)
         defaults.set(skinList, forKey: "SkinList")
     }
+    
+    // Player
+    
+    let defaultPlayer = Player(name: "default", velocity: 7, jump: 7, special: false)
+    let jumpPlayer = Player(name: "jump", velocity: 7, jump: 9, special: false)
+    let breakPlayer = Player(name: "break", velocity: 9, jump: 7, special: false)
+    let collisionPlayer = Player(name: "collision", velocity: 7, jump: 7, special: true)
+    
     
     // Quest & Tracking Data
     var jumpQuest:Quest
