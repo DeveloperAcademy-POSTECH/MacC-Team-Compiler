@@ -11,8 +11,8 @@ class ChapterCell: UICollectionViewCell {
     static let id = "chaptercell"
     
     // Cell 배경 View
-    let backView: UIView = {
-        let view = UIView()
+    let backView: UIImageView = {
+        let view = UIImageView()
         view.backgroundColor = .deliveryrunBlack
         view.layer.borderWidth = 2
         view.layer.borderColor = UIColor.white.cgColor
@@ -37,6 +37,7 @@ class ChapterCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.contentView.addSubview(self.backView)
+
         self.contentView.addSubview(self.chapterLabel)
         
         NSLayoutConstraint.activate([
@@ -44,6 +45,7 @@ class ChapterCell: UICollectionViewCell {
               self.backView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
               self.backView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
               self.backView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+              
               
               self.chapterLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
               self.chapterLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)

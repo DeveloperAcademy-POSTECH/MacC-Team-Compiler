@@ -22,14 +22,14 @@ class Stage: Codable{
             return 0
         }
     }
-    var isLock: Bool
+    var unLock: Bool
     
-    init(name: String, image: String, targetRecord: Double, myRecord: Double, isLock: Bool) {
+    init(name: String, image: String, targetRecord: Double, myRecord: Double, unLock: Bool) {
         self.name = name
         self.image = image
         self.targetRecord = targetRecord
         self.myRecord = myRecord
-        self.isLock = isLock
+        self.unLock = unLock
     }
 }
 
