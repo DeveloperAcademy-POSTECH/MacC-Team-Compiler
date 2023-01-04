@@ -10,5 +10,5 @@ import GameplayKit
 import AVFoundation
 
 class Chapter2: GameScene {
-    override var endPoint: Double { return 15000.0 }
+    override var endPoint: Double { return 13000.0 }
 }

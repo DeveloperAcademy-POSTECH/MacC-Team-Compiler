@@ -10,6 +10,8 @@ import UIKit
 
 extension GarageViewController: YourCellDelegate {
     
+    
+    
     func didCompleteOnboarding() {
         let robby = UIStoryboard.init(name: "Robby", bundle: nil)
                 guard let RobbyViewController = robby.instantiateViewController(withIdentifier: "RobbyViewController")as? RobbyViewController else {return}
@@ -24,8 +26,8 @@ class GarageViewController: UIViewController {
     
     var collectionSkins:[String] = []
 
-    let collectionSpeedStat = [7, 7, 7, 7]
-    let collectionJumpStat = [7, 7, 7, 7]
+    var collectionSpeedStat:[Float] = []
+    var collectionJumpStat:[Float] = []
     
     @IBOutlet weak var backgroundView: UIImageView!
     
@@ -41,6 +43,8 @@ class GarageViewController: UIViewController {
         super.viewDidLoad()
         
         self.collectionSkins = userDefault.skinList
+        self.collectionSpeedStat = [userDefault.defaultPlayer.velocity, userDefault.jumpPlayer.velocity, userDefault.breakPlayer.velocity, userDefault.collisionPlayer.velocity]
+        self.collectionJumpStat = [userDefault.defaultPlayer.jump, userDefault.jumpPlayer.jump, userDefault.breakPlayer.jump, userDefault.collisionPlayer.jump]
         // Background Blur
         let image = UIImage(named: "RobbyBack")
         backgroundView.image = image?.applyBlur_usingClamps(radius: 30)
@@ -118,10 +122,13 @@ extension GarageViewController: UICollectionViewDataSource, UICollectionViewDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerCollectionCell", for: indexPath) as! PlayerCollectionCell
         cell.collectionName = collectionSkins[indexPath.row]
         cell.collectionImage.image = UIImage(named: collectionSkins[indexPath.row])
-        cell.SpeedLabel.text = String(format: "%D", collectionSpeedStat[indexPath.row])
-        cell.JumpLabel.text = String(format: "%D", collectionJumpStat[indexPath.row])
+        cell.SpeedLabel.text = String(format: "%.0f", collectionSpeedStat[indexPath.row])
+        cell.JumpLabel.text = String(format: "%.0f", collectionJumpStat[indexPath.row])
         cell.SpeedProgress.progress = Float(Double(collectionSpeedStat[indexPath.row]) / 10.0)
         cell.JumpProgress.progress = Float(Double(collectionJumpStat[indexPath.row]) / 10.0)
+        if indexPath.row == 3 {
+            cell.SpecialLabel.text = "충돌시 회복속도 빠름"
+        }
         cell.delegate = self
         
         return cell

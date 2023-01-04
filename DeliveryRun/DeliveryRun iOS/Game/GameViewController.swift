@@ -84,7 +84,6 @@ class GameViewController: UIViewController {
         nowRecordLabel.textColor = .white
         
         // Present the scene
-        print(String(format: "Stage %D-%D", chapterNumber,stageNumber))
         if let scene = GameScene(fileNamed: String(format: "Stage %D-%D", chapterNumber,stageNumber)) {
             scene.scaleMode = .aspectFill
             scene.viewController = self

@@ -193,6 +193,7 @@
                 <outlet property="AllView" destination="iur-rs-sin" id="3Ek-3i-Owr"/>
                 <outlet property="JumpLabel" destination="H0q-rE-4S8" id="Ye2-4i-FIB"/>
                 <outlet property="JumpProgress" destination="xkG-hH-TgL" id="2wl-BS-ZIh"/>
+                <outlet property="SpecialLabel" destination="yFV-tQ-46k" id="Lua-L0-4QK"/>
                 <outlet property="SpeedLabel" destination="1uZ-HD-mif" id="Cqm-L8-zev"/>
                 <outlet property="SpeedProgress" destination="Zaj-Ej-H3C" id="aAy-FW-eLr"/>
                 <outlet property="checkButton" destination="Vya-cY-DzZ" id="wkT-7A-hbO"/>

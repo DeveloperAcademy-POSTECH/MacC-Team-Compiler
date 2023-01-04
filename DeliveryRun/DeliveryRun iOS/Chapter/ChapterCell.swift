@@ -11,8 +11,8 @@ class ChapterCell: UICollectionViewCell {
     static let id = "chaptercell"
     
     // Cell 배경 View
-    let backView: UIView = {
-        let view = UIView()
+    let backView: UIImageView = {
+        let view = UIImageView()
         view.backgroundColor = .deliveryrunBlack
         view.layer.borderWidth = 2
         view.layer.borderColor = UIColor.white.cgColor
