@@ -23,8 +23,6 @@ class UserDefaultData {
     }()
     
     
-    
-    
     init() {
         UserDefaultData.findPath()
         // Sound Value
@@ -61,9 +59,6 @@ class UserDefaultData {
         } else {
             self.skinList = ["default"]
         }
-        
-        
-        
 
         // Quest Value
         if let loadJumpQuest = defaults.setUserDefaultToObject(dataType: Quest.self, key: "JumpQuest") {
@@ -86,7 +81,6 @@ class UserDefaultData {
             self.collisionQuest = Quest(title: "상남자특", subTitle: "장애물과 50회 충돌하세요.", imageURl: "collision", totalNumber: 1, nowNumber: 0, isClear: false)
             defaults.setObjectToUserDefault(collisionQuest, forKey: "CollisionQuest")
         }
-        
     }
     
     
