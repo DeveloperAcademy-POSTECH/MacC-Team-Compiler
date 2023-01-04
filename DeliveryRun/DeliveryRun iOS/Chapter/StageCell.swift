@@ -10,7 +10,7 @@ import UIKit
 class StageCell: UICollectionViewCell {
     static let id = "stagecell"
     
-    var unLock: Bool = false
+    var isLock: Bool = false
     
     // Cell 배경 View
     let backView: UIView = {
