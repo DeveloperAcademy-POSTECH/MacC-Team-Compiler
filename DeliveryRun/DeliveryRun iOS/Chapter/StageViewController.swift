@@ -150,29 +150,28 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stagecell", for: indexPath) as! StageCell
         
-        // Cell이 unLock인 경우
+        // Cell이 Lock인 경우
         cell.isLock = stages[indexPath.row].isLock
         if cell.isLock {
-            cell.addSubview(cell.unLockView)
-            cell.addSubview(cell.unLockImageView)
+            cell.addSubview(cell.lockView)
+            cell.addSubview(cell.lockImageView)
             cell.isUserInteractionEnabled = true
             
             NSLayoutConstraint.activate([
-                cell.unLockView.leftAnchor.constraint(equalTo: cell.leftAnchor),
-                cell.unLockView.rightAnchor.constraint(equalTo: cell.rightAnchor),
-                cell.unLockView.bottomAnchor.constraint(equalTo: cell.bottomAnchor),
-                cell.unLockView.topAnchor.constraint(equalTo: cell.topAnchor),
+                cell.lockView.leftAnchor.constraint(equalTo: cell.leftAnchor),
+                cell.lockView.rightAnchor.constraint(equalTo: cell.rightAnchor),
+                cell.lockView.bottomAnchor.constraint(equalTo: cell.bottomAnchor),
+                cell.lockView.topAnchor.constraint(equalTo: cell.topAnchor),
                 
-                cell.unLockImageView.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
-                cell.unLockImageView.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
+                cell.lockImageView.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
+                cell.lockImageView.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
             ])
         } else {
             cell.isUserInteractionEnabled = false
         }
         
-        // Cell 텍스트 및 이미지 구성
+        // Cell 텍스트 구성
         cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
-        cell.unLockImageView.image = UIImage(named:String(format: "stageIcon%D", chapterNumber))!.resized(to:CGSize(width:40, height:40))
         return cell
     }
 }

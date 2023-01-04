@@ -36,7 +36,7 @@ class StageCell: UICollectionViewCell {
         return label
     }()
     
-    let unLockView: UIView = {
+    let lockView: UIView = {
        let view = UIView()
         view.backgroundColor = .deliveryrunBlack!.withAlphaComponent(0.6)
         view.layer.cornerRadius = 10
@@ -47,12 +47,11 @@ class StageCell: UICollectionViewCell {
         return view
     }()
     
-    let unLockImageView: UIImageView = {
+    let lockImageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "lock.fill")!.resized(to:CGSize(width:40, height:40)).withTintColor(.deliveryrunRed!)
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
-        view.layer.cornerRadius = 20.0
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
