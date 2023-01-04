@@ -37,10 +37,10 @@ class UserDefaultData {
         self.stageNumber = defaults.integer(forKey: "StageNumber")
         
         self.clearStage = defaults.array(forKey: "ClearStage") as? [[Bool]] ?? [[true,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
-                                                                                             [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
-                                                                                             [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
-                                                                                             [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
-                                                                                             [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]]
+                                                                                             [true,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+                                                                                             [true,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+                                                                                             [true,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+                                                                                             [true,false,false,false,false,false,false,false,false,false,false,false,false,false,false]]
         
         self.recordStage = defaults.array(forKey:"RecordStage") as? [[Double]] ?? [[0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],
             [0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00],
