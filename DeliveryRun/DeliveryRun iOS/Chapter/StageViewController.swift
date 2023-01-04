@@ -31,24 +31,23 @@ class StageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.chapterNumber = userDefault.getChapterNumber()
-        print(chapterNumber)
         
         self.stages = [
-            Stage(name: "스테이지 1", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 1), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 1), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 1)),
-            Stage(name: "스테이지 2", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 2), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 2), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 2)),
-            Stage(name: "스테이지 3", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 3), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 3), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 3)),
-            Stage(name: "스테이지 4", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 4), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 4), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 4)),
-            Stage(name: "스테이지 5", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 5), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 5), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 5)),
-            Stage(name: "스테이지 6", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 6), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 6), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 6)),
-            Stage(name: "스테이지 7", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 7), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 7), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 7)),
-            Stage(name: "스테이지 8", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 8), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 8), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 8)),
-            Stage(name: "스테이지 9", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 9), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 9), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 9)),
-            Stage(name: "스테이지 10", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 10), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 10), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 10)),
-            Stage(name: "스테이지 11", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 11), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 11), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 11)),
-            Stage(name: "스테이지 12", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 12), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 12), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 12)),
-            Stage(name: "스테이지 13", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 13), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 13), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 13)),
-            Stage(name: "스테이지 14", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 14), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 14), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 14)),
-            Stage(name: "스테이지 15", image: String(format: "stage%D", chapterNumber), targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 15), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 15), isLock: userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 15)),
+            Stage(name: "스테이지 1", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 1), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 1), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 1)),
+            Stage(name: "스테이지 2", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 2), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 2), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 2)),
+            Stage(name: "스테이지 3", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 3), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 3), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 3)),
+            Stage(name: "스테이지 4", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 4), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 4), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 4)),
+            Stage(name: "스테이지 5", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 5), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 5), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 5)),
+            Stage(name: "스테이지 6", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 6), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 6), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 6)),
+            Stage(name: "스테이지 7", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 7), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 7), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 7)),
+            Stage(name: "스테이지 8", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 8), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 8), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 8)),
+            Stage(name: "스테이지 9", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 9), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 9), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 9)),
+            Stage(name: "스테이지 10", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 10), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 10), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 10)),
+            Stage(name: "스테이지 11", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 11), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 11), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 11)),
+            Stage(name: "스테이지 12", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 12), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 12), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 12)),
+            Stage(name: "스테이지 13", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 13), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 13), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 13)),
+            Stage(name: "스테이지 14", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 14), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 14), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 14)),
+            Stage(name: "스테이지 15", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 15), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 15), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 15)),
         ]
 
         let image = UIImage(named: "RobbyBack")
@@ -155,7 +154,7 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
         if cell.isLock {
             cell.addSubview(cell.lockView)
             cell.addSubview(cell.lockImageView)
-            cell.isUserInteractionEnabled = true
+            cell.isUserInteractionEnabled = false
             
             NSLayoutConstraint.activate([
                 cell.lockView.leftAnchor.constraint(equalTo: cell.leftAnchor),
@@ -167,7 +166,7 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 cell.lockImageView.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
             ])
         } else {
-            cell.isUserInteractionEnabled = false
+            cell.isUserInteractionEnabled = true
         }
         
         // Cell 텍스트 구성

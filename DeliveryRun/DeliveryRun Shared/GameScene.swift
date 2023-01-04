@@ -126,8 +126,6 @@ class GameScene: SKScene{
             self.playerSpecial = userDefault.defaultPlayer.special
         }
         
-        print(playerName,playerJump,playerSpeed,playerSpecial)
-        
         // Chapter & Stage
         self.chapterNumber = userDefault.getChapterNumber()
         self.stageNumber = userDefault.getStageNumber()
@@ -136,7 +134,6 @@ class GameScene: SKScene{
         self.jumpData = userDefault.defaults.integer(forKey:"JumpData")
         self.breakData = userDefault.defaults.integer(forKey:"BreakData")
         self.collisionData = userDefault.defaults.integer(forKey:"CollisionData")
-        
         
         // Physical Delegate
         physicsWorld.contactDelegate = self
