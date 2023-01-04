@@ -40,6 +40,7 @@ class PlayerCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var JumpProgress: UIProgressView!
     
+    @IBOutlet weak var SpecialLabel: CustomUILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

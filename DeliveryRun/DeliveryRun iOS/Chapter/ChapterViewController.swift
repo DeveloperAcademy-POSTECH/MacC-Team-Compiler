@@ -74,6 +74,7 @@ extension ChapterViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chaptercell", for: indexPath) as! ChapterCell
         cell.chapterLabel.text = String(format: "Chapter %d", indexPath.row + 1)
+        cell.backView.image = UIImage(named: String(format: "chapter%D", indexPath.row + 1))
         return cell
     }
 }

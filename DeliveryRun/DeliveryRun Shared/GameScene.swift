@@ -28,8 +28,12 @@ class GameScene: SKScene{
     var isClear:Bool = false
     
     // Player
-    var playerNode:SKSpriteNode = SKSpriteNode(imageNamed: "defaultSkin")
-    var player:Player = Player(name: "defualt", velocity: 7.0, jump: 7.0, special: false)
+    var playerNode:SKSpriteNode = SKSpriteNode(imageNamed: "default")
+    var playerName = "default"
+    var playerSpeed = 7.0
+    var playerJump = 7.0
+    var playerSpecial = false
+    
     
     // Cat
     var cat: SKSpriteNode!
@@ -83,7 +87,6 @@ class GameScene: SKScene{
     
     let endTime = 999.00
     var elapsedTime = 0.00
-    var playerSpeed = 3.0
     let maxSpeed = 10.0
     let minSpeed = 1.0
     var endPoint: Double { return 20000.0 }
@@ -101,10 +104,27 @@ class GameScene: SKScene{
         if userDefault.backgroundMusic {
             backgroundMusic.changeBackgroundMusic()
         }
-        self.player.name = userDefault.nowSkin
-        self.player.velocity = 7.0
-        self.player.jump = 7.0
-        self.player.special = false
+        if userDefault.nowSkin == "jump" {
+            self.playerName = userDefault.jumpPlayer.name
+            self.playerSpeed = Double(userDefault.jumpPlayer.velocity)
+            self.playerJump = Double(userDefault.jumpPlayer.jump)
+            self.playerSpecial = userDefault.jumpPlayer.special
+        } else if userDefault.nowSkin == "break" {
+            self.playerName = userDefault.breakPlayer.name
+            self.playerSpeed = Double(userDefault.breakPlayer.velocity)
+            self.playerJump = Double(userDefault.breakPlayer.jump)
+            self.playerSpecial = userDefault.breakPlayer.special
+        } else if userDefault.nowSkin == "collision" {
+            self.playerName = userDefault.collisionPlayer.name
+            self.playerSpeed = Double(userDefault.collisionPlayer.velocity)
+            self.playerJump = Double(userDefault.collisionPlayer.jump)
+            self.playerSpecial = userDefault.collisionPlayer.special
+        } else {
+            self.playerName = userDefault.defaultPlayer.name
+            self.playerSpeed = Double(userDefault.defaultPlayer.velocity)
+            self.playerJump = Double(userDefault.defaultPlayer.jump)
+            self.playerSpecial = userDefault.defaultPlayer.special
+        }
         
         // Chapter & Stage
         self.chapterNumber = userDefault.getChapterNumber()
@@ -114,7 +134,6 @@ class GameScene: SKScene{
         self.jumpData = userDefault.defaults.integer(forKey:"JumpData")
         self.breakData = userDefault.defaults.integer(forKey:"BreakData")
         self.collisionData = userDefault.defaults.integer(forKey:"CollisionData")
-        
         
         // Physical Delegate
         physicsWorld.contactDelegate = self
@@ -128,12 +147,12 @@ class GameScene: SKScene{
         
         // PlayerState 가져오기
         playerStateMachine = GKStateMachine(states: [
-            RunningState(playerNode: playerNode,skinName: player.name),
-            JumpingState(playerNode: playerNode ,skinName: player.name),
-            LandingState(playerNode: playerNode ,skinName: player.name),
-            AccelingState(playerNode: playerNode ,skinName: player.name),
-            BreakingState(playerNode: playerNode ,skinName: player.name),
-            DamageState(playerNode: playerNode ,skinName: player.name)
+            RunningState(playerNode: playerNode,skinName: playerName),
+            JumpingState(playerNode: playerNode ,skinName: playerName),
+            LandingState(playerNode: playerNode ,skinName: playerName),
+            AccelingState(playerNode: playerNode ,skinName: playerName),
+            BreakingState(playerNode: playerNode ,skinName: playerName),
+            DamageState(playerNode: playerNode ,skinName: playerName)
         ])
         
         playerStateMachine.enter(RunningState.self)

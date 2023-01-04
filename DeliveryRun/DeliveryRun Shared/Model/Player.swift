@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Player {
+class Player: Codable {
     var name: String
     var velocity: Float
     var jump: Float
