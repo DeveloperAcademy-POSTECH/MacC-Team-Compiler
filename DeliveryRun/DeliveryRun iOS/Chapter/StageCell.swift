@@ -52,6 +52,7 @@ class StageCell: UICollectionViewCell {
         view.image = UIImage(systemName: "lock.fill")!.resized(to:CGSize(width:40, height:40)).withTintColor(.deliveryrunRed!)
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
+        view.layer.cornerRadius = 20.0
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

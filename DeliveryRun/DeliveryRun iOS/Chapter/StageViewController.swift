@@ -172,7 +172,7 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         // Cell 텍스트 및 이미지 구성
         cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
-        cell.unLockImageView.image = UIImage(named:String(format: "stage%D", chapterNumber))?.resized(to:CGSize(width:40, height:40))
+        cell.unLockImageView.image = UIImage(named:String(format: "stageIcon%D", chapterNumber))!.resized(to:CGSize(width:40, height:40))
         return cell
     }
 }
