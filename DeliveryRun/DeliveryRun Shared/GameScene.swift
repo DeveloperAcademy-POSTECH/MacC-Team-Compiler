@@ -576,7 +576,7 @@ extension GameScene {
 extension GameScene: SKPhysicsContactDelegate {
     struct Collision {
         enum Masks: Int {
-            case damage, player, reward, ground, ending, interaction
+            case damage, player, reward, ground, ending
             var bitmask: UInt32 { return 1 << self.rawValue }
         }
         
@@ -672,15 +672,6 @@ extension GameScene: SKPhysicsContactDelegate {
             }
             collisionData += 1
         }
-        
-        if collision.matches(.player, .interaction) {
-            if contact.bodyA.node?.name == "Cat" {
-                stealAction = false
-            } else if contact.bodyB.node?.name == "Cat" {
-                stealAction = false
-            }
-        }
-        
         
         if collision.matches(.player, .ground) {
             playerStateMachine.enter(LandingState.self)
