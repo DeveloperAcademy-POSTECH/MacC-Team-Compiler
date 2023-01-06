@@ -195,7 +195,7 @@ class UserDefaultData {
     }
     
     func setClearStage() {
-        if self.clearStage[self.chapterNumber - 1][self.stageNumber - 1] {
+        if self.clearStage[self.chapterNumber - 1][self.stageNumber - 1] && self.stageNumber != 15 {
             self.clearStage[self.chapterNumber - 1][self.stageNumber] = true
             defaults.set(self.clearStage, forKey:"ClearStage")
         } else {
