@@ -52,7 +52,6 @@
 		63F532CC295EBD18004B2BA2 /* Stage 2-14.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53233295EBD17004B2BA2 /* Stage 2-14.sks */; };
 		63F532CD295EBD18004B2BA2 /* Stage 2-15.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53234295EBD17004B2BA2 /* Stage 2-15.sks */; };
 		63F532D5295EBD18004B2BA2 /* Stage 5-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5323D295EBD17004B2BA2 /* Stage 5-1.sks */; };
-		63F532D6295EBD18004B2BA2 /* Chapter5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5323E295EBD17004B2BA2 /* Chapter5.swift */; };
 		63F532D7295EBD18004B2BA2 /* Stage 5-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5323F295EBD17004B2BA2 /* Stage 5-2.sks */; };
 		63F532D8295EBD18004B2BA2 /* Stage 5-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53240295EBD17004B2BA2 /* Stage 5-3.sks */; };
 		63F532DB295EBD18004B2BA2 /* Stage 5-4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53243295EBD17004B2BA2 /* Stage 5-4.sks */; };
@@ -85,7 +84,6 @@
 		63F5330F295EBD19004B2BA2 /* Stage 4-15.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53278295EBD17004B2BA2 /* Stage 4-15.sks */; };
 		63F53311295EBD19004B2BA2 /* Stage 3-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5327B295EBD18004B2BA2 /* Stage 3-1.sks */; };
 		63F53312295EBD19004B2BA2 /* Stage 3-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5327C295EBD18004B2BA2 /* Stage 3-2.sks */; };
-		63F53313295EBD19004B2BA2 /* Chapter3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5327D295EBD18004B2BA2 /* Chapter3.swift */; };
 		63F53316295EBD19004B2BA2 /* Stage 3-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53280295EBD18004B2BA2 /* Stage 3-3.sks */; };
 		63F53317295EBD19004B2BA2 /* Stage 3-4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53281295EBD18004B2BA2 /* Stage 3-4.sks */; };
 		63F53318295EBD19004B2BA2 /* Stage 3-5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53282295EBD18004B2BA2 /* Stage 3-5.sks */; };
@@ -728,10 +726,6 @@
 				63F53335295ECC8E004B2BA2 /* Extension.swift in Sources */,
 				6FF3371B29309CC700D04BDB /* QuestView.swift in Sources */,
 				638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */,
-				63F532D6295EBD18004B2BA2 /* Chapter5.swift in Sources */,
-				63F53313295EBD19004B2BA2 /* Chapter3.swift in Sources */,
-				63F532D6295EBD18004B2BA2 /* Chapter5.swift in Sources */,
-				63F53313295EBD19004B2BA2 /* Chapter3.swift in Sources */,
 				63A6B99C295D69CA000A46C0 /* ChapterCell.swift in Sources */,
 				639497482953F12800BCD444 /* Color.swift in Sources */,
 				6394974C2953F12800BCD444 /* Sound.swift in Sources */,
