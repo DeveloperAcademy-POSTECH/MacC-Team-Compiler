@@ -213,7 +213,6 @@ class UserDefaultData {
         } else {
             print("Not Override Record")
         }
-        
     }
     
     func saveStageData(chpaterNumber:Int, stageNumber:Int, timeRecord:Double) {
