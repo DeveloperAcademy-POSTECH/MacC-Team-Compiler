@@ -75,6 +75,25 @@ extension ChapterViewController: UICollectionViewDataSource, UICollectionViewDel
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chaptercell", for: indexPath) as! ChapterCell
         cell.chapterLabel.text = String(format: "Chapter %d", indexPath.row + 1)
         cell.backView.image = UIImage(named: String(format: "chapter%D", indexPath.row + 1))
+        
+        if indexPath.row > 0 {
+            cell.addSubview(cell.lockView)
+            cell.addSubview(cell.lockImageView)
+            cell.isUserInteractionEnabled = false
+            
+            NSLayoutConstraint.activate([
+                cell.lockView.leftAnchor.constraint(equalTo: cell.leftAnchor),
+                cell.lockView.rightAnchor.constraint(equalTo: cell.rightAnchor),
+                cell.lockView.bottomAnchor.constraint(equalTo: cell.bottomAnchor),
+                cell.lockView.topAnchor.constraint(equalTo: cell.topAnchor),
+                
+                cell.lockImageView.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
+                cell.lockImageView.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
+            ])
+        } else {
+            cell.isUserInteractionEnabled = true
+        }
+        
         return cell
     }
 }

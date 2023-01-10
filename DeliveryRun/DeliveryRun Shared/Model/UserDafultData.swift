@@ -145,8 +145,6 @@ class UserDefaultData {
     }
     
     // Chapter & Stage
-    
-    
     private var chapterNumber: Int
     private var stageNumber:Int
     
@@ -170,7 +168,7 @@ class UserDefaultData {
     
     
     let targetRecord: [[Double]] = [
-        [10.00, 20.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00],
+        [25.00, 27.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00],
         [10.00, 20.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00],
         [10.00, 20.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00],
         [10.00, 20.00, 30.00, 40.00, 50.00, 60.00, 70.00, 80.00, 90.00, 100.00, 110.00, 120.00, 130.00, 140.00, 150.00],
@@ -180,8 +178,6 @@ class UserDefaultData {
     
     private var recordStage:[[Double]]
     
-    
-
     func getTargetRecord(chapterNumber:Int, stageNumber:Int) -> Double {
         self.targetRecord[chapterNumber - 1][stageNumber - 1]
     }

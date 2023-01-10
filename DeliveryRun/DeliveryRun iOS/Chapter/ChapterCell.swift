@@ -34,6 +34,26 @@ class ChapterCell: UICollectionViewCell {
         return label
     }()
     
+    let lockView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .deliveryrunBlack!.withAlphaComponent(0.6)
+        view.layer.cornerRadius = 10
+        view.contentMode = .scaleAspectFit
+        view.clipsToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = false
+        return view
+    }()
+    
+    let lockImageView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(systemName: "lock.fill")!.resized(to:CGSize(width:40, height:40)).withTintColor(.deliveryrunRed!)
+        view.contentMode = .scaleAspectFit
+        view.clipsToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.contentView.addSubview(self.backView)
@@ -48,18 +68,5 @@ class ChapterCell: UICollectionViewCell {
               self.chapterLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
               self.chapterLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
-    }
-    
-    // isSelected
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                self.backView.layer.borderColor = UIColor.deliveryrunYellow!.cgColor
-                self.backView.layer.borderWidth = 5
-            } else {
-                self.backView.layer.borderColor = UIColor.white.cgColor
-                self.backView.layer.borderWidth = 2
-            }
-        }
     }
 }
