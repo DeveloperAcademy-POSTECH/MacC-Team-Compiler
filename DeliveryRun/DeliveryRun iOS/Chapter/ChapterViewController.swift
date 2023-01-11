@@ -8,6 +8,8 @@
 import UIKit
 
 class ChapterViewController: UIViewController {
+    
+    let userDefault = UserDefaultData.shared
 
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var chapterCollectionView: UICollectionView!
@@ -60,7 +62,6 @@ class ChapterViewController: UIViewController {
         settingButton.layer.shadowRadius = 20
         settingButton.layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: settingButton.frame.width, height: settingButton.frame.height)).cgPath
     }
-
 }
 
 extension ChapterViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -73,6 +74,36 @@ extension ChapterViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "chaptercell", for: indexPath) as! ChapterCell
         cell.chapterLabel.text = String(format: "Chapter %d", indexPath.row + 1)
+        cell.backView.image = UIImage(named: String(format: "chapter%D", indexPath.row + 1))
+        
+        if indexPath.row > 0 {
+            cell.addSubview(cell.lockView)
+            cell.addSubview(cell.lockImageView)
+            cell.addSubview(cell.lockLabel)
+            cell.isUserInteractionEnabled = false
+            
+            NSLayoutConstraint.activate([
+                cell.lockView.leftAnchor.constraint(equalTo: cell.leftAnchor),
+                cell.lockView.rightAnchor.constraint(equalTo: cell.rightAnchor),
+                cell.lockView.bottomAnchor.constraint(equalTo: cell.bottomAnchor),
+                cell.lockView.topAnchor.constraint(equalTo: cell.topAnchor),
+                
+                cell.lockImageView.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
+                cell.lockImageView.centerYAnchor.constraint(equalTo: cell.centerYAnchor),
+                
+                cell.lockLabel.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
+                cell.lockLabel.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
+            ])
+        } else {
+            cell.addSubview(cell.chapterLabel)
+            cell.isUserInteractionEnabled = true
+            
+            NSLayoutConstraint.activate([
+                cell.chapterLabel.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
+                cell.chapterLabel.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
+            ])
+        }
+        
         return cell
     }
 }
@@ -99,7 +130,7 @@ extension ChapterViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let stage = UIStoryboard.init(name: "Stage", bundle: nil)
         guard let StageViewController = stage.instantiateViewController(withIdentifier: "StageViewController") as? StageViewController else {return}
-        StageViewController.chapterNumber = indexPath.row + 1
+        userDefault.setChapterNumber(chapterNumber: indexPath.row + 1)
         StageViewController.modalPresentationStyle = .fullScreen
         self.present(StageViewController, animated: false, completion: nil)
     }

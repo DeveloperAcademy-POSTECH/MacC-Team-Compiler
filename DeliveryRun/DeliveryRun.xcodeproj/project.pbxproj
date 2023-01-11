@@ -14,58 +14,117 @@
 		637DB209293CF5D1007B755C /* PlayerCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637DB207293CF5D1007B755C /* PlayerCollectionCell.xib */; };
 		638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D9B29292B46750024E821 /* QuestTableCell.swift */; };
 		638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638D9B2A292B46750024E821 /* QuestTableCell.xib */; };
-		638D9B2F292B93260024E821 /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D9B2E292B93260024E821 /* Quest.swift */; };
-		639553FE2935B50200E3DECA /* PlayerSkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639553FD2935B50200E3DECA /* PlayerSkin.swift */; };
-		639554002935BC8D00E3DECA /* UserDafultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639553FF2935BC8D00E3DECA /* UserDafultData.swift */; };
-		6396605229233CD30002E6B2 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6396605129233CD30002E6B2 /* SettingView.xib */; };
-		6396605429233D3E0002E6B2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6396605329233D3E0002E6B2 /* SettingView.swift */; };
-		6396605B2923633E0002E6B2 /* UIkitDocument in Resources */ = {isa = PBXBuildFile; fileRef = 6396605A2923633E0002E6B2 /* UIkitDocument */; };
-		63BBCAF92955CC020024603F /* GetItemSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAF12955CC020024603F /* GetItemSound.wav */; };
-		63BBCAFA2955CC020024603F /* ButtonSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAF22955CC020024603F /* ButtonSound.wav */; };
-		63BBCAFB2955CC020024603F /* InGameMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAF32955CC020024603F /* InGameMusic.wav */; };
-		63BBCAFC2955CC020024603F /* ArrivalSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAF42955CC020024603F /* ArrivalSound.wav */; };
-		63BBCAFD2955CC020024603F /* RewardSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAF52955CC020024603F /* RewardSound.wav */; };
-		63BBCAFE2955CC020024603F /* GameOnSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAF62955CC020024603F /* GameOnSound.wav */; };
-		63BBCAFF2955CC020024603F /* BackgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAF72955CC020024603F /* BackgroundMusic.wav */; };
-		63BBCB002955CC020024603F /* SoundEffectOnSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 63BBCAF82955CC020024603F /* SoundEffectOnSound.wav */; };
-		63D689E52906E4BF001748CE /* SpriteDocument in Resources */ = {isa = PBXBuildFile; fileRef = 63D689E42906E4BF001748CE /* SpriteDocument */; };
+		639497402953F12800BCD444 /* UserDafultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639497302953F12800BCD444 /* UserDafultData.swift */; };
+		639497472953F12800BCD444 /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 639497392953F12800BCD444 /* BMJUA_otf.otf */; };
+		639497482953F12800BCD444 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6394973A2953F12800BCD444 /* Color.swift */; };
+		6394974A2953F12800BCD444 /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6394973D2953F12800BCD444 /* Quest.swift */; };
+		6394974B2953F12800BCD444 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6394973E2953F12800BCD444 /* Stage.swift */; };
+		6394974C2953F12800BCD444 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6394973F2953F12800BCD444 /* Sound.swift */; };
+		639497562953F75100BCD444 /* RewardSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6394974E2953F75100BCD444 /* RewardSound.wav */; };
+		639497572953F75100BCD444 /* ButtonSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6394974F2953F75100BCD444 /* ButtonSound.wav */; };
+		639497582953F75100BCD444 /* InGameMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 639497502953F75100BCD444 /* InGameMusic.wav */; };
+		639497592953F75100BCD444 /* ArrivalSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 639497512953F75100BCD444 /* ArrivalSound.wav */; };
+		6394975A2953F75100BCD444 /* BackgroundMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 639497522953F75100BCD444 /* BackgroundMusic.wav */; };
+		6394975B2953F75100BCD444 /* SoundEffectOnSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 639497532953F75100BCD444 /* SoundEffectOnSound.wav */; };
+		6394975C2953F75100BCD444 /* GetItemSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 639497542953F75100BCD444 /* GetItemSound.wav */; };
+		6394975D2953F75100BCD444 /* GameOnSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 639497552953F75100BCD444 /* GameOnSound.wav */; };
+		63A6B99A295D69CA000A46C0 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6B994295D69CA000A46C0 /* StageCell.swift */; };
+		63A6B99B295D69CA000A46C0 /* Stage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A6B995295D69CA000A46C0 /* Stage.storyboard */; };
+		63A6B99C295D69CA000A46C0 /* ChapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6B996295D69CA000A46C0 /* ChapterCell.swift */; };
+		63A6B99D295D69CA000A46C0 /* Chapter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A6B997295D69CA000A46C0 /* Chapter.storyboard */; };
+		63A6B99E295D69CA000A46C0 /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6B998295D69CA000A46C0 /* ChapterViewController.swift */; };
+		63A6B99F295D69CA000A46C0 /* StageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6B999295D69CA000A46C0 /* StageViewController.swift */; };
 		63DC0EAB28F5863100B145B9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DC0EAA28F5863100B145B9 /* GameViewController.swift */; };
-		6F0F6C92295617EC006D5647 /* ChapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0F6C91295617EC006D5647 /* ChapterCell.swift */; };
+		63F532B7295EBD18004B2BA2 /* Chapter2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5321E295EBD17004B2BA2 /* Chapter2.swift */; };
+		63F532B9295EBD18004B2BA2 /* Stage 2-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53220295EBD17004B2BA2 /* Stage 2-1.sks */; };
+		63F532BA295EBD18004B2BA2 /* Stage 2-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53221295EBD17004B2BA2 /* Stage 2-2.sks */; };
+		63F532BB295EBD18004B2BA2 /* Stage 2-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53222295EBD17004B2BA2 /* Stage 2-3.sks */; };
+		63F532BE295EBD18004B2BA2 /* Stage 2-4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53225295EBD17004B2BA2 /* Stage 2-4.sks */; };
+		63F532BF295EBD18004B2BA2 /* Stage 2-5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53226295EBD17004B2BA2 /* Stage 2-5.sks */; };
+		63F532C0295EBD18004B2BA2 /* Stage 2-6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53227295EBD17004B2BA2 /* Stage 2-6.sks */; };
+		63F532C2295EBD18004B2BA2 /* Stage 2-7.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53229295EBD17004B2BA2 /* Stage 2-7.sks */; };
+		63F532C3295EBD18004B2BA2 /* Stage 2-8.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5322A295EBD17004B2BA2 /* Stage 2-8.sks */; };
+		63F532C5295EBD18004B2BA2 /* Stage 2-9.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5322C295EBD17004B2BA2 /* Stage 2-9.sks */; };
+		63F532C6295EBD18004B2BA2 /* Stage 2-10.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5322D295EBD17004B2BA2 /* Stage 2-10.sks */; };
+		63F532C7295EBD18004B2BA2 /* Stage 2-11.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5322E295EBD17004B2BA2 /* Stage 2-11.sks */; };
+		63F532C8295EBD18004B2BA2 /* Stage 2-12.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5322F295EBD17004B2BA2 /* Stage 2-12.sks */; };
+		63F532CA295EBD18004B2BA2 /* Stage 2-13.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53231295EBD17004B2BA2 /* Stage 2-13.sks */; };
+		63F532CC295EBD18004B2BA2 /* Stage 2-14.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53233295EBD17004B2BA2 /* Stage 2-14.sks */; };
+		63F532CD295EBD18004B2BA2 /* Stage 2-15.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53234295EBD17004B2BA2 /* Stage 2-15.sks */; };
+		63F532D5295EBD18004B2BA2 /* Stage 5-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5323D295EBD17004B2BA2 /* Stage 5-1.sks */; };
+		63F532D7295EBD18004B2BA2 /* Stage 5-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5323F295EBD17004B2BA2 /* Stage 5-2.sks */; };
+		63F532D8295EBD18004B2BA2 /* Stage 5-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53240295EBD17004B2BA2 /* Stage 5-3.sks */; };
+		63F532DB295EBD18004B2BA2 /* Stage 5-4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53243295EBD17004B2BA2 /* Stage 5-4.sks */; };
+		63F532DC295EBD18004B2BA2 /* Stage 5-5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53244295EBD17004B2BA2 /* Stage 5-5.sks */; };
+		63F532DF295EBD19004B2BA2 /* Stage 5-6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53247295EBD17004B2BA2 /* Stage 5-6.sks */; };
+		63F532E2295EBD19004B2BA2 /* Stage 5-7.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5324A295EBD17004B2BA2 /* Stage 5-7.sks */; };
+		63F532EA295EBD19004B2BA2 /* Stage 5-8.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53252295EBD17004B2BA2 /* Stage 5-8.sks */; };
+		63F532EB295EBD19004B2BA2 /* Stage 5-9.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53253295EBD17004B2BA2 /* Stage 5-9.sks */; };
+		63F532EC295EBD19004B2BA2 /* Stage 5-10.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53254295EBD17004B2BA2 /* Stage 5-10.sks */; };
+		63F532ED295EBD19004B2BA2 /* Stage 5-11.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53255295EBD17004B2BA2 /* Stage 5-11.sks */; };
+		63F532EF295EBD19004B2BA2 /* Stage 5-12.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53257295EBD17004B2BA2 /* Stage 5-12.sks */; };
+		63F532F0295EBD19004B2BA2 /* Stage 5-13.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53258295EBD17004B2BA2 /* Stage 5-13.sks */; };
+		63F532F1295EBD19004B2BA2 /* Stage 5-14.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53259295EBD17004B2BA2 /* Stage 5-14.sks */; };
+		63F532F2295EBD19004B2BA2 /* Stage 5-15.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5325A295EBD17004B2BA2 /* Stage 5-15.sks */; };
+		63F532F3295EBD19004B2BA2 /* Chapter4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5325C295EBD17004B2BA2 /* Chapter4.swift */; };
+		63F532FA295EBD19004B2BA2 /* Stage 4-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53263295EBD17004B2BA2 /* Stage 4-1.sks */; };
+		63F532FB295EBD19004B2BA2 /* Stage 4-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53264295EBD17004B2BA2 /* Stage 4-2.sks */; };
+		63F532FC295EBD19004B2BA2 /* Stage 4-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53265295EBD17004B2BA2 /* Stage 4-3.sks */; };
+		63F532FD295EBD19004B2BA2 /* Stage 4-4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53266295EBD17004B2BA2 /* Stage 4-4.sks */; };
+		63F53300295EBD19004B2BA2 /* Stage 4-5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53269295EBD17004B2BA2 /* Stage 4-5.sks */; };
+		63F53301295EBD19004B2BA2 /* Stage 4-6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5326A295EBD17004B2BA2 /* Stage 4-6.sks */; };
+		63F53302295EBD19004B2BA2 /* Stage 4-7.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5326B295EBD17004B2BA2 /* Stage 4-7.sks */; };
+		63F53303295EBD19004B2BA2 /* Stage 4-8.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5326C295EBD17004B2BA2 /* Stage 4-8.sks */; };
+		63F53304295EBD19004B2BA2 /* Stage 4-9.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5326D295EBD17004B2BA2 /* Stage 4-9.sks */; };
+		63F53308295EBD19004B2BA2 /* Stage 4-10.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53271295EBD17004B2BA2 /* Stage 4-10.sks */; };
+		63F5330A295EBD19004B2BA2 /* Stage 4-11.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53273295EBD17004B2BA2 /* Stage 4-11.sks */; };
+		63F5330B295EBD19004B2BA2 /* Stage 4-12.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53274295EBD17004B2BA2 /* Stage 4-12.sks */; };
+		63F5330C295EBD19004B2BA2 /* Stage 4-13.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53275295EBD17004B2BA2 /* Stage 4-13.sks */; };
+		63F5330E295EBD19004B2BA2 /* Stage 4-14.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53277295EBD17004B2BA2 /* Stage 4-14.sks */; };
+		63F5330F295EBD19004B2BA2 /* Stage 4-15.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53278295EBD17004B2BA2 /* Stage 4-15.sks */; };
+		63F53311295EBD19004B2BA2 /* Stage 3-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5327B295EBD18004B2BA2 /* Stage 3-1.sks */; };
+		63F53312295EBD19004B2BA2 /* Stage 3-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5327C295EBD18004B2BA2 /* Stage 3-2.sks */; };
+		63F53316295EBD19004B2BA2 /* Stage 3-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53280295EBD18004B2BA2 /* Stage 3-3.sks */; };
+		63F53317295EBD19004B2BA2 /* Stage 3-4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53281295EBD18004B2BA2 /* Stage 3-4.sks */; };
+		63F53318295EBD19004B2BA2 /* Stage 3-5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53282295EBD18004B2BA2 /* Stage 3-5.sks */; };
+		63F5331A295EBD19004B2BA2 /* Stage 3-6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53284295EBD18004B2BA2 /* Stage 3-6.sks */; };
+		63F5331B295EBD19004B2BA2 /* Stage 3-7.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53285295EBD18004B2BA2 /* Stage 3-7.sks */; };
+		63F53321295EBD19004B2BA2 /* Stage 3-8.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5328B295EBD18004B2BA2 /* Stage 3-8.sks */; };
+		63F53322295EBD19004B2BA2 /* Stage 3-9.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5328C295EBD18004B2BA2 /* Stage 3-9.sks */; };
+		63F53325295EBD19004B2BA2 /* Stage 3-10.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5328F295EBD18004B2BA2 /* Stage 3-10.sks */; };
+		63F53326295EBD19004B2BA2 /* Stage 3-11.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53290295EBD18004B2BA2 /* Stage 3-11.sks */; };
+		63F53327295EBD19004B2BA2 /* Stage 3-12.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53291295EBD18004B2BA2 /* Stage 3-12.sks */; };
+		63F53328295EBD19004B2BA2 /* Stage 3-13.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53292295EBD18004B2BA2 /* Stage 3-13.sks */; };
+		63F5332B295EBD19004B2BA2 /* Stage 3-14.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53295295EBD18004B2BA2 /* Stage 3-14.sks */; };
+		63F5332C295EBD19004B2BA2 /* Stage 3-15.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53296295EBD18004B2BA2 /* Stage 3-15.sks */; };
+		63F53332295ECC85004B2BA2 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F53330295ECC85004B2BA2 /* SettingView.xib */; };
+		63F53333295ECC85004B2BA2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F53331295ECC85004B2BA2 /* SettingView.swift */; };
+		63F53335295ECC8E004B2BA2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F53334295ECC8E004B2BA2 /* Extension.swift */; };
+		63F53392295ECE1D004B2BA2 /* Stage 1-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53374295ECE1D004B2BA2 /* Stage 1-3.sks */; };
+		63F53393295ECE1D004B2BA2 /* Stage 1-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53375295ECE1D004B2BA2 /* Stage 1-1.sks */; };
+		63F53394295ECE1D004B2BA2 /* Stage 1-4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53376295ECE1D004B2BA2 /* Stage 1-4.sks */; };
+		63F53396295ECE1D004B2BA2 /* Stage 1-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53378295ECE1D004B2BA2 /* Stage 1-2.sks */; };
+		63F53397295ECE1D004B2BA2 /* Stage 1-5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53379295ECE1D004B2BA2 /* Stage 1-5.sks */; };
+		63F53398295ECE1D004B2BA2 /* Stage 1-6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5337A295ECE1D004B2BA2 /* Stage 1-6.sks */; };
+		63F53399295ECE1D004B2BA2 /* Stage 1-7.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5337B295ECE1D004B2BA2 /* Stage 1-7.sks */; };
+		63F5339B295ECE1D004B2BA2 /* Stage 1-8.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5337D295ECE1D004B2BA2 /* Stage 1-8.sks */; };
+		63F5339D295ECE1D004B2BA2 /* Stage 1-9.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5337F295ECE1D004B2BA2 /* Stage 1-9.sks */; };
+		63F5339E295ECE1D004B2BA2 /* Stage 1-10.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53380295ECE1D004B2BA2 /* Stage 1-10.sks */; };
+		63F533A1295ECE1D004B2BA2 /* Stage 1-11.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53383295ECE1D004B2BA2 /* Stage 1-11.sks */; };
+		63F533A4295ECE1D004B2BA2 /* Stage 1-12.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53386295ECE1D004B2BA2 /* Stage 1-12.sks */; };
+		63F533A6295ECE1D004B2BA2 /* Stage 1-13.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53388295ECE1D004B2BA2 /* Stage 1-13.sks */; };
+		63F533A7295ECE1D004B2BA2 /* Stage 1-14.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F53389295ECE1D004B2BA2 /* Stage 1-14.sks */; };
+		63F533A9295ECE1D004B2BA2 /* Stage 1-15.sks in Resources */ = {isa = PBXBuildFile; fileRef = 63F5338B295ECE1D004B2BA2 /* Stage 1-15.sks */; };
+		63F533AC295ECE1D004B2BA2 /* Chapter1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F5338E295ECE1D004B2BA2 /* Chapter1.swift */; };
+		63F533B1295EE650004B2BA2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F533B0295EE650004B2BA2 /* Player.swift */; };
 		6F28EEA128F5444600D7330F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28EEA028F5444600D7330F /* AppDelegate.swift */; };
 		6F28EEA328F5444600D7330F /* RobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28EEA228F5444600D7330F /* RobbyViewController.swift */; };
 		6F28EEA628F5444600D7330F /* Robby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EEA428F5444600D7330F /* Robby.storyboard */; };
 		6F28EEA928F5444600D7330F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EEA728F5444600D7330F /* LaunchScreen.storyboard */; };
-		6F28EEAA28F5444600D7330F /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9528F5444500D7330F /* Actions.sks */; };
-		6F28EEAB28F5444600D7330F /* Stage 1-1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9628F5444500D7330F /* Stage 1-1.sks */; };
 		6F28EEAC28F5444600D7330F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F28EE9728F5444500D7330F /* GameScene.swift */; };
 		6F28EEAD28F5444600D7330F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F28EE9828F5444600D7330F /* Assets.xcassets */; };
-		6F2E1D9A2924BB2500CAE76E /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2E1D992924BB2500CAE76E /* StageCell.swift */; };
-		6F2F6C2028FB3A9B000B9507 /* StageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F6C1F28FB3A9B000B9507 /* StageViewController.swift */; };
-		6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4B8BD3291E26D5000990EA /* Stage.storyboard */; };
 		6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F4B8BD7291E2E99000990EA /* Game.storyboard */; };
-		6F5D4AB4292CA69C00572DC0 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D4AB3292CA69C00572DC0 /* Stage.swift */; };
 		6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */; };
-		6F725D00293F21FE00971BCC /* Chapter1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F725CFF293F21FE00971BCC /* Chapter1.swift */; };
-		6F965E15293919640048334B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F965E14293919640048334B /* Extensions.swift */; };
-		6F97263F2957674A00783D0C /* Chapter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F97263E2957674A00783D0C /* Chapter.storyboard */; };
-		6FA60FAF28F69431003846EF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA60FAE28F69431003846EF /* Color.swift */; };
-		6FB116802945E18700D1E604 /* Stage 1-3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB1167F2945E18700D1E604 /* Stage 1-3.sks */; };
-		6FB116822945E19600D1E604 /* Stage 1-4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB116812945E19600D1E604 /* Stage 1-4.sks */; };
-		6FB116842945E1A200D1E604 /* Stage 1-5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB116832945E1A200D1E604 /* Stage 1-5.sks */; };
-		6FB220C7295C580700A950AD /* Stage 1-6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220C6295C580700A950AD /* Stage 1-6.sks */; };
-		6FB220C9295C582000A950AD /* Stage 1-7.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220C8295C582000A950AD /* Stage 1-7.sks */; };
-		6FB220CB295C582C00A950AD /* Stage 1-8.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220CA295C582C00A950AD /* Stage 1-8.sks */; };
-		6FB220CD295C583900A950AD /* Stage 1-9.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220CC295C583900A950AD /* Stage 1-9.sks */; };
-		6FB220CF295C584400A950AD /* Stage 1-10.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220CE295C584400A950AD /* Stage 1-10.sks */; };
-		6FB220D1295C584F00A950AD /* Stage 1-11.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220D0295C584F00A950AD /* Stage 1-11.sks */; };
-		6FB220D3295C585800A950AD /* Stage 1-12.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220D2295C585800A950AD /* Stage 1-12.sks */; };
-		6FB220D5295C586200A950AD /* Stage 1-13.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220D4295C586200A950AD /* Stage 1-13.sks */; };
-		6FB220D7295C586B00A950AD /* Stage 1-14.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220D6295C586B00A950AD /* Stage 1-14.sks */; };
-		6FB220D9295C587400A950AD /* Stage 1-15.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB220D8295C587400A950AD /* Stage 1-15.sks */; };
-		6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */; };
-		6FB79CBB293F326600823407 /* Stage 1-2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6FB79CBA293F326600823407 /* Stage 1-2.sks */; };
-		6FBFE15329390D9200A1927D /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBFE15229390D9200A1927D /* Sound.swift */; };
-		6FEFE463295323B7007572E9 /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEFE461295323B7007572E9 /* ChapterViewController.swift */; };
 		6FF3371B29309CC700D04BDB /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF3371A29309CC700D04BDB /* QuestView.swift */; };
 		6FF3371D29309CD700D04BDB /* QuestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF3371C29309CD700D04BDB /* QuestView.xib */; };
 /* End PBXBuildFile section */
@@ -78,26 +137,112 @@
 		637DB207293CF5D1007B755C /* PlayerCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCollectionCell.xib; sourceTree = "<group>"; };
 		638D9B29292B46750024E821 /* QuestTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTableCell.swift; sourceTree = "<group>"; };
 		638D9B2A292B46750024E821 /* QuestTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestTableCell.xib; sourceTree = "<group>"; };
-		638D9B2E292B93260024E821 /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
-		639553FD2935B50200E3DECA /* PlayerSkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSkin.swift; sourceTree = "<group>"; };
-		639553FF2935BC8D00E3DECA /* UserDafultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDafultData.swift; sourceTree = "<group>"; };
-		6396605129233CD30002E6B2 /* SettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
-		6396605329233D3E0002E6B2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		6396605A2923633E0002E6B2 /* UIkitDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = UIkitDocument; sourceTree = "<group>"; };
-		63BBCAF12955CC020024603F /* GetItemSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GetItemSound.wav; sourceTree = "<group>"; };
-		63BBCAF22955CC020024603F /* ButtonSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ButtonSound.wav; sourceTree = "<group>"; };
-		63BBCAF32955CC020024603F /* InGameMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = InGameMusic.wav; sourceTree = "<group>"; };
-		63BBCAF42955CC020024603F /* ArrivalSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ArrivalSound.wav; sourceTree = "<group>"; };
-		63BBCAF52955CC020024603F /* RewardSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = RewardSound.wav; sourceTree = "<group>"; };
-		63BBCAF62955CC020024603F /* GameOnSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameOnSound.wav; sourceTree = "<group>"; };
-		63BBCAF72955CC020024603F /* BackgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BackgroundMusic.wav; sourceTree = "<group>"; };
-		63BBCAF82955CC020024603F /* SoundEffectOnSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SoundEffectOnSound.wav; sourceTree = "<group>"; };
-		63D689E42906E4BF001748CE /* SpriteDocument */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpriteDocument; sourceTree = "<group>"; };
+		639497302953F12800BCD444 /* UserDafultData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDafultData.swift; sourceTree = "<group>"; };
+		639497392953F12800BCD444 /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
+		6394973A2953F12800BCD444 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		6394973D2953F12800BCD444 /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
+		6394973E2953F12800BCD444 /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
+		6394973F2953F12800BCD444 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		6394974E2953F75100BCD444 /* RewardSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = RewardSound.wav; sourceTree = "<group>"; };
+		6394974F2953F75100BCD444 /* ButtonSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ButtonSound.wav; sourceTree = "<group>"; };
+		639497502953F75100BCD444 /* InGameMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = InGameMusic.wav; sourceTree = "<group>"; };
+		639497512953F75100BCD444 /* ArrivalSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ArrivalSound.wav; sourceTree = "<group>"; };
+		639497522953F75100BCD444 /* BackgroundMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BackgroundMusic.wav; sourceTree = "<group>"; };
+		639497532953F75100BCD444 /* SoundEffectOnSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SoundEffectOnSound.wav; sourceTree = "<group>"; };
+		639497542953F75100BCD444 /* GetItemSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GetItemSound.wav; sourceTree = "<group>"; };
+		639497552953F75100BCD444 /* GameOnSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameOnSound.wav; sourceTree = "<group>"; };
+		63A6B994295D69CA000A46C0 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
+		63A6B995295D69CA000A46C0 /* Stage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Stage.storyboard; sourceTree = "<group>"; };
+		63A6B996295D69CA000A46C0 /* ChapterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterCell.swift; sourceTree = "<group>"; };
+		63A6B997295D69CA000A46C0 /* Chapter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chapter.storyboard; sourceTree = "<group>"; };
+		63A6B998295D69CA000A46C0 /* ChapterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
+		63A6B999295D69CA000A46C0 /* StageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageViewController.swift; sourceTree = "<group>"; };
 		63DC0EAA28F5863100B145B9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		6F0F6C91295617EC006D5647 /* ChapterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterCell.swift; sourceTree = "<group>"; };
+		63F5321E295EBD17004B2BA2 /* Chapter2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter2.swift; sourceTree = "<group>"; };
+		63F53220295EBD17004B2BA2 /* Stage 2-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-1.sks"; sourceTree = "<group>"; };
+		63F53221295EBD17004B2BA2 /* Stage 2-2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-2.sks"; sourceTree = "<group>"; };
+		63F53222295EBD17004B2BA2 /* Stage 2-3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-3.sks"; sourceTree = "<group>"; };
+		63F53225295EBD17004B2BA2 /* Stage 2-4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-4.sks"; sourceTree = "<group>"; };
+		63F53226295EBD17004B2BA2 /* Stage 2-5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-5.sks"; sourceTree = "<group>"; };
+		63F53227295EBD17004B2BA2 /* Stage 2-6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-6.sks"; sourceTree = "<group>"; };
+		63F53229295EBD17004B2BA2 /* Stage 2-7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-7.sks"; sourceTree = "<group>"; };
+		63F5322A295EBD17004B2BA2 /* Stage 2-8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-8.sks"; sourceTree = "<group>"; };
+		63F5322C295EBD17004B2BA2 /* Stage 2-9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-9.sks"; sourceTree = "<group>"; };
+		63F5322D295EBD17004B2BA2 /* Stage 2-10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-10.sks"; sourceTree = "<group>"; };
+		63F5322E295EBD17004B2BA2 /* Stage 2-11.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-11.sks"; sourceTree = "<group>"; };
+		63F5322F295EBD17004B2BA2 /* Stage 2-12.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-12.sks"; sourceTree = "<group>"; };
+		63F53231295EBD17004B2BA2 /* Stage 2-13.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-13.sks"; sourceTree = "<group>"; };
+		63F53233295EBD17004B2BA2 /* Stage 2-14.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-14.sks"; sourceTree = "<group>"; };
+		63F53234295EBD17004B2BA2 /* Stage 2-15.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 2-15.sks"; sourceTree = "<group>"; };
+		63F5323D295EBD17004B2BA2 /* Stage 5-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-1.sks"; sourceTree = "<group>"; };
+		63F5323E295EBD17004B2BA2 /* Chapter5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter5.swift; sourceTree = "<group>"; };
+		63F5323F295EBD17004B2BA2 /* Stage 5-2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-2.sks"; sourceTree = "<group>"; };
+		63F53240295EBD17004B2BA2 /* Stage 5-3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-3.sks"; sourceTree = "<group>"; };
+		63F53243295EBD17004B2BA2 /* Stage 5-4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-4.sks"; sourceTree = "<group>"; };
+		63F53244295EBD17004B2BA2 /* Stage 5-5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-5.sks"; sourceTree = "<group>"; };
+		63F53247295EBD17004B2BA2 /* Stage 5-6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-6.sks"; sourceTree = "<group>"; };
+		63F5324A295EBD17004B2BA2 /* Stage 5-7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-7.sks"; sourceTree = "<group>"; };
+		63F53252295EBD17004B2BA2 /* Stage 5-8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-8.sks"; sourceTree = "<group>"; };
+		63F53253295EBD17004B2BA2 /* Stage 5-9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-9.sks"; sourceTree = "<group>"; };
+		63F53254295EBD17004B2BA2 /* Stage 5-10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-10.sks"; sourceTree = "<group>"; };
+		63F53255295EBD17004B2BA2 /* Stage 5-11.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-11.sks"; sourceTree = "<group>"; };
+		63F53257295EBD17004B2BA2 /* Stage 5-12.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-12.sks"; sourceTree = "<group>"; };
+		63F53258295EBD17004B2BA2 /* Stage 5-13.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-13.sks"; sourceTree = "<group>"; };
+		63F53259295EBD17004B2BA2 /* Stage 5-14.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-14.sks"; sourceTree = "<group>"; };
+		63F5325A295EBD17004B2BA2 /* Stage 5-15.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 5-15.sks"; sourceTree = "<group>"; };
+		63F5325C295EBD17004B2BA2 /* Chapter4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter4.swift; sourceTree = "<group>"; };
+		63F53263295EBD17004B2BA2 /* Stage 4-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-1.sks"; sourceTree = "<group>"; };
+		63F53264295EBD17004B2BA2 /* Stage 4-2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-2.sks"; sourceTree = "<group>"; };
+		63F53265295EBD17004B2BA2 /* Stage 4-3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-3.sks"; sourceTree = "<group>"; };
+		63F53266295EBD17004B2BA2 /* Stage 4-4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-4.sks"; sourceTree = "<group>"; };
+		63F53269295EBD17004B2BA2 /* Stage 4-5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-5.sks"; sourceTree = "<group>"; };
+		63F5326A295EBD17004B2BA2 /* Stage 4-6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-6.sks"; sourceTree = "<group>"; };
+		63F5326B295EBD17004B2BA2 /* Stage 4-7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-7.sks"; sourceTree = "<group>"; };
+		63F5326C295EBD17004B2BA2 /* Stage 4-8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-8.sks"; sourceTree = "<group>"; };
+		63F5326D295EBD17004B2BA2 /* Stage 4-9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-9.sks"; sourceTree = "<group>"; };
+		63F53271295EBD17004B2BA2 /* Stage 4-10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-10.sks"; sourceTree = "<group>"; };
+		63F53273295EBD17004B2BA2 /* Stage 4-11.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-11.sks"; sourceTree = "<group>"; };
+		63F53274295EBD17004B2BA2 /* Stage 4-12.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-12.sks"; sourceTree = "<group>"; };
+		63F53275295EBD17004B2BA2 /* Stage 4-13.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-13.sks"; sourceTree = "<group>"; };
+		63F53277295EBD17004B2BA2 /* Stage 4-14.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-14.sks"; sourceTree = "<group>"; };
+		63F53278295EBD17004B2BA2 /* Stage 4-15.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 4-15.sks"; sourceTree = "<group>"; };
+		63F5327B295EBD18004B2BA2 /* Stage 3-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-1.sks"; sourceTree = "<group>"; };
+		63F5327C295EBD18004B2BA2 /* Stage 3-2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-2.sks"; sourceTree = "<group>"; };
+		63F5327D295EBD18004B2BA2 /* Chapter3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter3.swift; sourceTree = "<group>"; };
+		63F53280295EBD18004B2BA2 /* Stage 3-3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-3.sks"; sourceTree = "<group>"; };
+		63F53281295EBD18004B2BA2 /* Stage 3-4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-4.sks"; sourceTree = "<group>"; };
+		63F53282295EBD18004B2BA2 /* Stage 3-5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-5.sks"; sourceTree = "<group>"; };
+		63F53284295EBD18004B2BA2 /* Stage 3-6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-6.sks"; sourceTree = "<group>"; };
+		63F53285295EBD18004B2BA2 /* Stage 3-7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-7.sks"; sourceTree = "<group>"; };
+		63F5328B295EBD18004B2BA2 /* Stage 3-8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-8.sks"; sourceTree = "<group>"; };
+		63F5328C295EBD18004B2BA2 /* Stage 3-9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-9.sks"; sourceTree = "<group>"; };
+		63F5328F295EBD18004B2BA2 /* Stage 3-10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-10.sks"; sourceTree = "<group>"; };
+		63F53290295EBD18004B2BA2 /* Stage 3-11.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-11.sks"; sourceTree = "<group>"; };
+		63F53291295EBD18004B2BA2 /* Stage 3-12.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-12.sks"; sourceTree = "<group>"; };
+		63F53292295EBD18004B2BA2 /* Stage 3-13.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-13.sks"; sourceTree = "<group>"; };
+		63F53295295EBD18004B2BA2 /* Stage 3-14.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-14.sks"; sourceTree = "<group>"; };
+		63F53296295EBD18004B2BA2 /* Stage 3-15.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 3-15.sks"; sourceTree = "<group>"; };
+		63F53330295ECC85004B2BA2 /* SettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
+		63F53331295ECC85004B2BA2 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		63F53334295ECC8E004B2BA2 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		63F53374295ECE1D004B2BA2 /* Stage 1-3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-3.sks"; sourceTree = "<group>"; };
+		63F53375295ECE1D004B2BA2 /* Stage 1-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-1.sks"; sourceTree = "<group>"; };
+		63F53376295ECE1D004B2BA2 /* Stage 1-4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-4.sks"; sourceTree = "<group>"; };
+		63F53378295ECE1D004B2BA2 /* Stage 1-2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-2.sks"; sourceTree = "<group>"; };
+		63F53379295ECE1D004B2BA2 /* Stage 1-5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-5.sks"; sourceTree = "<group>"; };
+		63F5337A295ECE1D004B2BA2 /* Stage 1-6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-6.sks"; sourceTree = "<group>"; };
+		63F5337B295ECE1D004B2BA2 /* Stage 1-7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-7.sks"; sourceTree = "<group>"; };
+		63F5337D295ECE1D004B2BA2 /* Stage 1-8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-8.sks"; sourceTree = "<group>"; };
+		63F5337F295ECE1D004B2BA2 /* Stage 1-9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-9.sks"; sourceTree = "<group>"; };
+		63F53380295ECE1D004B2BA2 /* Stage 1-10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-10.sks"; sourceTree = "<group>"; };
+		63F53383295ECE1D004B2BA2 /* Stage 1-11.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-11.sks"; sourceTree = "<group>"; };
+		63F53386295ECE1D004B2BA2 /* Stage 1-12.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-12.sks"; sourceTree = "<group>"; };
+		63F53388295ECE1D004B2BA2 /* Stage 1-13.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-13.sks"; sourceTree = "<group>"; };
+		63F53389295ECE1D004B2BA2 /* Stage 1-14.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-14.sks"; sourceTree = "<group>"; };
+		63F5338B295ECE1D004B2BA2 /* Stage 1-15.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-15.sks"; sourceTree = "<group>"; };
+		63F5338E295ECE1D004B2BA2 /* Chapter1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter1.swift; sourceTree = "<group>"; };
+		63F533B0295EE650004B2BA2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		6F110C7A28F697F500F75C13 /* DeliveryRun-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DeliveryRun-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
-		6F28EE9528F5444500D7330F /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		6F28EE9628F5444500D7330F /* Stage 1-1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-1.sks"; sourceTree = "<group>"; };
 		6F28EE9728F5444500D7330F /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6F28EE9828F5444600D7330F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F28EE9D28F5444600D7330F /* DeliveryRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,33 +250,8 @@
 		6F28EEA228F5444600D7330F /* RobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobbyViewController.swift; sourceTree = "<group>"; };
 		6F28EEA528F5444600D7330F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Robby.storyboard; sourceTree = "<group>"; };
 		6F28EEA828F5444600D7330F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6F2E1D992924BB2500CAE76E /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
-		6F2F6C1F28FB3A9B000B9507 /* StageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewController.swift; sourceTree = "<group>"; };
-		6F4B8BD3291E26D5000990EA /* Stage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stage.storyboard; sourceTree = "<group>"; };
 		6F4B8BD7291E2E99000990EA /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
-		6F5D4AB3292CA69C00572DC0 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
 		6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileSet.sks; sourceTree = "<group>"; };
-		6F725CFF293F21FE00971BCC /* Chapter1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1.swift; sourceTree = "<group>"; };
-		6F965E14293919640048334B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		6F97263E2957674A00783D0C /* Chapter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chapter.storyboard; sourceTree = "<group>"; };
-		6FA60FAE28F69431003846EF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		6FB1167F2945E18700D1E604 /* Stage 1-3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-3.sks"; sourceTree = "<group>"; };
-		6FB116812945E19600D1E604 /* Stage 1-4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-4.sks"; sourceTree = "<group>"; };
-		6FB116832945E1A200D1E604 /* Stage 1-5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-5.sks"; sourceTree = "<group>"; };
-		6FB220C6295C580700A950AD /* Stage 1-6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-6.sks"; sourceTree = "<group>"; };
-		6FB220C8295C582000A950AD /* Stage 1-7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-7.sks"; sourceTree = "<group>"; };
-		6FB220CA295C582C00A950AD /* Stage 1-8.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-8.sks"; sourceTree = "<group>"; };
-		6FB220CC295C583900A950AD /* Stage 1-9.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-9.sks"; sourceTree = "<group>"; };
-		6FB220CE295C584400A950AD /* Stage 1-10.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-10.sks"; sourceTree = "<group>"; };
-		6FB220D0295C584F00A950AD /* Stage 1-11.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-11.sks"; sourceTree = "<group>"; };
-		6FB220D2295C585800A950AD /* Stage 1-12.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-12.sks"; sourceTree = "<group>"; };
-		6FB220D4295C586200A950AD /* Stage 1-13.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-13.sks"; sourceTree = "<group>"; };
-		6FB220D6295C586B00A950AD /* Stage 1-14.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-14.sks"; sourceTree = "<group>"; };
-		6FB220D8295C587400A950AD /* Stage 1-15.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-15.sks"; sourceTree = "<group>"; };
-		6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
-		6FB79CBA293F326600823407 /* Stage 1-2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "Stage 1-2.sks"; sourceTree = "<group>"; };
-		6FBFE15229390D9200A1927D /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
-		6FEFE461295323B7007572E9 /* ChapterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
 		6FF3371A29309CC700D04BDB /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
 		6FF3371C29309CD700D04BDB /* QuestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,52 +278,215 @@
 			path = Garage;
 			sourceTree = "<group>";
 		};
-		638D9B2D292B93070024E821 /* Model */ = {
+		639496C22953EAB700BCD444 /* Stages */ = {
 			isa = PBXGroup;
 			children = (
-				6FBFE15229390D9200A1927D /* Sound.swift */,
-				638D9B2E292B93260024E821 /* Quest.swift */,
-				6F5D4AB3292CA69C00572DC0 /* Stage.swift */,
-				639553FD2935B50200E3DECA /* PlayerSkin.swift */,
+				63F53373295ECE1D004B2BA2 /* Chapter1 */,
+				63F5321D295EBD17004B2BA2 /* Chapter2 */,
+				63F5327A295EBD18004B2BA2 /* Chapter3 */,
+				63F5325B295EBD17004B2BA2 /* Chapter4 */,
+				63F5323C295EBD17004B2BA2 /* Chapter5 */,
+			);
+			path = Stages;
+			sourceTree = "<group>";
+		};
+		6394972D2953EFBF00BCD444 /* Robby */ = {
+			isa = PBXGroup;
+			children = (
+				6F28EEA228F5444600D7330F /* RobbyViewController.swift */,
+				6F28EEA428F5444600D7330F /* Robby.storyboard */,
+				6FF3371929309A3600D04BDB /* Quest */,
+				637DB201293CE8BC007B755C /* Garage */,
+			);
+			path = Robby;
+			sourceTree = "<group>";
+		};
+		6394972E2953F12800BCD444 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				6394974D2953F75100BCD444 /* Sounds */,
+				639497382953F12800BCD444 /* Fonts */,
+				6394973A2953F12800BCD444 /* Color.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		639497382953F12800BCD444 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				639497392953F12800BCD444 /* BMJUA_otf.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		6394973B2953F12800BCD444 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				639497302953F12800BCD444 /* UserDafultData.swift */,
+				6394973D2953F12800BCD444 /* Quest.swift */,
+				6394973E2953F12800BCD444 /* Stage.swift */,
+				6394973F2953F12800BCD444 /* Sound.swift */,
+				63F533B0295EE650004B2BA2 /* Player.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		63966059292344B00002E6B2 /* Setting */ = {
+		6394974D2953F75100BCD444 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				6396605329233D3E0002E6B2 /* SettingView.swift */,
-				6396605129233CD30002E6B2 /* SettingView.xib */,
+				6394974E2953F75100BCD444 /* RewardSound.wav */,
+				6394974F2953F75100BCD444 /* ButtonSound.wav */,
+				639497502953F75100BCD444 /* InGameMusic.wav */,
+				639497512953F75100BCD444 /* ArrivalSound.wav */,
+				639497522953F75100BCD444 /* BackgroundMusic.wav */,
+				639497532953F75100BCD444 /* SoundEffectOnSound.wav */,
+				639497542953F75100BCD444 /* GetItemSound.wav */,
+				639497552953F75100BCD444 /* GameOnSound.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		63A6B993295D69CA000A46C0 /* Chapter */ = {
+			isa = PBXGroup;
+			children = (
+				63A6B999295D69CA000A46C0 /* StageViewController.swift */,
+				63A6B994295D69CA000A46C0 /* StageCell.swift */,
+				63A6B995295D69CA000A46C0 /* Stage.storyboard */,
+				63A6B998295D69CA000A46C0 /* ChapterViewController.swift */,
+				63A6B996295D69CA000A46C0 /* ChapterCell.swift */,
+				63A6B997295D69CA000A46C0 /* Chapter.storyboard */,
+			);
+			path = Chapter;
+			sourceTree = "<group>";
+		};
+		63F5321D295EBD17004B2BA2 /* Chapter2 */ = {
+			isa = PBXGroup;
+			children = (
+				63F5321E295EBD17004B2BA2 /* Chapter2.swift */,
+				63F53220295EBD17004B2BA2 /* Stage 2-1.sks */,
+				63F53221295EBD17004B2BA2 /* Stage 2-2.sks */,
+				63F53222295EBD17004B2BA2 /* Stage 2-3.sks */,
+				63F53225295EBD17004B2BA2 /* Stage 2-4.sks */,
+				63F53226295EBD17004B2BA2 /* Stage 2-5.sks */,
+				63F53227295EBD17004B2BA2 /* Stage 2-6.sks */,
+				63F53229295EBD17004B2BA2 /* Stage 2-7.sks */,
+				63F5322A295EBD17004B2BA2 /* Stage 2-8.sks */,
+				63F5322C295EBD17004B2BA2 /* Stage 2-9.sks */,
+				63F5322D295EBD17004B2BA2 /* Stage 2-10.sks */,
+				63F5322E295EBD17004B2BA2 /* Stage 2-11.sks */,
+				63F5322F295EBD17004B2BA2 /* Stage 2-12.sks */,
+				63F53231295EBD17004B2BA2 /* Stage 2-13.sks */,
+				63F53233295EBD17004B2BA2 /* Stage 2-14.sks */,
+				63F53234295EBD17004B2BA2 /* Stage 2-15.sks */,
+			);
+			path = Chapter2;
+			sourceTree = "<group>";
+		};
+		63F5323C295EBD17004B2BA2 /* Chapter5 */ = {
+			isa = PBXGroup;
+			children = (
+				63F5323E295EBD17004B2BA2 /* Chapter5.swift */,
+				63F5323D295EBD17004B2BA2 /* Stage 5-1.sks */,
+				63F5323F295EBD17004B2BA2 /* Stage 5-2.sks */,
+				63F53240295EBD17004B2BA2 /* Stage 5-3.sks */,
+				63F53243295EBD17004B2BA2 /* Stage 5-4.sks */,
+				63F53244295EBD17004B2BA2 /* Stage 5-5.sks */,
+				63F53247295EBD17004B2BA2 /* Stage 5-6.sks */,
+				63F5324A295EBD17004B2BA2 /* Stage 5-7.sks */,
+				63F53252295EBD17004B2BA2 /* Stage 5-8.sks */,
+				63F53253295EBD17004B2BA2 /* Stage 5-9.sks */,
+				63F53254295EBD17004B2BA2 /* Stage 5-10.sks */,
+				63F53255295EBD17004B2BA2 /* Stage 5-11.sks */,
+				63F53257295EBD17004B2BA2 /* Stage 5-12.sks */,
+				63F53258295EBD17004B2BA2 /* Stage 5-13.sks */,
+				63F53259295EBD17004B2BA2 /* Stage 5-14.sks */,
+				63F5325A295EBD17004B2BA2 /* Stage 5-15.sks */,
+			);
+			path = Chapter5;
+			sourceTree = "<group>";
+		};
+		63F5325B295EBD17004B2BA2 /* Chapter4 */ = {
+			isa = PBXGroup;
+			children = (
+				63F5325C295EBD17004B2BA2 /* Chapter4.swift */,
+				63F53263295EBD17004B2BA2 /* Stage 4-1.sks */,
+				63F53264295EBD17004B2BA2 /* Stage 4-2.sks */,
+				63F53265295EBD17004B2BA2 /* Stage 4-3.sks */,
+				63F53266295EBD17004B2BA2 /* Stage 4-4.sks */,
+				63F53269295EBD17004B2BA2 /* Stage 4-5.sks */,
+				63F5326A295EBD17004B2BA2 /* Stage 4-6.sks */,
+				63F5326B295EBD17004B2BA2 /* Stage 4-7.sks */,
+				63F5326C295EBD17004B2BA2 /* Stage 4-8.sks */,
+				63F5326D295EBD17004B2BA2 /* Stage 4-9.sks */,
+				63F53271295EBD17004B2BA2 /* Stage 4-10.sks */,
+				63F53273295EBD17004B2BA2 /* Stage 4-11.sks */,
+				63F53274295EBD17004B2BA2 /* Stage 4-12.sks */,
+				63F53275295EBD17004B2BA2 /* Stage 4-13.sks */,
+				63F53277295EBD17004B2BA2 /* Stage 4-14.sks */,
+				63F53278295EBD17004B2BA2 /* Stage 4-15.sks */,
+			);
+			path = Chapter4;
+			sourceTree = "<group>";
+		};
+		63F5327A295EBD18004B2BA2 /* Chapter3 */ = {
+			isa = PBXGroup;
+			children = (
+				63F5327D295EBD18004B2BA2 /* Chapter3.swift */,
+				63F5327B295EBD18004B2BA2 /* Stage 3-1.sks */,
+				63F5327C295EBD18004B2BA2 /* Stage 3-2.sks */,
+				63F53280295EBD18004B2BA2 /* Stage 3-3.sks */,
+				63F53281295EBD18004B2BA2 /* Stage 3-4.sks */,
+				63F53282295EBD18004B2BA2 /* Stage 3-5.sks */,
+				63F53284295EBD18004B2BA2 /* Stage 3-6.sks */,
+				63F53285295EBD18004B2BA2 /* Stage 3-7.sks */,
+				63F5328B295EBD18004B2BA2 /* Stage 3-8.sks */,
+				63F5328C295EBD18004B2BA2 /* Stage 3-9.sks */,
+				63F5328F295EBD18004B2BA2 /* Stage 3-10.sks */,
+				63F53290295EBD18004B2BA2 /* Stage 3-11.sks */,
+				63F53291295EBD18004B2BA2 /* Stage 3-12.sks */,
+				63F53292295EBD18004B2BA2 /* Stage 3-13.sks */,
+				63F53295295EBD18004B2BA2 /* Stage 3-14.sks */,
+				63F53296295EBD18004B2BA2 /* Stage 3-15.sks */,
+			);
+			path = Chapter3;
+			sourceTree = "<group>";
+		};
+		63F5332F295ECC85004B2BA2 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				63F53330295ECC85004B2BA2 /* SettingView.xib */,
+				63F53331295ECC85004B2BA2 /* SettingView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
 		};
-		63BBCAF02955CBC30024603F /* SoundTrack */ = {
+		63F53373295ECE1D004B2BA2 /* Chapter1 */ = {
 			isa = PBXGroup;
 			children = (
-				63BBCAF42955CC020024603F /* ArrivalSound.wav */,
-				63BBCAF72955CC020024603F /* BackgroundMusic.wav */,
-				63BBCAF22955CC020024603F /* ButtonSound.wav */,
-				63BBCAF62955CC020024603F /* GameOnSound.wav */,
-				63BBCAF12955CC020024603F /* GetItemSound.wav */,
-				63BBCAF32955CC020024603F /* InGameMusic.wav */,
-				63BBCAF52955CC020024603F /* RewardSound.wav */,
-				63BBCAF82955CC020024603F /* SoundEffectOnSound.wav */,
+				63F5338E295ECE1D004B2BA2 /* Chapter1.swift */,
+				63F53375295ECE1D004B2BA2 /* Stage 1-1.sks */,
+				63F53378295ECE1D004B2BA2 /* Stage 1-2.sks */,
+				63F53374295ECE1D004B2BA2 /* Stage 1-3.sks */,
+				63F53376295ECE1D004B2BA2 /* Stage 1-4.sks */,
+				63F53379295ECE1D004B2BA2 /* Stage 1-5.sks */,
+				63F5337A295ECE1D004B2BA2 /* Stage 1-6.sks */,
+				63F5337B295ECE1D004B2BA2 /* Stage 1-7.sks */,
+				63F5337D295ECE1D004B2BA2 /* Stage 1-8.sks */,
+				63F5337F295ECE1D004B2BA2 /* Stage 1-9.sks */,
+				63F53380295ECE1D004B2BA2 /* Stage 1-10.sks */,
+				63F53383295ECE1D004B2BA2 /* Stage 1-11.sks */,
+				63F53386295ECE1D004B2BA2 /* Stage 1-12.sks */,
+				63F53388295ECE1D004B2BA2 /* Stage 1-13.sks */,
+				63F53389295ECE1D004B2BA2 /* Stage 1-14.sks */,
+				63F5338B295ECE1D004B2BA2 /* Stage 1-15.sks */,
 			);
-			path = SoundTrack;
-			sourceTree = "<group>";
-		};
-		6F110C7728F6971900F75C13 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				6FB2319E28F7E6E8002F814D /* BMJUA_otf.otf */,
-			);
-			path = Fonts;
+			path = Chapter1;
 			sourceTree = "<group>";
 		};
 		6F28EE8F28F5444500D7330F = {
 			isa = PBXGroup;
 			children = (
+				6F110C7A28F697F500F75C13 /* DeliveryRun-iOS-Info.plist */,
 				6F28EE9428F5444500D7330F /* DeliveryRun Shared */,
 				6F28EE9F28F5444600D7330F /* DeliveryRun iOS */,
 				6F28EE9E28F5444600D7330F /* Products */,
@@ -213,13 +496,12 @@
 		6F28EE9428F5444500D7330F /* DeliveryRun Shared */ = {
 			isa = PBXGroup;
 			children = (
-				63D689E42906E4BF001748CE /* SpriteDocument */,
-				6F28EE9528F5444500D7330F /* Actions.sks */,
 				6F67B4EF29012B2C0016106A /* BackgroundTileSet.sks */,
-				6F725CFE293F21D900971BCC /* Stages */,
 				6F28EE9728F5444500D7330F /* GameScene.swift */,
 				6372509328FFC7F700117CF8 /* PlayerState.swift */,
-				6FA60FAD28F69423003846EF /* Style */,
+				639496C22953EAB700BCD444 /* Stages */,
+				6394973B2953F12800BCD444 /* Model */,
+				6394972E2953F12800BCD444 /* Style */,
 				6F28EE9828F5444600D7330F /* Assets.xcassets */,
 			);
 			path = "DeliveryRun Shared";
@@ -236,74 +518,15 @@
 		6F28EE9F28F5444600D7330F /* DeliveryRun iOS */ = {
 			isa = PBXGroup;
 			children = (
-				6F110C7A28F697F500F75C13 /* DeliveryRun-iOS-Info.plist */,
-				639553FF2935BC8D00E3DECA /* UserDafultData.swift */,
-				638D9B2D292B93070024E821 /* Model */,
-				6F8D7A50295B8C920078CC89 /* Robby */,
-				6F5089A3292B602300B26623 /* Chapter */,
+				63F5332F295ECC85004B2BA2 /* Setting */,
+				63A6B993295D69CA000A46C0 /* Chapter */,
+				6394972D2953EFBF00BCD444 /* Robby */,
 				6F965E13293919420048334B /* Game */,
 				6F28EEA028F5444600D7330F /* AppDelegate.swift */,
-				6F965E14293919640048334B /* Extensions.swift */,
+				63F53334295ECC8E004B2BA2 /* Extension.swift */,
 				6F28EEA728F5444600D7330F /* LaunchScreen.storyboard */,
-				6396605A2923633E0002E6B2 /* UIkitDocument */,
 			);
 			path = "DeliveryRun iOS";
-			sourceTree = "<group>";
-		};
-		6F5089A3292B602300B26623 /* Chapter */ = {
-			isa = PBXGroup;
-			children = (
-				6F2F6C1F28FB3A9B000B9507 /* StageViewController.swift */,
-				6F2E1D992924BB2500CAE76E /* StageCell.swift */,
-				6F4B8BD3291E26D5000990EA /* Stage.storyboard */,
-				6FEFE461295323B7007572E9 /* ChapterViewController.swift */,
-				6F0F6C91295617EC006D5647 /* ChapterCell.swift */,
-				6F97263E2957674A00783D0C /* Chapter.storyboard */,
-			);
-			path = Chapter;
-			sourceTree = "<group>";
-		};
-		6F725CFE293F21D900971BCC /* Stages */ = {
-			isa = PBXGroup;
-			children = (
-				6F8D7A4F295B8C700078CC89 /* Chapter 1 */,
-			);
-			path = Stages;
-			sourceTree = "<group>";
-		};
-		6F8D7A4F295B8C700078CC89 /* Chapter 1 */ = {
-			isa = PBXGroup;
-			children = (
-				6F725CFF293F21FE00971BCC /* Chapter1.swift */,
-				6F28EE9628F5444500D7330F /* Stage 1-1.sks */,
-				6FB79CBA293F326600823407 /* Stage 1-2.sks */,
-				6FB1167F2945E18700D1E604 /* Stage 1-3.sks */,
-				6FB116812945E19600D1E604 /* Stage 1-4.sks */,
-				6FB116832945E1A200D1E604 /* Stage 1-5.sks */,
-				6FB220C6295C580700A950AD /* Stage 1-6.sks */,
-				6FB220C8295C582000A950AD /* Stage 1-7.sks */,
-				6FB220CA295C582C00A950AD /* Stage 1-8.sks */,
-				6FB220CC295C583900A950AD /* Stage 1-9.sks */,
-				6FB220CE295C584400A950AD /* Stage 1-10.sks */,
-				6FB220D0295C584F00A950AD /* Stage 1-11.sks */,
-				6FB220D2295C585800A950AD /* Stage 1-12.sks */,
-				6FB220D4295C586200A950AD /* Stage 1-13.sks */,
-				6FB220D6295C586B00A950AD /* Stage 1-14.sks */,
-				6FB220D8295C587400A950AD /* Stage 1-15.sks */,
-			);
-			path = "Chapter 1";
-			sourceTree = "<group>";
-		};
-		6F8D7A50295B8C920078CC89 /* Robby */ = {
-			isa = PBXGroup;
-			children = (
-				63966059292344B00002E6B2 /* Setting */,
-				637DB201293CE8BC007B755C /* Garage */,
-				6FF3371929309A3600D04BDB /* Quest */,
-				6F28EEA228F5444600D7330F /* RobbyViewController.swift */,
-				6F28EEA428F5444600D7330F /* Robby.storyboard */,
-			);
-			path = Robby;
 			sourceTree = "<group>";
 		};
 		6F965E13293919420048334B /* Game */ = {
@@ -313,16 +536,6 @@
 				6F4B8BD7291E2E99000990EA /* Game.storyboard */,
 			);
 			path = Game;
-			sourceTree = "<group>";
-		};
-		6FA60FAD28F69423003846EF /* Style */ = {
-			isa = PBXGroup;
-			children = (
-				63BBCAF02955CBC30024603F /* SoundTrack */,
-				6F110C7728F6971900F75C13 /* Fonts */,
-				6FA60FAE28F69431003846EF /* Color.swift */,
-			);
-			path = Style;
 			sourceTree = "<group>";
 		};
 		6FF3371929309A3600D04BDB /* Quest */ = {
@@ -394,45 +607,102 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FB220D7295C586B00A950AD /* Stage 1-14.sks in Resources */,
-				6396605B2923633E0002E6B2 /* UIkitDocument in Resources */,
-				6FB220D9295C587400A950AD /* Stage 1-15.sks in Resources */,
-				6FB220D5295C586200A950AD /* Stage 1-13.sks in Resources */,
-				6FB116822945E19600D1E604 /* Stage 1-4.sks in Resources */,
-				6F4B8BD4291E26D5000990EA /* Stage.storyboard in Resources */,
+				63F53322295EBD19004B2BA2 /* Stage 3-9.sks in Resources */,
+				639497562953F75100BCD444 /* RewardSound.wav in Resources */,
+				63F532FA295EBD19004B2BA2 /* Stage 4-1.sks in Resources */,
+				63F532CD295EBD18004B2BA2 /* Stage 2-15.sks in Resources */,
+				63F5339B295ECE1D004B2BA2 /* Stage 1-8.sks in Resources */,
+				63F5331A295EBD19004B2BA2 /* Stage 3-6.sks in Resources */,
+				63F53311295EBD19004B2BA2 /* Stage 3-1.sks in Resources */,
+				63F5339D295ECE1D004B2BA2 /* Stage 1-9.sks in Resources */,
+				63F532DC295EBD18004B2BA2 /* Stage 5-5.sks in Resources */,
+				63F532C3295EBD18004B2BA2 /* Stage 2-8.sks in Resources */,
+				63F532F0295EBD19004B2BA2 /* Stage 5-13.sks in Resources */,
+				63F533A7295ECE1D004B2BA2 /* Stage 1-14.sks in Resources */,
+				63F53308295EBD19004B2BA2 /* Stage 4-10.sks in Resources */,
 				6F67B4F029012B2C0016106A /* BackgroundTileSet.sks in Resources */,
-				6FB79CBB293F326600823407 /* Stage 1-2.sks in Resources */,
-				63BBCAFD2955CC020024603F /* RewardSound.wav in Resources */,
+				6394975A2953F75100BCD444 /* BackgroundMusic.wav in Resources */,
+				63F53301295EBD19004B2BA2 /* Stage 4-6.sks in Resources */,
+				63A6B99B295D69CA000A46C0 /* Stage.storyboard in Resources */,
+				63F532CC295EBD18004B2BA2 /* Stage 2-14.sks in Resources */,
+				63F53398295ECE1D004B2BA2 /* Stage 1-6.sks in Resources */,
+				63F5330A295EBD19004B2BA2 /* Stage 4-11.sks in Resources */,
+				63F532D7295EBD18004B2BA2 /* Stage 5-2.sks in Resources */,
+				63F532ED295EBD19004B2BA2 /* Stage 5-11.sks in Resources */,
+				63F53312295EBD19004B2BA2 /* Stage 3-2.sks in Resources */,
+				63F533A4295ECE1D004B2BA2 /* Stage 1-12.sks in Resources */,
+				63F53394295ECE1D004B2BA2 /* Stage 1-4.sks in Resources */,
+				63F532EC295EBD19004B2BA2 /* Stage 5-10.sks in Resources */,
+				63F532C8295EBD18004B2BA2 /* Stage 2-12.sks in Resources */,
 				637DB203293CEA2C007B755C /* Garage.storyboard in Resources */,
-				6FB116842945E1A200D1E604 /* Stage 1-5.sks in Resources */,
-				6F28EEAB28F5444600D7330F /* Stage 1-1.sks in Resources */,
-				6FB2319F28F7E6E8002F814D /* BMJUA_otf.otf in Resources */,
+				63F532C2295EBD18004B2BA2 /* Stage 2-7.sks in Resources */,
+				63F5330C295EBD19004B2BA2 /* Stage 4-13.sks in Resources */,
+				63F532D5295EBD18004B2BA2 /* Stage 5-1.sks in Resources */,
+				639497582953F75100BCD444 /* InGameMusic.wav in Resources */,
+				63F53317295EBD19004B2BA2 /* Stage 3-4.sks in Resources */,
+				63F53318295EBD19004B2BA2 /* Stage 3-5.sks in Resources */,
+				639497592953F75100BCD444 /* ArrivalSound.wav in Resources */,
+				63A6B99D295D69CA000A46C0 /* Chapter.storyboard in Resources */,
+				63F5331B295EBD19004B2BA2 /* Stage 3-7.sks in Resources */,
+				63F533A1295ECE1D004B2BA2 /* Stage 1-11.sks in Resources */,
+				63F532F2295EBD19004B2BA2 /* Stage 5-15.sks in Resources */,
+				63F532BE295EBD18004B2BA2 /* Stage 2-4.sks in Resources */,
+				63F53328295EBD19004B2BA2 /* Stage 3-13.sks in Resources */,
+				63F532FB295EBD19004B2BA2 /* Stage 4-2.sks in Resources */,
 				6F28EEA628F5444600D7330F /* Robby.storyboard in Resources */,
-				6FB116802945E18700D1E604 /* Stage 1-3.sks in Resources */,
-				63BBCAFF2955CC020024603F /* BackgroundMusic.wav in Resources */,
 				6F4B8BD8291E2E99000990EA /* Game.storyboard in Resources */,
-				63BBCAFA2955CC020024603F /* ButtonSound.wav in Resources */,
-				6FB220C9295C582000A950AD /* Stage 1-7.sks in Resources */,
-				6FB220D1295C584F00A950AD /* Stage 1-11.sks in Resources */,
+				63F532DB295EBD18004B2BA2 /* Stage 5-4.sks in Resources */,
+				63F532EB295EBD19004B2BA2 /* Stage 5-9.sks in Resources */,
 				638D9B2C292B46750024E821 /* QuestTableCell.xib in Resources */,
-				63D689E52906E4BF001748CE /* SpriteDocument in Resources */,
-				6FB220CD295C583900A950AD /* Stage 1-9.sks in Resources */,
+				63F53327295EBD19004B2BA2 /* Stage 3-12.sks in Resources */,
+				63F532BF295EBD18004B2BA2 /* Stage 2-5.sks in Resources */,
+				63F532DF295EBD19004B2BA2 /* Stage 5-6.sks in Resources */,
+				63F5330E295EBD19004B2BA2 /* Stage 4-14.sks in Resources */,
+				63F53300295EBD19004B2BA2 /* Stage 4-5.sks in Resources */,
+				63F53326295EBD19004B2BA2 /* Stage 3-11.sks in Resources */,
+				6394975B2953F75100BCD444 /* SoundEffectOnSound.wav in Resources */,
+				63F53396295ECE1D004B2BA2 /* Stage 1-2.sks in Resources */,
+				63F532FC295EBD19004B2BA2 /* Stage 4-3.sks in Resources */,
+				63F5332B295EBD19004B2BA2 /* Stage 3-14.sks in Resources */,
+				63F532E2295EBD19004B2BA2 /* Stage 5-7.sks in Resources */,
+				63F533A6295ECE1D004B2BA2 /* Stage 1-13.sks in Resources */,
+				63F53392295ECE1D004B2BA2 /* Stage 1-3.sks in Resources */,
 				637DB209293CF5D1007B755C /* PlayerCollectionCell.xib in Resources */,
-				6FB220CF295C584400A950AD /* Stage 1-10.sks in Resources */,
-				6FB220C7295C580700A950AD /* Stage 1-6.sks in Resources */,
-				6F97263F2957674A00783D0C /* Chapter.storyboard in Resources */,
-				63BBCB002955CC020024603F /* SoundEffectOnSound.wav in Resources */,
-				6FB220CB295C582C00A950AD /* Stage 1-8.sks in Resources */,
-				6FB220D3295C585800A950AD /* Stage 1-12.sks in Resources */,
-				6396605229233CD30002E6B2 /* SettingView.xib in Resources */,
-				63BBCAF92955CC020024603F /* GetItemSound.wav in Resources */,
-				6F28EEAA28F5444600D7330F /* Actions.sks in Resources */,
-				63BBCAFB2955CC020024603F /* InGameMusic.wav in Resources */,
-				63BBCAFE2955CC020024603F /* GameOnSound.wav in Resources */,
+				63F532F1295EBD19004B2BA2 /* Stage 5-14.sks in Resources */,
+				6394975C2953F75100BCD444 /* GetItemSound.wav in Resources */,
+				63F5330F295EBD19004B2BA2 /* Stage 4-15.sks in Resources */,
+				63F5339E295ECE1D004B2BA2 /* Stage 1-10.sks in Resources */,
 				6FF3371D29309CD700D04BDB /* QuestView.xib in Resources */,
+				63F532EA295EBD19004B2BA2 /* Stage 5-8.sks in Resources */,
+				63F53321295EBD19004B2BA2 /* Stage 3-8.sks in Resources */,
+				63F532C0295EBD18004B2BA2 /* Stage 2-6.sks in Resources */,
+				63F5330B295EBD19004B2BA2 /* Stage 4-12.sks in Resources */,
+				63F53397295ECE1D004B2BA2 /* Stage 1-5.sks in Resources */,
+				639497472953F12800BCD444 /* BMJUA_otf.otf in Resources */,
+				63F532FD295EBD19004B2BA2 /* Stage 4-4.sks in Resources */,
+				639497572953F75100BCD444 /* ButtonSound.wav in Resources */,
+				63F532BB295EBD18004B2BA2 /* Stage 2-3.sks in Resources */,
+				63F53304295EBD19004B2BA2 /* Stage 4-9.sks in Resources */,
 				6F28EEA928F5444600D7330F /* LaunchScreen.storyboard in Resources */,
-				63BBCAFC2955CC020024603F /* ArrivalSound.wav in Resources */,
+				63F532C6295EBD18004B2BA2 /* Stage 2-10.sks in Resources */,
+				63F532D8295EBD18004B2BA2 /* Stage 5-3.sks in Resources */,
+				63F53302295EBD19004B2BA2 /* Stage 4-7.sks in Resources */,
+				63F532EF295EBD19004B2BA2 /* Stage 5-12.sks in Resources */,
+				63F53332295ECC85004B2BA2 /* SettingView.xib in Resources */,
+				6394975D2953F75100BCD444 /* GameOnSound.wav in Resources */,
+				63F5332C295EBD19004B2BA2 /* Stage 3-15.sks in Resources */,
+				63F533A9295ECE1D004B2BA2 /* Stage 1-15.sks in Resources */,
+				63F532CA295EBD18004B2BA2 /* Stage 2-13.sks in Resources */,
 				6F28EEAD28F5444600D7330F /* Assets.xcassets in Resources */,
+				63F53316295EBD19004B2BA2 /* Stage 3-3.sks in Resources */,
+				63F53393295ECE1D004B2BA2 /* Stage 1-1.sks in Resources */,
+				63F532BA295EBD18004B2BA2 /* Stage 2-2.sks in Resources */,
+				63F532C5295EBD18004B2BA2 /* Stage 2-9.sks in Resources */,
+				63F53303295EBD19004B2BA2 /* Stage 4-8.sks in Resources */,
+				63F53325295EBD19004B2BA2 /* Stage 3-10.sks in Resources */,
+				63F532B9295EBD18004B2BA2 /* Stage 2-1.sks in Resources */,
+				63F53399295ECE1D004B2BA2 /* Stage 1-7.sks in Resources */,
+				63F532C7295EBD18004B2BA2 /* Stage 2-11.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,28 +713,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				638D9B2F292B93260024E821 /* Quest.swift in Sources */,
-				639553FE2935B50200E3DECA /* PlayerSkin.swift in Sources */,
 				63DC0EAB28F5863100B145B9 /* GameViewController.swift in Sources */,
 				6F28EEAC28F5444600D7330F /* GameScene.swift in Sources */,
+				63F532B7295EBD18004B2BA2 /* Chapter2.swift in Sources */,
+				63A6B99E295D69CA000A46C0 /* ChapterViewController.swift in Sources */,
 				6372509428FFC7F700117CF8 /* PlayerState.swift in Sources */,
+				63A6B99F295D69CA000A46C0 /* StageViewController.swift in Sources */,
+				63F53333295ECC85004B2BA2 /* SettingView.swift in Sources */,
 				6F28EEA328F5444600D7330F /* RobbyViewController.swift in Sources */,
-				6F2F6C2028FB3A9B000B9507 /* StageViewController.swift in Sources */,
+				63A6B99A295D69CA000A46C0 /* StageCell.swift in Sources */,
+				639497402953F12800BCD444 /* UserDafultData.swift in Sources */,
+				63F53335295ECC8E004B2BA2 /* Extension.swift in Sources */,
 				6FF3371B29309CC700D04BDB /* QuestView.swift in Sources */,
-				6FA60FAF28F69431003846EF /* Color.swift in Sources */,
 				638D9B2B292B46750024E821 /* QuestTableCell.swift in Sources */,
-				6F5D4AB4292CA69C00572DC0 /* Stage.swift in Sources */,
-				6F725D00293F21FE00971BCC /* Chapter1.swift in Sources */,
-				6FBFE15329390D9200A1927D /* Sound.swift in Sources */,
-				6F2E1D9A2924BB2500CAE76E /* StageCell.swift in Sources */,
-				6FEFE463295323B7007572E9 /* ChapterViewController.swift in Sources */,
+				63A6B99C295D69CA000A46C0 /* ChapterCell.swift in Sources */,
+				639497482953F12800BCD444 /* Color.swift in Sources */,
+				6394974C2953F12800BCD444 /* Sound.swift in Sources */,
 				6F28EEA128F5444600D7330F /* AppDelegate.swift in Sources */,
+				63F533B1295EE650004B2BA2 /* Player.swift in Sources */,
 				637DB208293CF5D1007B755C /* PlayerCollectionCell.swift in Sources */,
-				6F965E15293919640048334B /* Extensions.swift in Sources */,
+				63F532F3295EBD19004B2BA2 /* Chapter4.swift in Sources */,
+				6394974A2953F12800BCD444 /* Quest.swift in Sources */,
 				637DB205293CEA3E007B755C /* GarageViewController.swift in Sources */,
-				6F0F6C92295617EC006D5647 /* ChapterCell.swift in Sources */,
-				639554002935BC8D00E3DECA /* UserDafultData.swift in Sources */,
-				6396605429233D3E0002E6B2 /* SettingView.swift in Sources */,
+				63F533AC295ECE1D004B2BA2 /* Chapter1.swift in Sources */,
+				6394974B2953F12800BCD444 /* Stage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +885,7 @@
 				DEVELOPMENT_TEAM = 2K43262B89;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DeliveryRun-iOS-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.arcade-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Robby;
@@ -645,6 +918,7 @@
 				DEVELOPMENT_TEAM = 2K43262B89;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DeliveryRun-iOS-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.arcade-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Robby;

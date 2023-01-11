@@ -23,36 +23,32 @@ class StageViewController: UIViewController {
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var starImage: UIImageView!
     
+    var chapterNumber:Int = 0
+    var playStageNumber:Int = 1
     var stages:[Stage] = []
-    var chapterNumber: Int = 0
-    var stageNumber: Int = 1
-    
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        userDefault.setStageNumber(stageNumber:1)
-        print(chapterNumber)
+        self.chapterNumber = userDefault.getChapterNumber()
         
-        let stages: [Stage] = [
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageOne")!,
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageTwo")!,
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageThree")!,
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageFour")!,
-            UserDefaults.standard.setUserDefaultToObject(dataType: Stage.self, key: "StageFive")!,
-            Stage(name: "스테이지 6", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 7", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 8", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 9", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 10", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 11", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 12", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 13", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 14", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true),
-            Stage(name: "스테이지 15", image: "stage5", targetRecord: 90.0, myRecord: 0.0, isLock: true)
+        self.stages = [
+            Stage(name: "스테이지 1", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 1), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 1), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 1)),
+            Stage(name: "스테이지 2", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 2), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 2), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 2)),
+            Stage(name: "스테이지 3", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 3), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 3), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 3)),
+            Stage(name: "스테이지 4", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 4), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 4), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 4)),
+            Stage(name: "스테이지 5", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 5), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 5), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 5)),
+            Stage(name: "스테이지 6", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 6), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 6), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 6)),
+            Stage(name: "스테이지 7", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 7), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 7), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 7)),
+            Stage(name: "스테이지 8", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 8), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 8), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 8)),
+            Stage(name: "스테이지 9", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 9), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 9), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 9)),
+            Stage(name: "스테이지 10", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 10), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 10), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 10)),
+            Stage(name: "스테이지 11", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 11), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 11), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 11)),
+            Stage(name: "스테이지 12", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 12), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 12), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 12)),
+            Stage(name: "스테이지 13", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 13), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 13), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 13)),
+            Stage(name: "스테이지 14", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 14), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 14), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 14)),
+            Stage(name: "스테이지 15", targetRecord: userDefault.getTargetRecord(chapterNumber: chapterNumber, stageNumber: 15), myRecord: userDefault.getRecordStage(chapterNumber: chapterNumber, stageNumber: 15), isLock: !userDefault.getClearStage(chapterNumber: chapterNumber, stageNumber: 15)),
         ]
-        
-        self.stages = stages
 
         let image = UIImage(named: "RobbyBack")
         backgroundImage.image = image?.applyBlur_usingClamp(radius: 50)
@@ -119,27 +115,26 @@ class StageViewController: UIViewController {
     }
     
     // MARK: - IBAction
-    @IBAction func goSetting(_ sender: UIButton) {
-        settingView.isHidden = false
-    }
-    
     @IBAction func goChapter(_ sender: UIButton) {
         let chapter = UIStoryboard.init(name: "Chapter", bundle: nil)
-        guard let ChapterViewController = chapter.instantiateViewController(withIdentifier: "ChapterViewController") as? ChapterViewController else {return}
+        guard let ChapterViewController = chapter.instantiateViewController(withIdentifier: "ChapterViewController")as? ChapterViewController else {return}
         ChapterViewController.modalPresentationStyle = .fullScreen
         self.present(ChapterViewController, animated: false, completion: nil)
     }
     
     @IBAction func goDelivery(_ sender: CustomGameButton) {
-        if userDefault.gameSound {
+        if userDefault.soundEffect {
             gameEffectSound.playSound(soundName: "GameOnSound")
         }
+        userDefault.setStageNumber(stageNumber: playStageNumber)
         let game = UIStoryboard.init(name: "Game", bundle: nil)
-        guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController") as? GameViewController else {return}
-        GameViewController.chapterNumber = chapterNumber
-        GameViewController.stageNumber = stageNumber
+        guard let GameViewController = game.instantiateViewController(withIdentifier: "GameViewController")as? GameViewController else {return}
         GameViewController.modalPresentationStyle = .fullScreen
         self.present(GameViewController, animated: false, completion: nil)
+    }
+    
+    @IBAction func goSetting(_ sender: Any) {
+        settingView.isHidden = false
     }
 }
 
@@ -170,9 +165,11 @@ extension StageViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 cell.lockImageView.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
                 cell.lockImageView.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
             ])
+        } else {
+            cell.isUserInteractionEnabled = true
         }
         
-        // Cell 텍스트 및 이미지 구성
+        // Cell 텍스트 구성
         cell.stageLabel.text = String(format: "%d", indexPath.row + 1)
         return cell
     }
@@ -205,9 +202,7 @@ extension StageViewController {
         // Label 수정
         stageNameLabel.text = stages[indexPath.row].name
         recordLabel.text = "목표기록 : \(stages[indexPath.row].targetRecord)\n현재기록 : \(stages[indexPath.row].myRecord)"
-        
-        stageNumber = Int(indexPath.row + 1)
-        userDefault.setStageNumber(stageNumber: Int(indexPath.row + 1))
+        playStageNumber = indexPath.row + 1
         
         // 별 개수에 따라 색 변경
         switch stages[indexPath.row].star {
@@ -226,4 +221,5 @@ extension StageViewController {
         }
     }
 }
+
 

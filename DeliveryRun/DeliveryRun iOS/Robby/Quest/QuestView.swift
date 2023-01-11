@@ -23,7 +23,7 @@ class QuestView: UIView {
     
     @IBAction func pressCheckButton(_ sender: Any) {
         self.isHidden.toggle()
-        if userDefault.gameSound {
+        if userDefault.soundEffect {
             gameEffectSound.playSound(soundName: "ButtonSound")
         }
         
@@ -34,9 +34,9 @@ class QuestView: UIView {
         super.init(coder: aDecoder)
         
         let quests:[Quest] = [
-            userDefault.defaults.setUserDefaultToObject(dataType: Quest.self, key: "JumpQuest")!,
-            userDefault.defaults.setUserDefaultToObject(dataType: Quest.self, key: "BreakQuest")!,
-            userDefault.defaults.setUserDefaultToObject(dataType: Quest.self, key: "CollisionQuest")!
+            userDefault.jumpQuest,
+            userDefault.breakQuest,
+            userDefault.collisionQuest
         ]
         self.quests = quests
 
@@ -76,7 +76,6 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = questTableView.dequeueReusableCell(withIdentifier: "QuestTableCell", for: indexPath) as! QuestTableCell
         if indexPath.row == 0 {
-            print("JumpQuestDone", userDefault.jumpQuestDone)
             cell.questTitleLabel.text = quests[0].title
             cell.questSubTitleLabel.text = quests[0].subTitle
             cell.questImage.image = UIImage(named: quests[0].imageURL)
@@ -87,11 +86,10 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
             } else {
                 cell.questCheckButton.isHidden = true
             }
-            if userDefault.jumpQuestDone {
+            if userDefault.jumpQuest.isClear {
                 cell.questCheckButton.layer.opacity = 0.5
             }
         } else if indexPath.row == 1 {
-            print("BreakQuestDone", userDefault.breakQuestDone)
             cell.questTitleLabel.text = quests[1].title
             cell.questSubTitleLabel.text = quests[1].subTitle
             cell.questImage.image = UIImage(named: quests[1].imageURL)
@@ -102,7 +100,7 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
             } else {
                 cell.questCheckButton.isHidden = true
             }
-            if userDefault.breakQuestDone {
+            if userDefault.breakQuest.isClear {
                 cell.questCheckButton.layer.opacity = 0.5
             }
         } else {
@@ -116,7 +114,7 @@ extension QuestView: UITableViewDataSource, UITableViewDelegate {
             } else {
                 cell.questCheckButton.isHidden = true
             }
-            if userDefault.collisionQuestDone {
+            if userDefault.collisionQuest.isClear {
                 cell.questCheckButton.layer.opacity = 0.5
             }
         }

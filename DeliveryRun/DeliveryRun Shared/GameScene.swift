@@ -14,20 +14,26 @@ class GameScene: SKScene{
     let backgroundMusic = BackgroundSound.shared
     let gameEffectSound = GameSound.shared
     
-    
     var viewController: GameViewController!
     let userDefault = UserDefaultData.shared
     
+    var chapterNumber:Int = 0
+    var stageNumber:Int = 0
+    
     // Tracking Data
-    var stageNumber:Int = 1
     var jumpData:Int = 0
     var breakData:Int = 0
     var collisionData:Int = 0
-    var previousTimeRecord:Double = 0.00
+    var previousTimeRecord:Float = 0.00
     var isClear:Bool = false
     
     // Player
-    let player = SKSpriteNode(imageNamed: "player0")
+    var playerNode:SKSpriteNode = SKSpriteNode(imageNamed: "default")
+    var playerName = "default"
+    var playerSpeed = 7.0
+    var playerJump = 7.0
+    var playerSpecial = false
+    
     
     // Cat
     var cat: SKSpriteNode!
@@ -79,9 +85,8 @@ class GameScene: SKScene{
     // Variables
     var timer = Timer()
     
-    let endTime = 999
-    var elapsedTime = 0
-    var playerSpeed = 3.0
+    let endTime = 999.00
+    var elapsedTime = 0.00
     let maxSpeed = 10.0
     let minSpeed = 1.0
     var endPoint: Double { return 20000.0 }
@@ -96,22 +101,39 @@ class GameScene: SKScene{
     
     //MARK: Scene 실행 시
     override func didMove(to view: SKView) {
-        print(userDefault.backgroundMusic, userDefault.gameSound)
-        
         if userDefault.backgroundMusic {
             backgroundMusic.changeBackgroundMusic()
         }
+        if userDefault.nowSkin == "jump" {
+            self.playerName = userDefault.jumpPlayer.name
+            self.playerSpeed = Double(userDefault.jumpPlayer.velocity)
+            self.playerJump = Double(userDefault.jumpPlayer.jump)
+            self.playerSpecial = userDefault.jumpPlayer.special
+        } else if userDefault.nowSkin == "break" {
+            self.playerName = userDefault.breakPlayer.name
+            self.playerSpeed = Double(userDefault.breakPlayer.velocity)
+            self.playerJump = Double(userDefault.breakPlayer.jump)
+            self.playerSpecial = userDefault.breakPlayer.special
+        } else if userDefault.nowSkin == "collision" {
+            self.playerName = userDefault.collisionPlayer.name
+            self.playerSpeed = Double(userDefault.collisionPlayer.velocity)
+            self.playerJump = Double(userDefault.collisionPlayer.jump)
+            self.playerSpecial = userDefault.collisionPlayer.special
+        } else {
+            self.playerName = userDefault.defaultPlayer.name
+            self.playerSpeed = Double(userDefault.defaultPlayer.velocity)
+            self.playerJump = Double(userDefault.defaultPlayer.jump)
+            self.playerSpecial = userDefault.defaultPlayer.special
+        }
         
-        
-        // StageNumber
-        self.stageNumber = userDefault.stageNumber
+        // Chapter & Stage
+        self.chapterNumber = userDefault.getChapterNumber()
+        self.stageNumber = userDefault.getStageNumber()
         
         // UserDefault Tracking Data
-        UserDefaultData.findPath()
         self.jumpData = userDefault.defaults.integer(forKey:"JumpData")
         self.breakData = userDefault.defaults.integer(forKey:"BreakData")
         self.collisionData = userDefault.defaults.integer(forKey:"CollisionData")
-        
         
         // Physical Delegate
         physicsWorld.contactDelegate = self
@@ -125,12 +147,12 @@ class GameScene: SKScene{
         
         // PlayerState 가져오기
         playerStateMachine = GKStateMachine(states: [
-            RunningState(playerNode: player),
-            JumpingState(playerNode: player),
-            LandingState(playerNode: player),
-            AccelingState(playerNode: player),
-            BreakingState(playerNode: player),
-            DamageState(playerNode: player)
+            RunningState(playerNode: playerNode,skinName: playerName),
+            JumpingState(playerNode: playerNode ,skinName: playerName),
+            LandingState(playerNode: playerNode ,skinName: playerName),
+            AccelingState(playerNode: playerNode ,skinName: playerName),
+            BreakingState(playerNode: playerNode ,skinName: playerName),
+            DamageState(playerNode: playerNode ,skinName: playerName)
         ])
         
         playerStateMachine.enter(RunningState.self)
@@ -138,15 +160,15 @@ class GameScene: SKScene{
     
     // Player 생성
     private func setupPlayer() {
-        player.position = CGPoint(x:0, y: 0)
-        player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.height/2)
-        player.scale(to: CGSize(width: 120, height: 120))
-        player.physicsBody?.categoryBitMask = 2
-        player.physicsBody?.collisionBitMask = 8
-        player.physicsBody?.allowsRotation = false
-        player.physicsBody?.isDynamic = true
-        player.physicsBody?.mass = 0.13
-        addChild(player)
+        playerNode.position = CGPoint(x:0, y: 0)
+        playerNode.physicsBody = SKPhysicsBody(circleOfRadius: playerNode.size.height/2)
+        playerNode.scale(to: CGSize(width: 120, height: 120))
+        playerNode.physicsBody?.categoryBitMask = 2
+        playerNode.physicsBody?.collisionBitMask = 8
+        playerNode.physicsBody?.allowsRotation = false
+        playerNode.physicsBody?.isDynamic = true
+        playerNode.physicsBody?.mass = 0.13
+        addChild(playerNode)
     }
     
     // Button Node 설정
@@ -327,7 +349,7 @@ class GameScene: SKScene{
         cat = SKSpriteNode(imageNamed: "cat")
         cat.name = "Cat"
         cat.scale(to: CGSize(width: 150, height: 150))
-        cat.position = CGPoint(x: player.position.x + 1000, y: -40)
+        cat.position = CGPoint(x: playerNode.position.x + 1000, y: -40)
         cat.zPosition = 0
         cat.physicsBody = SKPhysicsBody(texture: cat.texture!,
                                            size: cat.texture!.size())
@@ -398,10 +420,10 @@ extension GameScene {
                     let action = SKAction.scale(by: 2, duration:0.3)
                     let action3 = SKAction.scale(by: 1, duration: 2.4)
                     let action2 = SKAction.scale(by: 1/2, duration: 0.3)
-                    player.run(SKAction.sequence([action, action3, action2]))
-                    player.physicsBody?.categoryBitMask = 0
+                    playerNode.run(SKAction.sequence([action, action3, action2]))
+                    playerNode.physicsBody?.categoryBitMask = 0
                     Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (timer) in
-                        self.player.physicsBody?.categoryBitMask = 2
+                        self.playerNode.physicsBody?.categoryBitMask = 2
                     }
                     
                     itemImage.texture = SKTexture(imageNamed:"Item Button")
@@ -481,15 +503,24 @@ extension GameScene {
     }
     
     // Game UI Function
-    func arrival(timeRecord:Double) {
-        if userDefault.gameSound {
+    func arrival(timeRecord: Double) {
+        Button.removeFromParent()
+        HUD.removeFromParent()
+        
+        if userDefault.soundEffect {
             gameEffectSound.playSound(soundName: "ArrivalSound")
         }
         self.viewController.endBackView.isHidden = false
         self.viewController.nowRecordLabel.text = String(format: "현재기록 : %.2f", timeRecord)
-        Button.removeFromParent()
-        HUD.removeFromParent()
-        userDefault.endGameSaveData(jumpData: self.jumpData, breakData: self.breakData, collisionData: self.collisionData, timeRecord: Double(elapsedTime), stageNumber: stageNumber)
+        if viewController.targetRecord - 15 >= timeRecord {
+            self.viewController.endResultStar.image = UIImage(named: "Result Star 3")
+        } else if viewController.targetRecord <= timeRecord {
+            self.viewController.endResultStar.image = UIImage(named: "Result Star 2")
+        } else if viewController.targetRecord + 15 <= timeRecord {
+            self.viewController.endResultStar.image = UIImage(named: "Result Star 1")
+        }
+        userDefault.saveStageData(chpaterNumber: chapterNumber, stageNumber: stageNumber, timeRecord: timeRecord)
+        userDefault.saveUserData(jumpData: jumpData, breakData: breakData, collisionData: collisionData)
     }
 }
 
@@ -502,12 +533,12 @@ extension GameScene {
             let deltaTime = 1.0
             let diplacement = CGVector(dx: deltaTime * playerSpeed, dy: 0)
             let move = SKAction.move(by: diplacement, duration: 0)
-            player.run(SKAction.sequence([move]))
+            playerNode.run(SKAction.sequence([move]))
             
             // Player Action
             if jumpAction {
                 if jumpButton.name == "Fly" {
-                    player.physicsBody?.applyForce(CGVector(dx: 0, dy: 350))
+                    playerNode.physicsBody?.applyForce(CGVector(dx: 0, dy: 350))
                 }
                 else {
                     playerStateMachine.enter(JumpingState.self)
@@ -523,19 +554,19 @@ extension GameScene {
         }
             
         // 도착 시 게임 종료
-        if player.position.x >= endPoint && !(isGameOver) {
-            arrival(timeRecord: Double(elapsedTime))
+        if playerNode.position.x >= endPoint && !(isGameOver) {
+            arrival(timeRecord: elapsedTime)
             isGameOver = true
         }
         
         // Node 위치 지정
-        cameraNode?.position.x = player.position.x + 300
+        cameraNode?.position.x = playerNode.position.x + 300
         Button.position = CGPoint(x: (cameraNode!.position.x), y: (cameraNode!.position.y))
         HUD.position = CGPoint(x: (cameraNode!.position.x), y: (cameraNode!.position.y))
-        playerLocation.position.x = ((player.position.x / endPoint) * locationBarLength) - locationBarLength / 2.0
+        playerLocation.position.x = ((playerNode.position.x / endPoint) * locationBarLength) - locationBarLength / 2.0
         
         // Label Text 설정
-        timerText.text = String(format: "%D", elapsedTime)
+        timerText.text = String(format: "%d", Int(elapsedTime))
         speederText.text = String(format: "%d km/h", Int(playerSpeed * 6))
     }
 }
@@ -545,7 +576,7 @@ extension GameScene {
 extension GameScene: SKPhysicsContactDelegate {
     struct Collision {
         enum Masks: Int {
-            case damage, player, reward, ground, ending, interaction
+            case damage, player, reward, ground, ending
             var bitmask: UInt32 { return 1 << self.rawValue }
         }
         
@@ -642,21 +673,12 @@ extension GameScene: SKPhysicsContactDelegate {
             collisionData += 1
         }
         
-        if collision.matches(.player, .interaction) {
-            if contact.bodyA.node?.name == "Cat" {
-                stealAction = false
-            } else if contact.bodyB.node?.name == "Cat" {
-                stealAction = false
-            }
-        }
-        
-        
         if collision.matches(.player, .ground) {
             playerStateMachine.enter(LandingState.self)
         }
         
         if collision.matches(.player, .reward) {
-            if userDefault.gameSound {
+            if userDefault.soundEffect {
                 gameEffectSound.playSound(soundName: "GetItemSound")
             }
             // Drink 획득
