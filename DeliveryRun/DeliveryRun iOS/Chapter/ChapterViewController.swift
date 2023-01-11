@@ -79,6 +79,7 @@ extension ChapterViewController: UICollectionViewDataSource, UICollectionViewDel
         if indexPath.row > 0 {
             cell.addSubview(cell.lockView)
             cell.addSubview(cell.lockImageView)
+            cell.addSubview(cell.lockLabel)
             cell.isUserInteractionEnabled = false
             
             NSLayoutConstraint.activate([
@@ -88,10 +89,19 @@ extension ChapterViewController: UICollectionViewDataSource, UICollectionViewDel
                 cell.lockView.topAnchor.constraint(equalTo: cell.topAnchor),
                 
                 cell.lockImageView.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
-                cell.lockImageView.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
+                cell.lockImageView.centerYAnchor.constraint(equalTo: cell.centerYAnchor),
+                
+                cell.lockLabel.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
+                cell.lockLabel.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
             ])
         } else {
+            cell.addSubview(cell.chapterLabel)
             cell.isUserInteractionEnabled = true
+            
+            NSLayoutConstraint.activate([
+                cell.chapterLabel.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
+                cell.chapterLabel.centerYAnchor.constraint(equalTo: cell.centerYAnchor)
+            ])
         }
         
         return cell

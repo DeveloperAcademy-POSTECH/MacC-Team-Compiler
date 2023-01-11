@@ -54,19 +54,25 @@ class ChapterCell: UICollectionViewCell {
         return view
     }()
     
+    let lockLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name:"BMJUAOTF", size:20)
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isUserInteractionEnabled = true
+        label.text = "To Be Continued..."
+        return label
+    }()
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.contentView.addSubview(self.backView)
-        self.contentView.addSubview(self.chapterLabel)
         
         NSLayoutConstraint.activate([
               self.backView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
               self.backView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
               self.backView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-              self.backView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-              
-              self.chapterLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-              self.chapterLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
+              self.backView.topAnchor.constraint(equalTo: self.contentView.topAnchor)
         ])
     }
 }
