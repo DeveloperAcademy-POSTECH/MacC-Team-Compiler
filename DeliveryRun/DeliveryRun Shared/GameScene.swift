@@ -216,14 +216,6 @@ class GameScene: SKScene{
         itemImage.position = CGPoint(x: itemButton.frame.midX, y: itemButton.frame.midY)
         itemImage.zPosition = 5.0
         Button.addChild(itemImage)
-        
-        // Pause Button
-        pauseButton = SKSpriteNode(imageNamed: "Pause")
-        pauseButton.name = "Pause"
-        pauseButton.scale(to: CGSize(width: 30, height: 35))
-        pauseButton.position = CGPoint(x: 530, y: 225)
-        pauseButton.zPosition = 5.0
-        Button.addChild(pauseButton)
     }
     
     // HUD Node 설정
@@ -310,6 +302,14 @@ class GameScene: SKScene{
         speederText.position = CGPoint(x: speederIcon.frame.maxX + 80, y: -200)
         speederText.zPosition = 5.0
         HUD.addChild(speederText)
+        
+        // Pause Button
+        pauseButton = SKSpriteNode(imageNamed: "Pause")
+        pauseButton.name = "Pause"
+        pauseButton.scale(to: CGSize(width: 30, height: 35))
+        pauseButton.position = CGPoint(x: 530, y: 225)
+        pauseButton.zPosition = 5.0
+        HUD.addChild(pauseButton)
     }
     
     // Story Node 설정
