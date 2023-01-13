@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="landscape" appearance="light"/>
+    <device id="retina4_0" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -16,14 +16,14 @@
             <objects>
                 <viewController storyboardIdentifier="StageViewController" id="GYM-j8-IpM" customClass="StageViewController" customModule="DeliveryRun" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L80-eE-Jld">
-                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="RobbyBack" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aG4-b2-XBe">
-                                <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLB-6b-RlG" userLabel="Setting Button">
-                                <rect key="frame" x="812" y="25" width="40" height="40"/>
+                                <rect key="frame" x="528" y="25" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="RjP-CJ-vQw"/>
                                     <constraint firstAttribute="width" constant="40" id="eL9-VP-dIS"/>
@@ -55,28 +55,28 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeZ-pv-DNR">
-                                <rect key="frame" x="552" y="90" width="300" height="273"/>
+                                <rect key="frame" x="268" y="90" width="300" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="d8V-ce-7VJ">
-                                        <rect key="frame" x="0.0" y="15" width="300" height="243"/>
+                                        <rect key="frame" x="0.0" y="15" width="300" height="170"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StageName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMJ-vd-DkL">
-                                                <rect key="frame" x="105.33333333333337" y="0.0" width="89.333333333333314" height="20.333333333333332"/>
+                                                <rect key="frame" x="105.5" y="0.0" width="89.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TargetRecord" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbi-qO-WUR">
-                                                <rect key="frame" x="98.666666666666629" y="46" width="102.66666666666669" height="20.333333333333329"/>
+                                                <rect key="frame" x="99" y="35.5" width="102.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Result Star 0" translatesAutoresizingMaskIntoConstraints="NO" id="01L-yn-Som" userLabel="StarImage">
-                                                <rect key="frame" x="37.666666666666629" y="92.333333333333343" width="225" height="75"/>
+                                                <rect key="frame" x="37.5" y="71" width="225" height="34"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmE-DC-nlt" customClass="CustomGameButton" customModule="DeliveryRun" customModuleProvider="target">
-                                                <rect key="frame" x="70" y="193" width="160" height="50"/>
+                                                <rect key="frame" x="70" y="120" width="160" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="KOO-n5-170"/>
                                                     <constraint firstAttribute="width" constant="160" id="uem-py-TN3"/>
@@ -99,7 +99,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ljm-JV-vWF">
-                                <rect key="frame" x="0.0" y="90" width="528" height="273"/>
+                                <rect key="frame" x="0.0" y="90" width="244" height="200"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="FeY-6i-yW4">
                                     <size key="itemSize" width="90" height="90"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -124,7 +124,7 @@
                                 </connections>
                             </collectionView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndm-P1-jfg" userLabel="SettingView" customClass="SettingView" customModule="DeliveryRun" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="25" width="852" height="343"/>
+                                <rect key="frame" x="0.0" y="25" width="568" height="270"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
