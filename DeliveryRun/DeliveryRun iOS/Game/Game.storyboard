@@ -21,19 +21,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmJ-eZ-I1U" userLabel="PauseView">
-                                        <rect key="frame" x="280" y="115" width="292" height="163"/>
+                                        <rect key="frame" x="267" y="116" width="318" height="161"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pause" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lW4-FU-5Jp" userLabel="Pause">
-                                                <rect key="frame" x="113.33333333333331" y="15" width="65.333333333333314" height="30"/>
+                                                <rect key="frame" x="126.33333333333331" y="15" width="65.333333333333314" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mzX-CP-66Y" userLabel="ButtonStack">
-                                                <rect key="frame" x="10" y="55" width="272" height="98"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="mzX-CP-66Y" userLabel="ButtonStack">
+                                                <rect key="frame" x="10" y="55" width="298" height="96"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ots-Qv-K11">
-                                                        <rect key="frame" x="0.0" y="1" width="90.666666666666671" height="96"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="106" height="96"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="Play"/>
                                                         <connections>
@@ -41,7 +41,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ve-A7-nPW">
-                                                        <rect key="frame" x="90.666666666666686" y="1" width="90.666666666666686" height="96"/>
+                                                        <rect key="frame" x="96" y="0.0" width="106" height="96"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="Restart"/>
                                                         <connections>
@@ -49,7 +49,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxb-cw-FVQ">
-                                                        <rect key="frame" x="181.33333333333331" y="1" width="90.666666666666686" height="96"/>
+                                                        <rect key="frame" x="192" y="0.0" width="106" height="96"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="Home"/>
                                                         <connections>
@@ -72,10 +72,8 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="lmJ-eZ-I1U" secondAttribute="trailing" constant="280" id="8cu-he-yDP"/>
-                                    <constraint firstAttribute="bottom" secondItem="lmJ-eZ-I1U" secondAttribute="bottom" constant="115" id="9o1-lp-eAz"/>
-                                    <constraint firstItem="lmJ-eZ-I1U" firstAttribute="top" secondItem="WIL-d1-OzK" secondAttribute="top" constant="115" id="Qzx-WJ-Bik"/>
-                                    <constraint firstItem="lmJ-eZ-I1U" firstAttribute="leading" secondItem="WIL-d1-OzK" secondAttribute="leading" constant="280" id="zKc-T6-uSv"/>
+                                    <constraint firstAttribute="centerX" secondItem="lmJ-eZ-I1U" secondAttribute="centerX" id="iG6-2i-Yaq"/>
+                                    <constraint firstItem="lmJ-eZ-I1U" firstAttribute="centerY" secondItem="WIL-d1-OzK" secondAttribute="centerY" id="o3c-aN-Cle"/>
                                 </constraints>
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y67-0T-vHj" userLabel="EndBackView">
