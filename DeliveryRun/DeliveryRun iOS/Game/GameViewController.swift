@@ -99,6 +99,7 @@ class GameViewController: UIViewController {
         if let view = self.view as! SKView?, let gameScene = view.scene as? GameScene {
             pauseBackView.isHidden = true
             gameScene.view?.isPaused = false
+            gameScene.pauseAction = false
         }
     }
     
