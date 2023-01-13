@@ -85,7 +85,7 @@ class GameViewController: UIViewController {
         
         // Present the scene
         if let scene = GameScene(fileNamed: String(format: "Stage %D-%D", chapterNumber,stageNumber)) {
-            scene.scaleMode = .aspectFill
+            scene.scaleMode = .aspectFit
             scene.viewController = self
             if let view = self.view as! SKView? {
                 view.presentScene(scene)
@@ -108,7 +108,7 @@ class GameViewController: UIViewController {
             gameScene.view?.isPaused = false
         }
         if let scene = GameScene(fileNamed: String(format: "Stage %D-%D", chapterNumber,stageNumber)) {
-            scene.scaleMode = .aspectFill
+            scene.scaleMode = .aspectFit
             scene.viewController = self
             if let view = self.view as! SKView? {
                 view.presentScene(scene)
@@ -133,7 +133,7 @@ class GameViewController: UIViewController {
     @IBAction func retryPressed(_ sender: UIButton) {
         endBackView.isHidden = true
         if let scene = GameScene(fileNamed: String(format: "Stage %D-%D", chapterNumber,stageNumber)) {
-            scene.scaleMode = .aspectFill
+            scene.scaleMode = .aspectFit
             scene.viewController = self
             if let view = self.view as! SKView? {
                 view.presentScene(scene)
