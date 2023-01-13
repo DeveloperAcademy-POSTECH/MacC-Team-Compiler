@@ -92,10 +92,9 @@ class GameScene: SKScene{
     var endPoint: Double { return 20000.0 }
     
     @objc func updateTimer() {
-        if endTime > elapsedTime {
+        
+        if endTime > elapsedTime && !pauseAction {
             elapsedTime += 1
-        } else {
-            timer.invalidate()
         }
     }
     
